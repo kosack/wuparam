@@ -1,0 +1,39 @@
+.TH "DataWriter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DataWriter \- 
+.PP
+Base class for all data writers (parameterized data and cut data).  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataWriter.h>\fP
+.PP
+Inherited by \fBParamDataWriter\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDataWriter\fP (const std::string &filename, bool=false)"
+.br
+.ti -1c
+.RI "virtual std::string \fBgetTypeString\fP ()=0"
+.br
+.ti -1c
+.RI "std::string \fBgetFilename\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for all data writers (parameterized data and cut data). 
+
+Specifies a standard interface. 
+.PP
+Definition at line 19 of file DataWriter.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

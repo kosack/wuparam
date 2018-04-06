@@ -1,0 +1,128 @@
+RANDOM NOTES:
+-----------------------------------------
+USING THE CVS VERSION OF WUPARAM:
+
+1) cd to the directory where you want to store your version of wuparam
+   
+   cd src/
+
+2) checkout the latest (development) version of wuparam:
+   
+    cvs -d /home/cvsroot checkout wuparam
+
+For this to work, you must be part of the "cvsusers" group - ask
+jeremy to add you to it. Otherwise, you'll get some message about bad
+permissions. If it works, it will generate a directory called
+"wuparam" underneath the directory where you are working.
+
+3) Build wuparam:
+
+   cd wuparam/
+   ./configure
+   make
+
+4) if all goes well, you need to set an environment variable in your
+   .bashrc file to tell wuparam where to find it's support files
+ 
+
+   export WUPARAMDIR $HOME/src/wuparam/support
+
+for example.  Alternately, you can type "make install" as root to
+install it globally in /usr/local (in which case you don't need to set
+WUPARAMDIR).
+
+5) That's pretty much it.  However, if you have the RPM version of
+   wuparam installed, typing "wuparam" may use that version instead,
+   so you can either uninstall it ('rpm -e wuparam') or just add
+   $HOME/src/wuparam to the beginning of your PATH (in your .bashrc
+   file), and log out/log in.  Test it by typing "which wuparam": It
+   should report the location of the new version.
+
+
+Things to do: ------------------------------------------
+
+[X] put an option in the config file to parameterize with an offset
+camera position.  Could also correct the "alpha" parameter for offset
+position in cutter (so no reparameterization is needed), but that
+would be in effect an offset in "RA/DEC" space not "ALT/AZ" space.
+Plus, it's easier to do it before parameterization.
+
+[ ] Since there are a lot of places where configuraton files are read
+and written (as with headers and the Config object), it would be a
+good idea to make a general "config file reader/writer" class that
+reads and parses a list of key/value pairs and stores them in a hash
+table.  Then you could just ask for
+config.getValue("muoncalibration"), which would return "true" for
+example.  Would have to define a simple grammar, of course.  There
+would be numeric values, strings, and booleans.  Then it would be easy
+to write out a previously loaded config by just iterating through keys
+and printing them.
+
+
+[ ] Instead of keeping track of ONOFF/PAIR runs, change RunInfo to
+just have a runid and padid and put separate RunInfo's into the queue
+for on and off runs.  For instance, if you have the pair
+gt01234/gt01235 make two separate RunInfo's for them instead of one
+with an ONOFF tag.  That will cut down on all the special cases.
+
+[X] Separate cleaning into module..
+
+[ ] Tube mask 
+
+[ ] Make a better *.ntuple.hdr file format (i.e. put in more than just
+file size. Info like whether or not zenith correction was enabled.
+Then can check when reparameterizing whether files should be
+re-parameterized or not.
+
+[X] "Muon-ness" parameter:
+
+	- build triplet lookup table (sparse array?)
+
+	- do center transform (using perp bisectors)
+
+	- weight center points by 
+	 	1/[(s1-mu)^2 + (s2-mu)^2 + (s3-mu)^2 + small] 
+		
+		where mu = <s> over triplet.
+
+	- bin into 256x256 bins with radius of camera + 0.75 degrees
+
+	- Store peak of this image
+
+[X]  Consider making a DataReader factory - you give it a filename, 
+	and it determines a file type and returns the correct DataFile
+	type
+	
+	This would be used anywhere "new RawDataReaderHDF4" is used
+
+
+[ ] Change all of the exceptions to be subclasses of std::exception
+	or std::runtime_error() which takes a string argument
+
+
+
+CAMERA DATA FILE:
+======================================================================
+
+There are two record types:
+If the first field is an "R" than the record type is "RADIUS"
+if the first field is an integer then the record type is "TUBE INFO"
+
+
+TUBE INFO RECORDS:
+---------------------
+ID	XPOS	YPOS	NNEIGHB		N1 N2 N3 N4 N5 ...
+
+ID is the tube number
+XPOS, YPOS is the location of the tube
+NNEIGHB is the number of neighbor tubes
+N1,N2,... are the indices of the neighbortubes
+
+
+RADIUS RECORDS:
+---------------------
+
+R	RAD
+
+R is an identifier specifying a radius change
+RAD is the new radius to use for subsequent tubes

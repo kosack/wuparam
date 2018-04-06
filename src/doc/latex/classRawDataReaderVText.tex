@@ -1,0 +1,119 @@
+\hypertarget{classRawDataReaderVText}{
+\subsection{RawDataReaderVText Class Reference}
+\label{classRawDataReaderVText}\index{RawDataReaderVText@{RawDataReaderVText}}
+}
+
+
+Implementation of \hyperlink{classRawDataReader}{RawDataReader} VERITAS text data as outputed by Paul Rebillot's charge integration routines.  
+
+
+
+
+{\ttfamily \#include $<$DataReader.h$>$}
+
+Inheritance diagram for RawDataReaderVText:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classRawDataReaderVText}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRawDataReaderVText_a88870b1f83b0348a399052fea589c9df}{
+\hyperlink{classRawDataReaderVText_a88870b1f83b0348a399052fea589c9df}{RawDataReaderVText} (const std::string \&filename)}
+\label{classRawDataReaderVText_a88870b1f83b0348a399052fea589c9df}
+
+\item 
+void \hyperlink{classRawDataReaderVText_a7fb3e50fa41df971c06c1b424c713675}{getHeaderRecord} (\hyperlink{structRawHeaderRecord}{RawHeaderRecord} \&header)
+\item 
+void \hyperlink{classRawDataReaderVText_aba47308e73a41331cff56a3b38109a17}{getNextEventRecord} (\hyperlink{structRawEventRecord}{RawEventRecord} \&event)
+\item 
+\hypertarget{classRawDataReaderVText_adca172216ac8835629493b3c5845f952}{
+int \hyperlink{classRawDataReaderVText_adca172216ac8835629493b3c5845f952}{size} ()}
+\label{classRawDataReaderVText_adca172216ac8835629493b3c5845f952}
+
+\item 
+\hypertarget{classRawDataReaderVText_a7049b224eb00a191a520070ae4558521}{
+bool {\bfseries isDone} ()}
+\label{classRawDataReaderVText_a7049b224eb00a191a520070ae4558521}
+
+\item 
+\hypertarget{classRawDataReaderVText_a7e68f833fba61cb69358cb751b83a2bf}{
+std::string {\bfseries getTypeString} ()}
+\label{classRawDataReaderVText_a7e68f833fba61cb69358cb751b83a2bf}
+
+\item 
+\hypertarget{classRawDataReaderVText_adaa1bd5162aeaa1430036dd84981051f}{
+int {\bfseries getType} ()}
+\label{classRawDataReaderVText_adaa1bd5162aeaa1430036dd84981051f}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implementation of \hyperlink{classRawDataReader}{RawDataReader} VERITAS text data as outputed by Paul Rebillot's charge integration routines. 
+
+Definition at line 138 of file DataReader.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classRawDataReaderVText_a7fb3e50fa41df971c06c1b424c713675}{
+\index{RawDataReaderVText@{RawDataReaderVText}!getHeaderRecord@{getHeaderRecord}}
+\index{getHeaderRecord@{getHeaderRecord}!RawDataReaderVText@{RawDataReaderVText}}
+\paragraph[{getHeaderRecord}]{\setlength{\rightskip}{0pt plus 5cm}void RawDataReaderVText::getHeaderRecord (
+\begin{DoxyParamCaption}
+\item[{{\bf RawHeaderRecord} \&}]{header}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classRawDataReaderVText_a7fb3e50fa41df971c06c1b424c713675}
+
+
+Get header record. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000009}{Todo}]: fill in the correct values \end{Desc}
+
+
+Implements \hyperlink{classRawDataReader}{RawDataReader}.
+
+
+
+Definition at line 497 of file DataReader.cpp.
+
+
+
+References HeaderRecord::dec, HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, HeaderRecord::ra, HeaderRecord::sourcename, HeaderRecord::starttime, and HeaderRecord::windowsize.
+
+
+
+Referenced by size().
+
+\hypertarget{classRawDataReaderVText_aba47308e73a41331cff56a3b38109a17}{
+\index{RawDataReaderVText@{RawDataReaderVText}!getNextEventRecord@{getNextEventRecord}}
+\index{getNextEventRecord@{getNextEventRecord}!RawDataReaderVText@{RawDataReaderVText}}
+\paragraph[{getNextEventRecord}]{\setlength{\rightskip}{0pt plus 5cm}void RawDataReaderVText::getNextEventRecord (
+\begin{DoxyParamCaption}
+\item[{{\bf RawEventRecord} \&}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classRawDataReaderVText_aba47308e73a41331cff56a3b38109a17}
+
+
+Returns the next \hyperlink{structRawEventRecord}{RawEventRecord} from the simulation. 
+
+format is: type event\_\-num gpstime osctime livetime elevation azimuth telescope\_\-id adcvalues\mbox{[}499\mbox{]} 
+
+Implements \hyperlink{classRawDataReader}{RawDataReader}.
+
+
+
+Definition at line 571 of file DataReader.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+DataReader.h\item 
+DataReader.cpp\end{DoxyCompactItemize}

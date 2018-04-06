@@ -1,0 +1,114 @@
+.TH "SuperCutter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SuperCutter \- 
+.PP
+Applies SuperCuts to a given \fBHillasParameterization\fP.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SuperCutter.h>\fP
+.PP
+Inherited by \fBEZCutter\fP, \fBSpectralCutter\fP, and \fBZCutter\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetCuts\fP (\fBCutInfo\fP &cuts)"
+.br
+.ti -1c
+.RI "virtual void \fBapplyCorrections\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "bool \fBpass\fP (\fBHillasParameterization\fP &param, int cutmask)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassSize\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassMax\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassFrac\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassLensize\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassLength\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassWidth\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassDistance\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassAlpha\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "virtual bool \fBpassAsymm\fP (\fBHillasParameterization\fP &param)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCutInfo\fP \fB_cuts\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Applies SuperCuts to a given \fBHillasParameterization\fP. 
+
+To use, first call setCuts() to supply the cuts to use, then you can check if an event passed by calling the \fBpass()\fP function with appropriate mask (ALL_CUTS will apply all cuts, or you can choose a list of cuts such as SIZE|FRAC|MAX|DISTANCE. 
+.PP
+Definition at line 50 of file SuperCutter.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void SuperCutter::applyCorrections (\fBHillasParameterization\fP &param)\fC [virtual]\fP"
+.PP
+Apply a filter to the parameters. Should always be run before the actual cutting occurs. Modifies param. 
+.PP
+Reimplemented in \fBEZCutter\fP, and \fBZCutter\fP.
+.PP
+Definition at line 87 of file SuperCutter.cpp.
+.PP
+References HillasParameterization::centroid, CutInfo::elongation, HillasParameterization::point_of_origin_a, HillasParameterization::point_of_origin_b, Coordinate_t::x, and Coordinate_t::y.
+.PP
+Referenced by Cutter::cut().
+.SS "bool SuperCutter::pass (\fBHillasParameterization\fP &param, intcutmask)"
+.PP
+Checks the parameterization of an event to see if it passes cuts. Subclasses of this can override the protected methods to re-implement different cut types. Also, the prePass() and postPass() functions can be re-implemented to allow for special manipulations. As a rule, no \fBSuperCutter\fP shuold modify the passed in parameters (even though they are passed by reference, which is done for speed).
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparam\fP set of hillas parameters to check 
+.br
+\fIcutmask\fP bitmask of Cuts::CutMask values 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if param passwd all cuts specified in cutmast.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+: right now, prePass occurs every time a cut is specified. That means it gets redone several times for each event! This shuold be done more efficiently without making it more confusing. 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file SuperCutter.cpp.
+.PP
+References ImageParameterization::invalid.
+.PP
+Referenced by Cutter::cut().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

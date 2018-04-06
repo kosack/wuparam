@@ -1,0 +1,126 @@
+\hypertarget{classFitter}{
+\subsection{Fitter Class Reference}
+\label{classFitter}\index{Fitter@{Fitter}}
+}
+
+
+Class that performs actual chi-\/square grid search.  
+
+
+
+
+{\ttfamily \#include $<$Fitter.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classFitter_a23eb026bd4e127cefa0d83e2a6d4f002}{
+{\bfseries Fitter} (\hyperlink{classRunInfo}{RunInfo} \&ri)}
+\label{classFitter_a23eb026bd4e127cefa0d83e2a6d4f002}
+
+\item 
+void \hyperlink{classFitter_a88492ebdbfa181370dc05a584ec9a040}{minimize} (\hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-on, \hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-off, double \&N0, double \&Gamma0, double \&e0, double Time, double n0Range, int n0Step, double gRange, int gStep, double onoffratio)
+\item 
+\hypertarget{classFitter_aeb18a74a610dd87bc662c18ca6c28cc8}{
+void \hyperlink{classFitter_aeb18a74a610dd87bc662c18ca6c28cc8}{save} ()}
+\label{classFitter_aeb18a74a610dd87bc662c18ca6c28cc8}
+
+\item 
+\hypertarget{classFitter_a23eb026bd4e127cefa0d83e2a6d4f002}{
+{\bfseries Fitter} (\hyperlink{classRunInfo}{RunInfo} \&ri)}
+\label{classFitter_a23eb026bd4e127cefa0d83e2a6d4f002}
+
+\item 
+void \hyperlink{classFitter_a6f93aeb7b89a67f368cfa03abdce3e5a}{minimize} (\hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-on, \hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-off, double \&N0, double \&Gamma0, double \&E0, double Time, double n0Range, int n0Step, double gRange, int gStep, double e0Range, double e0Step, double onoffratio)
+\item 
+\hypertarget{classFitter_aeb18a74a610dd87bc662c18ca6c28cc8}{
+void {\bfseries save} ()}
+\label{classFitter_aeb18a74a610dd87bc662c18ca6c28cc8}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Class that performs actual chi-\/square grid search. 
+
+Definition at line 172 of file Fitter.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classFitter_a88492ebdbfa181370dc05a584ec9a040}{
+\index{Fitter@{Fitter}!minimize@{minimize}}
+\index{minimize@{minimize}!Fitter@{Fitter}}
+\paragraph[{minimize}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter::minimize (
+\begin{DoxyParamCaption}
+\item[{{\bf EnergySpectrum} $\ast$}]{energy\_\-on, }
+\item[{{\bf EnergySpectrum} $\ast$}]{energy\_\-off, }
+\item[{double \&}]{N0, }
+\item[{double \&}]{Gamma0, }
+\item[{double \&}]{e0, }
+\item[{double}]{Time, }
+\item[{double}]{n0Range, }
+\item[{int}]{n0Step, }
+\item[{double}]{gRange, }
+\item[{int}]{gStep, }
+\item[{double}]{onoffratio}
+\end{DoxyParamCaption}
+)}}
+\label{classFitter_a88492ebdbfa181370dc05a584ec9a040}
+
+
+Start Actual Fitting Process Save Chi-\/Square Table in File \char`\"{}Totals/chi.text\char`\"{}. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000015}{Todo}]: put \char`\"{}alpha\char`\"{} or tracking ratio into the onOff and onOffVariance: onoff = on-\/a$\ast$off, variance=a$\ast$(on+off) or whatever\end{Desc}
+
+
+Definition at line 333 of file Fitter.cpp.
+
+
+
+References Histogram::get(), ProgressBar::print(), and ProgressBar::printClear().
+
+\hypertarget{classFitter_a6f93aeb7b89a67f368cfa03abdce3e5a}{
+\index{Fitter@{Fitter}!minimize@{minimize}}
+\index{minimize@{minimize}!Fitter@{Fitter}}
+\paragraph[{minimize}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter::minimize (
+\begin{DoxyParamCaption}
+\item[{{\bf EnergySpectrum} $\ast$}]{energy\_\-on, }
+\item[{{\bf EnergySpectrum} $\ast$}]{energy\_\-off, }
+\item[{double \&}]{N0, }
+\item[{double \&}]{Gamma0, }
+\item[{double \&}]{E0, }
+\item[{double}]{Time, }
+\item[{double}]{n0Range, }
+\item[{int}]{n0Step, }
+\item[{double}]{gRange, }
+\item[{int}]{gStep, }
+\item[{double}]{e0Range, }
+\item[{double}]{e0Step, }
+\item[{double}]{onoffratio}
+\end{DoxyParamCaption}
+)}}
+\label{classFitter_a6f93aeb7b89a67f368cfa03abdce3e5a}
+
+
+Start Actual Fitting Process Save Chi-\/Square Table in File \char`\"{}Totals/chi.text\char`\"{}. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000018}{Todo}]: put \char`\"{}alpha\char`\"{} or tracking ratio into the onOff and onOffVariance: onoff = on-\/a$\ast$off, variance=a$\ast$(on+off) or whatever\end{Desc}
+
+
+Definition at line 334 of file FitterNew.cpp.
+
+
+
+References Histogram::get(), ProgressBar::print(), and ProgressBar::printClear().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Fitter.h\item 
+FitterNew.h\item 
+Fitter.cpp\item 
+FitterNew.cpp\end{DoxyCompactItemize}

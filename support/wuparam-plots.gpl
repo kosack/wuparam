@@ -1,0 +1,137 @@
+#=====================================================
+# Subpage locations:
+#  x0,y0  x1,y0, x2,y0
+#  x0,y1  x1,y1  x2,y1
+#  x0,y2  x1,y2, x2,y2
+#=====================================================
+
+x0 = 0
+x1 = 0.33
+x2 = 0.66
+y0 = 0.66
+y1 = 0.33
+y2 = 0
+xsize = 0.3
+ysize = 0.3
+
+#=====================================================
+# output parameters
+#=====================================================
+set terminal postscript landscape enhanced "Palatino-Roman" 8
+set out "RUNID/RUNID-TELID-plots.ps"
+
+set size 1,1
+set origin -0.05,-0.05
+set nokey
+set title "RUNID (Tel TELID)"
+
+#=====================================================
+# Page 1
+#=====================================================
+
+set grid
+
+set multiplot
+set size xsize,ysize
+set xlabel "Time (min)"
+
+set origin x0,y1
+set ylabel "Elevation (deg)"
+plot 'RUNID/RUNID-TELID-angles.dat' u 1:3 w l 
+
+set origin x1,y1
+set ylabel "Azimuth (deg)"
+plot 'RUNID/RUNID-TELID-angles.dat' u 1:4 w l 
+
+set origin x0,y0
+set ylabel "Derotation angle (deg)"
+plot 'RUNID/RUNID-TELID-angles.dat' u 1:2 w l 
+
+set origin x1,y0
+set xlabel "Azimuth (deg)"
+set ylabel "Elevation (deg)"
+plot 'RUNID/RUNID-TELID-angles.dat' u 4:3 w l 
+
+set origin x0,y2
+set nogrid
+set ylabel "Raw Rate"
+set xlabel "Elapsed Time (min)"
+plot 'RUNID/RUNID-TELID-raw-rate.hist' u 1:3 w steps
+
+set origin x1,y2
+set xlabel "{/Symbol D}t ({/Symbol m}s)"
+set ylabel "Counts"
+set log y
+plot 'RUNID/RUNID-TELID-deltat.hist' u ($1*10**6):3 w steps
+set nolog y
+
+set origin x2,y0
+set pointsize 0.5
+set ylabel "Pedestals"
+set xlabel "Channel"
+plot 'CACHEDIR/RUNID-TELID.peds' using 1:2 with points
+
+set origin x2,y1
+set pointsize 0.5
+set ylabel "Pedestal Variances"
+set xlabel "Channel"
+plot 'CACHEDIR/RUNID-TELID.peds' using 1:3 with points #,2 w lines ,7 w lines
+
+set origin x2,y2
+set title "RUNID gains from N2ID (Tel TELID)"
+set ylabel "Gains"
+set xlabel "Channel"
+plot 'CACHEDIR/N2ID-TELID.gains' using 1:2 with points
+set title "RUNID (Tel TELID)"
+
+set nomultiplot
+set nogrid
+
+#=====================================================
+# Page 2
+#=====================================================
+
+set multiplot
+set size xsize,ysize
+set ylabel "Counts"
+
+set origin x0,y1
+set xlabel "Raw Length (deg)"
+plot 'RUNID/RUNID-TELID-raw-length.hist' u 1:3 w steps
+
+set origin x1,y1
+set xlabel "Raw Width (deg)"
+plot 'RUNID/RUNID-TELID-raw-width.hist' u 1:3 w steps
+
+set origin x2,y1
+set xlabel "Raw Length/Size (deg/1000dc)"
+plot 'RUNID/RUNID-TELID-raw-lensize.hist' using ($1*1000):3 w steps
+
+set origin x1,y0
+set xlabel "Raw Distance (deg)"
+plot 'RUNID/RUNID-TELID-raw-dist.hist' u 1:3 w steps
+
+set origin x2,y0
+set xlabel "Raw Alpha (deg)"
+plot 'RUNID/RUNID-TELID-raw-alpha.hist' u 1:3 w steps
+
+set origin x0,y0
+set xlabel "Raw Size (x100 dc)"
+plot 'RUNID/RUNID-TELID-raw-size.hist' u ($1/100):3 w steps
+
+set origin x0,y2
+set xlabel "Number of Tubes in Picture"
+set log x
+plot 'RUNID/RUNID-TELID-raw-pictubes.hist' u 1:3 w steps
+set nolog x
+
+set origin x1,y2
+set xlabel "Tubes in picture"
+plot 'RUNID/RUNID-TELID-tubehits.hist' u 1:3 w steps
+
+set origin x2,y2
+set xlabel "Raw Phi (deg)"
+plot [:] [0:] 'RUNID/RUNID-TELID-raw-phi.hist' u 1:3 w steps
+
+
+set nomultiplot

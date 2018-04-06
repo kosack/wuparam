@@ -1,0 +1,91 @@
+.TH "TelescopeArray" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TelescopeArray \- 
+.PP
+Stores information for an array of telescopes, including \fBCamera\fP objects.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Camera.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTelInfo\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTelescopeArray\fP (std::string filename, std::vector< int > nadc, int utdate)"
+.br
+.ti -1c
+.RI "int \fBgetNumTelescopes\fP ()"
+.br
+.ti -1c
+.RI "\fBCamera\fP * \fBgetCamera\fP (int telescope_id)"
+.br
+.ti -1c
+.RI "double \fBgetLocationX\fP (int id)"
+.br
+.ti -1c
+.RI "double \fBgetLocationY\fP (int id)"
+.br
+.ti -1c
+.RI "double \fBgetLocationZ\fP (int id)"
+.br
+.ti -1c
+.RI "double \fBgetMinX\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxX\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinY\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxY\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Stores information for an array of telescopes, including \fBCamera\fP objects. 
+.PP
+Definition at line 92 of file Camera.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TelescopeArray::TelescopeArray (std::stringfilename, std::vector< int >nadc, intutdate)"
+.PP
+Loads an array definition from the specified file and creates a telescope array. The array datafile is in the following format:
+.PP
+.PP
+.nf
+ WUPARAM-ARRAY-DEFINITION <version number>
+ <x location> <y location> <z location> <dish-size> <camera filename> 
+ ...
+.fi
+.PP
+.PP
+for example, 
+.PP
+.nf
+ WUPARAM-ARRAY-DEFINITION 1.0
+ 0.0   0.0  0.0  10.0 490.camera
+ 80.0  0.0  0.0  12.0 veritas-499.camera 
+
+.fi
+.PP
+ 
+.PP
+Definition at line 406 of file Camera.cpp.
+.PP
+References Logger::printf().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

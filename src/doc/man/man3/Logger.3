@@ -1,0 +1,50 @@
+.TH "Logger" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Logger \- 
+.PP
+Error log singleton.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Log.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprintf\fP (char *format,...)"
+.br
+.ti -1c
+.RI "void \fBinfo\fP (char *format,...)"
+.br
+.ti -1c
+.RI "int \fBgetErrorCount\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintLog\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetFileName\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBLogger\fP * \fBinstance\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Error log singleton. 
+
+Calling the \fBprintf()\fP function will write to the log. 
+.PP
+Definition at line 16 of file Log.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

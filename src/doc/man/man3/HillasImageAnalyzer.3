@@ -1,0 +1,58 @@
+.TH "HillasImageAnalyzer" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HillasImageAnalyzer \- 
+.PP
+Calculates the Hillas parameters and 2D point of origin of a cleaned image.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ImageAnalyzer.h>\fP
+.PP
+Inherits \fBImageAnalyzer\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHillasImageAnalyzer\fP (\fBCamera\fP *cam, double elongation=1.68)"
+.br
+.ti -1c
+.RI "void \fBparameterize\fP (const Array_t &image, std::vector< int > &cleanpixels)"
+.br
+.ti -1c
+.RI "void \fBsetElongationFactor\fP (double e)"
+.br
+.ti -1c
+.RI "\fBHillasParameterization\fP \fBgetHillasParameters\fP ()"
+.br
+.ti -1c
+.RI "void \fBenable2D\fP (bool val=true)"
+.br
+.ti -1c
+.RI "bool \fBis2DEnabled\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Calculates the Hillas parameters and 2D point of origin of a cleaned image. 
+.PP
+Definition at line 110 of file ImageAnalyzer.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "HillasImageAnalyzer::HillasImageAnalyzer (\fBCamera\fP *cam, doubleelongation = \fC1.68\fP)"
+.PP
+Create a new \fBHillasImageAnalyzer\fP with the camera geometry specified by cam. \fBParameters:\fP
+.RS 4
+\fIcam\fP The \fBCamera\fP object that the \fBHillasImageAnalyzer\fP should use to determine the camera geometry 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file ImageAnalyzer.cpp.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

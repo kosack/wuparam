@@ -1,0 +1,95 @@
+.TH "CutInfo" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CutInfo \- 
+.PP
+Describes which cuts should be applied to the data.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Config.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBtracking_ratio\fP"
+.br
+.ti -1c
+.RI "double \fBelongation\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBalpha\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBdistance\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBlength\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBwidth\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBsize\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBlensize\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBmax1\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBmax2\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBmax3\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBfrac3\fP"
+.br
+.ti -1c
+.RI "\fBCut\fP \fBasymmdist\fP"
+.br
+.ti -1c
+.RI "double \fBdlength\fP"
+.br
+.ti -1c
+.RI "double \fBdwidth\fP"
+.br
+.ti -1c
+.RI "double \fBsmoothing_radius\fP"
+.br
+.ti -1c
+.RI "bool \fBradial_analysis\fP"
+.br
+.ti -1c
+.RI "\fBCoordinate_t\fP \fBradial_offset\fP"
+.br
+.ti -1c
+.RI "bool \fBalignment\fP"
+.br
+.ti -1c
+.RI "\fBCoordinate_t\fP \fBalign_offset\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &stream, const \fBCutInfo\fP &c)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Describes which cuts should be applied to the data. 
+
+Fields with upper and lower values are arrays with 2 elements. 
+.PP
+Definition at line 45 of file Config.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

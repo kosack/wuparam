@@ -1,0 +1,20 @@
+#----------------- LOG STARTED: Thu Jul 28 16:08:50 2005 -----------------#
+WUParam exited
+#----------------- LOG STARTED: Thu Jul 28 16:12:41 2005 -----------------#
+<<< This is WUParam >>>
+WUParam exited
+#----------------- LOG STARTED: Wed Aug 10 17:01:26 2005 -----------------#
+WUCut exited
+#----------------- LOG STARTED: Tue Sep 16 12:47:01 2008 -----------------#
+WUParam exited
+#----------------- LOG STARTED: Tue Sep 16 12:47:25 2008 -----------------#
+WUCut exited
+#----------------- LOG STARTED: Thu Nov 12 14:24:31 2009 -----------------#
+WUParam exited
+#----------------- LOG STARTED: Wed Nov 10 10:16:23 2010 -----------------#
+WUParam exited
+#----------------- LOG STARTED: Sun Jun 29 16:55:15 2014 -----------------#
+WUParam exited
+#----------------- LOG STARTED: Wed Jan 25 15:13:08 2017 -----------------#
+<<< This is WUParam >>>
+WUParam exited

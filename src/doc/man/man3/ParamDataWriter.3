@@ -1,0 +1,59 @@
+.TH "ParamDataWriter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ParamDataWriter \- 
+.PP
+Base class for writing HillasParameterizations to disk.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataWriter.h>\fP
+.PP
+Inherits \fBDataWriter\fP.
+.PP
+Inherited by \fBParamDataWriterNtuple\fP, and \fBParamDataWriterText\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBParamDataWriter\fP (const std::string &filename, bool ow=false)"
+.br
+.ti -1c
+.RI "void \fBwriteHeader\fP (\fBHeaderRecord\fP &hdr)"
+.br
+.ti -1c
+.RI "virtual void \fBwriteParameterization\fP (\fBHillasParameterization\fP &param)=0"
+.br
+.ti -1c
+.RI "virtual void \fBwriteParameterization\fP (\fBSimShowerRecord\fP &p1, \fBHillasParameterization\fP &p2)"
+.br
+.ti -1c
+.RI "virtual int \fBsize\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::string \fBgetTypeString\fP ()=0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for writing HillasParameterizations to disk. 
+
+Subclasses of this should implement the various file formats that can be written. 
+.PP
+Definition at line 41 of file DataWriter.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void ParamDataWriter::writeHeader (\fBHeaderRecord\fP &hdr)"
+.PP
+Write out header. Should be done after all NTuple rows have been written, so the number of rows is correct. 
+.PP
+Definition at line 140 of file DataWriter.cpp.
+.PP
+References HeaderRecord::average_elevation, HeaderRecord::dec, HeaderRecord::endtime, HeaderRecord::nadc, HeaderRecord::num_telescopes, HeaderRecord::ra, HeaderRecord::sourcename, and HeaderRecord::starttime.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

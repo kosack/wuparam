@@ -1,0 +1,69 @@
+.TH "RawDataReaderFactory" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RawDataReaderFactory \- 
+.PP
+Responsible for locating files and creating the correct data reader object for the detected file type.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataReader.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRawDataReader\fP * \fBgetReader\fP (const \fBRunInfo\fP &ri, string runid)"
+.br
+.ti -1c
+.RI "std::string \fBlocateFile\fP (const \fBRunInfo\fP &ri, const string basename, const string ext)"
+.br
+.ti -1c
+.RI "void \fBclearCache\fP (std::string)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBRawDataReaderFactory\fP * \fBinstance\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Responsible for locating files and creating the correct data reader object for the detected file type. 
+
+Implemented as a Singleton. 
+.PP
+Definition at line 175 of file DataReader.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "string RawDataReaderFactory::locateFile (const \fBRunInfo\fP &ri, const stringbasename, const stringext)"
+.PP
+Locate a file in a directory structure, uncompressing if needed. \fBParameters:\fP
+.RS 4
+\fIstartdir\fP directory under which to look 
+.br
+\fIbasename\fP base name of the file (without extensions) 
+.br
+\fIfile\fP extension (i.e. hdf)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+full pathname to the located file. 
+.RE
+.PP
+
+.PP
+Definition at line 773 of file DataReader.cpp.
+.PP
+References RunInfo::cachedir, and RunInfo::datadir.
+.PP
+Referenced by getReader().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

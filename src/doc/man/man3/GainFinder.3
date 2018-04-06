@@ -1,0 +1,73 @@
+.TH "GainFinder" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GainFinder \- 
+.PP
+Retrieve or calculate nitrogen gains, given a nitrogen run ID.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <GainFinder.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBgetGains\fP (\fBRunInfo\fP &ri, Array_t &gains, int telescope_id=0)"
+.br
+.ti -1c
+.RI "void \fBsetThresholds\fP (double, double, double)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Retrieve or calculate nitrogen gains, given a nitrogen run ID. 
+.PP
+Definition at line 14 of file GainFinder.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void GainFinder::getGains (\fBRunInfo\fP &ri, Array_t &gains, inttelescope_id = \fC0\fP)"
+.PP
+Fetch the gains for the specified nitrogen run. \fBParameters:\fP
+.RS 4
+\fIri\fP - Run information struct from \fBConfig\fP 
+.br
+\fIid\fP - nitrogen gain id 
+.br
+\fIgains\fP - uninitialized Array_t where gains will be stored
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+: make gains database have a code column which marks bad gains 
+.PP
+: implement lock file! 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file GainFinder.cpp.
+.PP
+References RunInfo::cachedir, PedestalFinder::getPeds(), RawDataReaderFactory::getReader(), RawDataReaderFactory::instance(), RunInfo::n2id, HeaderRecord::nadc, HeaderRecord::num_telescopes, and PedestalFinder::setTubeOffThresholds().
+.SS "void GainFinder::setThresholds (doublemin, doublemax, doublepercent)"
+.PP
+Set gain cutoff thresholds. The default values are used if this method is not called explicitly. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin\fP - minimim adc value to include in gain calculation (default is 50) 
+.br
+\fImax\fP - maximum adc value to include in gain calculation (default 1000) 
+.br
+\fIpercent\fP - percent of camera above which the image is considered 'saturated' and should be ignored for gain calculations (default 0.75) 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file GainFinder.cpp.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

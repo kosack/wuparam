@@ -1,0 +1,13 @@
+#=====================================================
+# output parameters
+#=====================================================
+set terminal postscript landscape enhanced "Palatino-Roman" 14
+set out "Totals/energy-spectrum.ps"
+
+set log
+set title "Spectrum"
+set xlabel "Energy (TeV)"
+
+plot 'Totals/espectrum.text' u 1:4:5 t 'data' w errorbars, \
+	'Totals/espectrum.text' u 1:6 t 'model' w lines
+

@@ -1,0 +1,157 @@
+\hypertarget{classMuonImageAnalyzer}{
+\subsection{MuonImageAnalyzer Class Reference}
+\label{classMuonImageAnalyzer}\index{MuonImageAnalyzer@{MuonImageAnalyzer}}
+}
+
+
+Analyzes the muon-\/like properties of an image.  
+
+
+
+
+{\ttfamily \#include $<$MuonImageAnalyzer.h$>$}
+
+Inheritance diagram for MuonImageAnalyzer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMuonImageAnalyzer}
+\end{center}
+\end{figure}
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bfseries Triplet}
+\item 
+struct {\bfseries WordBitMask}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMuonImageAnalyzer_ace536b6518d8bfcbc14afbd252c2cedb}{
+\hyperlink{classMuonImageAnalyzer_ace536b6518d8bfcbc14afbd252c2cedb}{MuonImageAnalyzer} (\hyperlink{classCamera}{Camera} $\ast$cam)}
+\label{classMuonImageAnalyzer_ace536b6518d8bfcbc14afbd252c2cedb}
+
+\item 
+void \hyperlink{classMuonImageAnalyzer_a539a77fa50b32358483b951ceaca22bf}{parameterize} (const Array\_\-t \&image, std::vector$<$ int $>$ \&cleanpixels)
+\item 
+\hypertarget{classMuonImageAnalyzer_ac13b60121bd5008c0188dfd7d3a04112}{
+void {\bfseries enablePlotPoints} (bool val=true)}
+\label{classMuonImageAnalyzer_ac13b60121bd5008c0188dfd7d3a04112}
+
+\item 
+\hypertarget{classMuonImageAnalyzer_af5825426d2866ab9613d13621bee5867}{
+void {\bfseries enableCalibration} (bool val=true)}
+\label{classMuonImageAnalyzer_af5825426d2866ab9613d13621bee5867}
+
+\item 
+\hyperlink{structMuonParameterization}{MuonParameterization} \hyperlink{classMuonImageAnalyzer_a2b82168624627844ea7502fb3a182767}{getMuonParameters} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Analyzes the muon-\/like properties of an image. 
+
+In particular, it detects muon arcs and can calculates factors useful for absolute gain calibration.
+
+The algorithm goes as follows:
+
+
+\begin{DoxyItemize}
+\item For each unique triplet of PMTs (N$\ast$(N-\/1)$\ast$(N-\/2)/6 in total) calculate the center and radius of the uniquely defined circle.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item OR the bits for PMTs which are elements of this triplet into the appropriate element (determined by the ring center) of a 2-\/d array of bitmasks, and increment the corresponding element of the array ntriplets\mbox{[}x,y\mbox{]}. Also increment the cumulative ring radius and cumulative x and y-\/center position arrays rad\mbox{[}x,y\mbox{]} xsum\mbox{[}x,y\mbox{]}, ysum\mbox{[}x,y\mbox{]}.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Divide xsum, ysum, radsum by ntriplets in the end. Then do a boxcar average over neighboring elements in the array ntriplets, and x,y,rad arrays.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Find the maximum of the boxcar averaged array ntripbox(x,y) and calculate the values xave,yave,rave from these.
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item Calculate a bitmask (for which tubes are in the arc) by ORing together the bitmasks of the peak element and its neighbors. From the resulting bitmask calculate the signal sum for these pmts and divide by the number of pmts.
+\end{DoxyItemize}
+
+This gives a value proportional to the pe/dc ratio for this arc. A comparison of this value to the value derived for big rings (from the hadronicity) can be combined with limits on the ring radius to derive the likelihood that this event is in fact a muon arc. 
+
+Definition at line 120 of file MuonImageAnalyzer.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classMuonImageAnalyzer_a2b82168624627844ea7502fb3a182767}{
+\index{MuonImageAnalyzer@{MuonImageAnalyzer}!getMuonParameters@{getMuonParameters}}
+\index{getMuonParameters@{getMuonParameters}!MuonImageAnalyzer@{MuonImageAnalyzer}}
+\paragraph[{getMuonParameters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf MuonParameterization} MuonImageAnalyzer::getMuonParameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classMuonImageAnalyzer_a2b82168624627844ea7502fb3a182767}
+
+
+Get the parameters calculated in the \hyperlink{classMuonImageAnalyzer_a539a77fa50b32358483b951ceaca22bf}{parameterize()} routine. 
+
+\begin{DoxyReturn}{Returns}
+a \hyperlink{structMuonParameterization}{MuonParameterization} containing all the parameters 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file MuonImageAnalyzer.h.
+
+\hypertarget{classMuonImageAnalyzer_a539a77fa50b32358483b951ceaca22bf}{
+\index{MuonImageAnalyzer@{MuonImageAnalyzer}!parameterize@{parameterize}}
+\index{parameterize@{parameterize}!MuonImageAnalyzer@{MuonImageAnalyzer}}
+\paragraph[{parameterize}]{\setlength{\rightskip}{0pt plus 5cm}void MuonImageAnalyzer::parameterize (
+\begin{DoxyParamCaption}
+\item[{const Array\_\-t \&}]{image, }
+\item[{std::vector$<$ int $>$ \&}]{cleanpixels}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classMuonImageAnalyzer_a539a77fa50b32358483b951ceaca22bf}
+
+
+Parameterize the image. 
+
+Find muon arc and calculate parameters.
+
+This is the most important (and probably the most called) function in the analysis, so it should be as optimized as possible!
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & the pixel data for the image you want to parameterize \\
+\hline
+{\em cleanpixels} & is a list of the indices of the picture/boundary tubes parameters should be stored.\\
+\hline
+{\em image} & the image \\
+\hline
+{\em cleanpixels} & vector of clean pixel numbers from \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classImageAnalyzer}{ImageAnalyzer}.
+
+
+
+Definition at line 84 of file ImageAnalyzer.cpp.
+
+
+
+References HillasParameterization::alpha, HillasParameterization::asymmetry, HillasParameterization::azwidth, HillasParameterization::centroid, HillasParameterization::distance, HillasParameterization::frac, HillasParameterization::index\_\-of\_\-max, ImageParameterization::invalid, HillasParameterization::length, HillasParameterization::length\_\-over\_\-size, HillasParameterization::max, HillasParameterization::miss, HillasParameterization::phi, HillasParameterization::pixels\_\-in\_\-picture, HillasParameterization::point\_\-of\_\-origin\_\-a, HillasParameterization::point\_\-of\_\-origin\_\-b, HillasParameterization::psi, HillasParameterization::size, HillasParameterization::width, Coordinate\_\-t::x, and Coordinate\_\-t::y.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+MuonImageAnalyzer.h\item 
+ImageAnalyzer.cpp\item 
+MuonImageAnalyzer.cpp\end{DoxyCompactItemize}

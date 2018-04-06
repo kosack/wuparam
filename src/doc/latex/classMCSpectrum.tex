@@ -1,0 +1,151 @@
+\hypertarget{classMCSpectrum}{
+\subsection{MCSpectrum Class Reference}
+\label{classMCSpectrum}\index{MCSpectrum@{MCSpectrum}}
+}
+
+
+Object that takes care of all the Monte Carlo (MC) dependent aspects:  
+
+
+
+
+{\ttfamily \#include $<$Fitter.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMCSpectrum_ae7bb310b53fe6faf2fbdb74017c627db}{MCSpectrum} (\hyperlink{classRunInfo}{RunInfo} \&ri)
+\item 
+\hypertarget{classMCSpectrum_a7e79cfbd1d264d02e46010375e399aca}{
+void \hyperlink{classMCSpectrum_a7e79cfbd1d264d02e46010375e399aca}{fill} (double N0, double Gamma0, double E0, double Time)}
+\label{classMCSpectrum_a7e79cfbd1d264d02e46010375e399aca}
+
+\item 
+\hypertarget{classMCSpectrum_a0777ca61a540ea776229d523ff32b0f4}{
+double \hyperlink{classMCSpectrum_a0777ca61a540ea776229d523ff32b0f4}{chiSquare} (std::vector$<$ \hyperlink{structData}{Data} $>$ \&)}
+\label{classMCSpectrum_a0777ca61a540ea776229d523ff32b0f4}
+
+\item 
+\hypertarget{classMCSpectrum_ad677cf1fbb8de27981202ad6056ebf58}{
+int \hyperlink{classMCSpectrum_ad677cf1fbb8de27981202ad6056ebf58}{dof} ()}
+\label{classMCSpectrum_ad677cf1fbb8de27981202ad6056ebf58}
+
+\item 
+\hypertarget{classMCSpectrum_aadcdac2c8cf36b4c6b76f9c0f7a04d65}{
+double \hyperlink{classMCSpectrum_aadcdac2c8cf36b4c6b76f9c0f7a04d65}{get} (int)}
+\label{classMCSpectrum_aadcdac2c8cf36b4c6b76f9c0f7a04d65}
+
+\item 
+\hypertarget{classMCSpectrum_aea3d956882a19612b53dfabf4a4ee36f}{
+void \hyperlink{classMCSpectrum_aea3d956882a19612b53dfabf4a4ee36f}{getRange} (int bin, double \&lower, double \&upper)}
+\label{classMCSpectrum_aea3d956882a19612b53dfabf4a4ee36f}
+
+\item 
+\hypertarget{classMCSpectrum_aff6aa85d0e2a5006caf0b194ec53dae1}{
+\hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$ {\bfseries getSpectrum} ()}
+\label{classMCSpectrum_aff6aa85d0e2a5006caf0b194ec53dae1}
+
+\item 
+\hypertarget{classMCSpectrum_ae7bb310b53fe6faf2fbdb74017c627db}{
+{\bfseries MCSpectrum} (\hyperlink{classRunInfo}{RunInfo} \&ri)}
+\label{classMCSpectrum_ae7bb310b53fe6faf2fbdb74017c627db}
+
+\item 
+\hypertarget{classMCSpectrum_a7e79cfbd1d264d02e46010375e399aca}{
+void {\bfseries fill} (double N0, double Gamma0, double E0, double Time)}
+\label{classMCSpectrum_a7e79cfbd1d264d02e46010375e399aca}
+
+\item 
+\hypertarget{classMCSpectrum_a0777ca61a540ea776229d523ff32b0f4}{
+double {\bfseries chiSquare} (std::vector$<$ \hyperlink{structData}{Data} $>$ \&)}
+\label{classMCSpectrum_a0777ca61a540ea776229d523ff32b0f4}
+
+\item 
+\hypertarget{classMCSpectrum_ad677cf1fbb8de27981202ad6056ebf58}{
+int {\bfseries dof} ()}
+\label{classMCSpectrum_ad677cf1fbb8de27981202ad6056ebf58}
+
+\item 
+\hypertarget{classMCSpectrum_aadcdac2c8cf36b4c6b76f9c0f7a04d65}{
+double {\bfseries get} (int)}
+\label{classMCSpectrum_aadcdac2c8cf36b4c6b76f9c0f7a04d65}
+
+\item 
+\hypertarget{classMCSpectrum_aea3d956882a19612b53dfabf4a4ee36f}{
+void {\bfseries getRange} (int bin, double \&lower, double \&upper)}
+\label{classMCSpectrum_aea3d956882a19612b53dfabf4a4ee36f}
+
+\item 
+\hypertarget{classMCSpectrum_aff6aa85d0e2a5006caf0b194ec53dae1}{
+\hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$ {\bfseries getSpectrum} ()}
+\label{classMCSpectrum_aff6aa85d0e2a5006caf0b194ec53dae1}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classMCSpectrum_a331195d13e485713885e0a195654e44c}{
+static const int {\bfseries NUMMCBINS} = 9}
+\label{classMCSpectrum_a331195d13e485713885e0a195654e44c}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Object that takes care of all the Monte Carlo (MC) dependent aspects: 
+
+
+\begin{DoxyItemize}
+\item it stores the MC events
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item given model parameters, it can produce histograms with \char`\"{}artficial\char`\"{} energy spectra that can be compared to the data
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item given a pointer to the data, and a filled \char`\"{}artificial\char`\"{} energy spectrum, it will compute the chi-\/square value. 
+\end{DoxyItemize}
+
+Definition at line 96 of file Fitter.h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classMCSpectrum_ae7bb310b53fe6faf2fbdb74017c627db}{
+\index{MCSpectrum@{MCSpectrum}!MCSpectrum@{MCSpectrum}}
+\index{MCSpectrum@{MCSpectrum}!MCSpectrum@{MCSpectrum}}
+\paragraph[{MCSpectrum}]{\setlength{\rightskip}{0pt plus 5cm}MCSpectrum::MCSpectrum (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{ri}
+\end{DoxyParamCaption}
+)}}
+\label{classMCSpectrum_ae7bb310b53fe6faf2fbdb74017c627db}
+
+
+Creator, gets all the MC information. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000013}{Todo}]: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) \end{Desc}
+
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000017}{Todo}]: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) \end{Desc}
+
+
+Definition at line 45 of file Fitter.cpp.
+
+
+
+References RunInfo::cuts, HillasParameterization::distance, RunInfo::energyestimator, EnergyEstimatorFactory::instance(), RunInfo::mcdatabase, ProgressBar::print(), ProgressBar::printClear(), ImageParameterization::sim, HillasParameterization::size, and HillasParameterization::zenith.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Fitter.h\item 
+FitterNew.h\item 
+Fitter.cpp\item 
+FitterNew.cpp\end{DoxyCompactItemize}

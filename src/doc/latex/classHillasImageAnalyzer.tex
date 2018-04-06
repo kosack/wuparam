@@ -1,0 +1,88 @@
+\hypertarget{classHillasImageAnalyzer}{
+\subsection{HillasImageAnalyzer Class Reference}
+\label{classHillasImageAnalyzer}\index{HillasImageAnalyzer@{HillasImageAnalyzer}}
+}
+
+
+Calculates the Hillas parameters and 2D point of origin of a cleaned image.  
+
+
+
+
+{\ttfamily \#include $<$ImageAnalyzer.h$>$}
+
+Inheritance diagram for HillasImageAnalyzer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHillasImageAnalyzer}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHillasImageAnalyzer_aea4e48e8d339197bee6779f342578c1e}{HillasImageAnalyzer} (\hyperlink{classCamera}{Camera} $\ast$cam, double elongation=1.68)
+\item 
+\hypertarget{classHillasImageAnalyzer_a9b40029788b2d4c8420bc717a684351b}{
+void {\bfseries parameterize} (const Array\_\-t \&image, std::vector$<$ int $>$ \&cleanpixels)}
+\label{classHillasImageAnalyzer_a9b40029788b2d4c8420bc717a684351b}
+
+\item 
+\hypertarget{classHillasImageAnalyzer_a550511668d93263f330835b91ed9736e}{
+void {\bfseries setElongationFactor} (double e)}
+\label{classHillasImageAnalyzer_a550511668d93263f330835b91ed9736e}
+
+\item 
+\hypertarget{classHillasImageAnalyzer_ab9c2f4930a02e6d13d73a136031a97e2}{
+\hyperlink{structHillasParameterization}{HillasParameterization} {\bfseries getHillasParameters} ()}
+\label{classHillasImageAnalyzer_ab9c2f4930a02e6d13d73a136031a97e2}
+
+\item 
+\hypertarget{classHillasImageAnalyzer_a02a2a87a5aedb07989f29a9f2937d59a}{
+void {\bfseries enable2D} (bool val=true)}
+\label{classHillasImageAnalyzer_a02a2a87a5aedb07989f29a9f2937d59a}
+
+\item 
+\hypertarget{classHillasImageAnalyzer_abbc677e62927a5a870b03182d61eb025}{
+bool {\bfseries is2DEnabled} ()}
+\label{classHillasImageAnalyzer_abbc677e62927a5a870b03182d61eb025}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Calculates the Hillas parameters and 2D point of origin of a cleaned image. 
+
+Definition at line 110 of file ImageAnalyzer.h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classHillasImageAnalyzer_aea4e48e8d339197bee6779f342578c1e}{
+\index{HillasImageAnalyzer@{HillasImageAnalyzer}!HillasImageAnalyzer@{HillasImageAnalyzer}}
+\index{HillasImageAnalyzer@{HillasImageAnalyzer}!HillasImageAnalyzer@{HillasImageAnalyzer}}
+\paragraph[{HillasImageAnalyzer}]{\setlength{\rightskip}{0pt plus 5cm}HillasImageAnalyzer::HillasImageAnalyzer (
+\begin{DoxyParamCaption}
+\item[{{\bf Camera} $\ast$}]{cam, }
+\item[{double}]{elongation = {\ttfamily 1.68}}
+\end{DoxyParamCaption}
+)}}
+\label{classHillasImageAnalyzer_aea4e48e8d339197bee6779f342578c1e}
+
+
+Create a new \hyperlink{classHillasImageAnalyzer}{HillasImageAnalyzer} with the camera geometry specified by cam. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cam} & The \hyperlink{classCamera}{Camera} object that the \hyperlink{classHillasImageAnalyzer}{HillasImageAnalyzer} should use to determine the camera geometry \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file ImageAnalyzer.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+ImageAnalyzer.h\item 
+ImageAnalyzer.cpp\end{DoxyCompactItemize}

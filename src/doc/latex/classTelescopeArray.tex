@@ -1,0 +1,123 @@
+\hypertarget{classTelescopeArray}{
+\subsection{TelescopeArray Class Reference}
+\label{classTelescopeArray}\index{TelescopeArray@{TelescopeArray}}
+}
+
+
+Stores information for an array of telescopes, including \hyperlink{classCamera}{Camera} objects.  
+
+
+
+
+{\ttfamily \#include $<$Camera.h$>$}
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTelescopeArray_1_1TelInfo}{TelInfo}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTelescopeArray_ac1cc84c501daa3f8d5ebbdcff8c3e9f8}{TelescopeArray} (std::string filename, std::vector$<$ int $>$ nadc, int utdate)
+\item 
+\hypertarget{classTelescopeArray_ae26f422cb0497722bbb64e0fd626f9ef}{
+int {\bfseries getNumTelescopes} ()}
+\label{classTelescopeArray_ae26f422cb0497722bbb64e0fd626f9ef}
+
+\item 
+\hypertarget{classTelescopeArray_aa4d1fdecb99be2eae62a9ffb4290980c}{
+\hyperlink{classCamera}{Camera} $\ast$ {\bfseries getCamera} (int telescope\_\-id)}
+\label{classTelescopeArray_aa4d1fdecb99be2eae62a9ffb4290980c}
+
+\item 
+\hypertarget{classTelescopeArray_a817779b9a1bd4aabb28913b20ea65eb5}{
+double {\bfseries getLocationX} (int id)}
+\label{classTelescopeArray_a817779b9a1bd4aabb28913b20ea65eb5}
+
+\item 
+\hypertarget{classTelescopeArray_ab3b41e51f388a0584ea1265a648195c5}{
+double {\bfseries getLocationY} (int id)}
+\label{classTelescopeArray_ab3b41e51f388a0584ea1265a648195c5}
+
+\item 
+\hypertarget{classTelescopeArray_aa36f218df1cf9e4d363fc98f1e6aa818}{
+double {\bfseries getLocationZ} (int id)}
+\label{classTelescopeArray_aa36f218df1cf9e4d363fc98f1e6aa818}
+
+\item 
+\hypertarget{classTelescopeArray_a7e705ecf29d86116ee696f8b39540a9c}{
+double {\bfseries getMinX} ()}
+\label{classTelescopeArray_a7e705ecf29d86116ee696f8b39540a9c}
+
+\item 
+\hypertarget{classTelescopeArray_a10b7f1b976301ede420843c91e6b98cf}{
+double {\bfseries getMaxX} ()}
+\label{classTelescopeArray_a10b7f1b976301ede420843c91e6b98cf}
+
+\item 
+\hypertarget{classTelescopeArray_aac16d5cc1566bde84d43c870b5e892ba}{
+double {\bfseries getMinY} ()}
+\label{classTelescopeArray_aac16d5cc1566bde84d43c870b5e892ba}
+
+\item 
+\hypertarget{classTelescopeArray_adc205ea5f72b1ac2b2c7ac1eab18f671}{
+double {\bfseries getMaxY} ()}
+\label{classTelescopeArray_adc205ea5f72b1ac2b2c7ac1eab18f671}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Stores information for an array of telescopes, including \hyperlink{classCamera}{Camera} objects. 
+
+Definition at line 92 of file Camera.h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classTelescopeArray_ac1cc84c501daa3f8d5ebbdcff8c3e9f8}{
+\index{TelescopeArray@{TelescopeArray}!TelescopeArray@{TelescopeArray}}
+\index{TelescopeArray@{TelescopeArray}!TelescopeArray@{TelescopeArray}}
+\paragraph[{TelescopeArray}]{\setlength{\rightskip}{0pt plus 5cm}TelescopeArray::TelescopeArray (
+\begin{DoxyParamCaption}
+\item[{std::string}]{filename, }
+\item[{std::vector$<$ int $>$}]{nadc, }
+\item[{int}]{utdate}
+\end{DoxyParamCaption}
+)}}
+\label{classTelescopeArray_ac1cc84c501daa3f8d5ebbdcff8c3e9f8}
+
+
+Loads an array definition from the specified file and creates a telescope array. 
+
+The array datafile is in the following format:
+
+
+\begin{DoxyCode}
+ WUPARAM-ARRAY-DEFINITION <version number>
+ <x location> <y location> <z location> <dish-size> <camera filename> 
+ ...
+\end{DoxyCode}
+
+
+for example, 
+\begin{DoxyCode}
+ WUPARAM-ARRAY-DEFINITION 1.0
+ 0.0   0.0  0.0  10.0 490.camera
+ 80.0  0.0  0.0  12.0 veritas-499.camera 
+\end{DoxyCode}
+ 
+
+Definition at line 406 of file Camera.cpp.
+
+
+
+References Logger::printf().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Camera.h\item 
+Camera.cpp\end{DoxyCompactItemize}

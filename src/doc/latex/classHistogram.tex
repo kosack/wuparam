@@ -1,0 +1,370 @@
+\hypertarget{classHistogram}{
+\subsection{Histogram Class Reference}
+\label{classHistogram}\index{Histogram@{Histogram}}
+}
+
+
+General 1-\/D histogram class.  
+
+
+
+
+{\ttfamily \#include $<$Histogram.h$>$}
+
+Inheritance diagram for Histogram:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHistogram}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHistogram_a0e67c772215a44412bea53d7c42a9afd}{Histogram} (int, double, double, std::string)
+\item 
+\hyperlink{classHistogram_a57bd7d0018ca67ebc964a70856a45121}{Histogram} (const \hyperlink{classHistogram}{Histogram} \&h)
+\item 
+void \hyperlink{classHistogram_aeb18a84d7511ee5955ce41c2e566ed42}{increment} (double)
+\item 
+\hypertarget{classHistogram_ac071a756a6a7e7b762e54d40a3b063d2}{
+void \hyperlink{classHistogram_ac071a756a6a7e7b762e54d40a3b063d2}{accumulate} (double x, double weight)}
+\label{classHistogram_ac071a756a6a7e7b762e54d40a3b063d2}
+
+\item 
+\hypertarget{classHistogram_a1adaf843802a7dd123aa3d981a3fe40a}{
+int \hyperlink{classHistogram_a1adaf843802a7dd123aa3d981a3fe40a}{maxBin} ()}
+\label{classHistogram_a1adaf843802a7dd123aa3d981a3fe40a}
+
+\item 
+\hypertarget{classHistogram_ad8f309ad710edf09dd5b5f5212fea317}{
+int \hyperlink{classHistogram_ad8f309ad710edf09dd5b5f5212fea317}{minBin} ()}
+\label{classHistogram_ad8f309ad710edf09dd5b5f5212fea317}
+
+\item 
+\hypertarget{classHistogram_ab03071830f982d65161093f6e21d337b}{
+double \hyperlink{classHistogram_ab03071830f982d65161093f6e21d337b}{maxValue} ()}
+\label{classHistogram_ab03071830f982d65161093f6e21d337b}
+
+\item 
+\hypertarget{classHistogram_aa542bc0d079c028891332f075e36de6d}{
+double \hyperlink{classHistogram_aa542bc0d079c028891332f075e36de6d}{minValue} ()}
+\label{classHistogram_aa542bc0d079c028891332f075e36de6d}
+
+\item 
+\hypertarget{classHistogram_a232fa623a8fb507ce61f3d4d887261c4}{
+void \hyperlink{classHistogram_a232fa623a8fb507ce61f3d4d887261c4}{getRange} (int bin, double \&lower, double \&upper)}
+\label{classHistogram_a232fa623a8fb507ce61f3d4d887261c4}
+
+\item 
+double \hyperlink{classHistogram_a60aec75a406846e8ddfcb5cd3bfd08b6}{mean} ()
+\item 
+double \hyperlink{classHistogram_ace6b4ef16828ca568a9ffb6195f2f85a}{sigma} ()
+\item 
+double \hyperlink{classHistogram_a66f96b43325ad5daef6c208706cb8116}{sum} ()
+\item 
+\hypertarget{classHistogram_a503db836fe4146f1978433ceb44fbfd5}{
+void {\bfseries save} (std::string)}
+\label{classHistogram_a503db836fe4146f1978433ceb44fbfd5}
+
+\item 
+void \hyperlink{classHistogram_aec3e06fe7bbbd75cf0b3a2c9e44da2df}{load} (std::string)
+\item 
+int \hyperlink{classHistogram_a7f7a8382c6450c8b2f58644d569350fe}{findBinWithValue} (double val)
+\item 
+void \hyperlink{classHistogram_a3f1ace79184ce1eb65b08d7cef9c3ef7}{saveStatistics} (std::string)
+\item 
+\hypertarget{classHistogram_ad841b25d1f867051f99539bfe88b0dc1}{
+int {\bfseries numBins} ()}
+\label{classHistogram_ad841b25d1f867051f99539bfe88b0dc1}
+
+\item 
+\hypertarget{classHistogram_ad63d2457f4c475441626169ac47c6280}{
+void \hyperlink{classHistogram_ad63d2457f4c475441626169ac47c6280}{scale} (double val)}
+\label{classHistogram_ad63d2457f4c475441626169ac47c6280}
+
+\item 
+void \hyperlink{classHistogram_a2714fcfb141d09432600fc8e6c65d3f3}{subtract} (\hyperlink{classHistogram}{Histogram} \&h)
+\item 
+\hypertarget{classHistogram_a60716135cdc3419f91875f0d89e03a9a}{
+double \hyperlink{classHistogram_a60716135cdc3419f91875f0d89e03a9a}{operator\mbox{[}$\,$\mbox{]}} (int)}
+\label{classHistogram_a60716135cdc3419f91875f0d89e03a9a}
+
+\item 
+double \hyperlink{classHistogram_ab93e201f4b23def54a4ce5fda5c9d085}{get} (int bin)
+\item 
+\hypertarget{classHistogram_ab18fbea2f675c873c9c90d60eaf5dd28}{
+void \hyperlink{classHistogram_ab18fbea2f675c873c9c90d60eaf5dd28}{reset} ()}
+\label{classHistogram_ab18fbea2f675c873c9c90d60eaf5dd28}
+
+\item 
+\hypertarget{classHistogram_aa8efafbdf6c0f5c927c32fa4e132767c}{
+gsl\_\-histogram $\ast$ {\bfseries getGSLHist} ()}
+\label{classHistogram_aa8efafbdf6c0f5c927c32fa4e132767c}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+General 1-\/D histogram class. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000020}{Todo}]: Make this class work with lightcurve data where the first and last bins may be partially filled (or smaller width) \end{Desc}
+
+
+Definition at line 21 of file Histogram.h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classHistogram_a0e67c772215a44412bea53d7c42a9afd}{
+\index{Histogram@{Histogram}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!Histogram@{Histogram}}
+\paragraph[{Histogram}]{\setlength{\rightskip}{0pt plus 5cm}Histogram::Histogram (
+\begin{DoxyParamCaption}
+\item[{int}]{nbins, }
+\item[{double}]{minx, }
+\item[{double}]{maxx, }
+\item[{std::string}]{name}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a0e67c772215a44412bea53d7c42a9afd}
+
+
+Create a new \hyperlink{classHistogram}{Histogram}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numbins} & number of bins \\
+\hline
+{\em min} & minimum value \\
+\hline
+{\em max} & maximum value \\
+\hline
+{\em name} & description of the histogram \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file Histogram.cpp.
+
+\hypertarget{classHistogram_a57bd7d0018ca67ebc964a70856a45121}{
+\index{Histogram@{Histogram}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!Histogram@{Histogram}}
+\paragraph[{Histogram}]{\setlength{\rightskip}{0pt plus 5cm}Histogram::Histogram (
+\begin{DoxyParamCaption}
+\item[{const {\bf Histogram} \&}]{h}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a57bd7d0018ca67ebc964a70856a45121}
+
+
+Copy constructor. 
+
+\begin{Desc}
+\item[\hyperlink{bug__bug000002}{Bug}]: doesn't work yet \end{Desc}
+
+
+Definition at line 71 of file Histogram.cpp.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classHistogram_a7f7a8382c6450c8b2f58644d569350fe}{
+\index{Histogram@{Histogram}!findBinWithValue@{findBinWithValue}}
+\index{findBinWithValue@{findBinWithValue}!Histogram@{Histogram}}
+\paragraph[{findBinWithValue}]{\setlength{\rightskip}{0pt plus 5cm}int Histogram::findBinWithValue (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a7f7a8382c6450c8b2f58644d569350fe}
+\begin{DoxyReturn}{Returns}
+index of bin with the specified value, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 351 of file Histogram.cpp.
+
+\hypertarget{classHistogram_ab93e201f4b23def54a4ce5fda5c9d085}{
+\index{Histogram@{Histogram}!get@{get}}
+\index{get@{get}!Histogram@{Histogram}}
+\paragraph[{get}]{\setlength{\rightskip}{0pt plus 5cm}double Histogram::get (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classHistogram_ab93e201f4b23def54a4ce5fda5c9d085}
+
+
+Return histogram value at index i. 
+
+Can also use the \mbox{[}\mbox{]} operator (i.e. myhist\mbox{[}3\mbox{]} is equivalent to myhist.get(3)) 
+
+Definition at line 108 of file Histogram.h.
+
+
+
+Referenced by Fitter::minimize().
+
+\hypertarget{classHistogram_aeb18a84d7511ee5955ce41c2e566ed42}{
+\index{Histogram@{Histogram}!increment@{increment}}
+\index{increment@{increment}!Histogram@{Histogram}}
+\paragraph[{increment}]{\setlength{\rightskip}{0pt plus 5cm}void Histogram::increment (
+\begin{DoxyParamCaption}
+\item[{double}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classHistogram_aeb18a84d7511ee5955ce41c2e566ed42}
+
+
+Increment the bin corresponding to the specified value. 
+
+Implemented as an inline function for speed. 
+
+Definition at line 70 of file Histogram.h.
+
+
+
+References maxValue(), and minValue().
+
+
+
+Referenced by WUArray::analyzeRun(), and Cutter::cut().
+
+\hypertarget{classHistogram_aec3e06fe7bbbd75cf0b3a2c9e44da2df}{
+\index{Histogram@{Histogram}!load@{load}}
+\index{load@{load}!Histogram@{Histogram}}
+\paragraph[{load}]{\setlength{\rightskip}{0pt plus 5cm}void Histogram::load (
+\begin{DoxyParamCaption}
+\item[{std::string}]{filename}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_aec3e06fe7bbbd75cf0b3a2c9e44da2df}
+
+
+Read in a histogram saved with the \char`\"{}save\char`\"{} function. 
+
+The histogram to be read must have the number of bins as the \hyperlink{classHistogram}{Histogram} object. 
+
+Definition at line 235 of file Histogram.cpp.
+
+\hypertarget{classHistogram_a60aec75a406846e8ddfcb5cd3bfd08b6}{
+\index{Histogram@{Histogram}!mean@{mean}}
+\index{mean@{mean}!Histogram@{Histogram}}
+\paragraph[{mean}]{\setlength{\rightskip}{0pt plus 5cm}double Histogram::mean (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a60aec75a406846e8ddfcb5cd3bfd08b6}
+\begin{DoxyReturn}{Returns}
+the mean value in the histogram. 
+\end{DoxyReturn}
+
+
+Definition at line 320 of file Histogram.cpp.
+
+
+
+Referenced by saveStatistics().
+
+\hypertarget{classHistogram_a3f1ace79184ce1eb65b08d7cef9c3ef7}{
+\index{Histogram@{Histogram}!saveStatistics@{saveStatistics}}
+\index{saveStatistics@{saveStatistics}!Histogram@{Histogram}}
+\paragraph[{saveStatistics}]{\setlength{\rightskip}{0pt plus 5cm}void Histogram::saveStatistics (
+\begin{DoxyParamCaption}
+\item[{std::string}]{}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a3f1ace79184ce1eb65b08d7cef9c3ef7}
+
+
+Write out a text file with statistical info about the histogram. 
+
+This function is automatically called when Histogram::save() is called, but is provided separately in case one wants to just write statistics and not the whole histogram. It would be cleaner to append this to the top of the histogram file itself, but that would make it harder for external programs to read the histogram files, so I decided to keep the stats file separate.
+
+
+\begin{DoxyParams}{Parameters}
+{\em basename} & base filename (.hist.stats is appended) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 205 of file Histogram.cpp.
+
+
+
+References maxBin(), maxValue(), mean(), minBin(), minValue(), sigma(), and sum().
+
+
+
+Referenced by Image2D::save().
+
+\hypertarget{classHistogram_ace6b4ef16828ca568a9ffb6195f2f85a}{
+\index{Histogram@{Histogram}!sigma@{sigma}}
+\index{sigma@{sigma}!Histogram@{Histogram}}
+\paragraph[{sigma}]{\setlength{\rightskip}{0pt plus 5cm}double Histogram::sigma (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_ace6b4ef16828ca568a9ffb6195f2f85a}
+\begin{DoxyReturn}{Returns}
+the variance in the histogrammed value. 
+\end{DoxyReturn}
+
+
+Definition at line 330 of file Histogram.cpp.
+
+
+
+Referenced by saveStatistics().
+
+\hypertarget{classHistogram_a2714fcfb141d09432600fc8e6c65d3f3}{
+\index{Histogram@{Histogram}!subtract@{subtract}}
+\index{subtract@{subtract}!Histogram@{Histogram}}
+\paragraph[{subtract}]{\setlength{\rightskip}{0pt plus 5cm}void Histogram::subtract (
+\begin{DoxyParamCaption}
+\item[{{\bf Histogram} \&}]{hist}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a2714fcfb141d09432600fc8e6c65d3f3}
+
+
+Subtracts the specified histogram from the current one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hist} & histogram containing values to subtract. Must have identical bin ranges as the current histogram. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 386 of file Histogram.cpp.
+
+\hypertarget{classHistogram_a66f96b43325ad5daef6c208706cb8116}{
+\index{Histogram@{Histogram}!sum@{sum}}
+\index{sum@{sum}!Histogram@{Histogram}}
+\paragraph[{sum}]{\setlength{\rightskip}{0pt plus 5cm}double Histogram::sum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classHistogram_a66f96b43325ad5daef6c208706cb8116}
+\begin{DoxyReturn}{Returns}
+the total number of counts in the histogram. 
+\end{DoxyReturn}
+
+
+Definition at line 340 of file Histogram.cpp.
+
+
+
+Referenced by saveStatistics().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Histogram.h\item 
+Histogram.cpp\end{DoxyCompactItemize}

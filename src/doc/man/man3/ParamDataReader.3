@@ -1,0 +1,62 @@
+.TH "ParamDataReader" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ParamDataReader \- 
+.PP
+Reads parameterized datafiles.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ParamDataReader.h>\fP
+.PP
+Inherits \fBDataReader\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBParamDataReader\fP (const std::string &)"
+.br
+.ti -1c
+.RI "void \fBgetHeaderRecord\fP (\fBHeaderRecord\fP &hdr)"
+.br
+.ti -1c
+.RI "void \fBgetNextEventRecord\fP (\fBHillasParameterization\fP &p)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetTypeString\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDone\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reads parameterized datafiles. 
+.PP
+Definition at line 16 of file ParamDataReader.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void ParamDataReader::getHeaderRecord (\fBHeaderRecord\fP &hdr)"
+.PP
+Read in the Parameterized header record. \fBTodo\fP
+.RS 4
+: should make a ParamHeaderRecord which is a subclass of \fBHeaderRecord\fP which has all the extra parameterized info (like whether zcuts was enabled, etc.) 
+.RE
+.PP
+
+.PP
+Definition at line 82 of file ParamDataReader.cpp.
+.PP
+References HeaderRecord::average_elevation, HeaderRecord::dec, HeaderRecord::endtime, HeaderRecord::nadc, HeaderRecord::num_telescopes, HeaderRecord::ra, HeaderRecord::sourcename, and HeaderRecord::starttime.
+.PP
+Referenced by WUArray::analyzeRun(), and Cutter::cut().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

@@ -1,0 +1,76 @@
+\hypertarget{classSpectralCutter}{
+\subsection{SpectralCutter Class Reference}
+\label{classSpectralCutter}\index{SpectralCutter@{SpectralCutter}}
+}
+
+
+Implements cuts which scale with zenith angle and SIZE, otherwise very similar to SuperCuts.  
+
+
+
+
+{\ttfamily \#include $<$SpectralCutter.h$>$}
+
+Inheritance diagram for SpectralCutter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSpectralCutter}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries ParameterEnum} \{ {\bfseries A}, 
+{\bfseries B}, 
+{\bfseries C}, 
+{\bfseries D}
+ \}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSpectralCutter_a86026e01fc73d62ba2e8d41816d07a00}{
+bool {\bfseries passLength} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSpectralCutter_a86026e01fc73d62ba2e8d41816d07a00}
+
+\item 
+\hypertarget{classSpectralCutter_a26ee21395280d5cf4ec6ceb6627ae4ad}{
+bool {\bfseries passWidth} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSpectralCutter_a26ee21395280d5cf4ec6ceb6627ae4ad}
+
+\item 
+\hypertarget{classSpectralCutter_ab4ea32e6db4899f1c82daa5ed6b4c9f6}{
+double \hyperlink{classSpectralCutter_ab4ea32e6db4899f1c82daa5ed6b4c9f6}{expectedLength} (double size, double zenith)}
+\label{classSpectralCutter_ab4ea32e6db4899f1c82daa5ed6b4c9f6}
+
+\item 
+\hypertarget{classSpectralCutter_af811b871a1f25c0ca09f8011aa993132}{
+double \hyperlink{classSpectralCutter_af811b871a1f25c0ca09f8011aa993132}{modelLength} (double lnsize, const double $\ast$param)}
+\label{classSpectralCutter_af811b871a1f25c0ca09f8011aa993132}
+
+\item 
+\hypertarget{classSpectralCutter_a841becd5a88abbfd5a942fcaa78ff1ac}{
+double \hyperlink{classSpectralCutter_a841becd5a88abbfd5a942fcaa78ff1ac}{expectedWidth} (double size, double zenith)}
+\label{classSpectralCutter_a841becd5a88abbfd5a942fcaa78ff1ac}
+
+\item 
+\hypertarget{classSpectralCutter_a474e8d284d8e60e13c4edb1be602bc3e}{
+double \hyperlink{classSpectralCutter_a474e8d284d8e60e13c4edb1be602bc3e}{modelWidth} (double lnsize, const double $\ast$param)}
+\label{classSpectralCutter_a474e8d284d8e60e13c4edb1be602bc3e}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implements cuts which scale with zenith angle and SIZE, otherwise very similar to SuperCuts. 
+
+Re-\/implements the length and width cuts. 
+
+Definition at line 11 of file SpectralCutter.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+SpectralCutter.h\item 
+SpectralCutter.cpp\end{DoxyCompactItemize}

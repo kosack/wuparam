@@ -1,0 +1,15 @@
+# 
+# GNUPlot file to generate final output plots for wuparam/wucut
+#
+
+set terminal postscript eps "Palatino-Roman" 
+
+#---------------------------------------------------
+# plot the final alpha plot
+#---------------------------------------------------
+
+set yrange [0:]
+set output 'alpha-total.eps'
+set xlabel "Alpha (degrees)"
+plot 'alpha-total-on.hist' u 1:3 t "On" with steps, 'alpha-total-off.hist' u 1:3 t "Off" with steps
+

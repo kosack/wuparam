@@ -1,0 +1,1 @@
+\form#0:\[ C_{ij} = \sum_{k,l} I_1(k,l) * I_2((k+i) mod N,(l+j) mod M) \]

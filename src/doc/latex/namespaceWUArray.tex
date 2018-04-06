@@ -1,0 +1,129 @@
+\hypertarget{namespaceWUArray}{
+\subsection{WUArray Namespace Reference}
+\label{namespaceWUArray}\index{WUArray@{WUArray}}
+}
+
+
+Function prototypes and globals for wuarray.  
+
+
+\subsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceWUArray_abd3f6c10cbcfe7fa4e24e4bce5522ab8}{RunType} \{ {\bfseries TRACK}, 
+{\bfseries ON}, 
+{\bfseries OFF}
+ \}
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceWUArray_ab642d5effbed86a60d236513ba68de8c}{
+void \hyperlink{namespaceWUArray_ab642d5effbed86a60d236513ba68de8c}{showUsage} ()}
+\label{namespaceWUArray_ab642d5effbed86a60d236513ba68de8c}
+
+\item 
+void \hyperlink{namespaceWUArray_a91ddbe526ff9aab8db00c8a40d09867c}{getCommandLineOptions} (int argc, char $\ast$$\ast$argv)
+\item 
+\hypertarget{namespaceWUArray_a69545c23f3068ab0280f3be54345a006}{
+void {\bfseries shutdown} ()}
+\label{namespaceWUArray_a69545c23f3068ab0280f3be54345a006}
+
+\item 
+\hypertarget{namespaceWUArray_ab448bf290a1eea9d1c5f8ecc9adbcccd}{
+void {\bfseries trap\_\-ctrl\_\-c} (int)}
+\label{namespaceWUArray_ab448bf290a1eea9d1c5f8ecc9adbcccd}
+
+\item 
+void \hyperlink{namespaceWUArray_a7ed5ef4b896abeb0025832e0b5a737bd}{process} (\hyperlink{classRunInfo}{RunInfo} \&ri)
+\item 
+void \hyperlink{namespaceWUArray_a257a781e9eccd9e0061a1d21afa9329d}{analyzeRun} (\hyperlink{classRunInfo}{RunInfo} \&ri, \hyperlink{namespaceWUArray_abd3f6c10cbcfe7fa4e24e4bce5522ab8}{RunType} runtype)
+\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceWUArray_ae13800389922672d48647bdf1a8fb8cc}{
+\hyperlink{classPlotMaker}{PlotMaker} $\ast$ {\bfseries pm} = NULL}
+\label{namespaceWUArray_ae13800389922672d48647bdf1a8fb8cc}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Function prototypes and globals for wuarray. I put these in their own namespace so they don't conflict with functions in wuparam, wucut, etc. 
+
+\subsubsection{Function Documentation}
+\hypertarget{namespaceWUArray_a257a781e9eccd9e0061a1d21afa9329d}{
+\index{WUArray@{WUArray}!analyzeRun@{analyzeRun}}
+\index{analyzeRun@{analyzeRun}!WUArray@{WUArray}}
+\paragraph[{analyzeRun}]{\setlength{\rightskip}{0pt plus 5cm}void WUArray::analyzeRun (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{ri, }
+\item[{{\bf WUArray::RunType}}]{runtype}
+\end{DoxyParamCaption}
+)}}
+\label{namespaceWUArray_a257a781e9eccd9e0061a1d21afa9329d}
+
+
+Analyze a single run. 
+
+This is called by process. Right now, it just reads the data and demonstrates some simple things you can do.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ri} & the full run-\/info struct \\
+\hline
+{\em runtype} & -\/ should be process the on, off, or tracking run? These cases may be treated separately. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 218 of file wuarray.cpp.
+
+
+
+References Image2D::addHistRadially(), HillasParameterization::alpha, RunInfo::arrayconfig, ParamDataReader::getHeaderRecord(), Camera::getNumPixels(), Histogram::increment(), HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, RunInfo::offid, RunInfo::onid, PlotMaker::plotAxes(), HillasParameterization::point\_\-of\_\-origin\_\-a, Image2D::save(), Image2D::setCoordinateBox(), HeaderRecord::sourcename, RunInfo::utdate, Coordinate\_\-t::x, and Coordinate\_\-t::y.
+
+
+
+Referenced by process().
+
+\hypertarget{namespaceWUArray_a91ddbe526ff9aab8db00c8a40d09867c}{
+\index{WUArray@{WUArray}!getCommandLineOptions@{getCommandLineOptions}}
+\index{getCommandLineOptions@{getCommandLineOptions}!WUArray@{WUArray}}
+\paragraph[{getCommandLineOptions}]{\setlength{\rightskip}{0pt plus 5cm}void WUArray::getCommandLineOptions (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}
+\label{namespaceWUArray_a91ddbe526ff9aab8db00c8a40d09867c}
+
+
+This specifies and processes the various command-\/line options. 
+
+See the getopt manpage for more information (type 'man 3 getopt' to see the C documentation, which is in manual section 3). 
+
+Definition at line 421 of file wuarray.cpp.
+
+\hypertarget{namespaceWUArray_a7ed5ef4b896abeb0025832e0b5a737bd}{
+\index{WUArray@{WUArray}!process@{process}}
+\index{process@{process}!WUArray@{WUArray}}
+\paragraph[{process}]{\setlength{\rightskip}{0pt plus 5cm}void WUArray::process (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{ri}
+\end{DoxyParamCaption}
+)}}
+\label{namespaceWUArray_a7ed5ef4b896abeb0025832e0b5a737bd}
+
+
+Process a single run. 
+
+This is called for each run in the config file. 
+
+Definition at line 182 of file wuarray.cpp.
+
+
+
+References analyzeRun(), RunInfo::offid, RunInfo::onid, and RunInfo::type.
+

@@ -1,0 +1,100 @@
+\hypertarget{classGainFinder}{
+\subsection{GainFinder Class Reference}
+\label{classGainFinder}\index{GainFinder@{GainFinder}}
+}
+
+
+Retrieve or calculate nitrogen gains, given a nitrogen run ID.  
+
+
+
+
+{\ttfamily \#include $<$GainFinder.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGainFinder_a093922ed07e211199e2e3afdc4b6b2d4}{getGains} (\hyperlink{classRunInfo}{RunInfo} \&ri, Array\_\-t \&gains, int telescope\_\-id=0)
+\item 
+void \hyperlink{classGainFinder_a3cd76ff621f0c8fe2113b8fa98a8a45a}{setThresholds} (double, double, double)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Retrieve or calculate nitrogen gains, given a nitrogen run ID. 
+
+Definition at line 14 of file GainFinder.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classGainFinder_a093922ed07e211199e2e3afdc4b6b2d4}{
+\index{GainFinder@{GainFinder}!getGains@{getGains}}
+\index{getGains@{getGains}!GainFinder@{GainFinder}}
+\paragraph[{getGains}]{\setlength{\rightskip}{0pt plus 5cm}void GainFinder::getGains (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{ri, }
+\item[{Array\_\-t \&}]{gains, }
+\item[{int}]{telescope\_\-id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{classGainFinder_a093922ed07e211199e2e3afdc4b6b2d4}
+
+
+Fetch the gains for the specified nitrogen run. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ri} & -\/ Run information struct from \hyperlink{classConfig}{Config} \\
+\hline
+{\em id} & -\/ nitrogen gain id \\
+\hline
+{\em gains} & -\/ uninitialized Array\_\-t where gains will be stored\\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000019}{Todo}]: make gains database have a code column which marks bad gains 
+
+: implement lock file! \end{Desc}
+
+
+Definition at line 48 of file GainFinder.cpp.
+
+
+
+References RunInfo::cachedir, PedestalFinder::getPeds(), RawDataReaderFactory::getReader(), RawDataReaderFactory::instance(), RunInfo::n2id, HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, and PedestalFinder::setTubeOffThresholds().
+
+\hypertarget{classGainFinder_a3cd76ff621f0c8fe2113b8fa98a8a45a}{
+\index{GainFinder@{GainFinder}!setThresholds@{setThresholds}}
+\index{setThresholds@{setThresholds}!GainFinder@{GainFinder}}
+\paragraph[{setThresholds}]{\setlength{\rightskip}{0pt plus 5cm}void GainFinder::setThresholds (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max, }
+\item[{double}]{percent}
+\end{DoxyParamCaption}
+)}}
+\label{classGainFinder_a3cd76ff621f0c8fe2113b8fa98a8a45a}
+
+
+Set gain cutoff thresholds. 
+
+The default values are used if this method is not called explicitly. 
+\begin{DoxyParams}{Parameters}
+{\em min} & -\/ minimim adc value to include in gain calculation (default is 50) \\
+\hline
+{\em max} & -\/ maximum adc value to include in gain calculation (default 1000) \\
+\hline
+{\em percent} & -\/ percent of camera above which the image is considered \char`\"{}saturated\char`\"{} and should be ignored for gain calculations (default 0.75) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file GainFinder.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+GainFinder.h\item 
+GainFinder.cpp\end{DoxyCompactItemize}

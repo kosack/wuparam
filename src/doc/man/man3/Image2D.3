@@ -1,0 +1,180 @@
+.TH "Image2D" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Image2D \- 
+.PP
+Representation of a 2-D raster image (for 2D analysis)  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Image2D.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImage2D\fP (int nxbins=39, int nybins=39)"
+.br
+.ti -1c
+.RI "void \fBsetCoordinateBox\fP (double minx, double miny, double maxx, double maxy)"
+.br
+.ti -1c
+.RI "double \fBgetXCoord\fP (int i)"
+.br
+.ti -1c
+.RI "double \fBgetYCoord\fP (int j)"
+.br
+.ti -1c
+.RI "double \fBgetMinX\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinY\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxX\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxY\fP ()"
+.br
+.ti -1c
+.RI "void \fBload\fP (std::string filename)"
+.br
+.ti -1c
+.RI "void \fBsave\fP (std::string filename)"
+.br
+.ti -1c
+.RI "void \fBsavePGM\fP (std::string filename)"
+.br
+.ti -1c
+.RI "void \fBsaveGrid\fP (std::string filename)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetPixel\fP (int i, int j, double val)"
+.br
+.ti -1c
+.RI "double \fBgetPixel\fP (int i, int j)"
+.br
+.ti -1c
+.RI "void \fBaddToPixel\fP (int i, int j, double val)"
+.br
+.ti -1c
+.RI "void \fBaddHist\fP (double x, double y, double val)"
+.br
+.ti -1c
+.RI "void \fBaddHistRadially\fP (double x, double y, double val, float radius)"
+.br
+.ti -1c
+.RI "int \fBgetOutsideHits\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddImage\fP (\fBImage2D\fP &im)"
+.br
+.ti -1c
+.RI "void \fBapplyRadialSmoothing\fP (double r)"
+.br
+.ti -1c
+.RI "int \fBgetXDim\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetYDim\fP ()"
+.br
+.ti -1c
+.RI "double \fBminValue\fP ()"
+.br
+.ti -1c
+.RI "double \fBmaxValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetIndexOfMax\fP (int &i, int &j)"
+.br
+.ti -1c
+.RI "void \fBexpand\fP ()"
+.br
+.ti -1c
+.RI "\fBImage2D\fP * \fBcrossCorrelateWith\fP (\fBImage2D\fP &)"
+.br
+.ti -1c
+.RI "int \fBgetXHistBinOf\fP (double x)"
+.br
+.ti -1c
+.RI "int \fBgetYHistBinOf\fP (double y)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Representation of a 2-D raster image (for 2D analysis) 
+.PP
+Definition at line 14 of file Image2D.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Image2D::addHist (doublex, doubley, doubleval)"
+.PP
+Add the specified value to the pixel which contains the coordinate (x,y). This is useful for histogramming in 2-D. 
+.PP
+Definition at line 104 of file Image2D.cpp.
+.PP
+Referenced by Cutter::cut().
+.SS "void Image2D::addHistRadially (doublex, doubley, doubleval, floatradius)"
+.PP
+Adds the value val to all pixels in the image that are within radius of the point (x,y). This provides another method to radially smooth an image while filling it. It's slower than calling \fBapplyRadialSmoothing()\fP after an image has been created, but it's more accurate.
+.PP
+\fBTodo\fP
+.RS 4
+: can speed this up considerably with geometric considerations (by only iterating over range of pixels that fall withing radius*2 for example) 
+.RE
+.PP
+
+.PP
+Definition at line 138 of file Image2D.cpp.
+.PP
+Referenced by WUArray::analyzeRun(), and Cutter::generateImage().
+.SS "void Image2D::addImage (\fBImage2D\fP &im)"
+.PP
+Add another image to this image. Sums each pixel. Images must be of the same dimensions. 
+.PP
+Definition at line 81 of file Image2D.cpp.
+.PP
+Referenced by Cutter::generateImage().
+.SS "\fBImage2D\fP * Image2D::crossCorrelateWith (\fBImage2D\fP &image)"
+.PP
+Compute the cross-corrolation with the specified image. Returns a new \fBImage2D\fP of the correlation coefficients. Remember to delete the new image when you're done with it.
+.PP
+\[ C_{ij} = \sum_{k,l} I_1(k,l) * I_2((k+i) mod N,(l+j) mod M) \] 
+.PP
+Definition at line 536 of file Image2D.cpp.
+.PP
+References setCoordinateBox().
+.PP
+Referenced by Cutter::checkPointing().
+.SS "void Image2D::save (std::stringfilename)"
+.PP
+Output a tab delimited datafile and corresponding GNUplot file. Write the image to disk.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP base filename name of output text file (file extension will be added.
+.RE
+.PP
+We follow the convention that the x-value of the histogram is the value of the lower bound on the corresponding bin. To calculate the value at the center of the bin it is necessary to add half of the bin width. 
+.PP
+Definition at line 176 of file Histogram.cpp.
+.PP
+References Histogram::saveStatistics().
+.PP
+Referenced by WUArray::analyzeRun(), Cutter::checkPointing(), Cutter::cut(), and Cutter::generateImage().
+.SS "void Image2D::setCoordinateBox (doubleminx, doubleminy, doublemaxx, doublemaxy)"
+.PP
+Set up the coordinate values of the image. Specify the boundaries of the image, not the positions of the center of the boundary pixels! 
+.PP
+Definition at line 54 of file Image2D.cpp.
+.PP
+Referenced by WUArray::analyzeRun(), crossCorrelateWith(), Cutter::cut(), expand(), Cutter::generateImage(), and StarCatalog::load().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

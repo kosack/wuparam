@@ -1,0 +1,211 @@
+.TH "Cutter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Cutter \- 
+.PP
+\fBCuts\fP parameterized data, calculates statistics, and generates final histograms.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Cutter.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBtypes\fP { \fBON\fP, \fBOFF\fP, \fBTRACK\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBenableOutput\fP (bool val=1)"
+.br
+.ti -1c
+.RI "void \fBenableScaledParameterOutput\fP (bool val=1)"
+.br
+.ti -1c
+.RI "void \fBenableFastImageProcessing\fP (bool val=1)"
+.br
+.ti -1c
+.RI "void \fBenable2D\fP (bool val=1)"
+.br
+.ti -1c
+.RI "void \fBenablePointingCheck\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableDisplay\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBprocess\fP (\fBRunInfo\fP &ri)"
+.br
+.ti -1c
+.RI "\fBRunStatistics\fP \fBgetTrackingStatistics\fP (\fBCutRecord\fP &run, double ratio)"
+.br
+.ti -1c
+.RI "\fBRunStatistics\fP \fBgetPairStatistics\fP (\fBCutRecord\fP &onrun, \fBCutRecord\fP &offrun)"
+.br
+.ti -1c
+.RI "\fBRunStatistics\fP \fBgetTotalPairStatistics\fP ()"
+.br
+.ti -1c
+.RI "void \fBoutputStatistics\fP ()"
+.br
+.ti -1c
+.RI "double \fBenergyEstimator\fP (double size, double dist)"
+.br
+.ti -1c
+.RI "\fBCutRecord\fP \fBgetTotal\fP (std::vector< \fBCutRecord\fP > &)"
+.br
+.ti -1c
+.RI "double \fBmaxLikelihoodSignif\fP (double n_on, double n_off, double alpha)"
+.br
+.ti -1c
+.RI "\fBCutRecord\fP \fBcut\fP (\fBRunInfo\fP &, const std::string &, char)"
+.br
+.ti -1c
+.RI "void \fBgenerateImage\fP (\fBCutRecord\fP &on, \fBCutRecord\fP &off, std::string dir, std::string title, bool finalimage=false)"
+.br
+.ti -1c
+.RI "void \fBradiallyBinPoints\fP (std::vector< \fBCoordinate_t\fP > &poolist, \fBImage2D\fP &destimage, double radius)"
+.br
+.ti -1c
+.RI "void \fBsetOutputDir\fP (std::string dirname)"
+.br
+.ti -1c
+.RI "void \fBprintCutRecordFields\fP (std::ostream &stream)"
+.br
+.ti -1c
+.RI "void \fBcheckPointing\fP ()"
+.br
+.ti -1c
+.RI "void \fBcheckDiagnostics\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetElongationFactor\fP (double zenith)"
+.br
+.ti -1c
+.RI "void \fBsetTelescopeID\fP (int num)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCuts\fP parameterized data, calculates statistics, and generates final histograms. 
+
+\fBTodo\fP
+.RS 4
+: this is a badly designed class. \fBCutter\fP should be a small object which applies a specific set of cuts (subclasses for other cutting methods). All the analysis should be done elsewhere.
+.RE
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+: For multi-telescope analysis, make a telescope_id argument or field and only process events from the specified telescope. 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file Cutter.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBCutRecord\fP Cutter::cut (\fBRunInfo\fP &, const std::string &, char)"
+.PP
+Read the parameterized data for the specified run id and count the number of events that pass the various cuts. Also generates histograms of rate, size, energy, etc. This function is called by \fBCutter::process\fP for each run in the configuration file, so there is usually no need to call it directly.
+.PP
+\fBReturns:\fP
+.RS 4
+a \fBCutRecord\fP containing all the totals for the specified run.
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+: Implement 2-D analysis for tracking runs (currently, only ON/OFF pairs are used.
+.RE
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+: separate total alpha plot for tracking runs.
+.RE
+.PP
+
+.PP
+Definition at line 1162 of file Cutter.cpp.
+.PP
+References Image2D::addHist(), CutInfo::align_offset, CutInfo::alignment, HillasParameterization::alpha, SuperCutter::applyCorrections(), HeaderRecord::average_elevation, HillasParameterization::centroid, Image2D::clear(), RunInfo::cuts, RunInfo::cuttype, HeaderRecord::dec, HillasParameterization::distance, HeaderRecord::endtime, HillasParameterization::energy_estimate, RunInfo::energyestimator, StarCatalog::findNearbyStars(), ParamDataReader::getHeaderRecord(), ImageParameterization::gpstime, Histogram::increment(), CutFactory::instance(), EnergyEstimatorFactory::instance(), HeaderRecord::nadc, HeaderRecord::num_telescopes, SuperCutter::pass(), PlotMaker::plotAxes(), HillasParameterization::point_of_origin_a, HillasParameterization::point_of_origin_b, StarCatalog::precessToDate(), HeaderRecord::ra, CutInfo::radial_analysis, CutInfo::radial_offset, Image2D::save(), Image2D::setCoordinateBox(), HillasParameterization::size, CutInfo::smoothing_radius, HeaderRecord::sourcename, HeaderRecord::starttime, ImageParameterization::telescope_id, RunInfo::utbase, RunInfo::utdate, Coordinate_t::x, Coordinate_t::y, and HillasParameterization::zenith.
+.PP
+Referenced by process().
+.SS "double Cutter::energyEstimator (doublesize, doubledist)"
+.PP
+Return the energy estimate for the given size and distance values. \fBReturns:\fP
+.RS 4
+x = log(Energy) 
+.RE
+.PP
+
+.PP
+Definition at line 1664 of file Cutter.cpp.
+.SS "void Cutter::generateImage (\fBCutRecord\fP &on, \fBCutRecord\fP &off, std::stringdir, std::stringtitle, boolfinalimage = \fCfalse\fP)"
+.PP
+Save a datafile (image2d-total.dat) containing the 2D excess and significance values for all of the data that has been currently cut. The format of the output file is 6 columns per line:
+.IP "\(bu" 2
+column 1: x camera coordinate bin (in degrees)
+.IP "\(bu" 2
+column 2: y camera coordinate bin (in degrees)
+.IP "\(bu" 2
+column 3: excess counts
+.IP "\(bu" 2
+column 4: significance
+.IP "\(bu" 2
+column 5: Right Ascension of bin
+.IP "\(bu" 2
+column 6: Declination of bin 
+.PP
+
+.PP
+Definition at line 832 of file Cutter.cpp.
+.PP
+References Image2D::addHistRadially(), Image2D::addImage(), Image2D::applyRadialSmoothing(), Image2D::expand(), maxLikelihoodSignif(), Image2D::save(), and Image2D::setCoordinateBox().
+.PP
+Referenced by outputStatistics(), and process().
+.SS "double Cutter::getElongationFactor (doublezen)"\fBReturns:\fP
+.RS 4
+zenith angle dependent elongation factor for the camera 
+.RE
+.PP
+
+.PP
+Definition at line 1687 of file Cutter.cpp.
+.SS "double Cutter::maxLikelihoodSignif (doublen_on, doublen_off, doublealpha)"
+.PP
+Returns the maximum likelihood significance (see Li and Ma, 1983) \fBParameters:\fP
+.RS 4
+\fIn_on\fP number of on-source counts 
+.br
+\fIn_off\fP number of off-source counts 
+.br
+\fIalpha\fP 1/(tracking ratio) for tracking runs, or on/off duration for on/off pairs.
+.RE
+.PP
+NOTE alpha is defined as 1/(tracking ratio) where the tracking ratio is the ratio of (number of off-source bins)/(on-source bins) So, e.g., for an 'alpha' cut of alpha<15 for on-source and 20 < alpha < 65 for off-source, the tracking ratio = 3.0 and alpha = 0.333. Defining alpha in this way, excess = n_on - alpha * n_off. 
+.PP
+Definition at line 158 of file Cutter.cpp.
+.PP
+Referenced by generateImage().
+.SS "void Cutter::process (\fBRunInfo\fP &ri)"
+.PP
+\fBCut\fP the data in the specified run, and build up statistics for all runs. Each run's cut information is stored in the onruns/offruns/trackruns vectors. 
+.PP
+Definition at line 1081 of file Cutter.cpp.
+.PP
+References cut(), RunInfo::cuts, generateImage(), RunInfo::offid, RunInfo::onid, Logger::printf(), CutInfo::radial_analysis, CutInfo::smoothing_radius, and RunInfo::type.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

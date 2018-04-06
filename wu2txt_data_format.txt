@@ -1,0 +1,52 @@
+Here's the column format of wuparam's text output (as from wu2txt).
+This document should be updated whenever anyone adds a field to the
+HillasParameterization struct.  The actual output is done in the
+ImageAnalyzer::operator<<() function in ImageAnalyzer.cpp.
+
+
+index   #      Name
+--------------------------------------------------------------------------
+SIMULATION PARAMETERS:
+--------------------------------------------------------------------------
+0	1	simulation event number
+1	2	primary type
+2	3	primary energy
+3	4	impact parameter (x)
+4	5	impact parameter (y)
+5	6	direction cos (x)
+6	7	direction cos (y)
+--------------------------------------------------------------------------
+PARAMETERIZER PARAMETERS:
+--------------------------------------------------------------------------
+7	8	real event number
+8	9	invalid flag level
+9	10	GPS time
+10	11	centroid position (x) in cam coords
+11	12	centroid position (y) in cam coords
+12	13	point of origin A (x) in cam coords
+13	14	point of origin A (y) in cam coords
+14	15	point of origin B (x) in cam coords
+15	16	point of origin B (y) in cam coords
+16	17	LENGTH
+17	18	WIDTH
+18	19	MISS
+19	20	DISTANCE
+20	21	AZWIDTH
+21	22	ALPHA
+22	23	PSI (rotation angle of shower image wrt x-axis)
+23	24	PHI (polar angle of centroid)
+24	25	SIZE
+25	26	MAX1
+26	27	MAX2
+27	28	MAX3
+28	29	index of MAX1
+29`	30	index of MAX2
+30	31	index of MAX3
+31	32	FRAC1
+32	33	FRAC2
+33	34	FRAC3
+34	35	ASYMMETRY
+35	36	LENGTH/SIZE
+36	37	zenith angle (in radians)
+37	38	energy estimate
+38	39	telescope ID number

@@ -1,0 +1,220 @@
+.TH "PlotMaker" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PlotMaker \- 
+.PP
+Plots stuff to any PlotUtils graphics context.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <PlotMaker.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPlotState\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBColorMap\fP { \fBCOLORMAP_BLUES\fP, \fBCOLORMAP_REDBLUE\fP, \fBCOLORMAP_YELLOWGREEN\fP, \fBCOLORMAP_INVERSEGREY\fP, \fBCOLORMAP_GREY\fP, \fBCOLORMAP_RAINBOW\fP, \fBCOLORMAP_HOT\fP, \fBCOLORMAP_PRINTABLE\fP }"
+.br
+.ti -1c
+.RI "enum \fBContourLineStyle\fP { \fBLINE_SOLID\fP, \fBLINE_DOTTED\fP, \fBLINE_DASHED\fP }"
+.br
+.ti -1c
+.RI "enum \fBCameraPlotType\fP { \fBCAMERA_IMAGE\fP, \fBCAMERA_PEDS\fP, \fBCAMERA_PEDDISPS\fP, \fBCAMERA_TUBENUMS\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlotMaker\fP (std::string type, std::string filename='', double minx=-3.1, double miny=-3.1, double maxx=3.1, double maxy=3.1)"
+.br
+.ti -1c
+.RI "void \fBsetAxisBox\fP (double minx, double miny, double maxx, double maxy)"
+.br
+.ti -1c
+.RI "void \fBsetAxisBox\fP (\fBImage2D\fP &im2d)"
+.br
+.ti -1c
+.RI "void \fBsetAxisBox\fP (\fBCamera\fP &cam)"
+.br
+.ti -1c
+.RI "void \fBsetSpace\fP (double minx, double miny, double maxx, double maxy)"
+.br
+.ti -1c
+.RI "void \fBflush\fP ()"
+.br
+.ti -1c
+.RI "void \fBnewPage\fP ()"
+.br
+.ti -1c
+.RI "void \fBpushState\fP ()"
+.br
+.ti -1c
+.RI "void \fBpopState\fP ()"
+.br
+.ti -1c
+.RI "void \fBrotate\fP (double theta)"
+.br
+.ti -1c
+.RI "void \fBplotAxes\fP ()"
+.br
+.ti -1c
+.RI "void \fBplotTitle\fP (std::string title)"
+.br
+.ti -1c
+.RI "void \fBplotSubtitle\fP (std::string title)"
+.br
+.ti -1c
+.RI "void \fBplotXTicAt\fP (double x)"
+.br
+.ti -1c
+.RI "void \fBplotYTicAt\fP (double y)"
+.br
+.ti -1c
+.RI "void \fBplotXMinorTicAt\fP (double x)"
+.br
+.ti -1c
+.RI "void \fBplotYMinorTicAt\fP (double y)"
+.br
+.ti -1c
+.RI "void \fBcontourPlot\fP (\fBImage2D\fP &im2d, double zmin, double zmax, double dz)"
+.br
+.ti -1c
+.RI "void \fBplotRADecGrid\fP (\fBImage2D\fP &ragrid, \fBImage2D\fP &decgrid)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (\fBImage2D\fP &im2d)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (\fBCamera\fP &cam, const Array_t &image, const vector< \fBPedestal\fP > &peds, vector< int > &cleanpixels, CameraPlotType plottype=CAMERA_IMAGE)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (\fBHillasParameterization\fP &p)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (\fBMuonParameterization\fP &p)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (\fBStar\fP &s, int symbol=16)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (vector< double > &xpoints, vector< double > &ypoints)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (string text, double x, double y)"
+.br
+.ti -1c
+.RI "void \fBplot\fP (\fBTelescopeArray\fP &array)"
+.br
+.ti -1c
+.RI "void \fBplotEllipse\fP (double x, double y, double r1, double r2, double theta=0)"
+.br
+.ti -1c
+.RI "void \fBplotMarker\fP (double x, double y)"
+.br
+.ti -1c
+.RI "void \fBsetColorMap\fP (ColorMap c)"
+.br
+.ti -1c
+.RI "void \fBsetColorMap\fP (string name)"
+.br
+.ti -1c
+.RI "void \fBgetMappedColor\fP (double value, int &red, int &green, int &blue)"
+.br
+.ti -1c
+.RI "void \fBsetPixelScale\fP (double pixscale)"
+.br
+.ti -1c
+.RI "void \fBsetScaleFactor\fP (double factor)"
+.br
+.ti -1c
+.RI "void \fBsetTicLevel\fP (int l)"
+.br
+.ti -1c
+.RI "void \fBsetColorScale\fP (double lower, double upper)"
+.br
+.ti -1c
+.RI "void \fBenableAutoScale\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBsetContourColorName\fP (string name)"
+.br
+.ti -1c
+.RI "void \fBsetTicMarkColorName\fP (string name)"
+.br
+.ti -1c
+.RI "void \fBsetContourLineStyle\fP (ContourLineStyle i)"
+.br
+.ti -1c
+.RI "void \fBsetContourLineStyle\fP (string style)"
+.br
+.ti -1c
+.RI "void \fBsetContourLineWidth\fP (double width)"
+.br
+.ti -1c
+.RI "void \fBsetLabelColorName\fP (string name)"
+.br
+.ti -1c
+.RI "void \fBsetLabelAngle\fP (double theta)"
+.br
+.ti -1c
+.RI "void \fBsetLabelSize\fP (double size)"
+.br
+.ti -1c
+.RI "void \fBsetMarkerType\fP (int type)"
+.br
+.ti -1c
+.RI "void \fBsetMarkerSize\fP (double size)"
+.br
+.ti -1c
+.RI "void \fBsetMarkerColorName\fP (string name)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Plots stuff to any PlotUtils graphics context. 
+.PP
+Definition at line 19 of file PlotMaker.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void PlotMaker::getMappedColor (doublevalue, int &red, int &green, int &blue)"
+.PP
+Returns the rgb color for the specified grey value (in range 0..1) \fBParameters:\fP
+.RS 4
+\fIvalue\fP grey value which should be mapped to a color (0..1) 
+.br
+\fIred\fP returned color value (0..65535) 
+.br
+\fIgreen\fP returned color value (0..65535) 
+.br
+\fIblue\fP returned color value (0..65535) 
+.RE
+.PP
+
+.PP
+Definition at line 891 of file PlotMaker.cpp.
+.SS "void PlotMaker::plotAxes ()"
+.PP
+Plot a set of axes around the AxisBox region. \fBTodo\fP
+.RS 4
+: don't plot minor tics where a major tic is 
+.RE
+.PP
+
+.PP
+Definition at line 98 of file PlotMaker.cpp.
+.PP
+Referenced by WUArray::analyzeRun(), Cutter::cut(), and PedestalFinder::getPeds().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

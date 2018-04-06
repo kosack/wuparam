@@ -1,0 +1,2447 @@
+2005-08-10  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Config.cpp, Config.h, DataWriter.cpp, Parameterizer.cpp:
+	array definition is not user-selectable from the config file
+
+	* GainFinder.cpp, PedestalFinder.cpp:
+	fixed bug where program would enter infinite loop when camera didn't exist in header
+
+2005-08-09  Karl Kosack  <kosack@inky.lexas>
+
+	* wuplot.cpp: added subtitle command
+
+	* Cutter.cpp:
+	added subtitles to output plots, fixed bug with multi-telescope skybrightness
+
+	* PlotMaker.cpp, PlotMaker.h: added ability to plot subtitles
+
+	* Parameterizer.cpp: minor bug-fixes for multi-telescope mode
+
+	* PlotMaker.cpp: removed some debug info
+
+	* Cutter.cpp: added ability to filter events from a single telescope
+
+	* wucut.cpp: added command-line option for telescope number
+
+2005-08-04  Karl Kosack  <kosack@inky.lexas>
+
+	* Parameterizer.cpp:
+	angles and event counts now work for multiple-telescopes
+
+	* Parameterizer.cpp, Parameterizer.h: more multi-telescope support
+
+	* Camera.cpp, Camera.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataRecords.h, DataWriter.cpp, DataWriter.h, GainFinder.cpp, ParamDataReader.cpp, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp:
+	many changes for multi-telescope operation, not fully stable yet
+
+2005-08-02  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.h, DataReader.cpp, DataRecords.h, GainFinder.cpp, GainFinder.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h:
+	more mods to prep for multi-telescopes. Moved telescope-specific info into a struct.
+
+2005-07-28  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Camera.h, Parameterizer.cpp, Parameterizer.h, PlotMaker.cpp, PlotMaker.h:
+	Started adding support for array-analysis (w/o breaking stuff)
+
+2005-07-25  Karl Kosack  <kosack@inky.lexas>
+
+	* DataReader.cpp, ImageAnalyzer.cpp, ImageFilter.cpp, Parameterizer.cpp, Parameterizer.h, PlotMaker.cpp, wuparam.cpp:
+	minor fixes for multi-telescope events
+
+2005-07-22  Karl Kosack  <kosack@inky.lexas>
+
+	* Parameterizer.cpp: minor updates - mostly comments
+
+	* ImageFilter.cpp: sped-up one of the array copy operations
+
+2005-07-18  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.cpp, Config.h, ImageFilter.cpp, Parameterizer.cpp:
+	Mods to make 490 camera work with image filter
+
+2005-07-15  Paul Rebillot  <rebillot@inky.lexas>
+
+	* wufit.cpp, Config.cpp, PedestalFinder.cpp:
+	fixed Config.cpp:writesample(filename)
+		MaxPedestalEvents=1e6  ---> =1000000. config file reader was interpreting 1e6 as '1', and quiting after processing 1 pedestal event.
+
+2005-07-08  Karl Kosack  <kosack@inky.lexas>
+
+	* ImageFilter.cpp, ImageFilter.h, Parameterizer.cpp, PlotMaker.cpp, Camera.cpp, Config.cpp, Config.h, ImageCleaner.cpp, ImageCleaner.h:
+	implemented hexagonal fft filter
+
+2005-07-07  Karl Kosack  <kosack@inky.lexas>
+
+	* Parameterizer.cpp, wuplot.cpp, Camera.cpp, Config.cpp, Config.h, ImageAnalyzer.cpp, ImageAnalyzer.h, ImageFilter.cpp, ImageFilter.h, Makefile.am, Makefile.in:
+	added support for A. Atoyan's image filtering. not tested yet
+
+	* Camera.cpp, Camera.h, ImageAnalyzer.cpp, ImageAnalyzer.h, MuonImageAnalyzer.h:
+	minor changes to ImageAnalyzer and others to prepare for adding image filtering capability
+
+2005-06-27  Karl Kosack  <kosack@inky.lexas>
+
+	* DatabaseRecord.h:
+	added some helper functions. Also, setDatabaseHandle() now creates the table if it doesn't exist, reducing the amount of conflicts if multiple tables are added to an open database
+
+2005-06-21  Karl Kosack  <kosack@inky.lexas>
+
+	* DataTables.h, DatabaseRecord.cpp, DatabaseRecord.h, Parameterizer.cpp:
+	Changed mapNameToField -> addField, and made it detect type automatically
+
+2005-06-17  Karl Kosack  <kosack@inky.lexas>
+
+	* PlotMaker.cpp, PlotMaker.h, SpectralCutter.cpp, SpectralCutter.h, SuperCutter.cpp, SuperCutter.h, Types.h, ZCutter.cpp, ZCutter.h, wucut.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataReader.h, DataRecords.h, DataTables.h, DatabaseRecord.cpp, DatabaseRecord.h, EZCutter.cpp, EZCutter.h, Fitter.cpp, FitterNew.cpp, GainFinder.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp:
+	Restructured to use new DatabaseRecord internal format. Cutter is broken.
+
+2005-06-16  Karl Kosack  <kosack@inky.lexas>
+
+	* DataTables.h, DatabaseRecord.cpp, DatabaseRecord.h: New file.
+
+	* DataTables.h, DatabaseRecord.cpp, DatabaseRecord.h:
+	added files for new DatabaseRecord mechanism
+
+	* Config.cpp, Config.h, DataRecords.h, DataWriter.cpp, DataWriter.h, Image2D.cpp, Makefile.in, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp:
+	Experimental support for sqlite databases
+
+2005-06-07  Karl Kosack  <kosack@inky.lexas>
+
+	* Fitter.cpp, Fitter.h, wu2root.cpp:
+	added some TODO items and fixed the wu2root ROOT includes
+
+2005-05-12  Karl Kosack  <kosack@inky.lexas>
+
+	* PlotMaker.cpp, PlotMaker.h, wuplot.cpp:
+	added ability to plot ellipses
+
+	* wuplot.cpp: smooth now allows multiple levels of smoothing
+
+2005-04-18  Karl Kosack  <kosack@inky.lexas>
+
+	* StarCatalog.cpp: minor updates - shoudn't cause any obvious change
+
+2005-04-15  Paul Rebillot  <rebillot@inky.lexas>
+
+	* wuopt.cpp:
+	added PizCuts2005.conf- cuts somewhat optimized for veritas T1.
+	modified wuopt.cpp to also optimize alpha cut.
+
+2005-04-14  Paul Rebillot  <rebillot@inky.lexas>
+
+	* DataRecords.h, Fitter.cpp, PedestalFinder.cpp, DataReader.cpp:
+	few changes
+
+2005-04-11  Paul Rebillot  <rebillot@inky.lexas>
+
+	* PedestalFinder.cpp: sdf
+
+	* DataReader.cpp, PedestalFinder.cpp:
+	added hack in PedestalFinder.cpp to allow pixels to pass _badpedthresh.  this will need to be rewritten in the future, since the adc-size of the pedestal will
+	be dependent on the size of the charge integration window.
+
+2005-04-08  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.cpp, Config.h, DataReader.cpp, DataReader.h, Makefile.am, Makefile.in, PedestalFinder.cpp:
+	Added option to restrict number of pedestal events
+	Fixed vtext reader
+
+2005-04-08  Paul Rebillot  <rebillot@inky.lexas>
+
+	* Fitter.h, FitterNew.cpp, FitterNew.h, wufit.cpp, wufit_fitcutoff.cpp, EnergySpectrum.cpp, Fitter.cpp:
+	added new program-  wufit_cutoff, that does 3d gridsearch in NO, gamma, and exponential cutoff.  Also added a fix cutoff option to wufit.
+
+2005-04-07  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Camera.h, DataReader.cpp, PedestalFinder.cpp:
+	now works with VERITAS data!
+
+2005-04-04  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp:
+	Fixed error in alignment offset application (typo) that was introduced
+	in prev version
+
+2005-03-15  Karl Kosack  <kosack@inky.lexas>
+
+	* EnergySpectrum.cpp: fixed typo
+
+	* EnergySpectrum.h: fixed typo (Z50Estimator -> Z50EnergyEstimator)
+
+	* EnergySpectrum.cpp: updated with Vicky's latest fit
+
+	* Makefile.in: added aclocal, depcomp, and missing
+
+2005-03-11  Karl Kosack  <kosack@inky.lexas>
+
+	* EnergySpectrum.cpp, EnergySpectrum.h:
+	added vicky's energy estimator stuff
+
+2005-03-07  Karl Kosack  <kosack@inky.lexas>
+
+	* Makefile.am:
+	fixed bug where wu2root stuff wasn't included, breaking the build
+
+2005-03-04  Paul Rebillot  <rebillot@inky.lexas>
+
+	* EnergySpectrum.cpp: js
+
+2005-03-04  Karl Kosack  <kosack@inky.lexas>
+
+	* EnergySpectrum.cpp, Makefile.in:
+	changed log(10) to log(10.0) to get rid of ambiguity
+
+2005-03-03  Paul Rebillot  <rebillot@inky.lexas>
+
+	* EnergySpectrum.cpp, EnergySpectrum.h: fixed Z40EnergyEstimator
+
+	* EnergySpectrum.cpp: h
+
+2005-03-02  Karl Kosack  <kosack@inky.lexas>
+
+	* EnergySpectrum.cpp, EnergySpectrum.h:
+	Added z=40 energy estimator (from Paul Rebillot). The type is "Z40" in the config file.
+
+2005-03-02  Paul Rebillot  <rebillot@inky.lexas>
+
+	* Camera.cpp, wu2root.cpp: *** empty log message ***
+
+2005-02-23  Paul Rebillot  <rebillot@inky.lexas>
+
+	* Fitter.cpp, Makefile.in: turning off debug in fitter.cpp
+
+	* Camera.cpp: *** empty log message ***
+
+2005-02-21  Karl Kosack  <kosack@inky.lexas>
+
+	* DataReader.cpp, DataReader.h, Makefile.am, Makefile.in:
+	Added a DataReader for the VERITAS text format from PR's programs
+
+2005-02-04  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataRecords.h, DataWriter.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Log.cpp, Makefile.am, Makefile.root, MuonImageAnalyzer.h, ParamDataReader.cpp, Parameterizer.cpp, Parameterizer.h, PlotMaker.h, SuperCutter.cpp, Types.h, wu2root.cpp:
+	Added initial wu2root, Changed Coord_t -> Coordinate_t to avoid conflict with ROOT libraries (which also define a Coord_t)
+
+2005-01-31  Paul Rebillot  <rebillot@inky.lexas>
+
+	* Cutter.cpp, Makefile.in:
+	pfr:  changed Cutter.cpp output from <ELEVATION> to <ZENITH>.
+	pfr:  changed Cutter.cpp tracking output from radians to degrees
+
+	* EnergySpectrum.cpp: pfr: removed zenith scaling in EnergySpectrum.cpp
+
+2005-01-31  Karl Kosack  <kosack@inky.lexas>
+
+	* ImageAnalyzer.h:
+	Removed  EPSILON and LARGE from within ImageAnalyzer and made them
+	global since latest g++ seems to have problems with them
+
+2005-01-31  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Makefile.am: added missing file
+
+	* wuparam.spec: updated for FC3
+
+2005-01-31  Paul Rebillot  <rebillot@inky.wustl.edu>
+
+	* support/Makefile.in, src/Cutter.cpp, src/Makefile.in, Makefile.in, configure:
+	pfr:  changed Cutter.cpp output from <ELEVATION> to <ZENITH>.
+	pfr:  changed Cutter.cpp tracking output from radians to degrees
+
+	* src/EnergySpectrum.cpp:
+	pfr: removed zenith scaling in EnergySpectrum.cpp
+
+2005-01-31  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/ImageAnalyzer.h:
+	Removed  EPSILON and LARGE from within ImageAnalyzer and made them
+	global since latest g++ seems to have problems with them
+
+2005-01-28  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/ImageAnalyzer.h: fixed possible problem compiling on FC3
+
+2004-12-29  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ChangeLog, Makefile.am, Makefile.in, support/Makefile.in, wu2txt_data_format.txt, wuparam.spec:
+	added wu2txt_data_format text file
+
+	* src/Cutter.cpp, src/DataWriter.h, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Makefile.in, src/wuopt.cpp:
+	added energy_estimate field to data format
+
+2004-11-27  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/animate-by-run.pl: fixed ouput
+
+2004-11-15  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp, src/DataReader.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Fitter.h, src/ProgressBar.cpp, src/wufit.cpp:
+	made energy spectrum size and limits setable through the config file
+
+	* src/Histogram.cpp, src/Histogram.h:
+	removed gaussian stuff, load now reads .stats file
+
+2004-11-08  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/PlotMaker.cpp:
+	fixed bug when plotting peds or peddisps and cleaned up a bit
+
+2004-11-04  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Parameterizer.cpp:
+	added parameter and cleaning toggles to interactive mode
+
+2004-10-31  Karl Kosack  <kosack@localhost.localdomain>
+
+	* missing, src/Makefile.in, Makefile.in, depcomp:
+	depcomp and missing should come from "automake -a", and not be revision controled!
+
+	* support/Makefile.am, support/Makefile.in, wuparam.spec:
+	added wuconf.pl
+
+	* support/wuconf.pl: added example perl script for reading conf files
+
+2004-10-26  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Fitter.cpp: updated for kascade error
+
+2004-10-25  rebillot  <rebillot@neutralino>
+
+	* support/Makefile.in: adding depcomp
+	d
+
+	* src/Makefile.in, Makefile.in, configure, depcomp: adding depcomp
+
+2004-10-07  scott  <scott@neutralino>
+
+	* src/Camera.cpp, src/Combine.cpp: fix set camera origin for arrays
+
+2004-10-06  scott  <scott@neutralino>
+
+	* src/Camera.cpp, src/Parameterizer.cpp, src/PlotMaker.h:
+	wuparam plots properly for multi telescopes
+
+2004-10-06  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/wuopt.cpp, src/wuparam.cpp, src/wupeds.cpp, src/wuplot.cpp, src/Cutter.cpp, src/DataReader.cpp, src/DataWriter.cpp, src/Exceptions.h, src/Fitter.cpp, src/Parameterizer.cpp, src/PlotMaker.cpp, src/wu2txt.cpp, src/wucut.cpp, src/wufit.cpp, src/wugains.cpp:
+	Made AnalysisException a proper subclass of std::runtime_exception (and removed "code" argument)
+
+2004-10-06  scott  <scott@neutralino>
+
+	* src/Combine.cpp, src/Parameterizer.cpp, src/PlotMaker.cpp, src/PlotMaker.h:
+	4 plot windows in wuparam, seg fault, will prob remove
+
+2004-09-28  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Cutter.cpp: removed debugging output
+
+	* src/Cutter.cpp, src/Cutter.h, src/DataRecords.h, src/Image2D.cpp, src/Image2D.h, src/Makefile.in, src/wucut.cpp:
+	Added new binning/smoothing algorithm for 2D image generation
+
+2004-09-27  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/wufit.cpp:
+	fixed bug where onoffratio was being truncated to an integer!
+
+	* src/wuplot.cpp:
+	fixed bug where autoscale wasn't turning off when colorscale specified
+
+	* src/PlotMaker.cpp: Fixed bug where autoscale was false by default
+
+	* src/Makefile.in, src/Cutter.cpp, src/EnergySpectrum.cpp, src/EnergySpectrum.h, src/Fitter.cpp:
+	Added zenith angle as parameter for EnergyEstimator.
+	Added zenith angle scaling law to SZA energy estimator
+
+	* support/Makefile.am, support/animate-by-run.pl, wuparam.spec:
+	added animate-by-run perl script
+
+	* Makefile.in, sample.wuplot, src/Makefile.in, src/PlotMaker.cpp, src/PlotMaker.h, src/wuplot.cpp:
+	*** empty log message ***
+
+2004-09-23  scott  <scott@neutralino>
+
+	* src/Camera.cpp, src/Combine.cpp, src/wucombine.cpp:
+	display area widened, not display properly yet
+
+	* src/Camera.cpp, src/Camera.h, src/Combine.cpp, src/Combine.h, src/DataWriter.h, src/Parameterizer.cpp, src/wucombine.cpp:
+	*** empty log message ***
+
+	* wuparam.spec, AUTHORS: includes blank plot window
+
+2004-09-22  scott  <scott@neutralino>
+
+	* src/Combine.cpp, src/Combine.h, src/ParamDataReader.cpp:
+	reads parameterized file
+
+2004-09-21  scott  <scott@neutralino>
+
+	* src/Parameterizer.cpp: moved pedestal-creating code block
+
+	* src/Config.cpp, src/Parameterizer.cpp: trunk changes now working
+
+	* wuparam.1, wuplot.1: recombine with trunk, compiles
+
+	* support/EZCuts2004.conf, support/EZCutsForSpectrum.conf, support/NoCuts.conf:
+	*** empty log message ***
+
+	* src/EZCutter.cpp, src/EZCutter.h, support/109.camera, support/2.array, support/4.array, support/7.array, support/Makefile.am, support/Makefile.in, support/SuperCuts95.conf:
+	recombine with trunk, compiles
+
+	* src/PlotMaker.cpp, src/PlotMaker.h, src/StarCatalog.cpp, src/SuperCutter.cpp, src/ZCutter.cpp, src/ZCutter.h, src/wu2txt.cpp, src/wucut.cpp, src/wufit.cpp, src/wuopt.cpp, src/wuparam.cpp, src/Camera.cpp, src/Camera.h, src/Config.cpp, src/Config.h, src/Cutter.cpp, src/Cutter.h, src/DataReader.cpp, src/DataRecords.h, src/EnergySpectrum.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Fitter.h, src/Histogram.h, src/Image2D.cpp, src/Image2D.h, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Makefile.am, src/Makefile.in, src/Parameterizer.cpp, src/Parameterizer.h:
+	*** empty log message ***
+
+	* Makefile.am, Makefile.in, configure, configure.in:
+	recombine with trunk, compiles
+
+2004-09-20  scott  <scott@neutralino>
+
+	* src/Combine.cpp, src/Combine.h, src/DataRecords.h, src/wucombine.cpp:
+	cleanup
+
+2004-09-14  buckley  <buckley@neutralino>
+
+	* src/Makefile.am: Changed X11 library linking to work with osx
+
+2004-09-14  Karl Kosack  <kosack@localhost.localdomain>
+
+	* configure.in: removed dependence on libplotter, fixed libplot check
+
+	* src/Camera.cpp: now calls getSupportDir() to look for WUPARAMDIR
+
+	* src/wucut.cpp, src/wuparam.cpp: removed dependency on setterm
+
+2004-09-13  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Makefile.am, wuparam.spec: added wuplot manpage
+
+	* ChangeLog, configure, wuplot.1: added wuplot.1
+
+2004-08-30  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/PlotMaker.cpp: removed degugging crap!
+
+	* src/Cutter.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Image2D.h:
+	minor commenting updates and output cleanup
+
+	* src/Image2D.cpp:
+	Fixed bug where loaded images' coordinate boxes were off by 1/2 a pixel
+
+	* src/PlotMaker.cpp:
+	fixed a minor bug with color scale which could cause roundoff error
+
+2004-08-28  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/PlotMaker.cpp, src/PlotMaker.h:
+	more colormaps! (rainbow,hot,printable)
+
+	* src/EnergySpectrum.h: smaller energy bins
+
+2004-08-27  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Parameterizer.cpp:
+	added warning when RA and Dec are 0 (usually bad tracking record)
+
+	* src/Parameterizer.cpp: cleaner menu in interactive mode
+
+	* src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Makefile.in:
+	removed coordinate shift stuff from ImageAnalyzer (now done in Camera more cleanly)
+
+2004-08-26  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/ImageAnalyzer.cpp, src/Parameterizer.cpp, src/Parameterizer.h:
+	derotation now gets disabled in MapSkyBrightness when requested
+
+2004-08-25  scott  <scott@neutralino>
+
+	* src/Camera.cpp, src/Parameterizer.h:
+	failed restructuring attempt, fixed
+
+2004-08-25  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Camera.cpp, src/Camera.h, src/Makefile.in, src/Parameterizer.cpp:
+	Moved the camera offset stuff into Camera, which makes more sense
+
+2004-08-25  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h: updated sample config file output
+
+	* Config.cpp, Config.h, Cutter.cpp, ImageAnalyzer.cpp, Makefile.in, Parameterizer.cpp:
+	added support for camera offset analysis, renamed other offsets
+
+	* StarCatalog.cpp:
+	fixed bug in star stream input/output where stream wasn't being returned
+
+2004-08-24  scott  <scott@neutralino>
+
+	* wucombine.cpp: alter for new program
+
+2004-08-19  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp: minor cosmetic changes
+
+	* wuopt.cpp: added radial cut optimization
+
+2004-08-19  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp: minor cosmetic changes
+
+	* src/wuopt.cpp: added radial cut optimization
+
+2004-08-16  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/EZCuts2004.conf: Updated with new MAX1,2 optimizations
+
+	* src/Camera.cpp, src/Parameterizer.cpp:
+	Updated PE/DC values in Camera.
+	*-muons.txt now outputs in same format as *-goodmuons.txt
+
+2004-08-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/wuopt.cpp:
+	fixed bug in wuopt where max2 was setting max1 parameter
+
+	* support/109.camera, support/SuperCuts95.conf:
+	109 camera file was totally incorrect! fixed.
+	Updated cuts in SuperCuts95
+
+2004-08-06  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Camera.cpp, src/Camera.h, src/Cutter.cpp, src/EZCutter.cpp, src/EZCutter.h, src/Fitter.cpp, src/Parameterizer.cpp, src/ZCutter.cpp, src/ZCutter.h:
+	Updated to allow PE/DC factor to change between years
+
+2004-08-02  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp:
+	now pass unscaled distance to EnergyEstimator::getEstimate() to allow
+	both ZCuts and EZCuts to work with spectral analysis
+
+2004-07-29  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Config.cpp:
+	fixed typo bug in alignment map output
+	returned to old way of selecting fit points in Fitter
+
+2004-07-27  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Fitter.cpp: chiSquare calculation now rejects sick points
+
+	* src/Parameterizer.cpp: added summary info to run_info.txt files
+
+2004-07-15  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Combine.cpp, src/Combine.h, src/DataRecords.h, src/Makefile.am, src/Makefile.in, src/wucombine.cpp:
+	include info to compile WUCombine
+
+2004-06-25  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/EZCuts2004.conf, support/EZCutsForSpectrum.conf: Cut updates
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp, src/EnergySpectrum.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Histogram.h:
+	Energy Estimator is now selectable at runtime
+
+2004-06-24  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp:
+	added ability to load a file of pointing offsets for stacking
+
+2004-06-23  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/EnergySpectrum.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Fitter.h, src/wufit.cpp:
+	updated energy spectrum stuff - now actually works!
+
+2004-06-21  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Combine.cpp, src/Combine.h: New file.
+
+	* src/Combine.cpp, src/Combine.h, src/wucombine.cpp:
+	new files for veritas reconstruction
+
+	* src/wucombine.cpp: New file.
+
+	* src/wucombine.cpp:
+	add new file for combining multiple telescopes into 1 paramaterization
+
+2004-06-17  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/EZCuts2004.conf, support/EZCutsForSpectrum.conf, support/Makefile.am, wuparam.spec:
+	Added EZCutsForSpectrum.conf
+
+2004-06-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp:
+	Added alignment offset capability for stacking runs with differing pointing errors
+
+2004-06-10  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/Makefile.in: updated
+
+	* src/Cutter.h, src/Makefile.in, src/wuopt.cpp, src/Config.cpp, src/Config.h, src/Cutter.cpp, wuparam.1, wuparam.spec, Makefile.am, Makefile.in, configure:
+	updated autoconf stuff and added man page
+
+2004-06-08  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp: fixed typo
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp:
+	Added ability to set smoothing radius in Config file
+
+	* support/EZCuts2004.conf: added SmoothingRadius from optimization
+
+	* src/wuopt.cpp: fixed bug in radial smoothing optimization
+
+2004-06-07  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/EZCutter.cpp, src/wuopt.cpp:
+	finished EZCutter and re-wrote wuopt in simpler form
+
+2004-06-03  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* wuparam.spec: updated to include EZCuts and NoCuts
+
+	* src/Cutter.cpp, src/Cutter.h, src/EZCutter.cpp, src/wucut.cpp:
+	Enabled EZCuts and an option to output scaled parameters in Cutter
+
+2004-06-01  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/EZCuts2004.conf:
+	added EZCuts default cuts (still need to optimize)
+
+	* src/EZCutter.cpp: *** empty log message ***
+
+	* src/Parameterizer.cpp:
+	now used CutFactory instead of harcoded cut types
+
+2004-05-27  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/NoCuts.conf: added NoCuts conf file for open cuts
+
+2004-05-18  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp, src/EZCutter.cpp, src/EZCutter.h, src/Makefile.am, src/Makefile.in, src/SuperCutter.cpp, src/ZCutter.cpp, src/wu2txt.cpp:
+	Started adding Extended ZCutter (EZCutter)
+
+2004-05-17  Scott Hughes  <scott@inky.wustl.edu>
+
+	* wuparam.spec: fixing merging changes
+
+	* src/wu2txt.cpp: adding file
+
+	* src/PlotMaker.cpp, src/wucut.cpp, src/wuopt.cpp, src/Cutter.cpp, src/Cutter.h, src/DataReader.cpp, src/DataRecords.h, src/DataWriter.cpp, src/DataWriter.h, src/Fitter.cpp, src/GainFinder.cpp, src/Histogram.cpp, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/ParamDataReader.cpp, src/Parameterizer.cpp, src/PedestalFinder.cpp:
+	incorporate changes from the trunk
+
+2004-05-14  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Config.cpp, src/GainFinder.cpp, src/Parameterizer.cpp, src/Parameterizer.h:
+	minor consistancy fixes
+
+2004-05-13  Scott Hughes  <scott@inky.wustl.edu>
+
+	* support/wuparam-plots.gpl, src/PedestalFinder.cpp, src/PedestalFinder.h, src/PlotMaker.cpp, src/GainFinder.cpp, src/GainFinder.h, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Parameterizer.cpp, src/DataReader.cpp, src/DataRecords.h:
+	plots for each telescope, 'telescope' -> 'telid'
+
+2004-05-12  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Parameterizer.cpp: goodmuons.txt now has telescope # as well
+
+	* support/gen-diag-plots.sh, support/wuparam-plots.gpl:
+	expand PS plots: 1/telescope
+
+	* src/Camera.h, src/Parameterizer.cpp: expand PS plots: 1 per telescope
+
+	* src/DataReader.cpp: simulations ntel->4
+
+2004-05-11  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Camera.cpp, src/Camera.h, src/Config.h, src/Parameterizer.cpp:
+	masked tubes list now appropriatly exists within the camera class
+
+	* src/Camera.cpp, src/Camera.h, src/Parameterizer.cpp, src/Parameterizer.h:
+	camera array now contains camera instances, they are not stand-alone
+
+2004-05-10  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Parameterizer.cpp, src/Parameterizer.h, src/DataReader.cpp:
+	map sky brightness for all telescopes
+
+2004-04-27  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/GainFinder.cpp, src/ImageAnalyzer.cpp, src/ParamDataReader.cpp, src/Parameterizer.cpp:
+	event numbering changed back to that of input file
+
+2004-04-26  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/DataReader.cpp, src/DataReader.h, src/Parameterizer.cpp, src/Parameterizer.h, src/PedestalFinder.cpp:
+	display fixed
+
+2004-04-21  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Parameterizer.cpp: memory cleanup
+
+	* src/GainFinder.h, src/Parameterizer.cpp, src/Parameterizer.h, src/wugains.cpp, src/GainFinder.cpp:
+	gains extended for many telescopes
+
+	* src/PedestalFinder.cpp:
+	pedestals calculated for each telescope separately
+
+2004-04-19  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/PedestalFinder.cpp: still improving pedestals
+
+	* src/PedestalFinder.cpp, src/PedestalFinder.h, src/wupeds.cpp, src/Config.cpp, src/Config.h, src/DataReader.cpp, src/GainFinder.cpp, src/Parameterizer.cpp, src/Parameterizer.h:
+	expanding pedestals for multiple telescopes... compiles, but still incomplete
+
+2004-04-13  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Config.h, src/DataReader.cpp, src/DataRecords.h, src/Parameterizer.cpp:
+	event counter increments once per event, not once per telescope
+
+2004-04-12  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Camera.cpp, src/Parameterizer.cpp: change directory to read from
+
+2004-04-09  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Camera.cpp, src/ImageAnalyzer.cpp, src/Parameterizer.cpp:
+	origin now relative to telescope position, though offset still kept track of
+
+	* src/DataReader.cpp, src/Parameterizer.cpp, src/Parameterizer.h:
+	array of analyzers, 1 per telescope
+
+2004-04-07  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Parameterizer.cpp, src/Parameterizer.h:
+	tubehits and alpha histograms, 1 for each telescope
+
+2004-04-05  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/Cutter.h, src/DataWriter.cpp, src/DataWriter.h, src/Fitter.cpp, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Makefile.am, src/Makefile.in, src/ParamDataReader.cpp:
+	migrated fitter to use the new cutter output ntuples
+
+2004-04-05  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/DataReader.cpp, src/DataRecords.h: *** empty log message ***
+
+2004-04-02  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Camera.cpp, src/DataReader.cpp, src/DataWriter.cpp:
+	output ntel in header
+
+2004-04-01  Scott Hughes  <scott@inky.wustl.edu>
+
+	* support/2.array, support/4.array, support/7.array: New file.
+
+	* support/2.array, support/4.array, support/7.array: add array files...
+
+	* support/Makefile.am, support/Makefile.in: *** empty log message ***
+
+	* src/Camera.h, src/Config.cpp, src/DataReader.cpp, src/DataRecords.h, src/Parameterizer.cpp, src/Camera.cpp:
+	now reads array files for locations of multiple telescopes
+
+2004-04-01  Paul Rebillot  <rebillot@inky.wustl.edu>
+
+	* support/Makefile.in, src/Makefile.am, src/Makefile.in, src/wuopt.cpp, src/Histogram.cpp, configure, Makefile.in:
+	2004-04-01: PFR:  Added Length, Width, and Size optimization in wuopt.cpp
+
+2004-04-01  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/PlotMaker.cpp: plot identifies telescope number
+
+2004-03-31  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Camera.h, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Parameterizer.cpp:
+	telescope ID goes through to output param file
+
+	* src/ImageAnalyzer.cpp, src/Parameterizer.cpp, src/Parameterizer.h, src/Camera.cpp:
+	begin use of off-origin camera locations
+
+2004-03-30  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/Cutter.h, src/DataReader.cpp, src/DataRecords.h, src/DataWriter.h, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Parameterizer.cpp, src/wu2txt.cpp, src/wucut.cpp:
+	Added simulation data fields to all parameterized files
+
+	* wuparam.spec: updated to add wu2txt
+
+2004-03-30  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Camera.cpp, src/Camera.h, src/Config.cpp, src/Config.h, src/ImageAnalyzer.cpp:
+	more new fields to handle multiple telescopes
+
+2004-03-30  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/Cutter.h, src/Makefile.am, src/Makefile.in, src/ParamDataReader.cpp, src/wu2txt.cpp:
+	added ntuple->text conversion utility (wu2txt)
+	Cutter can now output events which pass cuts
+
+2004-03-29  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Fitter.cpp: fixed bug in cuts
+
+2004-03-29  Scott Hughes  <scott@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/DataReader.cpp, src/DataRecords.h, src/Parameterizer.cpp:
+	allowed reading of telescope number from sim. files
+
+2004-03-29  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Parameterizer.cpp, src/PlotMaker.cpp:
+	Added zenith angle override option
+
+	* configure, configure.in, wuparam.spec: new version number
+
+2004-03-23  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ChangeLog, NEWS: updates
+
+2004-03-17  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Log.cpp: color code warning label in red in console output
+
+	* Cutter.cpp, Cutter.h: Added total size histogram (after cuts)
+
+2004-02-25  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* wuplot.cpp: fixed bug in string literal replacement character
+
+	* PlotMaker.cpp: fixed bug with dec labeling in niceRADecCountours()
+
+	* DataRecords.h, wuplot.cpp: just added some comments
+
+	* wuplot.cpp: better handling of string literals
+	fixed syntax for radecgrid plotting
+
+2004-02-24  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* wuplot.cpp: starting fixing the string literal parsing stuff
+
+2004-02-17  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* AngleConverters.h, Cutter.cpp, EnergySpectrum.h, Parameterizer.cpp:
+	Fixed bug in star display where on stars were cleared accidentally
+	Fixed RA/DEC text output in Parameterizer run_info files
+
+2004-02-16  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Cutter.h, Parameterizer.cpp:
+	fixed energy estimator for tracking runs (now saves to Totals/energy-total-track.hist)
+
+	* Cutter.cpp, DataWriter.cpp, ImageAnalyzer.h, ParamDataReader.cpp:
+	2d analysis of tracking data works mostly (though with no background
+	subtraction)
+
+2004-02-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* AngleConverters.h, Parameterizer.cpp, Parameterizer.h, PlotMaker.cpp:
+	fix dec line display in PlotMaker
+	Got rid of the Angle and HourAngle types, replaced with functions in
+	AngleConverts.h (fixes bug with Dec being printed wrong in DMS notation)
+
+	* PlotMaker.cpp, PlotMaker.h, wuplot.cpp:
+	added nice RA/DEC labels (still needs some work though)
+
+2004-02-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* AngleConverters.h, Makefile.am, Makefile.in, PlotMaker.cpp, PlotMaker.h, wuplot.cpp:
+	Started to add Jim's nice RA/DEC contour labeling stuff
+
+	* wuplot.cpp:
+	Added ability to specify the output type (such as fig or ps)
+
+	* PlotMaker.cpp, PlotMaker.h:
+	PlotMaker no longer generates a blank file when X display is used
+
+	* PlotMaker.cpp, PlotMaker.h, wuplot.cpp:
+	Lots of updates to wuplot command language
+	PlotMaker can now plot markers, curves, and push/pop all it's attributes
+
+2004-02-10  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Image2D.cpp, Makefile.am, Makefile.in, PlotMaker.cpp, PlotMaker.h, StarCatalog.cpp, StarCatalog.h, wuplot.cpp:
+	Added more functionality to wuplot
+	Stars now have inserters and extractors
+
+2004-02-09  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Makefile.am, Makefile.in, wuplot.cpp: added wuplot program
+
+2004-02-05  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp: fixed bug where star list was growing with each run
+	Cosmetic changes to sky plot
+
+2004-01-23  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/EnergySpectrum.cpp, src/Fitter.cpp, src/wucut.cpp, src/wuparam.cpp:
+	Updated the LZAEnergySpectrum function with new simulation fits
+	Fitter can now load simulation databases that are gzip compressed!
+	wuparam and wucut now have better exit() functionality which fixes the
+	bug where the cursor would sometimes not return on exit
+
+2004-01-22  Karl Kosack  <kosack@localhost.localdomain>
+
+	* support/Makefile.in, src/Camera.cpp, src/Cutter.cpp, src/Fitter.cpp:
+	removed some debugging info
+
+2004-01-20  Karl Kosack  <kosack@localhost.localdomain>
+
+	* support/Makefile.am, wuparam.spec: Added SuperCuts95 to manifest
+
+	* support/SuperCuts95.conf: added SuperCuts95
+
+	* src/DataWriter.cpp, src/DataWriter.h, src/ParamDataReader.cpp, src/Parameterizer.cpp, src/SuperCutter.cpp, src/SuperCutter.h, src/Cutter.cpp:
+	Updates for better handling of multiple cameras
+
+	* support/109.camera: Updated this camera def file (was blank before!)
+
+	* src/PedestalFinder.cpp: removed debugging statements!
+
+	* src/PedestalFinder.cpp:
+	fixed bug where data runs with extra tubes (e.g. 120 tubes on the 109
+	camera) were being incorrectly taken care of
+
+2004-01-15  Karl Kosack  <kosack@localhost.localdomain>
+
+	* support/LZACuts.conf, support/Makefile.am, support/Makefile.in, support/OldZCuts.conf, support/SpectralCuts.conf, support/ZCuts.conf, support/ZCuts2001.conf, src/Cutter.cpp, src/Fitter.cpp, src/Makefile.am, src/Makefile.in, src/ZCutter.cpp, src/ZCutter.h, src/Config.cpp, src/Config.h:
+	Updated to comply with new cutter naming scheme
+
+	* configure, configure.in, wuparam.spec:
+	Updated version and package lists
+
+	* src/ZCutter.cpp, src/ZCutter.h:
+	This is the "old" ZCuts with new naming scheme
+
+	* src/EnergySpectrum.cpp, src/EnergySpectrum.h, src/Fitter.cpp, src/Fitter.h, src/GaussianDeviate.cpp, src/OldZCutter.cpp, src/OldZCutter.h, src/SpectralCutter.cpp, src/SpectralCutter.h, src/ZCutter.cpp, src/ZCutter.h, src/wufit.cpp, src/wuparam.cpp:
+	Updates to ZCutting stuff - renamed the cut types for consistency
+	OldZCutter -> ZCutter
+	ZCutter -> SpectralCutter
+
+2004-01-14  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Parameterizer.cpp:
+	added option to save muon parameters for "good" muons in interactive mode
+
+2004-01-12  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Cutter.cpp, src/EnergySpectrum.cpp, src/EnergySpectrum.h, src/Fitter.cpp:
+	Started adding LZA Energy Estimator stuff
+
+2004-01-08  Karl Kosack  <kosack@localhost.localdomain>
+
+	* support/Makefile.in, support/ZCuts.conf:
+	Fixed ZCuts.conf cuts that were turned off accidentally
+
+	* src/Fitter.cpp: Added support for multiple cut types
+
+	* support/109.camera, support/151.camera, support/331.camera, support/490.camera, support/OldZCuts.conf:
+	fixed the numbering in the camera files to be consistent
+
+	* src/Camera.cpp, src/Cutter.cpp, src/Cutter.h: More checks for bad RAs
+	Fixes for use with older camera def files
+
+2003-12-23  Karl Kosack  <kosack@localhost.localdomain>
+
+	* support/Makefile.am, support/OldZCuts.conf:
+	update to add OldZCuts.conf
+
+2003-12-19  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/Config.h, src/Cutter.cpp, src/OldZCutter.cpp, src/OldZCutter.h, src/SuperCutter.cpp, src/SuperCutter.h, src/wuopt.cpp:
+	Cutter updates to fix elongation correction bug
+
+	* support/109.camera, support/151.camera, support/OldZCuts.conf:
+	Added radii for 109,151 cameras
+	Better cuts in OldZCuts
+
+	* src/Camera.cpp, src/Camera.h, src/Config.cpp, src/Config.h, src/Cutter.cpp, src/OldZCutter.cpp, src/Parameterizer.cpp, src/SuperCutter.cpp, src/SuperCutter.h, src/wuopt.cpp:
+	Cleaned up Camera loading logic to work with multiple cameras
+	Added support fot 151 and 109 pixel cameras
+	Fixed zenith parameterization in ZCutter
+	SuperCutter's prePass() mechanism now works correctly (instead of
+		re-applying pre-corrections multiple times)
+	Updates to wuopt to allow command-line selection of all ranges
+
+2003-12-18  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/wuparam.cpp:
+	removed logfile dumping - replaced with concise warning message
+
+	* src/OldZCutter.cpp:
+	Put the correct "old zenith cuts" function into prePass().  Before, I
+	had accidentally used an experimental one that never worked!
+
+2003-12-17  Karl Kosack  <kosack@localhost.localdomain>
+
+	* src/OldZCutter.cpp:
+	more updates to the zenith correction, 2d doesn't work right
+
+	* support/OldZCuts.conf, support/SuperCuts2001.conf: Minor updates
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp, src/OldZCutter.cpp, src/OldZCutter.h:
+	Added old zcuts config
+	Updated OldZCutter to do 2D correction
+
+	* src/Camera.cpp, src/Camera.h, src/Makefile.am, src/Makefile.in, src/Parameterizer.cpp, src/SuperCutter.cpp, src/SuperCutter.h, src/wuparam.cpp:
+	Fixed buf in new camera loader
+	Updated Makefile.am to unclude the OldZCutter stuff
+	Added  prePass() and postPass() virtual funcs to SuperCutter which can
+		be overrided to do extra processing before and after cuts (as in
+		OldZCutter)
+
+	* src/OldZCutter.cpp, src/OldZCutter.h:
+	New Cutter type, which actually uses the OLD zenith correction technique
+
+	* src/ZCutter.h:
+	Constructor now calles parent's constructor, just to be nice
+
+	* src/Camera.cpp, src/Camera.h:
+	Added new construction which allows creation of a camera
+	based on number of pixels (filename is automatically chosen)
+
+2003-12-16  Karl Kosack  <kosack@localhost.localdomain>
+
+	* ChangeLog: update
+
+	* support/ZCuts.conf, support/LZACuts.conf: Updated some cuts
+
+	* src/Config.cpp, src/wucut.cpp, src/wuopt.cpp, src/wuparam.cpp:
+	Added radial smoothing factor optimizations to wucut
+	Added ability to turn off display in wucut
+	Minor updates to Config
+
+	* src/Cutter.h: added switch enableDisplay()
+
+	* src/Cutter.cpp: Added switch to turn off X display
+	Fixed bug where NOMINAL_ELONGATION didn't match the value in ImageAnalyzer
+
+2003-12-16  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/ZCuts.conf, support/LZACuts.conf: Updated some cuts
+
+	* src/Config.cpp, src/wucut.cpp, src/wuopt.cpp, src/wuparam.cpp:
+	Added radial smoothing factor optimizations to wucut
+	Added ability to turn off display in wucut
+	Minor updates to Config
+
+	* src/Cutter.h: added switch enableDisplay()
+
+	* src/Cutter.cpp: Added switch to turn off X display
+	Fixed bug where NOMINAL_ELONGATION didn't match the value in ImageAnalyzer
+
+2003-12-16  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/ZCuts.conf, support/LZACuts.conf: Updated some cuts
+
+	* src/Config.cpp, src/wucut.cpp, src/wuopt.cpp, src/wuparam.cpp:
+	Added radial smoothing factor optimizations to wucut
+	Added ability to turn off display in wucut
+	Minor updates to Config
+
+	* src/Cutter.h: added switch enableDisplay()
+
+	* src/Cutter.cpp: Added switch to turn off X display
+	Fixed bug where NOMINAL_ELONGATION didn't match the value in ImageAnalyzer
+
+	* src/Cutter.h:
+	More diagnostics in Cutter, minor mods in Camera and DataReader
+
+	* src/wucut.cpp, src/wuparam.cpp:
+	Added some descriptive logging messages
+
+	* src/Camera.cpp, src/Cutter.cpp: *** empty log message ***
+
+	* src/Log.cpp, src/Log.h:
+	Added an "info" function for non-warning messages
+	Removed the time stamp for each message, now just at log start
+
+	* src/ProgressBar.cpp:
+	Added ANSI colors to progress bar, effectively increasing pimpiness by 30%
+
+2003-12-15  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/LZACuts.conf, support/ZCuts.conf:
+	Newly re-optimized cut values
+
+	* src/wuopt.cpp:
+	minor change to elongation optimization to look at max pixel instead of center
+
+2003-12-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp:
+	Cutter now outputs the cut information into a file for each run
+	Added CutInfo stream inserter into Config
+
+	* src/wuopt.cpp: Put all the optimizations into separate functions
+
+	* support/LZACuts.conf: large zenith angle ZCuts
+
+2003-12-10  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/ZCuts.conf: Updated elongation factor from optimization data
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp, src/DataWriter.h, src/wuopt.cpp:
+	Added back the elongation setting in config for optimization purposes
+	moded wuopt to optimize elongation (really need to make it more general)
+	changed output file version
+
+2003-12-09  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Camera.cpp, src/Camera.h, src/Cutter.cpp, src/Cutter.h, src/ImageAnalyzer.cpp, src/Parameterizer.cpp:
+	Moved the zenith-angle elongation stuff to Cutter and apply it as a
+	correction to the parameterized points of origin (so that optimization
+	can be used)
+
+2003-12-08  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Camera.cpp, src/Parameterizer.cpp:
+	Added correct fit value for zenith-dep elongation factor
+
+	* src/wuparam.cpp: No longer outputs full log if it is too long
+
+	* src/Log.cpp, src/Log.h: Fixed crashing bug
+
+	* AUTHORS, ChangeLog: Updated authors and changelog
+
+	* support/wuparam-plots.gpl: fixed length/size plot
+
+	* src/Parameterizer.cpp, src/Parameterizer.h:
+	Added support for zenith-dependent elongation factor
+	Removed text output during Display (non-interactive) mode
+	Fixed bug in Display mode where parameter ellipse wasn't displaying
+	Added warning for runs with many tubes turned off
+	Removed old zenith angle correction stuff
+
+	* src/Config.cpp, src/Config.h:
+	Removed elongation factor from configuration options (replaced with zenith-angle dependent one in Camera)
+
+	* src/ImageAnalyzer.h:
+	added ability to externally set elongation factor
+
+	* src/wuparam.cpp: added CTRL-C handler
+	now turns off terminal cursor
+
+	* src/Camera.h: added getElongationFactor()
+
+	* src/Camera.cpp:
+	Added ability to output zenith-angle dependent elongation factor
+
+2003-12-04  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/SuperCuts2000.conf, support/SuperCuts2001.conf, support/ZCuts.conf, support/alpha-total.gpl:
+	Updates to support zcutter, new ZCuts optimizations
+
+	* src/wuopt.cpp: Modified to optimize just length/size
+
+	* src/ProgressBar.cpp: fixed estimated time display
+
+	* src/PedestalFinder.cpp:
+	fixed bug where the outter ring of tubes was being counted in the 490 camera
+
+	* src/Log.cpp: logs are now appended instead of overwritten
+	removed "LOG STARTED" message
+
+	* src/Log.cpp, src/Parameterizer.cpp: bug fix for error log printing
+
+	* src/Log.cpp: Added Log.cpp
+
+	* src/Cutter.cpp, src/Log.h, src/Makefile.am, src/Makefile.in, src/Parameterizer.cpp, src/PedestalFinder.cpp, src/wucut.cpp, src/wuopt.cpp, src/wuparam.cpp:
+	Got the error log stuff working (Logger) and added some error messages
+
+2003-12-03  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/wuopt.cpp: Change to optimize max1,max2
+
+2003-12-01  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/wuopt.cpp: updates to the pointing check
+
+2003-11-26  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/ParamDataReader.cpp, src/ParamDataReader.h, src/Parameterizer.cpp, src/ProgressBar.cpp, src/wuopt.cpp:
+	Fixed memory leaks in Cutter.cpp and ParamDataReader.cpp
+
+2003-11-25  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/wuopt.cpp:
+	optimizes both dlength and dwidth simultaneously now, though hard-coded
+
+2003-11-20  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Types.h, src/ZCutter.cpp, src/ZCutter.h, src/wuopt.cpp, src/Config.cpp, src/Config.h, src/Cutter.cpp, src/Cutter.h:
+	Changes to allow implementation of cut optimizer
+
+	* src/Config.h, src/Makefile.am, src/Makefile.in, src/wuopt.cpp:
+	started adding cut optimizer
+
+2003-11-19  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Cutter.cpp, src/SuperCutter.h, src/ZCutter.cpp, src/wucut.cpp:
+	Added ability to choose cutter type in config
+
+	* ChangeLog, configure, wuparam.spec: version updates
+
+2003-11-17  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/ImageAnalyzer.cpp:
+	fixed format error in the text output of zenith angle
+
+2003-11-17  Karl Kosack  <kosack@localhost.localdomain>
+
+	* ImageAnalyzer.cpp:
+	fixed format error in the text output of zenith angle
+
+2003-11-12  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, DataWriter.cpp, DataWriter.h, SuperCutter.cpp, SuperCutter.h, ZCutter.cpp, ZCutter.h:
+	Fixed ZCutter "dwidth" and "dlength" offsets
+
+	* Parameterizer.cpp:
+	removed old zenith parameterization stuff  - replaced with the new
+	ZCutter object
+
+	* Cutter.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, Parameterizer.cpp, SuperCutter.h, ZCutter.cpp, ZCutter.h:
+	Started adding ZCutter - SuperCutter with zenith angle scaling
+
+2003-11-11  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.cpp, Parameterizer.h, SuperCutter.cpp, SuperCutter.h, Cutter.cpp, Cutter.h, Fitter.cpp, Makefile.am, Makefile.in:
+	Separated the cutting stuff into its own class, with very simple cutting functions
+	Updated Parameterizer, Cutter, and Fitter to use the new SuperCutter objects
+
+2003-11-03  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Histogram.cpp, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, PlotMaker.cpp:
+	Added some more muon characterization parameters and plots
+
+2003-10-29  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Image2D.cpp, ImageAnalyzer.h, Makefile.in, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h:
+	Better MuonParameterization stuff - added finer annulus for phi histograms.
+
+	* StarCatalog.cpp: removed some unused variables
+
+	* PlotMaker.cpp: Improved plotting of MuonParameterizations
+
+	* Parameterizer.cpp: minor changes to remove some compile warnings
+
+	* Histogram.h, Fitter.cpp: removed some unused variables
+
+2003-10-28  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.h: just some comment updates and planning
+
+2003-10-09  Karl Kosack  <kosack@localhost.localdomain>
+
+	* PlotMaker.cpp, Fitter.cpp, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp:
+	Removed old "info" routines from Fitter.cpp
+	MuonImageAnalyzer now calculates the angular smoothness of a ring
+	PlotMaker now displays MuonParameterization information in Camera plots
+
+2003-09-30  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Fitter.cpp, Fitter.h, wufit.cpp:
+	Cutter now prints ON/OFF off-alpha ratio
+	wufit now takes off-alpha ratio as command line arg to correct for mismatched runs
+	Various cosmetic changes
+
+2003-09-24  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Fitter.cpp, Fitter.h:
+	Fitter now reads the montecarlo bin information from the datafile
+
+2003-09-22  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Fitter.cpp, Fitter.h, ProgressBar.cpp:
+	Changed hard-coded bins to reflect new Monte Carlo sims
+
+2003-09-18  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Cutter.cpp, Cutter.h, DataWriter.cpp, DataWriter.h, EnergySpectrum.cpp, Fitter.cpp, Fitter.h, Histogram.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, wufit.cpp:
+	Fitter now uses a Cutter and Config file reader.
+	Fixes to the text input/ouput too
+
+2003-09-12  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Fitter.cpp, Fitter.h, ImageAnalyzer.cpp, Makefile.am, Makefile.in, wufit.cpp:
+	- Added configuration option to specify the Monte Carlo database to use
+	  for fitting.
+	- Updated fitter to use Config information and vector arrays
+
+2003-09-08  Karl Kosack  <kosack@localhost.localdomain>
+
+	* DataWriter.h, Parameterizer.cpp:
+	more work on new zenith correct stuff
+
+	* Parameterizer.cpp:
+	Fixed the pictubes and tubehits histograms - the bins were misaligned
+
+2003-09-02  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Fitter.cpp, Parameterizer.cpp:
+	Better integration of Fitter into the whole package
+	Interactive mode and zenith correct updates for Parameterizer
+
+2003-08-28  Karl Kosack  <kosack@localhost.localdomain>
+
+	* DataReader.cpp, Fitter.cpp: started adding Cutter to Fitter
+
+2003-08-25  Karl Kosack  <kosack@localhost.localdomain>
+
+	* MuonImageAnalyzer.cpp, Parameterizer.cpp: More zenith angle updates
+	Fixed bug in MuonParameterization stream inserter
+
+	* Parameterizer.cpp, Parameterizer.h:
+	started adding new zenith angle correction stuff
+
+2003-08-21  Karl Kosack  <kosack@localhost.localdomain>
+
+	* DataWriter.cpp, DataWriter.h, Fitter.cpp, Histogram.cpp, ImageAnalyzer.h, MuonImageAnalyzer.cpp, Parameterizer.cpp, Config.cpp, Config.h, Cutter.cpp, DataRecords.h:
+	Separated zenith corrected parameterization from standard one (two output files are now produced)
+	Added output of simulation data based on Henric's modifications
+
+	* ProgressBar.cpp:
+	Fixed bug where minutes left wasn't displayed when under 1 minute
+
+=======
+2003-11-17  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ImageAnalyzer.cpp:
+	fixed format error in the text output of zenith angle
+
+2003-11-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, DataWriter.cpp, DataWriter.h, SuperCutter.cpp, SuperCutter.h, ZCutter.cpp, ZCutter.h:
+	Fixed ZCutter "dwidth" and "dlength" offsets
+
+	* Parameterizer.cpp:
+	removed old zenith parameterization stuff  - replaced with the new
+	ZCutter object
+
+2003-11-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Parameterizer.cpp:
+	removed old zenith parameterization stuff  - replaced with the new
+	ZCutter object
+
+	* Cutter.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, Parameterizer.cpp, SuperCutter.h, ZCutter.cpp, ZCutter.h:
+	Started adding ZCutter - SuperCutter with zenith angle scaling
+
+2003-11-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Parameterizer.cpp, Parameterizer.h, SuperCutter.cpp, SuperCutter.h, Cutter.cpp, Cutter.h, Fitter.cpp, Makefile.am, Makefile.in:
+	Separated the cutting stuff into its own class, with very simple cutting functions
+	Updated Parameterizer, Cutter, and Fitter to use the new SuperCutter objects
+
+2003-11-03  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Histogram.cpp, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, PlotMaker.cpp:
+	Added some more muon characterization parameters and plots
+
+2003-10-29  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Image2D.cpp, ImageAnalyzer.h, Makefile.in, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h:
+	Better MuonParameterization stuff - added finer annulus for phi histograms.
+
+	* StarCatalog.cpp: removed some unused variables
+
+	* PlotMaker.cpp: Improved plotting of MuonParameterizations
+
+	* Parameterizer.cpp: minor changes to remove some compile warnings
+
+	* Histogram.h, Fitter.cpp: removed some unused variables
+
+2003-10-28  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.h: just some comment updates and planning
+
+2003-10-09  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* PlotMaker.cpp, Fitter.cpp, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp:
+	Removed old "info" routines from Fitter.cpp
+	MuonImageAnalyzer now calculates the angular smoothness of a ring
+	PlotMaker now displays MuonParameterization information in Camera plots
+
+2003-09-30  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Fitter.cpp, Fitter.h, wufit.cpp:
+	Cutter now prints ON/OFF off-alpha ratio
+	wufit now takes off-alpha ratio as command line arg to correct for mismatched runs
+	Various cosmetic changes
+
+2003-09-30  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Cutter.cpp, src/Fitter.cpp, src/Fitter.h, src/wufit.cpp:
+	Cutter now prints ON/OFF off-alpha ratio
+	wufit now takes off-alpha ratio as command line arg to correct for mismatched runs
+	Various cosmetic changes
+
+2003-09-24  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Fitter.cpp, src/Fitter.h:
+	Fitter now reads the montecarlo bin information from the datafile
+
+2003-09-22  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* support/spectrum.gpl: New file for plotting spectrums
+
+	* src/Fitter.cpp, src/Fitter.h, src/ProgressBar.cpp:
+	Changed hard-coded bins to reflect new Monte Carlo sims
+
+	* configure.in, wuparam.spec, configure: Version number update
+
+2003-09-18  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Cutter.cpp, src/Cutter.h, src/DataWriter.cpp, src/DataWriter.h, src/EnergySpectrum.cpp, src/Fitter.cpp, src/Fitter.h, src/Histogram.cpp, src/ImageAnalyzer.cpp, src/ImageAnalyzer.h, src/Makefile.am, src/Makefile.in, src/wufit.cpp:
+	Fitter now uses a Cutter and Config file reader.
+	Fixes to the text input/ouput too
+
+2003-09-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Config.cpp, src/Config.h, src/Fitter.cpp, src/Fitter.h, src/ImageAnalyzer.cpp, src/Makefile.am, src/Makefile.in, src/wufit.cpp:
+	- Added configuration option to specify the Monte Carlo database to use
+	  for fitting.
+	- Updated fitter to use Config information and vector arrays
+
+2003-09-08  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/DataWriter.h, src/Parameterizer.cpp:
+	more work on new zenith correct stuff
+
+	* src/Parameterizer.cpp:
+	Fixed the pictubes and tubehits histograms - the bins were misaligned
+
+2003-09-02  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/Fitter.cpp, src/Parameterizer.cpp:
+	Better integration of Fitter into the whole package
+	Interactive mode and zenith correct updates for Parameterizer
+
+2003-08-28  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/DataReader.cpp, src/Fitter.cpp: started adding Cutter to Fitter
+
+2003-08-25  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* src/MuonImageAnalyzer.cpp, src/Parameterizer.cpp:
+	More zenith angle updates
+	Fixed bug in MuonParameterization stream inserter
+
+	* src/Parameterizer.cpp, src/Parameterizer.h:
+	started adding new zenith angle correction stuff
+
+2003-08-21  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ChangeLog: update
+
+	* src/DataWriter.cpp, src/DataWriter.h, src/Fitter.cpp, src/Histogram.cpp, src/ImageAnalyzer.h, src/MuonImageAnalyzer.cpp, src/Parameterizer.cpp, src/Config.cpp, src/Config.h, src/Cutter.cpp, src/DataRecords.h:
+	Separated zenith corrected parameterization from standard one (two output files are now produced)
+	Added output of simulation data based on Henric's modifications
+
+	* src/ProgressBar.cpp:
+	Fixed bug where minutes left wasn't displayed when under 1 minute
+
+>>>>>>> 1.12
+2003-08-21  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* DataWriter.cpp, DataWriter.h, Fitter.cpp, Histogram.cpp, ImageAnalyzer.h, MuonImageAnalyzer.cpp, Parameterizer.cpp, Config.cpp, Config.h, Cutter.cpp, DataRecords.h:
+	Separated zenith corrected parameterization from standard one (two output files are now produced)
+	Added output of simulation data based on Henric's modifications
+
+	* ProgressBar.cpp:
+	Fixed bug where minutes left wasn't displayed when under 1 minute
+
+2003-08-19  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ImageAnalyzer.cpp:
+	removed fieldnames from the HillasParameterization stream inserter
+
+2003-08-18  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp:
+	Was accidentally taking the log of the energy estimator twice.
+
+2003-08-17  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Doxyfile, EnergySpectrum.cpp, EnergySpectrum.h, Fitter.cpp, Fitter.h, Histogram.cpp, Histogram.h, Makefile.am, Makefile.in, Parameterizer.cpp, wufit.cpp:
+	Added Henric's EnergySpectrum fitting routines
+	Modified Cutter and related files to work with them
+
+2003-08-14  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* GaussianDeviate.cpp, Histogram.cpp, Histogram.h:
+	More work on Histogram::fitGaussian(). Doesn't converge to fit yet.
+
+2003-08-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Histogram.cpp, Histogram.h:
+	Updates to the Gaussian Fitter. Not yet tested though!
+
+2003-08-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Histogram.cpp, Histogram.h, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp:
+	Parameterizer now dumps out muon information to a txt file
+
+2003-08-07  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* PedestalFinder.h, DataReader.cpp, Parameterizer.cpp:
+	Fixed the "fake time" step in DataReader for simulations to be 1us (instead of 1s)
+	Temporarily removed the fixed SIZE threshold for disabling muon calculation since it skipped over some obvious muons in the simulation data
+
+2003-08-07  Karl Kosack  <kosack@localhost.localdomain>
+
+	* PedestalFinder.h, DataReader.cpp, Parameterizer.cpp:
+	Fixed the "fake time" step in DataReader for simulations to be 1us (instead of 1s)
+	Temporarily removed the fixed SIZE threshold for disabling muon calculation since it skipped over some obvious muons in the simulation data
+
+2003-08-05  Karl Kosack  <kosack@localhost.localdomain>
+
+	* PedestalFinder.cpp, Histogram.cpp, Histogram.h:
+	Added subtract and scale functions to Histogram
+	Warning messages to PedestalFinder
+
+2003-07-24  Karl Kosack  <kosack@localhost.localdomain>
+
+	* StarCatalog.cpp, Cutter.cpp, Cutter.h, ImageCleaner.cpp, Parameterizer.cpp:
+	In skybrightness calculation, now calculate pedvar difference if a star is in either the ON or OFF but not both.
+	Boundery Pixels in ImageCleaner weren't being checked for tube off - fixed
+	Cutter now used Li and Ma in 2D as well as 1d, and falls back to approximation when needed
+	Seems to be still a problem with starcatalog precession.. need to check
+
+2003-07-23  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Histogram.cpp, Image2D.cpp, Parameterizer.cpp, Cutter.cpp:
+	Fixed bug in Histogram where nbins could be <1
+	Cross correlation updates
+
+2003-07-16  rebillot  <rebillot@neutralino>
+
+	* Histogram.cpp: *** empty log message ***
+
+2003-07-11  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.cpp:
+	undid change to Parameterizer that was actually correct
+
+2003-07-10  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Parameterizer.cpp, PlotMaker.cpp, PlotMaker.h, wuparam.cpp:
+	Added ability to manually mask-off tubes in the Config file
+	Interactive mode now lets you display peds, peddisps, and tube numbers
+	Fixed possible bug in pedestal subtraction where _peds, not combinedpeds was being subtracted in Parameterizer
+
+	* Cutter.h, Image2D.cpp, Parameterizer.cpp, PlotMaker.cpp, PlotMaker.h, Cutter.cpp:
+	PlotMaker: added ability to rotate
+	Cutter: Made the cross-correlated centroids global
+	Parameterizer: fixed bug where tubes weren't being turned off correctly when the on/off pedestals were combined
+	Some fixes to mapSkyBrightness()
+
+2003-07-10  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Parameterizer.cpp, PlotMaker.cpp, PlotMaker.h, wuparam.cpp:
+	Added ability to manually mask-off tubes in the Config file
+	Interactive mode now lets you display peds, peddisps, and tube numbers
+	Fixed possible bug in pedestal subtraction where _peds, not combinedpeds was being subtracted in Parameterizer
+
+	* Cutter.h, Image2D.cpp, Parameterizer.cpp, PlotMaker.cpp, PlotMaker.h, Cutter.cpp:
+	PlotMaker: added ability to rotate
+	Cutter: Made the cross-correlated centroids global
+	Parameterizer: fixed bug where tubes weren't being turned off correctly when the on/off pedestals were combined
+	Some fixes to mapSkyBrightness()
+
+2003-07-09  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, GaussianDeviate.cpp, Parameterizer.cpp, ProgressBar.cpp:
+	Fixed correlation comparison
+	Fixed bug in skybrightness where off tubesoff weren't being included
+
+	* Cutter.cpp, Cutter.h, Image2D.cpp, Image2D.h, Log.h, Makefile.am, Makefile.in, PlotMaker.cpp, ProgressBar.cpp:
+	Added cross-correlation function to Image2D
+	Added pointing offset check to Cutter using cross-correlation
+	Modified the contour plots in PlotMaker to use less memory
+	Started adding an error log singleton class, not working yet...
+
+2003-07-07  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Histogram.cpp: Throws exception when histogram allocation fails now
+
+2003-07-06  Karl Kosack  <kosack@localhost.localdomain>
+
+	* DataReader.cpp, DataReader.h, GainFinder.cpp, Histogram.cpp, Histogram.h, Parameterizer.cpp, PedestalFinder.cpp, wuparam.cpp:
+	fixed some caching problems
+
+2003-07-04  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Cutter.cpp, DataReader.cpp, DataReader.h, Histogram.cpp, Histogram.h, Parameterizer.cpp, ProgressBar.cpp:
+	Switched all histograms over to use the GSL histogram internally
+	Minor cosmetic change to ProgressBar
+	Updated the GNUPlot files to work with the new histogram output
+	Moved the clearCache() method into RawDataReaderFactory and added a PID tag to the cache files (should really be a separate directory, but I'll get to that)
+
+2003-07-03  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.h, Cutter.cpp, Exceptions.h, Histogram.cpp, Histogram.h, Parameterizer.cpp:
+	Started adding better histogramming (using GSL)
+	Fixed some histogram plots too
+
+2003-07-02  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, MuonImageAnalyzer.cpp: *** empty log message ***
+
+2003-06-20  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Histogram.h, Histogram.cpp:
+	Started adding gaussian fitting to Histogram
+
+2003-06-19  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Histogram.h, MuonImageAnalyzer.cpp, Parameterizer.cpp:
+	Started adding muon calibration histograms
+
+2003-06-18  buckley  <buckley@neutralino>
+
+	* Cutter.cpp, Histogram.cpp, MuonImageAnalyzer.cpp:
+	Changed Cutter.cpp to fix potential problem with Li and Ma routine
+	Changed Histogram.cpp to fix possible memory leak in Histogram:Add
+	Changed MuonImageAnalyzer.cpp to fix arclength, sarc and soal
+
+2003-06-17  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.cpp, PlotMaker.cpp, Config.cpp, Cutter.cpp, ImageCleaner.cpp, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h:
+	Fixes to the muon characterization
+
+2003-06-13  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, DataReader.cpp, DataReader.h, Histogram.h, PlotMaker.cpp:
+	Started adding timing info for simulation events
+	Cutter still dies on sim runs in 2d analysis
+
+	* Histogram.cpp: Fixed memory allocation bug by switching to vectors
+
+2003-06-13  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Histogram.cpp: Fixed memory allocation bug by switching to vectors
+
+2003-06-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Config.cpp, Config.h, Cutter.cpp, DataReader.cpp, DataReader.h, GainFinder.cpp, Image2D.cpp, Image2D.h, Parameterizer.cpp, PedestalFinder.cpp, ProgressBar.cpp:
+	Added a RawDataReaderFactory to automatically find file types
+	Cutter still has problems processing simulation data.
+
+2003-05-22  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Parameterizer.cpp, PlotMaker.cpp, Cutter.cpp, GaussianDeviate.cpp, GaussianDeviate.h:
+	Plotting updates in Cutter
+	Added a "hold event" option in Parameterizer interactive mode
+
+2003-05-20  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp:
+	The X PlotMaker is no longer created in the constructor (now it's on demand)
+
+	* Config.cpp:
+	Fixed bug where config files in the support directory were not opened
+
+2003-05-15  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Cutter.h, DataRecords.h, Image2D.cpp, Image2D.h, PlotMaker.cpp:
+	Now generates 2d images for each run, and displays during cutting
+
+2003-05-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Config.cpp, Cutter.cpp, Makefile.in, PlotMaker.cpp, PlotMaker.h:
+	Plotting updates
+	Contours can now be plotted using a color map
+
+2003-05-08  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp: Fixed RA and DEC contour plots
+
+2003-05-08  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp: Fixed RA and DEC contour plots
+
+2003-05-06  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp, PlotMaker.cpp:
+	Fixed bug where multiple sources in config file were not detected and flagged
+
+	* Parameterizer.cpp:
+	Fixed bug where overridden ra's were incorrect for off runs
+
+2003-05-06  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp, PlotMaker.cpp:
+	Fixed bug where multiple sources in config file were not detected and flagged
+
+	* Parameterizer.cpp:
+	Fixed bug where overridden ra's were incorrect for off runs
+
+2003-05-04  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp: Added maximum 2d significance output
+
+2003-05-02  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp, Image2D.cpp, Makefile.in, PlotMaker.cpp:
+	Minor updates: Removed some debugging output and
+	changed some contour plot colors
+
+2003-05-01  Karl Kosack  <kosack@inky.lexas>
+
+	* Image2D.cpp, Image2D.h, Cutter.cpp: *** empty log message ***
+
+2003-04-30  Karl Kosack  <kosack@inky.lexas>
+
+	* GainFinder.cpp, PedestalFinder.cpp, PlotMaker.cpp:
+	Verified the gains/peds are working
+	Changed tubeoff threshold for zenith runs
+
+2003-04-28  Karl Kosack  <kosack@inky.lexas>
+
+	* Parameterizer.cpp, wuparam.cpp, Cutter.cpp, ImageAnalyzer.cpp:
+	Minor updates
+
+2003-04-07  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.cpp: Just added a bug
+
+	* Cutter.cpp, PlotMaker.cpp, PlotMaker.h:
+	Fixed some contour plotting problems
+
+	* Config.h, DataReader.cpp, Exceptions.h, Makefile.am, Makefile.in, Parameterizer.h:
+	Added exception for end of file
+	Changed makefiles so pedestalfinder and gainfinder can include a PlotMaker
+
+	* GainFinder.cpp:
+	Fixed bug where the outer tubes were getting included in the flat field!
+
+	* PedestalFinder.h: Added 'bad' pedestal threshold
+
+	* PedestalFinder.cpp:
+	Added another threshold to exclude ped events where there are some
+	bright pixels (where a n2 flash or something made it through)
+
+	Ignores the outter tubes in the 490 camera
+
+	Checks for consistantly high pixels and outputs a warning
+
+2003-04-07  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.cpp: Just added a bug report
+
+	* Cutter.cpp, PlotMaker.cpp, PlotMaker.h:
+	Fixed some contour plotting problems
+
+	* Config.h, DataReader.cpp, Exceptions.h, Makefile.am, Makefile.in, Parameterizer.h:
+	Added exception for end of file
+	Changed makefiles so pedestalfinder and gainfinder can include a PlotMaker
+
+	* GainFinder.cpp:
+	Fixed bug where the outer tubes were getting included in the flat field!
+
+	* PedestalFinder.h: Added 'bad' pedestal threshold
+
+	* PedestalFinder.cpp:
+	Added another threshold to exclude ped events where there are some
+	bright pixels (where a n2 flash or something made it through)
+
+	Ignores the outter tubes in the 490 camera
+
+	Checks for consistantly high pixels and outputs a warning
+
+2003-04-04  Karl Kosack  <kosack@inky.lexas>
+
+	* Makefile.in, PedestalFinder.cpp, PedestalFinder.h, PlotMaker.cpp, PlotMaker.h, wuparam.cpp, Cutter.h, GainFinder.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Cutter.cpp:
+	Added more robust threshold to pedestal finder to fix problem where bright runs (like SgrA) were having too many tubes turned off
+
+2003-04-03  Karl Kosack  <kosack@inky.lexas>
+
+	* GainFinder.cpp: Changed bad gain tubes to have 0 gain instead of 1
+
+2003-04-03  Karl Kosack  <kosack@inky.lexas>
+
+	* GainFinder.cpp: Changed bad gain tubes to have 0 gain instead of 1
+
+2003-04-02  Karl Kosack  <kosack@inky.lexas>
+
+	* PlotMaker.cpp: Fixed bug where minor tics weren't getting plotted
+	ticlevel now means "power of 10 at which to print major tics", minor tics get printed at ticlevel-1
+
+	* Cutter.cpp, PlotMaker.cpp, PlotMaker.h: Added contour plotting
+	Added RA and DEC lines
+
+2003-04-01  Karl Kosack  <kosack@inky.lexas>
+
+	* Image2D.h, PedestalFinder.cpp: Minor updates
+
+	* Camera.cpp, Camera.h, Cutter.cpp, Makefile.in, Parameterizer.cpp, PlotMaker.cpp, PlotMaker.h:
+	Removed all of the drawing stuff from Camera and re-implemented it in PlotMaker
+	PlotMaker can now plot Stars, Camera images and has better tickmarks
+
+2003-03-31  Karl Kosack  <kosack@inky.lexas>
+
+	* PlotMaker.cpp, PlotMaker.h: Started adding colormap support
+
+	* PlotMaker.cpp, PlotMaker.h, Cutter.cpp, Cutter.h, Makefile.am, Makefile.in:
+	*** empty log message ***
+
+	* Cutter.cpp, PlotMaker.cpp, PlotMaker.h: minor plotting updates
+
+	* Cutter.cpp, Cutter.h, Image2D.cpp, Image2D.h, ImageCleaner.cpp, Makefile.am, Makefile.in, PlotMaker.cpp, PlotMaker.h:
+	Started to add  built-in plotting of images (to get rid of IDL dependency)
+
+2003-03-19  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.h, MuonImageAnalyzer.cpp: comment updates
+
+2003-03-17  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Camera.h, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp:
+	Fixed bug in MuonImageAnalyzer::getCenter() where invalid ix,iy were being returned.
+	Minor plotting updates
+	Added ability to turn on/off muon ringcenter plotting in interactive mode
+
+2003-03-14  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Config.cpp, Config.h, Parameterizer.cpp, Parameterizer.h, wuparam.cpp:
+	Better muon plotting
+	Config now has option of enabling muon calibration
+
+2003-03-13  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Camera.h, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp, Parameterizer.h, wuparam.cpp:
+	Added ability to turn on/off the muon calculation
+	Fixed some muon bugs
+	Better plot display f muons
+
+	* Camera.cpp, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp:
+	More work on muon ring calculation and display
+
+2003-03-12  Karl Kosack  <kosack@inky.lexas>
+
+	* MuonImageAnalyzer.cpp, MuonImageAnalyzer.h:
+	Removed the muon triplet precalculation because it used up too much
+	memory. Replaced with in-place calculations (slower, but we'll figure
+	out a better way to cache them later).
+
+2003-03-11  Karl Kosack  <kosack@inky.lexas>
+
+	* MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp, Camera.cpp, Camera.h, ImageAnalyzer.cpp:
+	Renamed some variables to be easier to read
+	Added a muon overlay in the Camera drawing routines
+
+2003-03-10  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Camera.h, Doxyfile, ImageAnalyzer.cpp, ImageAnalyzer.h, ImageCleaner.cpp, ImageCleaner.h, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, Parameterizer.cpp:
+	Fixed some bugs in MuonImageAnalyzer
+	Changed the cleanpixels list to be a std::vector instead of std::list
+
+	* Camera.cpp, Camera.h, Config.h, Cutter.cpp, Cutter.h, DataWriter.cpp, DataWriter.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, MuonImageAnalyzer.cpp, MuonImageAnalyzer.h, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, Types.h:
+	Changed ImageAnalyzer to be an abstract base class for HillasImageAnalyzer and MuonImageAnalyzer
+	Lots of work on MuonImageAnalyzer
+
+2003-03-04  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Config.cpp, Image2D.cpp, Image2D.h, Parameterizer.cpp:
+	Fixed compile problem where the transform() function didn't know which tolower() to use.
+
+	* Config.cpp, Cutter.cpp: Cleaned up some of the Cutter output
+	Added InputType and OutputType info to the sample config file
+
+2003-03-03  Karl Kosack  <kosack@inky.lexas>
+
+	* Camera.cpp, Config.cpp, Cutter.cpp, DataReader.cpp, DataWriter.cpp, GainFinder.cpp, GaussianDeviate.cpp, Histogram.cpp, Image2D.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, ImageCleaner.cpp, ParamDataReader.cpp, Parameterizer.cpp, PedestalFinder.cpp, StarCatalog.cpp, wucut.cpp, wugains.cpp, wuparam.cpp, wupeds.cpp:
+	Started making an abstract superclass for ImageAnalyzer (the new MuonAnalyzer routine will be a type of ImageAnalyzer)
+	Removed all of the "using std::cout" stuff, replaced with "using namespace std" since there are no namespace conflicts.
+
+2003-03-02  Karl Kosack  <kosack@inky.lexas>
+
+	* Config.cpp, Cutter.cpp:
+	Added calculation of the actual tracking ratio from off runs
+
+2003-02-25  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp: Added tracking ratio calculation
+
+2003-02-24  Karl Kosack  <kosack@inky.lexas>
+
+	* DataRecords.h, ImageAnalyzer.h, Makefile.in:
+	Started adding new info/header framework
+
+	* Cutter.cpp, DataRecords.h, DataWriter.cpp, ParamDataReader.cpp, Parameterizer.cpp:
+	Added average elevation to header and wucut output
+
+2003-02-10  Karl Kosack  <kosack@inky.lexas>
+
+	* Cutter.cpp, Cutter.h, DataReader.cpp, DataRecords.h, DataWriter.cpp, Makefile.in, ParamDataReader.cpp, Parameterizer.cpp:
+	Cleaned up and consolidated the per run analysis in Cutter
+
+	* Cutter.cpp, Cutter.h, Makefile.in, Parameterizer.cpp:
+	Added a max2 histogram for diagnostics
+	Added an track-off rate histogram in the Cutter for lightcurve calculations
+
+2003-02-03  Karl Kosack  <kosack@inky.lexas>
+
+	* Parameterizer.cpp, Config.cpp, Config.h, Cutter.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.in:
+	Added a length/size parameter to the ntuple that doesn't get modified by the zenith corrections.  Changed Cutter to use this parameter also.
+
+2003-02-03  Jim Buckley  <buckley@inky.lexas>
+
+	* Parameterizer.cpp:
+	Modified zenith correction point of origin recalculation.  Fixed problem
+	with interactive mode so that zenith corrections would never be applied
+	twice.  Optimized some code for speed.
+
+2003-01-22  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ImageCleaner.cpp, ImageCleaner.h:
+	Added the ImageCleaner files that I forgot to add last checkin
+
+2003-01-21  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Makefile.am, Makefile.in, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp:
+	Separated the cleaning routine out into it's own object (ImageCleaner)
+	so that writing multiple cleaning routines will be easier in the future.
+
+2003-01-20  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* DataReader.cpp, DataReader.h, DataRecords.h, Histogram.cpp, Parameterizer.cpp, PedestalFinder.cpp:
+	Modified RawDataReaderSim to read GrISU simulation output
+
+2003-01-16  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Makefile.in: Updates to the RPM spec file.
+	Got rid of some unneeded autoconf files
+
+2003-01-14  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* DataWriter.cpp, ImageAnalyzer.cpp, ProgressBar.cpp, StarCatalog.cpp, Config.cpp:
+	Updates so compilation works with gcc-3.2
+
+2003-01-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Config.cpp, Config.h, Cutter.cpp, DataRecords.h, DataWriter.cpp, Histogram.cpp, Histogram.h, ParamDataReader.cpp, Parameterizer.cpp:
+	Now does lightcurve binning in Cutter
+	Ability to specify lightcurve time base in config file
+	Histograms now can have fractionally filled bins
+
+2003-01-01  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Cutter.h, DataReader.cpp, Parameterizer.cpp, Types.h:
+	Removed some debug info
+
+	* Cutter.h, Parameterizer.cpp, wucut.cpp:
+	Added ability to specify output directory in Cutter
+
+2002-12-30  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Parameterizer.cpp: Fixing simulation stuff
+
+	* Cutter.cpp, Parameterizer.cpp, PedestalFinder.cpp:
+	Fixed problem where simulation datafiles weren't working due to
+	skybrightness calculation
+
+2002-12-29  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* DataWriter.cpp, Exceptions.h, GainFinder.cpp, Makefile.am, Makefile.in, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h, StarCatalog.cpp, StarCatalog.h, wuparam.cpp:
+	Mostly cosmetic changes to output
+	Now saves the human-readable run information to a file as well as console
+
+2002-12-09  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Exceptions.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Parameterizer.cpp, PedestalFinder.h, StarCatalog.cpp:
+	Documentation updates
+	Added ability to set display scale in interactive mode
+
+2002-12-06  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ImageAnalyzer.cpp: Asymmetry fixed
+
+2002-12-04  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, wuparam.cpp: removed some cruft
+
+2002-11-26  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* ImageAnalyzer.cpp: Minor cosmetic changes
+
+	* Camera.cpp, PedestalFinder.cpp: Minor updates
+
+	* Parameterizer.h:
+	Put a cutter as a data member, so it wasn't initialized every time a
+	run was parameterized.
+
+	* ImageAnalyzer.cpp:
+	Fixed error in the asymmmetry calculation where the 3rd moments were
+	wrong.  Still not sure if asymmetry is correct, though.
+
+	* Parameterizer.cpp:
+	Fixed bug where cleaning routine wasn't getting the Pedestal type
+	information. Also, zenith correct is now off by default in interactive mode.
+
+	* Config.h: Added asymmdist cut
+	Made a default constructor for Cut datatype
+
+	* Config.cpp: Added asymmdist cut
+
+	* Cutter.h:
+	Added asymmetry distance cut which specifies region where asymmetry is valid
+
+	* Cutter.cpp:
+	2-D analysis now uses asymmetry if centroid is within a specified anulus
+
+2002-11-26  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Camera.cpp, PedestalFinder.cpp: Minor updates
+
+	* Parameterizer.h:
+	Put a cutter as a data member, so it wasn't initialized every time a
+	run was parameterized.
+
+	* ImageAnalyzer.cpp:
+	Fixed error in the asymmmetry calculation where the 3rd moments were
+	wrong.  Still not sure if asymmetry is correct, though.
+
+	* Parameterizer.cpp:
+	Fixed bug where cleaning routine wasn't getting the Pedestal type
+	information. Also, zenith correct is now off by default in interactive mode.
+
+	* Config.h: Added asymmdist cut
+	Made a default constructor for Cut datatype
+
+	* Config.cpp: Added asymmdist cut
+
+	* Cutter.h:
+	Added asymmetry distance cut which specifies region where asymmetry is valid
+
+	* Cutter.cpp:
+	2-D analysis now uses asymmetry if centroid is within a specified anulus
+
+2002-11-25  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* wupeds.cpp, Camera.cpp, Camera.h, DataRecords.h, GainFinder.cpp, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h:
+	Added a Pedestal struct which contains pedestal, dispersion, and type (for marking off tubes)
+
+	* Config.cpp, GainFinder.cpp, PedestalFinder.cpp:
+	Better output of off tubes in GainFinder and PedestalFinder
+
+	* Parameterizer.cpp:
+	Fixed possible problem in clean() where "off" tubes were being included
+
+	* Camera.cpp: reversed star/off marking color
+
+	* PedestalFinder.cpp:
+	Now marks tubes above peddisp threshold as "star" tubes and those
+	lower as "off tubes"
+
+	* Parameterizer.cpp:
+	Updated brightness/tubeoffness to take care of off tubes vs star tubes
+
+	* Camera.cpp: Updated draw() to mark star vs off tubes
+
+	* Cutter.cpp, Cutter.h, GainFinder.cpp, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h:
+	Added tuboffness map calculation
+	Fixed sky brightness map calculation (was using only off tubes)
+	Changed pedvars -> peddisps (since they're dispersions, not variances)
+
+2002-11-22  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Camera.cpp, Config.cpp, Image2D.h, Parameterizer.cpp, StarCatalog.cpp:
+	Fixed brightness map problem where midpoint time was wrong
+
+2002-11-21  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Cutter.h, Image2D.h, Parameterizer.cpp, PedestalFinder.h, StarCatalog.h:
+	Added functions to compare Star objects for sorting
+	Cutter now makes plotting duplicate stars better
+
+	* StarCatalog.cpp:
+	Changed Star.tx to be opposite sign to correspond with XEphem
+
+2002-11-18  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, StarCatalog.cpp, StarCatalog.h:
+	Added catalog_id to star structure for plotting purposes
+
+2002-11-14  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Image2D.cpp, Image2D.h, Parameterizer.cpp, Parameterizer.h, StarCatalog.cpp, StarCatalog.h:
+	Changes to Image2D coordinate output
+	Changed StarCatalog a bit, probably need to fix it though
+
+	* Cutter.cpp, Cutter.h, Makefile.am, Makefile.in, Parameterizer.cpp, Parameterizer.h, StarCatalog.cpp, StarCatalog.h:
+	Moved all the StarCatalog stuff into Cutter (no need to do it in Parameterizer)
+	Cutter now produces a final list of field stars in the on/off regions
+
+2002-11-13  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Config.cpp, Config.h, Makefile.am, Makefile.in, Parameterizer.cpp, Parameterizer.h, StarCatalog.cpp, StarCatalog.h:
+	Moved star catalog stuff into separate StarCatalog class
+	Added SAO database of faint stars
+
+2002-11-12  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Image2D.cpp, Image2D.h, Parameterizer.cpp:
+	Saves individual brightness maps as pgm's for debugging
+	Added saveGrid() method to Image2D for plotting programs that require it
+
+	* Cutter.cpp, DataReader.cpp, Parameterizer.cpp:
+	More descriptive exception messages in DataReader
+	Parameterizer now precesses the star catalog for each run
+	Removed some debugging statements from Cutter
+
+2002-11-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Cutter.h, Image2D.cpp, Parameterizer.cpp:
+	Cutter now generates composite sky brightness map
+	Fixed bug in Image2D::load()
+
+	* Image2D.cpp: Removed debugging stuff
+
+	* Cutter.cpp, Cutter.h, DataReader.h, DataRecords.h, Histogram.cpp, Histogram.h, Image2D.cpp, Image2D.h, Parameterizer.cpp, Parameterizer.h:
+	Removed Histogram2d, replaced with Image2D in cutter and elsewhere
+	Added ability to precess the star catalog to current epoch
+
+2002-11-11  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* Cutter.cpp, Cutter.h, DataReader.h, DataRecords.h, Histogram.cpp, Histogram.h, Image2D.cpp, Image2D.h, Parameterizer.cpp, Parameterizer.h:
+	Removed Histogram2d, replaced with Image2D in cutter and elsewhere
+	Added ability to precess the star catalog to current epoch
+
+2002-11-10  Karl Kosack  <kosack@inky.wustl.edu>
+
+	* GainFinder.cpp, PedestalFinder.cpp:
+	Now checks CACHE before uncompressing datafiles
+
+	* Parameterizer.cpp: Added endl to output of nearby star datafile
+
+2002-11-10  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.cpp: Fixed *-star.dat file writing
+
+2002-11-08  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.cpp, Parameterizer.h, Image2D.cpp: Star location code
+
+2002-11-07  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Parameterizer.cpp, Parameterizer.h:
+	Started adding star catalog functions
+
+	* Camera.cpp, Config.cpp, Config.h, Cutter.cpp, DataRecords.h, Image2D.cpp, Image2D.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, Parameterizer.cpp, Parameterizer.h, Types.h:
+	Added an Image2D class
+	Added sky brightness map
+	Added a Coord_t class for 2d coordinates (may break old parameterized data)
+
+2002-11-06  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.cpp, Parameterizer.h: Fixed crash
+
+2002-11-05  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, DataWriter.cpp, Parameterizer.cpp:
+	Added cloud simulation for Henric
+
+	* Camera.cpp, Config.cpp, DataReader.cpp, DataRecords.h, DataWriter.cpp, Exceptions.h, GainFinder.cpp, Histogram.cpp, ParamDataReader.cpp, Parameterizer.cpp, PedestalFinder.cpp:
+	Added more exception types
+
+2002-10-22  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp:
+	Fixed bug in Cutter where final ra and dec were coming from the last
+	off run (instead of the on run)
+
+	* PedestalFinder.cpp, PedestalFinder.h, Config.cpp, GainFinder.cpp, GainFinder.h:
+	PedestalFinder and GainFinder now use RunInfo::locateFile() to find/uncompress datafiles.
+
+2002-10-21  Karl Kosack  <kosack@localhost.localdomain>
+
+	* ImageAnalyzer.cpp, ImageAnalyzer.h:
+	More work on the asymmetry calculation.  Still not sure it's working yet.
+
+2002-10-19  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, wuparam.cpp, wuparam.h:
+	More file locating/uncompressing updates
+
+2002-10-18  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, DataReader.cpp, DataReader.h, Parameterizer.cpp, wuparam.cpp:
+	Now locates data files in subdirectories of DataDir and automatically
+	uncompresses them if needed.
+
+	* Cutter.cpp, DataReader.cpp, DataReader.h, Parameterizer.cpp, wuparam.cpp:
+	Started to add better file locating abilities.
+
+2002-10-14  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Cutter.cpp, DataRecords.h, DataWriter.cpp, DataWriter.h, Makefile.in:
+	Documentation updates
+	DataWriter now handles header files better
+
+	* Cutter.cpp:
+	Updates to confidence level calculation (still not sure it's right)
+
+2002-10-10  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp: Fixed tracking analysis off alpha range
+	Better on/off per run output
+
+2002-10-09  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, DataRecords.h, wuparam.cpp:
+	Cutter now uses Li and Ma maximum likelihood significance calculation
+
+	* Cutter.cpp, Cutter.h: Cutter now also analyzes on runs as tracking
+
+2002-10-08  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h: More tracking analysis updates
+
+2002-10-07  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, DataRecords.h, Makefile.in:
+	Tracking analysis and documentation mods
+
+	* Makefile.in: Automake updates
+
+	* Config.cpp, Config.h, Cutter.cpp, ParamDataReader.h, wuparam.cpp, wuparam.h:
+	Config now catches infinite recursion
+	Removed buggy MPI flag in wuparam
+
+	* wuparam.cpp, wuparam.h:
+	Added option to enable/disable mpi even when it is compiled in
+
+2002-10-05  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, DataRecords.h: cosmetic changes
+
+2002-10-03  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Parameterizer.cpp:
+	Fix to allow 2-d images to be produced by tracking runs
+
+2002-10-01  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, Parameterizer.cpp:
+	Added ability to pad tracking runs up to a fixed level (PadLevel keyword in Config files).  This is also useful for simulation runs, which have no noise added.
+
+2002-09-28  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, Makefile.in:
+	Added energy estimator calculation and histogram
+
+2002-09-26  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Makefile.am, Makefile.in, wuparam-mpi.cpp, wuparam.cpp:
+	Folded wuparam-mpi into wuparam, and made necessary changes to
+	configure.in to check for libmpi/liblam
+
+	* Camera.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Parameterizer.cpp:
+	Started to implement Asymmetry parameter calculation.
+
+2002-09-24  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Parameterizer.h, Cutter.cpp, Makefile.am, Makefile.in, Parameterizer.cpp:
+	Moved run info output out of the Parameterizer::processOne() method
+
+	* Config.cpp, Config.h, DataReader.cpp, DataReader.h, Exceptions.h, Parameterizer.cpp, wuparam.cpp:
+	Added ability to disable derotation
+	Fixed the reading of simulation datafiles
+	Fixed some exception handling bugs
+
+2002-09-19  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, DataReader.cpp, DataWriter.cpp: Added size histogram
+
+2002-09-17  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, DataRecords.h, DataWriter.cpp, DataWriter.h, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, wucut.cpp:
+	Better header for parameterized files (allows ra/dec/etc. to be passed to the Cutter)
+
+2002-09-13  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.h, Cutter.cpp, Cutter.h, Makefile.am, Makefile.in, ProgressBar.h, wuparam-mpi.cpp, Config.cpp:
+	Added Cut struct, instead of using an array
+
+2002-09-12  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Cutter.cpp, GaussianDeviate.cpp, ImageAnalyzer.cpp:
+	Started to add tracking run support
+	Minor camera drawing changes
+
+2002-09-10  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Config.cpp, Config.h, GaussianDeviate.cpp, Parameterizer.cpp, wuparam-mpi.cpp:
+	Scrapped old MPI version since sending RunInfo's was too hard
+	Make new very simple MPI version, works OK
+	Changed GaussianDeviate's random number generator to seed from PID instead of time
+
+2002-09-05  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.h, wuparam-mpi.cpp: Just some more attempts
+
+	* Cutter.cpp, Makefile.am, Makefile.in, wuparam-mpi.cpp: MPI updates
+
+2002-09-03  Karl Kosack  <kosack@localhost.localdomain>
+
+	* ImageAnalyzer.cpp, wuparam-mpi.cpp: Started working on MPI wuparam
+
+	* GaussianDeviate.cpp, GaussianDeviate.h, Parameterizer.cpp, ProgressBar.cpp, ProgressBar.h, wucut.cpp, Camera.cpp, Camera.h, Cutter.cpp, Cutter.h:
+	Separated out the calculation of significance, totals in Cutter to prepare for adding a cut optimizer
+
+2002-08-30  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, wuparam.cpp: Minor drawing updates
+
+2002-08-29  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Config.h, Cutter.cpp, Cutter.h, DataRecords.h, GainFinder.cpp, Makefile.in, Parameterizer.cpp, PedestalFinder.cpp, ProgressBar.cpp, ProgressBar.h, wucut.cpp:
+	Make Cutter cleaner and able to process individial runs easier
+
+2002-08-28  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, DataWriter.cpp, DataWriter.h, Parameterizer.cpp, Parameterizer.h, wuparam.cpp, wuparam.h:
+	Added overwrite capability
+	Fixed bug in raw alpha plot
+
+	* Camera.cpp, Config.h, Cutter.cpp, Cutter.h, ImageAnalyzer.cpp, Parameterizer.cpp:
+	Fixed problem with miss calculation (error in formula)
+
+2002-08-27  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Cutter.cpp, Cutter.h, GainFinder.cpp, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, Parameterizer.cpp:
+	Added ability to apply cuts in interactive mode
+
+	* Parameterizer.cpp, ImageAnalyzer.cpp: Interactive changes
+
+2002-08-26  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Histogram.h, ImageAnalyzer.cpp, Makefile.in, Parameterizer.cpp:
+	More alpha  debugging
+
+2002-08-25  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp, Cutter.cpp, Cutter.h, GaussianDeviate.cpp, Histogram.cpp, Parameterizer.cpp, wuparam.cpp:
+	Added PGM output support for Cutter
+
+2002-08-23  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Cutter.cpp, Cutter.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Parameterizer.cpp, Parameterizer.h:
+	Removed alpha cut from 2d analysis (shouldn't have been there)
+	Added "invalid" flag capability to ImageAnalyzer
+
+2002-08-22  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Config.cpp, Config.h, Cutter.cpp, ImageAnalyzer.cpp, Parameterizer.cpp, ProgressBar.cpp, wucut.cpp:
+	Added frac3 cut
+	Fixed bug in derotation (matrix multiply was wrong)
+	Fixed bug where some of the inner tubes were being ignored (not just outter ones)
+
+2002-08-21  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Parameterizer.cpp: More debugging mods
+
+2002-08-20  Karl Kosack  <kosack@localhost.localdomain>
+
+	* wuparam.cpp: cosmetic changes
+
+2002-08-19  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Camera.h, Cutter.cpp, Cutter.h, ImageAnalyzer.cpp, Parameterizer.cpp, wucut.cpp:
+	Fixed bug where alpha was in radians where it should be degrees
+
+2002-08-15  Karl Kosack  <kosack@localhost.localdomain>
+
+	* ImageAnalyzer.cpp, Parameterizer.cpp, wuparam.cpp:
+	Fixed some typos in ImageAnalyzer
+
+2002-08-12  Karl Kosack  <kosack@localhost.localdomain>
+
+	* DataReader.cpp, GaussianDeviate.cpp, ImageAnalyzer.cpp, Parameterizer.cpp:
+	More debugging
+
+	* DataReader.cpp, DataReader.h, DataRecords.h, GainFinder.cpp, ImageAnalyzer.cpp, Parameterizer.cpp, PedestalFinder.cpp, wuparam.cpp, Config.cpp, Config.h:
+	Updates for simulation .tubes data format reading
+
+2002-08-01  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Config.cpp, Cutter.cpp, Parameterizer.cpp:
+	Plotting updates
+	Cuts are now initialized to "wide open"
+
+2002-07-31  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Config.cpp, Config.h, Cutter.cpp, ImageAnalyzer.cpp, Parameterizer.cpp, Parameterizer.h:
+	The cuts should now be similar to the ones in mcut
+
+2002-07-29  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Camera.h, Cutter.cpp, ImageAnalyzer.cpp, Parameterizer.cpp, Parameterizer.h:
+	More diagnostic plots!
+
+2002-07-26  Karl Kosack  <kosack@localhost.localdomain>
+
+	* DataWriter.cpp, Histogram.cpp, ImageAnalyzer.cpp, Parameterizer.cpp, Parameterizer.h:
+	More diagnostic histograms
+
+	* Camera.cpp, Camera.h, ImageAnalyzer.cpp, Parameterizer.cpp, PedestalFinder.cpp:
+	Added more histograms, initial gnuplot output
+
+2002-07-24  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Camera.h, Config.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataReader.h, DataRecords.h, DataWriter.cpp, DataWriter.h, Exceptions.h, GainFinder.cpp, GainFinder.h, GaussianDeviate.cpp, GaussianDeviate.h, Histogram.cpp, Histogram.h, ImageAnalyzer.cpp, ImageAnalyzer.h, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h, ProgressBar.cpp, ProgressBar.h:
+	Just commenting updates
+
+	* Camera.cpp, Camera.h, Cutter.cpp, DataWriter.cpp, Histogram.cpp, ImageAnalyzer.cpp, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, PedestalFinder.cpp, wucut.cpp:
+	More ISO C++ updates
+	Changed Camera display code to allow postscript output (Camera::snapshot())
+
+2002-07-22  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Config.cpp:
+	Config.cpp: Changed the configuration file reading routine to use stringstreams
+
+2002-07-18  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Camera.h, Config.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataReader.h, DataRecords.h, DataWriter.h, Exceptions.h, GainFinder.cpp, GainFinder.h, GaussianDeviate.cpp, GaussianDeviate.h, Histogram.cpp, Histogram.h, ImageAnalyzer.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.h, ProgressBar.cpp, Types.h, wugains.cpp, wuparam.cpp, wupeds.cpp:
+	Minor updates so that code complies with  ISO c++ namespace rules
+	(i.e. gcc 3.x can now compile wuparam)
+
+	* Parameterizer.cpp, Parameterizer.h:
+	Fixed angle calculations - now elevation, azimuth, and theta are correct
+
+2002-07-06  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Cutter.cpp, Cutter.h, GaussianDeviate.cpp, Histogram.cpp, Makefile.in, Parameterizer.cpp:
+	Various updates
+	Improved gaussian deviate computation
+
+2002-06-29  Karl Kosack  <kosack@localhost.localdomain>
+
+	* Camera.cpp, Camera.h, Config.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataReader.h, DataRecords.h, DataWriter.cpp, DataWriter.h, Doxyfile, Exceptions.h, GainFinder.cpp, GainFinder.h, GaussianDeviate.cpp, GaussianDeviate.h, Histogram.cpp, Histogram.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h, ProgressBar.cpp, ProgressBar.h, Types.h, wucut.cpp, wugains.cpp, wuparam.cpp, wuparam.h, wupeds.cpp:
+	Initial release of wuparam Whipple data analysis package
+
+	* Camera.cpp, Camera.h, Config.cpp, Config.h, Cutter.cpp, Cutter.h, DataReader.cpp, DataReader.h, DataRecords.h, DataWriter.cpp, DataWriter.h, Doxyfile, Exceptions.h, GainFinder.cpp, GainFinder.h, GaussianDeviate.cpp, GaussianDeviate.h, Histogram.cpp, Histogram.h, ImageAnalyzer.cpp, ImageAnalyzer.h, Makefile.am, Makefile.in, ParamDataReader.cpp, ParamDataReader.h, Parameterizer.cpp, Parameterizer.h, PedestalFinder.cpp, PedestalFinder.h, ProgressBar.cpp, ProgressBar.h, Types.h, wucut.cpp, wugains.cpp, wuparam.cpp, wuparam.h, wupeds.cpp:
+	New file.
+
+2002-05-01  Karl Kosack  <kosack@localhost.localdomain>
+
+	* 
+
+2001-06-19  Karl Kosack  <kosack@gamma2.wustl.edu>
+
+	* all: wrote wupeds, wugains, wuparam programs (wuparams isn't finished)
+
+	* all: created Parameterizer, PedistalFinder, GainFinder objects
+
+	* all: separated camera and image
+
+2001-03-22  Karl Kosack  <kosack@gamma2.wustl.edu>
+
+	* emacs: use c-x 4 a to insert a log entry
+
+	* Camera: changed to be CameraImage, a subclass of Image. This
+	simplifies the data that has to be passed around and keeps Image a
+	self contained class which doesn't depend on anything else.
+
+
+
+
+	

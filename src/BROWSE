@@ -1,0 +1,1825 @@
+[ebrowse-hs "ebrowse 5.0" " -x" () ()][ebrowse-ts [ebrowse-cs "Coordinate_t" () 0"Types.h" "struct Coordinate_t {" 255() ]
+()([ebrowse-ms "x" () 0 () "    double x;" 269 0  () () 0]
+[ebrowse-ms "y" () 0 () "    double y;" 302 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Star" () 0"StarCatalog.h" "class Star {" 146() ]
+()([ebrowse-ms "catalog_id" () 0 () "    int catalog_id;" 555 0  () () 0]
+[ebrowse-ms "dec" () 0 () "    double dec;" 305 0  () () 0]
+[ebrowse-ms "epoch" () 0 () "    int epoch;" 391 0  () () 0]
+[ebrowse-ms "magnitude" () 0 () "    double magnitude;" 348 0  () () 0]
+[ebrowse-ms "name" () 0 () "    std::string name;" 178 0  () () 0]
+[ebrowse-ms "odec" () 0 () "    double ora, odec;" 454 0  () () 0]
+[ebrowse-ms "ra" () 0 () "    double ra;" 268 0  () () 0]
+[ebrowse-ms "spectclass" () 0 () "    std::string spectclass;" 225 0  () () 0]
+[ebrowse-ms "ty" () 0 () "    double tx, ty;" 496 0  () () 0]
+)
+()
+()
+()
+([ebrowse-ms "operator !=" () 0 () "    friend bool operator!=(const" 838 0  () () 0]
+[ebrowse-ms "operator <" () 0 () "    friend bool operator<(const" 656 0  () () 0]
+[ebrowse-ms "operator <<" () 0 () "    friend std::ostream& operator<<( std" 908 0  () () 0]
+[ebrowse-ms "operator ==" () 0 () "    friend bool operator==(const" 777 0  () () 0]
+[ebrowse-ms "operator >" () 0 () "    friend bool operator>(const" 716 0  () () 0]
+[ebrowse-ms "operator >>" () 0 () "    friend std::istream& operator>>( std" 978 0  () () 0]
+)
+()
+()()
+][ebrowse-ts [ebrowse-cs "Triplet" "MuonImageAnalyzer" 0"MuonImageAnalyzer.h" "    struct Triplet {" 4710() ]
+()([ebrowse-ms "ix" () 0 () "	short     ix ;" 4750 0  () () 0]
+[ebrowse-ms "iy" () 0 () "	short	iy ;" 4762 0  () () 0]
+[ebrowse-ms "r" () 0 () "	float	r ;" 4773 0  () () 0]
+[ebrowse-ms "x0" () 0 () "	float	x0 ;" 4722 0  () () 0]
+[ebrowse-ms "y0" () 0 () "	float	y0 ;" 4734 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Image2D" () 0"Image2D.h" "class Image2D {" 209"Image2D.cpp" ]
+()([ebrowse-ms "_grid" () 0 () "    std::vector< std::vector<double> > _grid;" 1871 2  () () 0]
+[ebrowse-ms "_maxy" () 0 () "    double _minx, _miny, _maxx, _maxy;" 1802 2  () () 0]
+[ebrowse-ms "_nxbins" () 0 () "    int _nxbins;" 1746 2  () () 0]
+[ebrowse-ms "_nybins" () 0 () "    int _nybins;" 1763 2  () () 0]
+[ebrowse-ms "_outside" () 0 () "    int _outside;" 1820 2  () () 0]
+[ebrowse-ms "_xcoord" () 0 () "    std::vector<double> _xcoord;" 1929 2  () () 0]
+[ebrowse-ms "_ycoord" () 0 () "    std::vector<double> _ycoord;" 1996 2  () () 0]
+)
+([ebrowse-ms "Image2D" () 0 () "    Image2D( int nxbins=39, int nybins=39 );" 238 0  () "    :" 375]
+[ebrowse-ms "addHist" () 0 () "    void   addHist( double" 1024 0  () "addHist( double" 2064]
+[ebrowse-ms "addHistRadially" () 0 () "    void   addHistRadially( double" 1086 0  () "addHistRadially( double" 2807]
+[ebrowse-ms "addImage" () 0 () "    void   addImage( Image2D" 1204 0  () "Image2D::addImage( Image2D" 1607]
+[ebrowse-ms "addToPixel" () 0 () "    void   addToPixel( int" 953 0  "Image2D.h" "    void   addToPixel( int" 953]
+[ebrowse-ms "applyRadialSmoothing" () 0 () "    void   applyRadialSmoothing( double" 1251 0  () "applyRadialSmoothing( double" 7198]
+[ebrowse-ms "clear" () 0 () "    void   clear()" 795 0  () "clear()" 6103]
+[ebrowse-ms "crossCorrelateWith" () 0 () "    Image2D* crossCorrelateWith( Image2D" 1499 0  () "crossCorrelateWith( Image2D" 10862]
+[ebrowse-ms "expand" () 0 () "    void   expand()" 1455 0  () "expand()" 8694]
+[ebrowse-ms "getIndexOfMax" () 0 () "    void   getIndexOfMax( int" 1420 0  () "getIndexOfMax( int" 11921]
+[ebrowse-ms "getMaxX" () 0 () "    double getMaxX()" 553 0  "Image2D.h" "    double getMaxX()" 553]
+[ebrowse-ms "getMaxY" () 0 () "    double getMaxY()" 591 0  "Image2D.h" "    double getMaxY()" 591]
+[ebrowse-ms "getMinX" () 0 () "    double getMinX()" 477 0  "Image2D.h" "    double getMinX()" 477]
+[ebrowse-ms "getMinY" () 0 () "    double getMinY()" 515 0  "Image2D.h" "    double getMinY()" 515]
+[ebrowse-ms "getOutsideHits" () 0 () "    int    getOutsideHits()" 1154 0  "Image2D.h" "    int    getOutsideHits()" 1154]
+[ebrowse-ms "getPixel" () 0 () "    double getPixel( int" 892 0  "Image2D.h" "    double getPixel( int" 892]
+[ebrowse-ms "getXCoord" () 0 () "    double getXCoord( int" 378 0  "Image2D.h" "    double getXCoord( int" 378]
+[ebrowse-ms "getXDim" () 0 () "    int    getXDim()" 1282 0  "Image2D.h" "    int    getXDim()" 1282]
+[ebrowse-ms "getXHistBinOf" () 0 () "    int getXHistBinOf( double" 1535 0  "Image2D.h" "    int getXHistBinOf( double" 1535]
+[ebrowse-ms "getYCoord" () 0 () "    double getYCoord( int" 430 0  "Image2D.h" "    double getYCoord( int" 430]
+[ebrowse-ms "getYDim" () 0 () "    int    getYDim()" 1323 0  "Image2D.h" "    int    getYDim()" 1323]
+[ebrowse-ms "getYHistBinOf" () 0 () "    int getYHistBinOf( double" 1641 0  "Image2D.h" "    int getYHistBinOf( double" 1641]
+[ebrowse-ms "load" () 0 () "    void   load( std" 630 0  () "load( string" 4882]
+[ebrowse-ms "maxValue" () 0 () "    double maxValue()" 1389 0  () "maxValue()" 8406]
+[ebrowse-ms "minValue" () 0 () "    double minValue()" 1366 0  () "minValue()" 8180]
+[ebrowse-ms "save" () 0 () "    void   save( std" 671 0  () "save( string" 3755]
+[ebrowse-ms "saveGrid" () 0 () "    void   saveGrid(std" 757 0  () "saveGrid( string" 4448]
+[ebrowse-ms "savePGM" () 0 () "    void   savePGM(std" 714 0  () "savePGM( string" 6378]
+[ebrowse-ms "setCoordinateBox" () 0 () "    void   setCoordinateBox(double" 303 0  () "Image2D::setCoordinateBox( double" 1006]
+[ebrowse-ms "setPixel" () 0 () "    void   setPixel( int" 822 0  "Image2D.h" "    void   setPixel( int" 822]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "PlotMaker" () 0"PlotMaker.h" "class PlotMaker {" 325"PlotMaker.cpp" ]
+()([ebrowse-ms "_fp" () 0 () "    FILE *_fp;" 5487 2  () () 0]
+[ebrowse-ms "_keyoffset" () 0 () "    double  _keyoffset;" 5681 2  () () 0]
+[ebrowse-ms "_keywidth" () 0 () "    double  _keywidth;" 5704 2  () () 0]
+[ebrowse-ms "_labeloffset" () 0 () "    double  _labeloffset;" 5730 2  () () 0]
+[ebrowse-ms "_maxmagnitude" () 0 () "    double  _maxmagnitude;" 5630 2  () () 0]
+[ebrowse-ms "_maxy" () 0 () "    double _minx,_miny,_maxx,_maxy;" 5578 2  () () 0]
+[ebrowse-ms "_numkeycolors" () 0 () "    int     _numkeycolors;" 5657 2  () () 0]
+[ebrowse-ms "_pagemaxy" () 0 () "ouble _pageminx,_pageminy, _pagemaxx, _pagemaxy;" 5542 2  () () 0]
+[ebrowse-ms "_pixelscale" () 0 () "    double  _pixelscale;" 5603 2  () () 0]
+[ebrowse-ms "_scalefactor" () 0 () "    double  _scalefactor;" 5860 2  () () 0]
+[ebrowse-ms "_state" () 0 () "    std::stack<PlotState> _state;" 6266 2  () () 0]
+[ebrowse-ms "_subtitleoffset" () 0 () "    double  _subtitleoffset;" 5785 2  () () 0]
+[ebrowse-ms "_ticlevel" () 0 () "    int     _ticlevel;" 5808 2  () () 0]
+[ebrowse-ms "_ticmarksize" () 0 () "    double  _ticmarksize;" 5834 2  () () 0]
+[ebrowse-ms "_titleoffset" () 0 () "    double  _titleoffset;" 5756 2  () () 0]
+[ebrowse-ms "plotter" () 0 () "    plPlotter *plotter;" 5435 2  () () 0]
+[ebrowse-ms "plotter_params" () 0 () "    plPlotterParams *plotter_params;" 5472 2  () () 0]
+)
+([ebrowse-ms "PlotMaker" () 0 () "	       double maxx=3.1, double maxy=3.1);" 355 0  () "e minx,double miny, double maxx, double maxy ) {" 428]
+[ebrowse-ms "contourPlot" () 0 () "    void contourPlot( Image2D" 2010 0  () "contourPlot( Image2D" 24820]
+[ebrowse-ms "enableAutoScale" () 0 () "    void enableAutoScale( bool" 3975 0  "PlotMaker.h" "    void enableAutoScale( bool" 3975]
+[ebrowse-ms "flush" () 0 () "    void flush()" 1581 0  "PlotMaker.h" "    void flush()" 1581]
+[ebrowse-ms "getMappedColor" () 0 () "    void getMappedColor(double" 3549 0  () "PlotMaker::getMappedColor( double" 22229]
+[ebrowse-ms "newPage" () 0 () "    void newPage()" 1629 0  "PlotMaker.h" "    void newPage()" 1629]
+[ebrowse-ms "niceRaDecContours" () 0 () "    void niceRaDecContours(double" 5185 2  () "niceRaDecContours(double" 32415]
+[ebrowse-ms "plot" () 0 () "    void plot( Star" 2444 0  () "plot( Star" 24223]
+[ebrowse-ms "plot" () 0 () "    void plot( MuonParameterization" 2418 0  () "plot( MuonParameterization" 18997]
+[ebrowse-ms "plot" () 0 () "    void plot( HillasParameterization" 2376 0  () "plot( HillasParameterization" 16040]
+[ebrowse-ms "plot" () 0 () "    void plot( TelescopeArray" 2613 0  () "plot( TelescopeArray" 15341]
+[ebrowse-ms "plot" () 0 () "    void plot( string" 2554 0  () "plot( string" 14862]
+[ebrowse-ms "plot" () 0 () "    void plot( vector" 2487 0  () "plot( vector" 14159]
+[ebrowse-ms "plot" () 0 () "    void plot( Camera" 2207 0  () "plot( Camera" 9489]
+[ebrowse-ms "plot" () 0 () "    void plot( Image2D" 2176 0  () "plot( Image2D" 6831]
+[ebrowse-ms "plotAxes" () 0 () "    void plotAxes()" 1752 0  () "plotAxes()" 2435]
+[ebrowse-ms "plotEllipse" () 0 () "    void plotEllipse( double" 2690 0  () "plotEllipse( double" 28142]
+[ebrowse-ms "plotMarker" () 0 () "    void plotMarker( double" 2769 0  () "plotMarker( double" 30473]
+[ebrowse-ms "plotRADecGrid" () 0 () "    void plotRADecGrid( Image2D" 2088 0  () "plotRADecGrid( Image2D" 28490]
+[ebrowse-ms "plotSubtitle" () 0 () "    void plotSubtitle( std" 1821 0  () "plotSubtitle( std" 6488]
+[ebrowse-ms "plotTitle" () 0 () "    void plotTitle( std" 1777 0  () "plotTitle( std" 6144]
+[ebrowse-ms "plotXMinorTicAt" () 0 () "    void plotXMinorTicAt( double" 1937 0  () "plotXMinorTicAt( double" 5177]
+[ebrowse-ms "plotXTicAt" () 0 () "    void plotXTicAt( double" 1866 0  () "plotXTicAt( double" 3901]
+[ebrowse-ms "plotYMinorTicAt" () 0 () "    void plotYMinorTicAt( double" 1975 0  () "plotYMinorTicAt( double" 5667]
+[ebrowse-ms "plotYTicAt" () 0 () "    void plotYTicAt( double" 1899 0  () "plotYTicAt( double" 4538]
+[ebrowse-ms "popState" () 0 () "    void popState()" 1697 0  () "popState()" 15850]
+[ebrowse-ms "pushState" () 0 () "    void pushState()" 1676 0  () "pushState()" 15753]
+[ebrowse-ms "rotate" () 0 () "    void rotate( double" 1723 0  () "rotate( double" 15941]
+[ebrowse-ms "setAxisBox" () 0 () "    void setAxisBox( Camera" 1230 0  "PlotMaker.h" "    void setAxisBox( Camera" 1230]
+[ebrowse-ms "setAxisBox" () 0 () "    void setAxisBox( Image2D" 1097 0  "PlotMaker.h" "    void setAxisBox( Image2D" 1097]
+[ebrowse-ms "setAxisBox" () 0 () "    void setAxisBox( double" 958 0  "PlotMaker.h" "    void setAxisBox( double" 958]
+[ebrowse-ms "setColorMap" () 0 () "    void setColorMap( string" 2879 0  "PlotMaker.h" "    void setColorMap( string" 2879]
+[ebrowse-ms "setColorMap" () 0 () "    void setColorMap( ColorMap" 2816 0  "PlotMaker.h" "    void setColorMap( ColorMap" 2816]
+[ebrowse-ms "setColorScale" () 0 () "    void setColorScale( double" 3807 0  "PlotMaker.h" "    void setColorScale( double" 3807]
+[ebrowse-ms "setContourColorName" () 0 () "    void setContourColorName( string" 4055 0  "PlotMaker.h" "    void setContourColorName( string" 4055]
+[ebrowse-ms "setContourLineStyle" () 0 () "    void setContourLineStyle( string" 4319 0  "PlotMaker.h" "    void setContourLineStyle( string" 4319]
+[ebrowse-ms "setContourLineStyle" () 0 () "    void setContourLineStyle( ContourLineStyle" 4235 0  "PlotMaker.h" "    void setContourLineStyle( ContourLineStyle" 4235]
+[ebrowse-ms "setContourLineWidth" () 0 () "    void setContourLineWidth( double" 4629 0  "PlotMaker.h" "    void setContourLineWidth( double" 4629]
+[ebrowse-ms "setLabelAngle" () 0 () "    void setLabelAngle( double" 4780 0  "PlotMaker.h" "    void setLabelAngle( double" 4780]
+[ebrowse-ms "setLabelColorName" () 0 () "    void setLabelColorName( string" 4707 0  "PlotMaker.h" "    void setLabelColorName( string" 4707]
+[ebrowse-ms "setLabelSize" () 0 () "    void setLabelSize( double" 4850 0  "PlotMaker.h" "    void setLabelSize( double" 4850]
+[ebrowse-ms "setLineMod" () 0 () "    void setLineMod()" 5150 2  () "setLineMod()" 29932]
+[ebrowse-ms "setMarkerColorName" () 0 () "    void setMarkerColorName( string" 5067 0  "PlotMaker.h" "    void setMarkerColorName( string" 5067]
+[ebrowse-ms "setMarkerSize" () 0 () "    void setMarkerSize( double" 4989 0  "PlotMaker.h" "    void setMarkerSize( double" 4989]
+[ebrowse-ms "setMarkerType" () 0 () "    void setMarkerType( int" 4916 0  "PlotMaker.h" "    void setMarkerType( int" 4916]
+[ebrowse-ms "setPixelScale" () 0 () "    void setPixelScale( double" 3622 0  "PlotMaker.h" "    void setPixelScale( double" 3622]
+[ebrowse-ms "setScaleFactor" () 0 () "    void setScaleFactor( double" 3691 0  "PlotMaker.h" "    void setScaleFactor( double" 3691]
+[ebrowse-ms "setSpace" () 0 () "    void setSpace( double" 1365 0  "PlotMaker.h" "    void setSpace( double" 1365]
+[ebrowse-ms "setTicLevel" () 0 () "    void setTicLevel( int" 3752 0  "PlotMaker.h" "    void setTicLevel( int" 3752]
+[ebrowse-ms "setTicMarkColorName" () 0 () "    void setTicMarkColorName( string" 4142 0  "PlotMaker.h" "    void setTicMarkColorName( string" 4142]
+[ebrowse-ms "xIntercept" () 0 () "    double xIntercept(double" 6296 2  () "xIntercept(double" 31091]
+[ebrowse-ms "yIntercept" () 0 () "    double yIntercept(double" 6372 2  () "yIntercept(double" 30754]
+[ebrowse-ms "~PlotMaker" () 0 () "    ~PlotMaker()" 499 0  "PlotMaker.h" "    ~PlotMaker()" 499]
+)
+([ebrowse-ms "NCONTSTEPS" () 0 () "    static const int NCONTSTEPS =17;" 5406 2  () () 0]
+)
+()
+()
+([ebrowse-ms "CameraPlotType" () 0 () "    enum CameraPlotType {" 858 0  "PlotMaker.h" "    enum CameraPlotType {" 858]
+[ebrowse-ms "ColorMap" () 0 () "    enum ColorMap {" 595 0  "PlotMaker.h" "    enum ColorMap {" 595]
+[ebrowse-ms "ContourLineStyle" () 0 () "    enum ContourLineStyle {" 784 0  "PlotMaker.h" "    enum ContourLineStyle {" 784]
+)
+()()
+][ebrowse-ts [ebrowse-cs "RunInfo" () 0"Config.h" "class RunInfo {" 2924() ]
+([ebrowse-ts [ebrowse-cs "PairRunInfo" () 0"Config.h" "class PairRunInfo :" 5488() ]
+()()
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "TrackingRunInfo" () 0"Config.h" "class TrackingRunInfo :" 5443() ]
+()()
+()
+()
+()
+()
+()
+()()
+])([ebrowse-ms "arrayconfig" () 0 () "    string arrayconfig;" 3356 0  () () 0]
+[ebrowse-ms "bndthresh" () 0 () "    double bndthresh;" 3697 0  () () 0]
+[ebrowse-ms "cachedir" () 0 () "    string cachedir;" 3066 0  () () 0]
+[ebrowse-ms "camera_offset" () 0 () "    Coordinate_t camera_offset;" 4907 0  () () 0]
+[ebrowse-ms "camera_offset_analysis" () 0 () "    bool camera_offset_analysis;" 4834 0  () () 0]
+[ebrowse-ms "cuts" () 0 () "    CutInfo cuts;" 4217 0  () () 0]
+[ebrowse-ms "cuttype" () 0 () "    int    cuttype;" 4346 0  () () 0]
+[ebrowse-ms "datadir" () 0 () "    string datadir;" 3014 0  () () 0]
+[ebrowse-ms "dec" () 0 () "    double dec;" 3459 0  () () 0]
+[ebrowse-ms "derotation" () 0 () "    bool   derotation;" 4034 0  () () 0]
+[ebrowse-ms "emax_tev" () 0 () "    double emax_tev;" 4597 0  () () 0]
+[ebrowse-ms "emin_tev" () 0 () "    double emin_tev;" 4524 0  () () 0]
+[ebrowse-ms "energyestimator" () 0 () "    string energyestimator;" 4465 0  () () 0]
+[ebrowse-ms "filter_amount" () 0 () "    double filter_amount;" 5134 0  () () 0]
+[ebrowse-ms "filter_iter" () 0 () "    int filter_iter;" 5215 0  () () 0]
+[ebrowse-ms "filter_percent" () 0 () "    double filter_percent;" 5337 0  () () 0]
+[ebrowse-ms "filter_smoothness" () 0 () "    double filter_smoothness;" 5299 0  () () 0]
+[ebrowse-ms "filter_subdivide" () 0 () "    int filter_subdivide;" 5178 0  () () 0]
+[ebrowse-ms "filter_threshold" () 0 () "    double filter_threshold;" 5366 0  () () 0]
+[ebrowse-ms "image_filter" () 0 () "    bool image_filter;" 5008 0  () () 0]
+[ebrowse-ms "max_ped_events" () 0 () "    int max_ped_events;" 4932 0  () () 0]
+[ebrowse-ms "mcdatabase" () 0 () "    string mcdatabase;" 4398 0  () () 0]
+[ebrowse-ms "muon_threshold" () 0 () "    double muon_threshold;" 4278 0  () () 0]
+[ebrowse-ms "muoncalibrate" () 0 () "    bool   muoncalibrate;" 4100 0  () () 0]
+[ebrowse-ms "n2id" () 0 () "    string n2id;" 3269 0  () () 0]
+[ebrowse-ms "ntubes" () 0 () "    int    ntubes;" 3588 0  () () 0]
+[ebrowse-ms "num_e_bins" () 0 () "    int    num_e_bins;" 4672 0  () () 0]
+[ebrowse-ms "offid" () 0 () "    string offid;" 3219 0  () () 0]
+[ebrowse-ms "onid" () 0 () "    string onid;" 3173 0  () () 0]
+[ebrowse-ms "outtype" () 0 () "    int    outtype;" 4160 0  () () 0]
+[ebrowse-ms "pad_track_with_run" () 0 () "    bool   pad_track_with_run;" 3962 0  () () 0]
+[ebrowse-ms "padding" () 0 () "    bool   padding;" 3902 0  () () 0]
+[ebrowse-ms "padlevel" () 0 () "    double padlevel;" 3749 0  () () 0]
+[ebrowse-ms "picthresh" () 0 () "    double picthresh;" 3645 0  () () 0]
+[ebrowse-ms "ra" () 0 () "    double ra;" 3411 0  () () 0]
+[ebrowse-ms "sourcename" () 0 () "    string sourcename;" 3135 0  () () 0]
+[ebrowse-ms "tubemask" () 0 () "    bool   tubemask[1024];" 4748 0  () () 0]
+[ebrowse-ms "type" () 0 () "    char type;" 2954 0  () () 0]
+[ebrowse-ms "utbase" () 0 () "    double utbase;" 3825 0  () () 0]
+[ebrowse-ms "utdate" () 0 () "    string utdate;" 3318 0  () () 0]
+[ebrowse-ms "zenithoverride" () 0 () "    double zenithoverride;" 3527 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Camera" () 0"Camera.h" "class Camera  {" 512"Camera.cpp" ]
+()([ebrowse-ms "_camera_id" () 0 () "    int     _camera_id;" 2007 2  () () 0]
+[ebrowse-ms "_firstpix" () 0 () "    int     _firstpix;" 2119 2  () () 0]
+[ebrowse-ms "_fp" () 0 () "    FILE *_fp;" 2439 2  () () 0]
+[ebrowse-ms "_lastpix" () 0 () "    int     _lastpix;" 2180 2  () () 0]
+[ebrowse-ms "_miny" () 0 () "    double _maxx, _maxy, _minx, _miny;" 2401 2  () () 0]
+[ebrowse-ms "_neighborlist" () 0 () "    std::vector< std::list<int> > _neighborlist;" 1904 2  () () 0]
+[ebrowse-ms "_npix" () 0 () "    int     _npix;" 2060 2  () () 0]
+[ebrowse-ms "_pe2dc" () 0 () "    double _pe2dc;" 2314 2  () () 0]
+[ebrowse-ms "_rad" () 0 () "    Array_t _rad;" 1854 2  () () 0]
+[ebrowse-ms "_sigpix" () 0 () "    double _sigpix;" 2241 2  () () 0]
+[ebrowse-ms "_x" () 0 () "    Array_t _x;" 1820 2  () () 0]
+[ebrowse-ms "_y" () 0 () "    Array_t _y;" 1836 2  () () 0]
+)
+([ebrowse-ms "Camera" () 0 () "t npixels, Array_t &xcoords, Array_t &ycoords );" 539 0  () " npixels, Array_t &xcoords, Array_t &ycoords ) {" 2700]
+[ebrowse-ms "Camera" () 0 () "    Camera( int npixels,int utdate=-1 );" 622 0  () "Camera::Camera( int npixels, int utdate ) {" 562]
+[ebrowse-ms "Camera" () 0 () "    Camera(char *);" 602 0  () "Camera::Camera(char *filename) 
+{" 494]
+[ebrowse-ms "getCameraID" () 0 () "    int  getCameraID()" 1209 0  "Camera.h" "    int  getCameraID()" 1209]
+[ebrowse-ms "getFirstPixel" () 0 () "    int  getFirstPixel()" 1068 0  "Camera.h" "    int  getFirstPixel()" 1068]
+[ebrowse-ms "getLastPixel" () 0 () "    int  getLastPixel()" 1139 0  "Camera.h" "    int  getLastPixel()" 1139]
+[ebrowse-ms "getMaxX" () 0 () "    double getMaxX()" 1572 0  "Camera.h" "    double getMaxX()" 1572]
+[ebrowse-ms "getMaxY" () 0 () "    double getMaxY()" 1610 0  "Camera.h" "    double getMaxY()" 1610]
+[ebrowse-ms "getMinX" () 0 () "    double getMinX()" 1496 0  "Camera.h" "    double getMinX()" 1496]
+[ebrowse-ms "getMinY" () 0 () "    double getMinY()" 1534 0  "Camera.h" "    double getMinY()" 1534]
+[ebrowse-ms "getNeighborListOfPixel" () 0 () "    std::list<int>* getNeighborListOfPixel(int" 1675 0  () "Camera::getNeighborListOfPixel(int" 7026]
+[ebrowse-ms "getNumPixels" () 0 () "    int  getNumPixels()" 989 0  "Camera.h" "    int  getNumPixels()" 989]
+[ebrowse-ms "getPEToDC" () 0 () "    double getPEToDC()" 924 0  "Camera.h" "    double getPEToDC()" 924]
+[ebrowse-ms "getSigmaPSF" () 0 () "    double getSigmaPSF(double" 778 0  () "Camera::getSigmaPSF( double" 7225]
+[ebrowse-ms "getSigmaPixel" () 0 () "    double getSigmaPixel()" 850 0  "Camera.h" "    double getSigmaPixel()" 850]
+[ebrowse-ms "init" () 0 () "    void init( char" 683 0  () "Camera::init( char" 3736]
+[ebrowse-ms "loadCamera" () 0 () "    void    loadCamera(char" 1970 2  () "Camera::loadCamera(char" 4357]
+[ebrowse-ms "radii" () 0 () "    Array_t& radii()" 1424 0  "Camera.h" "    Array_t& radii()" 1424]
+[ebrowse-ms "shiftCameraCoordinates" () 0 () "    void   shiftCameraCoordinates( double" 731 0  () "shiftCameraCoordinates( double" 7736]
+[ebrowse-ms "xCoords" () 0 () "    Array_t& xCoords()" 1278 0  "Camera.h" "    Array_t& xCoords()" 1278]
+[ebrowse-ms "yCoords" () 0 () "    Array_t& yCoords()" 1352 0  "Camera.h" "    Array_t& yCoords()" 1352]
+[ebrowse-ms "~Camera" () 0 () "    ~Camera()" 661 0  () "Camera::~Camera()" 4085]
+)
+([ebrowse-ms "AUTOSCALE" () 0 () "    static const int AUTOSCALE = -1;" 1717 0  () () 0]
+)
+()
+()
+([ebrowse-ms "CameraID" () 0 () "    enum CameraID {" 1737 0  "Camera.h" "    enum CameraID {" 1737]
+)
+()()
+][ebrowse-ts [ebrowse-cs "RawDataReaderFactory" () 0"DataReader.h" "class RawDataReaderFactory {" 3836"DataReader.cpp" ]
+()([ebrowse-ms "pinstance" () 0 () () 0 0  () "Factory* RawDataReaderFactory::pinstance = NULL;" 15109]
+)
+([ebrowse-ms "RawDataReaderFactory" () 0 () "    RawDataReaderFactory();" 4145 1  () "RawDataReaderFactory() {" 15386]
+[ebrowse-ms "clearCache" () 0 () "    void clearCache( std" 4092 0  () "clearCache(string" 19007]
+[ebrowse-ms "getReader" () 0 () "    RawDataReader* getReader( const" 3932 0  () "getReader( const" 15512]
+[ebrowse-ms "instance" () 0 () () 0 0  () "instance()" 15238]
+[ebrowse-ms "locateFile" () 0 () "    std::string locateFile( const" 3995 0  () "locateFile( const" 16999]
+)
+([ebrowse-ms "pinstance" () 0 () "    static RawDataReaderFactory *pinstance;" 4207 2  () () 0]
+)
+([ebrowse-ms "instance" () 0 () "    static RawDataReaderFactory* instance()" 3895 0  () () 0]
+)
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "ImageParameterization" () 0"ImageAnalyzer.h" "struct ImageParameterization {" 339() ]
+([ebrowse-ts [ebrowse-cs "HillasParameterization" () 0"ImageAnalyzer.h" "struct HillasParameterization :" 968() ]
+()([ebrowse-ms "alpha" () 0 () "    double alpha;" 1514 0  () () 0]
+[ebrowse-ms "asymmetry" () 0 () "    double asymmetry;" 2019 0  () () 0]
+[ebrowse-ms "azwidth" () 0 () "    double azwidth;" 1443 0  () () 0]
+[ebrowse-ms "centroid" () 0 () "    Coordinate_t centroid;" 1027 0  () () 0]
+[ebrowse-ms "distance" () 0 () "    double distance;" 1395 0  () () 0]
+[ebrowse-ms "energy_estimate" () 0 () "    double energy_estimate;" 2215 0  () () 0]
+[ebrowse-ms "frac" () 0 () "    double frac[3];" 1887 0  () () 0]
+[ebrowse-ms "index_of_max" () 0 () "    int    index_of_max[3];" 1823 0  () () 0]
+[ebrowse-ms "length" () 0 () "    double length;" 1221 0  () () 0]
+[ebrowse-ms "length_over_size" () 0 () "    double length_over_size;" 1575 0  () () 0]
+[ebrowse-ms "max" () 0 () "    double max[3];" 1760 0  () () 0]
+[ebrowse-ms "miss" () 0 () "    double miss;" 1353 0  () () 0]
+[ebrowse-ms "on" () 0 () "    int    on;" 2064 0  () () 0]
+[ebrowse-ms "phi" () 0 () "    double phi;" 1682 0  () () 0]
+[ebrowse-ms "pixels_in_picture" () 0 () "    int    pixels_in_picture;" 1959 0  () () 0]
+[ebrowse-ms "point_of_origin_a" () 0 () "    Coordinate_t point_of_origin_a;" 1099 0  () () 0]
+[ebrowse-ms "point_of_origin_b" () 0 () "    Coordinate_t point_of_origin_b;" 1168 0  () () 0]
+[ebrowse-ms "psi" () 0 () "    double psi;" 1616 0  () () 0]
+[ebrowse-ms "size" () 0 () "    double size;" 1303 0  () () 0]
+[ebrowse-ms "width" () 0 () "    double width;" 1263 0  () () 0]
+[ebrowse-ms "zenith" () 0 () "    double zenith;" 2147 0  () () 0]
+)
+()
+()
+()
+([ebrowse-ms "operator <<" () 0 () "    friend std::ostream &operator<<( std" 2309 0  () () 0]
+)
+()
+()()
+][ebrowse-ts [ebrowse-cs "MuonParameterization" () 0"MuonImageAnalyzer.h" "struct MuonParameterization :" 890"MuonImageAnalyzer.h" ]
+()([ebrowse-ms "arclen" () 0 () "    double  arclen ;" 1422 0  () () 0]
+[ebrowse-ms "arcstrength" () 0 () "    double  arcstrength ;" 1046 0  () () 0]
+[ebrowse-ms "gain" () 0 () "    double  gain ;" 1099 0  () () 0]
+[ebrowse-ms "mugain" () 0 () "    double  mugain ;" 1168 0  () () 0]
+[ebrowse-ms "muonness" () 0 () "    double muonness;" 1771 0  () () 0]
+[ebrowse-ms "muskew" () 0 () "    double  muskew ;" 1354 0  () () 0]
+[ebrowse-ms "nplotpoints" () 0 () "    int	nplotpoints ;" 1719 0  () () 0]
+[ebrowse-ms "phihi" () 0 () "    double  phihi;" 1529 0  () () 0]
+[ebrowse-ms "philo" () 0 () "    double  philo;" 1470 0  () () 0]
+[ebrowse-ms "phimid" () 0 () "    double  phimid;" 1587 0  () () 0]
+[ebrowse-ms "plot" () 0 () "    Coordinate_t plot[MAX_PLOT_CENTERS];" 1660 0  () () 0]
+[ebrowse-ms "radius" () 0 () "    double  radius ;" 943 0  () () 0]
+[ebrowse-ms "ringcenter" () 0 () "    Coordinate_t ringcenter ;" 998 0  () () 0]
+[ebrowse-ms "ringfrac" () 0 () "    double  ringfrac;" 1237 0  () () 0]
+[ebrowse-ms "rspread" () 0 () "    double rspread;" 2027 0  () () 0]
+[ebrowse-ms "smoothness" () 0 () "    double smoothness;" 1838 0  () () 0]
+[ebrowse-ms "smoothness_var" () 0 () "    double smoothness_var;" 1917 0  () () 0]
+[ebrowse-ms "soal" () 0 () "    double  soal ;" 1305 0  () () 0]
+[ebrowse-ms "xcs" () 0 () "    double xcs;" 1991 0  () () 0]
+[ebrowse-ms "ycs" () 0 () "    double ycs;" 2007 0  () () 0]
+)
+([ebrowse-ms "clear" () 0 () "    void clear()" 2045 0  () "    void clear()" 2045]
+)
+()
+()
+()
+()
+()()
+])([ebrowse-ms "event_number" () 0 () "    int    event_number;" 661 0  () () 0]
+[ebrowse-ms "gpstime" () 0 () "    double gpstime;" 470 0  () () 0]
+[ebrowse-ms "invalid" () 0 () "    short  invalid;" 580 0  () () 0]
+[ebrowse-ms "livetime" () 0 () "    double livetime;" 528 0  () () 0]
+[ebrowse-ms "osctime" () 0 () "    double osctime;" 417 0  () () 0]
+[ebrowse-ms "sim" () 0 () "    SimShowerRecord sim;" 730 0  () () 0]
+[ebrowse-ms "telescope_id" () 0 () "    short telescope_id;" 364 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "GaussianDeviate" () 0"GaussianDeviate.h" "class GaussianDeviate {" 302"GaussianDeviate.cpp" ]
+()([ebrowse-ms "_current" () 0 () "    int _current;" 650 2  () () 0]
+[ebrowse-ms "_dbfilename" () 0 () "    std::string  _dbfilename;" 601 2  () () 0]
+[ebrowse-ms "_deviates" () 0 () "    double  _deviates[DBSIZE];" 632 2  () () 0]
+[ebrowse-ms "_rng" () 0 () "    gsl_rng *_rng;" 511 2  () () 0]
+[ebrowse-ms "_rngtype" () 0 () "    const gsl_rng_type *_rngtype;" 545 2  () () 0]
+[ebrowse-ms "_seed" () 0 () "    unsigned long _seed;" 570 2  () () 0]
+)
+([ebrowse-ms "GaussianDeviate" () 0 () "    GaussianDeviate( std::string &dbdir );" 342 0  () "    :" 461]
+[ebrowse-ms "generate" () 0 () "    void generate()" 486 2  () "GaussianDeviate::generate()" 1564]
+[ebrowse-ms "getDeviate" () 2 () "    double getDeviate()" 384 0  "GaussianDeviate.h" "GaussianDeviate::getDeviate()" 699]
+[ebrowse-ms "getFastDeviate" () 0 () "    double getFastDeviate()" 413 0  () "GaussianDeviate::getFastDeviate()" 1440]
+)
+([ebrowse-ms "DBSIZE" () 0 () "    static const int DBSIZE = 1000000;" 454 0  () () 0]
+)
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "GainFinder" () 0"GainFinder.h" "class GainFinder {" 252"GainFinder.cpp" ]
+()([ebrowse-ms "_minpercent" () 0 () "    double _minadc, _maxadc, _minpercent;" 610 2  () () 0]
+)
+([ebrowse-ms "GainFinder" () 0 () "    GainFinder() {" 280 0  "GainFinder.h" "    GainFinder() {" 280]
+[ebrowse-ms "getGains" () 0 () "    void getGains( RunInfo" 363 0  () "GainFinder::getGains( RunInfo" 1224]
+[ebrowse-ms "readGains" () 0 () "    void readGains( std" 494 2  () "GainFinder::readGains( string" 7039]
+[ebrowse-ms "setThresholds" () 0 () "    void setThresholds( double" 437 0  () "GainFinder::setThresholds( double" 770]
+[ebrowse-ms "writeGains" () 0 () "    void writeGains( std" 543 2  () "GainFinder::writeGains( string" 7645]
+[ebrowse-ms "~GainFinder" () 0 () "    ~GainFinder()" 333 0  "GainFinder.h" "    ~GainFinder()" 333]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "StarCatalog" () 0"StarCatalog.h" "class StarCatalog {" 1078"StarCatalog.cpp" ]
+()([ebrowse-ms "_cur_catalog_id" () 0 () "    int _cur_catalog_id;" 1604 2  () () 0]
+[ebrowse-ms "_starcatalog" () 0 () "    std::list<Star> _starcatalog;" 1579 2  () () 0]
+)
+([ebrowse-ms "StarCatalog" () 0 () "    StarCatalog():" 1107 0  "StarCatalog.h" "    StarCatalog():" 1107]
+[ebrowse-ms "findNearbyStars" () 0 () "    void findNearbyStars( double" 1264 0  () "findNearbyStars( double" 3300]
+[ebrowse-ms "load" () 0 () "    void load( std" 1205 0  () "load( string" 701]
+[ebrowse-ms "precessToDate" () 0 () "    void precessToDate( int" 1331 0  () "precessToDate( int" 4550]
+[ebrowse-ms "replaceChar" () 0 () "    void replaceChar( char" 1506 2  () "replaceChar( char" 6518]
+[ebrowse-ms "tokenize" () 0 () "    void tokenize(const" 1380 2  () "tokenize(const" 5819]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "EnergyEstimator" () 0"EnergySpectrum.h" "struct EnergyEstimator {" 798"EnergySpectrum.h" ]
+([ebrowse-ts [ebrowse-cs "LZAEnergyEstimator" () 0"EnergySpectrum.h" "struct LZAEnergyEstimator :" 969"EnergySpectrum.cpp" ]
+()()
+([ebrowse-ms "getEstimate" () 1 () "    double getEstimate(const" 1020 0  () "LZAEnergyEstimator::getEstimate(const" 435]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "SZAEnergyEstimator" () 0"EnergySpectrum.h" "struct SZAEnergyEstimator :" 1131"EnergySpectrum.cpp" ]
+()()
+([ebrowse-ms "getEstimate" () 1 () "    double getEstimate(const" 1182 0  () "SZAEnergyEstimator::getEstimate(const" 1938]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Z40EnergyEstimator" () 0"EnergySpectrum.h" "struct Z40EnergyEstimator :" 1290"EnergySpectrum.cpp" ]
+()()
+([ebrowse-ms "getEstimate" () 1 () "    double getEstimate(const" 1341 0  () "Z40EnergyEstimator::getEstimate(const" 4179]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Z50EnergyEstimator" () 0"EnergySpectrum.h" "struct Z50EnergyEstimator :" 1449"EnergySpectrum.cpp" ]
+()()
+([ebrowse-ms "getEstimate" () 1 () "    double getEstimate(const" 1500 0  () "Z50EnergyEstimator::getEstimate(const" 5839]
+)
+()
+()
+()
+()
+()()
+])()
+([ebrowse-ms "EnergyEstimator" () 0 () "    EnergyEstimator(){" 825 0  () "    EnergyEstimator(){" 825]
+[ebrowse-ms "getEstimate" () 9 () "    virtual double getEstimate(const" 865 0  () () 0]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "TelInfo" "TelescopeArray" 0"Camera.h" "    struct TelInfo {" 2584() ]
+()([ebrowse-ms "cam" () 0 () "	Camera *cam;" 2642 0  () () 0]
+[ebrowse-ms "r" () 0 () "	double r;" 2628 0  () () 0]
+[ebrowse-ms "x" () 0 () "	double x;" 2595 0  () () 0]
+[ebrowse-ms "y" () 0 () "	double y;" 2606 0  () () 0]
+[ebrowse-ms "z" () 0 () "	double z;" 2617 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "CutFactory" () 0"SuperCutter.h" "class CutFactory {" 3889"SuperCutter.cpp" ]
+()([ebrowse-ms "pinstance" () 0 () () 0 0  () "CutFactory* CutFactory::pinstance = NULL;" 3088]
+)
+([ebrowse-ms "CutFactory" () 0 () "    CutFactory();" 4019 1  () "CutFactory::CutFactory(){" 3304]
+[ebrowse-ms "instance" () 0 () () 0 0  () "instance()" 3187]
+[ebrowse-ms "newCutter" () 0 () "    SuperCutter* newCutter( const" 3973 0  () "CutFactory::newCutter( const" 3350]
+)
+([ebrowse-ms "pinstance" () 0 () "    static CutFactory *pinstance;" 4071 2  () () 0]
+)
+([ebrowse-ms "instance" () 0 () "    static CutFactory* instance()" 3938 0  () () 0]
+)
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "SimShowerRecord" () 0"DataRecords.h" "struct SimShowerRecord  {" 1281() ]
+()([ebrowse-ms "direction_cos" () 0 () "    Coordinate_t direction_cos;" 1419 0  () () 0]
+[ebrowse-ms "event_number" () 0 () "    int event_number;" 1303 0  () () 0]
+[ebrowse-ms "impact_parameter" () 0 () "    Coordinate_t impact_parameter;" 1387 0  () () 0]
+[ebrowse-ms "primary_energy" () 0 () "    double primary_energy;" 1352 0  () () 0]
+[ebrowse-ms "primary_type" () 0 () "    int primary_type;" 1325 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "RunStatistics" () 0"Cutter.h" "struct RunStatistics {" 335() ]
+()([ebrowse-ms "excess" () 0 () "    double excess;" 379 0  () () 0]
+[ebrowse-ms "significance" () 0 () "    double significance;" 360 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Histogram" () 0"Histogram.h" "class Histogram {" 446"Histogram.cpp" ]
+([ebrowse-ts [ebrowse-cs "EnergySpectrum" () 0"EnergySpectrum.h" "class EnergySpectrum :" 337"EnergySpectrum.h" ]
+()()
+([ebrowse-ms "EnergySpectrum" () 0 () "   EnergySpectrum(RunInfo& ri,std::string name):" 637 0  () "   EnergySpectrum(RunInfo& ri,std::string name):" 637]
+[ebrowse-ms "~EnergySpectrum" () 0 () "    ~EnergySpectrum()" 763 0  () "    ~EnergySpectrum()" 763]
+)
+([ebrowse-ms "MIN_COUNTS" () 0 () "    static const int MIN_COUNTS = 5;" 532 0  () () 0]
+)
+()
+()
+()
+()()
+])([ebrowse-ms "_hist" () 0 () "    gsl_histogram *_hist;" 1368 2  () () 0]
+[ebrowse-ms "_is_saved" () 0 () "    bool _is_saved;" 1388 2  () () 0]
+[ebrowse-ms "_name" () 0 () "    std::string _name;" 1293 2  () () 0]
+[ebrowse-ms "_overflow" () 0 () "    long int _overflow;" 1317 2  () () 0]
+[ebrowse-ms "_underflow" () 0 () "    long int _underflow;" 1342 2  () () 0]
+)
+([ebrowse-ms "Histogram" () 0 () "    Histogram( const Histogram &h );" 533 0  () "Histogram::Histogram( const Histogram &h ) {" 1591]
+[ebrowse-ms "Histogram" () 0 () "    Histogram(int,double,double, std::string);" 483 0  () "    :" 813]
+[ebrowse-ms "accumulate" () 2 () "    void   accumulate(double" 630 0  "Histogram.h" "Histogram::accumulate(double" 1850]
+[ebrowse-ms "findBinWithValue" () 0 () "    int    findBinWithValue( double" 952 0  () "findBinWithValue( double" 7585]
+[ebrowse-ms "get" () 2 () "    double get(int" 1180 0  "Histogram.h" "Histogram::get(int" 2320]
+[ebrowse-ms "getGSLHist" () 0 () "    gsl_histogram* getGSLHist()" 1239 0  "Histogram.h" "    gsl_histogram* getGSLHist()" 1239]
+[ebrowse-ms "getRange" () 0 () "    void   getRange( int" 762 0  () "getRange( int" 2284]
+[ebrowse-ms "increment" () 2 () "    void   increment(double" 599 0  "Histogram.h" "Histogram::increment(double" 1550]
+[ebrowse-ms "load" () 0 () "    void   load(std" 906 0  () "load(std" 5311]
+[ebrowse-ms "maxBin" () 0 () "    int    maxBin()" 669 0  () "Histogram::maxBin()" 2712]
+[ebrowse-ms "maxValue" () 0 () "    double maxValue()" 713 0  () "Histogram::maxValue()" 2941]
+[ebrowse-ms "mean" () 0 () "    double mean()" 817 0  () "mean()" 7149]
+[ebrowse-ms "minBin" () 0 () "    int    minBin()" 690 0  () "Histogram::minBin()" 2823]
+[ebrowse-ms "minValue" () 0 () "    double minValue()" 736 0  () "Histogram::minValue()" 3055]
+[ebrowse-ms "numBins" () 0 () "    int    numBins()" 1022 0  "Histogram.h" "    int    numBins()" 1022]
+[ebrowse-ms "operator []" () 2 () "    double operator[](int" 1159 0  "Histogram.h" "Histogram::operator[](int" 2110]
+[ebrowse-ms "reset" () 0 () "    void   reset()" 1205 0  () "reset()" 2144]
+[ebrowse-ms "save" () 0 () "    void   save(std" 876 0  () "Histogram::save(string" 3524]
+[ebrowse-ms "saveStatistics" () 0 () "    void   saveStatistics( std" 990 0  () "saveStatistics( string" 4389]
+[ebrowse-ms "scale" () 0 () "    void   scale( double" 1089 0  () "scale( double" 7877]
+[ebrowse-ms "sigma" () 0 () "    double sigma()" 837 0  () "sigma()" 7283]
+[ebrowse-ms "subtract" () 0 () "    void   subtract( Histogram" 1127 0  () "subtract( Histogram" 8155]
+[ebrowse-ms "sum" () 0 () "    double sum()" 855 0  () "sum()" 7420]
+[ebrowse-ms "~Histogram" () 0 () "    ~Histogram()" 566 0  () "Histogram::~Histogram()" 1780]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Fitter" () 0"FitterNew.h" "class Fitter {" 2903"Fitter.cpp" ]
+()([ebrowse-ms "_data" () 0 () "    std::vector<Data>  _data;" 3667 2  () () 0]
+[ebrowse-ms "_mcSpectrum" () 0 () "    MCSpectrum *_mcSpectrum;" 3596 2  () () 0]
+[ebrowse-ms "_results" () 0 () "    Results    _results;" 3730 2  () () 0]
+)
+([ebrowse-ms "Fitter" () 0 () "    Fitter( RunInfo &ri ){" 2933 0  "FitterNew.h" "    Fitter( RunInfo &ri ){" 2933]
+[ebrowse-ms "minimize" () 0 () "    void minimize( EnergySpectrum" 3146 0  "FitterNew.cpp" "minimize( EnergySpectrum" 7682]
+[ebrowse-ms "minimize" () 0 () "    void minimize(EnergySpectrum" 4275 0  () "minimize( EnergySpectrum" 7755]
+[ebrowse-ms "save" () 0 () "    void   save()" 3506 0  "FitterNew.cpp" "void Fitter::save()" 14186]
+[ebrowse-ms "~Fitter" () 0 () "    ~Fitter()" 2999 0  "FitterNew.h" "    ~Fitter()" 2999]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "ImageAnalyzer" () 0"ImageAnalyzer.h" "class ImageAnalyzer {" 2681"ImageAnalyzer.cpp" ]
+([ebrowse-ts [ebrowse-cs "HillasImageAnalyzer" () 0"ImageAnalyzer.h" "class HillasImageAnalyzer :" 3363"ImageAnalyzer.cpp" ]
+()([ebrowse-ms "_2d_is_enabled" () 0 () "    bool _2d_is_enabled;" 3954 2  () () 0]
+[ebrowse-ms "_elongation" () 0 () "    double _elongation;" 3850 2  () () 0]
+[ebrowse-ms "_nadc" () 0 () "    int _nadc;" 3894 2  () () 0]
+[ebrowse-ms "_param" () 0 () "    HillasParameterization _param;" 4015 2  () () 0]
+)
+([ebrowse-ms "HillasImageAnalyzer" () 0 () "Analyzer( Camera *cam, double elongation=1.68 );" 3436 0  () "    :" 1339]
+[ebrowse-ms "enable2D" () 0 () "    void enable2D( bool" 3705 0  "ImageAnalyzer.h" "    void enable2D( bool" 3705]
+[ebrowse-ms "getHillasParameters" () 0 () "    HillasParameterization getHillasParameters()" 3657 0  "ImageAnalyzer.h" "    HillasParameterization getHillasParameters()" 3657]
+[ebrowse-ms "is2DEnabled" () 0 () "    bool is2DEnabled()" 3769 0  "ImageAnalyzer.h" "    bool is2DEnabled()" 3769]
+[ebrowse-ms "parameterize" () 1 () "    void parameterize( const" 3497 0  () "parameterize(const" 1852]
+[ebrowse-ms "setElongationFactor" () 0 () "    void setElongationFactor( double" 3583 0  "ImageAnalyzer.h" "    void setElongationFactor( double" 3583]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "MuonImageAnalyzer" () 0"MuonImageAnalyzer.h" "class MuonImageAnalyzer :" 3971"MuonImageAnalyzer.cpp" ]
+()([ebrowse-ms "_apix" () 0 () "    double		_apix ;" 5641 2  () () 0]
+[ebrowse-ms "_calibration_is_enabled" () 0 () "    bool _calibration_is_enabled;" 5737 2  () () 0]
+[ebrowse-ms "_mparam" () 0 () "    MuonParameterization _mparam;" 5378 2  () () 0]
+[ebrowse-ms "_ntrip" () 0 () "    Grid_2d_int		_ntrip ;" 5553 2  () () 0]
+[ebrowse-ms "_nwords" () 0 () "    int			_nwords ;" 5621 2  () () 0]
+[ebrowse-ms "_plot_points_is_enabled" () 0 () "    bool _plot_points_is_enabled;" 5703 2  () () 0]
+[ebrowse-ms "_pmtmask" () 0 () "    Grid_3d_uint	_pmtmask ;" 5464 2  () () 0]
+[ebrowse-ms "_rsum" () 0 () "    Grid_2d		_rsum ;" 5527 2  () () 0]
+[ebrowse-ms "_single_pmt_mask" () 0 () "    vector<WordBitMask>	_single_pmt_mask ;" 5596 2  () () 0]
+[ebrowse-ms "_xsum" () 0 () "    Grid_2d		_xsum ;" 5485 2  () () 0]
+[ebrowse-ms "_ysum" () 0 () "    Grid_2d		_ysum ;" 5506 2  () () 0]
+[ebrowse-ms "pm" () 0 () "    PlotMaker *pm;" 5758 2  () () 0]
+)
+([ebrowse-ms "MuonImageAnalyzer" () 0 () "    MuonImageAnalyzer( Camera *cam );" 4043 0  () "    :" 627]
+[ebrowse-ms "enableCalibration" () 0 () "    void enableCalibration( bool" 4271 0  "MuonImageAnalyzer.h" "    void enableCalibration( bool" 4271]
+[ebrowse-ms "enablePlotPoints" () 0 () "    void enablePlotPoints( bool" 4194 0  "MuonImageAnalyzer.h" "    void enablePlotPoints( bool" 4194]
+[ebrowse-ms "getCenter" () 0 () "    void getCenter( int" 5297 2  () "getCenter( int" 2917]
+[ebrowse-ms "getMuonParameters" () 0 () "    MuonParameterization getMuonParameters()" 4514 0  "MuonImageAnalyzer.h" "    MuonParameterization getMuonParameters()" 4514]
+[ebrowse-ms "parameterize" () 1 () "    void parameterize( const" 4113 0  () "parameterize( const" 4378]
+[ebrowse-ms "~MuonImageAnalyzer" () 0 () "    ~MuonImageAnalyzer()" 4076 0  "MuonImageAnalyzer.h" "    ~MuonImageAnalyzer()" 4076]
+)
+()
+()
+()
+([ebrowse-ms "Grid_2d" () 0 () "edef std::vector<std::vector<double> > Grid_2d ;" 5184 2  () () 0]
+[ebrowse-ms "Grid_2d_int" () 0 () "def std::vector<std::vector<int> > Grid_2d_int ;" 5241 2  () () 0]
+[ebrowse-ms "Grid_3d" () 0 () "or<std::vector< std::vector<double> > > Grid_3d;" 4972 2  () () 0]
+[ebrowse-ms "Grid_3d_trip" () 0 () "::vector< std::vector<Triplet> > > Grid_3d_trip;" 5048 2  () () 0]
+[ebrowse-ms "Grid_3d_uint" () 0 () "ctor<std::vector<unsigned int> > > Grid_3d_uint;" 5128 2  () () 0]
+)
+()()
+])([ebrowse-ms "_nadc" () 0 () "    int _nadc;" 3237 2  () () 0]
+[ebrowse-ms "_xorigin" () 0 () "    double _xorigin;" 3142 2  () () 0]
+[ebrowse-ms "_xy" () 0 () "    Array_t _x2, _y2, _xy;" 3022 1  () () 0]
+[ebrowse-ms "_y" () 0 () "    Array_t _x, _y;" 2936 1  () () 0]
+[ebrowse-ms "_yorigin" () 0 () "    double _yorigin;" 3192 2  () () 0]
+)
+([ebrowse-ms "ImageAnalyzer" () 0 () "    ImageAnalyzer( Camera *cam );" 2718 0  () "ImageAnalyzer::ImageAnalyzer( Camera *cam )  {" 922]
+[ebrowse-ms "getNumPixels" () 0 () "    int    getNumPixels()" 2778 0  "ImageAnalyzer.h" "    int    getNumPixels()" 2778]
+[ebrowse-ms "init" () 0 () "    void init( Array_t" 3084 2  () "void ImageAnalyzer::init( Array_t" 322]
+[ebrowse-ms "parameterize" () 9 () "    virtual void parameterize( const" 2833 0  () () 0]
+[ebrowse-ms "~ImageAnalyzer" () 0 () "    ~ImageAnalyzer()" 2747 0  "ImageAnalyzer.h" "    ~ImageAnalyzer()" 2747]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "ProgressBar" () 0"ProgressBar.h" "class ProgressBar {" 241"ProgressBar.cpp" ]
+()([ebrowse-ms "_avgpersec" () 0 () "    double _avgpersec;" 603 2  () () 0]
+[ebrowse-ms "_before" () 0 () "    double _before;" 580 2  () () 0]
+[ebrowse-ms "_last" () 0 () "    int _last;" 490 2  () () 0]
+[ebrowse-ms "_name" () 0 () "    std::string _name;" 475 2  () () 0]
+[ebrowse-ms "_now" () 0 () "    double _now;" 560 2  () () 0]
+[ebrowse-ms "_spin" () 0 () "    int _spin;" 543 2  () () 0]
+[ebrowse-ms "_spinner" () 0 () "    char _spinner[4];" 512 2  () () 0]
+[ebrowse-ms "_total" () 0 () "    int _total;" 528 2  () () 0]
+)
+([ebrowse-ms "ProgressBar" () 0 () "Bar( int total, std::string name=\"Progress\" );" 277 0  () "    :" 261]
+[ebrowse-ms "getTime" () 0 () "    double getTime()" 434 0  () "ProgressBar::getTime()" 2150]
+[ebrowse-ms "print" () 0 () "    void print( int" 387 0  () "ProgressBar::print( int" 533]
+[ebrowse-ms "printClear" () 0 () "    void printClear()" 412 0  () "ProgressBar::printClear()" 2384]
+[ebrowse-ms "setName" () 0 () "    void setName( std" 337 0  "ProgressBar.h" "    void setName( std" 337]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Config" () 0"Config.h" "class Config {" 5598"Config.cpp" ]
+()([ebrowse-ms "_alignmap" () 0 () "   std::map<std::string,Coordinate_t> _alignmap;" 6303 2  () () 0]
+[ebrowse-ms "_curinfo" () 0 () "    RunInfo _curinfo;" 6253 2  () () 0]
+[ebrowse-ms "_runqueue" () 0 () "    std::deque<RunInfo> _runqueue;" 6231 2  () () 0]
+)
+([ebrowse-ms "Config" () 0 () "    Config(char *filename);" 5633 0  () "Config::Config(char *filename) {" 412]
+[ebrowse-ms "addRun" () 0 () "    void addRun()" 6147 2  () "Config::addRun()" 17781]
+[ebrowse-ms "getNextRun" () 0 () "    RunInfo getNextRun()" 5861 0  () "Config::getNextRun()" 2656]
+[ebrowse-ms "getRunCount" () 0 () "    int     getRunCount()" 5999 0  "Config.h" "    int     getRunCount()" 5999]
+[ebrowse-ms "getRunQueue" () 0 () "    std::deque<RunInfo>& getRunQueue()" 5901 0  "Config.h" "    std::deque<RunInfo>& getRunQueue()" 5901]
+[ebrowse-ms "isDone" () 0 () "    bool    isDone()" 5943 0  "Config.h" "    bool    isDone()" 5943]
+[ebrowse-ms "loadAlignmentMap" () 0 () "    void loadAlignmentMap( std" 6179 2  () "loadAlignmentMap( std" 31212]
+[ebrowse-ms "openFailed" () 0 () "    void openFailed(char" 6070 2  () "Config::openFailed(char" 1907]
+[ebrowse-ms "parse" () 0 () "    void parse(char" 6102 2  () "Config::parse( char" 2970]
+[ebrowse-ms "writeSample" () 0 () "    void    writeSample(char" 5828 0  () "Config::writeSample( char" 17911]
+[ebrowse-ms "~Config" () 0 () "    ~Config()" 5659 0  () "Config::~Config()" 2506]
+)
+()
+()
+()
+([ebrowse-ms "CutType" () 0 () "    enum CutType {" 5749 0  "Config.h" "    enum CutType {" 5749]
+[ebrowse-ms "OutType" () 0 () "    enum OutType {" 5714 0  "Config.h" "    enum OutType {" 5714]
+[ebrowse-ms "RunType" () 0 () "    enum RunType {" 5680 0  "Config.h" "    enum RunType {" 5680]
+)
+()()
+][ebrowse-ts [ebrowse-cs "DataWriter" () 0"DataWriter.h" "class DataWriter {" 400"DataWriter.h" ]
+([ebrowse-ts [ebrowse-cs "ParamDataWriter" () 0"DataWriter.h" "class ParamDataWriter :" 843"DataWriter.cpp" ]
+([ebrowse-ts [ebrowse-cs "ParamDataWriterNtuple" () 0"DataWriter.h" "class ParamDataWriterNtuple :" 1938"DataWriter.cpp" ]
+()([ebrowse-ms "_ntuple" () 0 () "    gsl_ntuple *_ntuple;" 2277 2  () () 0]
+[ebrowse-ms "_ntuplerow" () 0 () "    HillasParameterization _ntuplerow;" 2316 2  () () 0]
+[ebrowse-ms "_numrows" () 0 () "    int _numrows;" 2334 2  () () 0]
+)
+([ebrowse-ms "ParamDataWriterNtuple" () 0 () "terNtuple( const std::string &, bool ow=false );" 2006 0  () "    :" 2195]
+[ebrowse-ms "getTypeString" () 1 () "    std::string getTypeString()" 2198 0  "DataWriter.h" "    std::string getTypeString()" 2198]
+[ebrowse-ms "size" () 1 () "    int  size()" 2145 0  "DataWriter.h" "    int  size()" 2145]
+[ebrowse-ms "writeParameterization" () 1 () "id writeParameterization( HillasParameterization" 2124 0  () "writeParameterization(  HillasParameterization" 2841]
+[ebrowse-ms "~ParamDataWriterNtuple" () 0 () "    ~ParamDataWriterNtuple()" 2067 0  () "ParamDataWriterNtuple::~ParamDataWriterNtuple()" 2724]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "ParamDataWriterText" () 0"DataWriter.h" "class ParamDataWriterText :" 1392"DataWriter.cpp" ]
+()([ebrowse-ms "_outfile" () 0 () "    std::ofstream _outfile;" 1815 2  () () 0]
+)
+([ebrowse-ms "ParamDataWriterText" () 0 () "riterText( const std::string &, bool ow=false );" 1458 0  () "    :" 1453]
+[ebrowse-ms "getTypeString" () 1 () "    std::string getTypeString()" 1729 0  "DataWriter.h" "    std::string getTypeString()" 1729]
+[ebrowse-ms "size" () 1 () "    int  size()" 1683 0  "DataWriter.h" "    int  size()" 1683]
+[ebrowse-ms "writeParameterization" () 1 () "    void writeParameterization(SimShowerRecord" 1626 0  () "riterText::writeParameterization(SimShowerRecord" 1944]
+[ebrowse-ms "writeParameterization" () 1 () "id writeParameterization( HillasParameterization" 1574 0  () "writeParameterization( HillasParameterization" 1825]
+[ebrowse-ms "~ParamDataWriterText" () 0 () "    ~ParamDataWriterText()" 1517 0  () "ParamDataWriterText::~ParamDataWriterText()" 1715]
+)
+()
+()
+()
+()
+()()
+])()
+([ebrowse-ms "ParamDataWriter" () 0 () "ter(const std::string &filename, bool ow=false);" 900 0  () "    :" 344]
+[ebrowse-ms "getTypeString" () 9 () "    virtual std::string getTypeString()" 1298 0  () () 0]
+[ebrowse-ms "size" () 9 () "    virtual int  size()" 1254 0  () () 0]
+[ebrowse-ms "writeHeader" () 0 () "    void writeHeader( HeaderRecord" 1010 0  () "writeHeader( HeaderRecord" 3111]
+[ebrowse-ms "writeParameterization" () 1 () "rtual void writeParameterization(SimShowerRecord" 1148 0  "DataWriter.h" "rtual void writeParameterization(SimShowerRecord" 1148]
+[ebrowse-ms "writeParameterization" () 9 () "oid writeParameterization(HillasParameterization" 1080 0  () () 0]
+[ebrowse-ms "~ParamDataWriter" () 1 () "    virtual ~ParamDataWriter()" 970 0  "DataWriter.h" "    virtual ~ParamDataWriter()" 970]
+)
+()
+()
+()
+()
+()()
+])([ebrowse-ms "_filename" () 0 () "    std::string _filename;" 656 2  () () 0]
+)
+([ebrowse-ms "DataWriter" () 0 () "Writer(const std::string &filename,bool=false) :" 431 0  () "Writer(const std::string &filename,bool=false) :" 431]
+[ebrowse-ms "getFilename" () 0 () "    std::string getFilename()" 595 0  () "    std::string getFilename()" 595]
+[ebrowse-ms "getTypeString" () 9 () "    virtual std::string getTypeString()" 560 0  () () 0]
+[ebrowse-ms "~DataWriter" () 1 () "    virtual ~DataWriter()" 515 0  () "    virtual ~DataWriter()" 515]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "ContourSegment" () 0"PlotMaker.h" "struct ContourSegment {" 6449() ]
+()([ebrowse-ms "end" () 0 () "    Coordinate_t end;" 6495 0  () () 0]
+[ebrowse-ms "start" () 0 () "    Coordinate_t start;" 6473 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "std" () 0() () 0"ProgressBar.cpp" ]
+()([ebrowse-ms "cerr" () 0 () () 0 0  () "using std::cerr;" 193]
+[ebrowse-ms "cout" () 0 () () 0 0  () "using std::cout;" 176]
+[ebrowse-ms "endl" () 0 () () 0 0  () "using std::endl;" 210]
+[ebrowse-ms "string" () 0 () () 0 0  "Config.h" "using std::string;" 225]
+[ebrowse-ms "vector" () 0 () () 0 0  "Config.h" "using std::vector;" 244]
+)
+([ebrowse-ms "operator <<" () 0 () () 0 0  "MuonImageAnalyzer.h" "std::ostream &operator<<( std" 2359]
+[ebrowse-ms "operator <<" () 0 () () 0 0  "DataReader.h" "std::ostream &operator<<( std" 3614]
+[ebrowse-ms "operator <<" () 0 () () 0 0  "DataReader.h" "std::ostream &operator<<( std" 3540]
+[ebrowse-ms "operator <<" () 0 () () 0 0  "Cutter.h" "std::ostream& operator<<( std" 3963]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "SuperCutter" () 0"SuperCutter.h" "class SuperCutter {" 1148"SuperCutter.cpp" ]
+([ebrowse-ts [ebrowse-cs "EZCutter" () 0"EZCutter.h" "class EZCutter :" 301"EZCutter.cpp" ]
+()([ebrowse-ms "_cam" () 0 () "    Camera *_cam;" 499 2  () () 0]
+)
+([ebrowse-ms "EZCutter" () 0 () "    EZCutter();" 348 0  () "EZCutter::EZCutter() :" 147]
+[ebrowse-ms "applyCorrections" () 1 () "   void applyCorrections( HillasParameterization" 400 0  () "applyCorrections(HillasParameterization" 725]
+[ebrowse-ms "setCamera" () 0 () "    void setCamera(int" 429 0  () "EZCutter::setCamera( int" 360]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "SpectralCutter" () 0"SpectralCutter.h" "class SpectralCutter :" 248"SpectralCutter.cpp" ]
+()()
+([ebrowse-ms "SpectralCutter" () 0 () "    SpectralCutter() :" 301 0  "SpectralCutter.h" "    SpectralCutter() :" 301]
+[ebrowse-ms "expectedLength" () 0 () "    double expectedLength( double" 464 0  () "expectedLength( double" 1092]
+[ebrowse-ms "expectedWidth" () 0 () "    double expectedWidth( double" 583 0  () "expectedWidth( double" 3737]
+[ebrowse-ms "modelLength" () 0 () "    double modelLength( double" 518 0  () "modelLength( double" 6369]
+[ebrowse-ms "modelWidth" () 0 () "    double modelWidth( double" 636 0  () "modelWidth( double" 6660]
+[ebrowse-ms "passLength" () 1 () "    bool passLength( HillasParameterization" 366 0  () "passLength( HillasParameterization" 182]
+[ebrowse-ms "passWidth" () 1 () "    bool passWidth( HillasParameterization" 419 0  () "passWidth( HillasParameterization" 692]
+)
+()
+()
+()
+([ebrowse-ms "ParameterEnum" () 0 () "    enum ParameterEnum {" 693 0  "SpectralCutter.h" "    enum ParameterEnum {" 693]
+)
+()()
+][ebrowse-ts [ebrowse-cs "ZCutter" () 0"ZCutter.h" "class ZCutter :" 254"ZCutter.cpp" ]
+()([ebrowse-ms "_cam" () 0 () "    Camera *_cam;" 453 2  () () 0]
+)
+([ebrowse-ms "ZCutter" () 0 () "    ZCutter();" 300 0  () "ZCutter::ZCutter() :" 126]
+[ebrowse-ms "applyCorrections" () 1 () "   void applyCorrections( HillasParameterization" 352 0  () "applyCorrections(HillasParameterization" 701]
+[ebrowse-ms "setCamera" () 0 () "    void setCamera(int" 381 0  () "ZCutter::setCamera( int" 337]
+)
+()
+()
+()
+()
+()()
+])([ebrowse-ms "_cuts" () 0 () "    CutInfo _cuts;" 1910 1  () () 0]
+)
+([ebrowse-ms "applyCorrections" () 1 () "ual void applyCorrections(HillasParameterization" 1251 0  () "applyCorrections( HillasParameterization" 1991]
+[ebrowse-ms "pass" () 0 () "    bool pass( HillasParameterization" 1298 0  () "SuperCutter::pass( HillasParameterization" 993]
+[ebrowse-ms "passAlpha" () 3 () "  virtual bool passAlpha( HillasParameterization" 1802 0  "SuperCutter.h" "l SuperCutter::passAlpha( HillasParameterization" 3426]
+[ebrowse-ms "passAsymm" () 3 () "  virtual bool passAsymm( HillasParameterization" 1863 0  "SuperCutter.h" "l SuperCutter::passAsymm( HillasParameterization" 3605]
+[ebrowse-ms "passDistance" () 3 () "irtual bool passDistance( HillasParameterization" 1741 0  "SuperCutter.h" "uperCutter::passDistance( HillasParameterization" 3252]
+[ebrowse-ms "passFrac" () 3 () "   virtual bool passFrac( HillasParameterization" 1491 0  "SuperCutter.h" "ol SuperCutter::passFrac( HillasParameterization" 2571]
+[ebrowse-ms "passLength" () 3 () " virtual bool passLength( HillasParameterization" 1616 0  "SuperCutter.h" " SuperCutter::passLength( HillasParameterization" 2924]
+[ebrowse-ms "passLensize" () 3 () "virtual bool passLensize( HillasParameterization" 1554 0  "SuperCutter.h" "SuperCutter::passLensize( HillasParameterization" 2737]
+[ebrowse-ms "passMax" () 3 () "    virtual bool passMax( HillasParameterization" 1431 0  "SuperCutter.h" "ool SuperCutter::passMax( HillasParameterization" 2202]
+[ebrowse-ms "passSize" () 3 () "   virtual bool passSize( HillasParameterization" 1372 0  "SuperCutter.h" "ol SuperCutter::passSize( HillasParameterization" 2045]
+[ebrowse-ms "passWidth" () 3 () "  virtual bool passWidth( HillasParameterization" 1677 0  "SuperCutter.h" "l SuperCutter::passWidth( HillasParameterization" 3090]
+[ebrowse-ms "setCuts" () 2 () "    void setCuts( CutInfo" 1185 0  "SuperCutter.h" "inline void SuperCutter::setCuts( CutInfo" 1957]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Cut" () 0"Config.h" "struct Cut {" 513"Config.h" ]
+()([ebrowse-ms "lower" () 0 () "    double lower;" 531 0  () () 0]
+[ebrowse-ms "upper" () 0 () "    double upper;" 549 0  () () 0]
+)
+([ebrowse-ms "Cut" () 0 () "    Cut():" 560 0  () "    Cut():" 560]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Logger" () 0"Log.h" "class Logger {" 264"Log.cpp" ]
+()([ebrowse-ms "_errorcount" () 0 () "    int _errorcount;" 550 2  () () 0]
+[ebrowse-ms "_filename" () 0 () "    std::string _filename;" 577 2  () () 0]
+[ebrowse-ms "_start_pos" () 0 () "    fpos_t *_start_pos;" 631 2  () () 0]
+[ebrowse-ms "fp" () 0 () "    FILE *fp;" 529 2  () () 0]
+[ebrowse-ms "pinstance" () 0 () () 0 0  () "Logger* Logger::pinstance = NULL;" 191]
+)
+([ebrowse-ms "Logger" () 0 () "    Logger();" 499 1  () "Logger::Logger()  {" 1690]
+[ebrowse-ms "getErrorCount" () 0 () "    int getErrorCount()" 403 0  () "getErrorCount()" 1104]
+[ebrowse-ms "getFileName" () 0 () "    std::string getFileName()" 455 0  () "getFileName()" 1646]
+[ebrowse-ms "info" () 0 () "    void info( char" 364 0  () "Logger::info( char" 405]
+[ebrowse-ms "instance" () 0 () () 0 0  () "instance()" 221]
+[ebrowse-ms "printLog" () 0 () "    void printLog()" 424 0  () "printLog()" 1159]
+[ebrowse-ms "printf" () 0 () "    void printf( char" 329 0  () "Logger::printf( char" 657]
+[ebrowse-ms "~Logger" () 0 () "    ~Logger()" 471 0  () "Logger::~Logger()" 2133]
+)
+([ebrowse-ms "pinstance" () 0 () "    static Logger *pinstance;" 607 2  () () 0]
+)
+([ebrowse-ms "instance" () 0 () "    static Logger* instance()" 305 0  () () 0]
+)
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "MCRecord" () 0"FitterNew.h" "struct MCRecord {" 367() ]
+()([ebrowse-ms "estimatedEnergy" () 0 () "    double estimatedEnergy;" 425 0  () () 0]
+[ebrowse-ms "trueEnergy_in_TeV" () 0 () "    double trueEnergy_in_TeV;" 397 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "PedestalFinder" () 0"PedestalFinder.h" "class PedestalFinder {" 588"PedestalFinder.cpp" ]
+()([ebrowse-ms "_badpedthresh" () 0 () "    double _badpedthresh;" 1201 2  () () 0]
+[ebrowse-ms "_upthresh" () 0 () "    double _lowthresh, _upthresh;" 1175 2  () () 0]
+)
+([ebrowse-ms "PedestalFinder" () 0 () "    PedestalFinder() :" 624 0  "PedestalFinder.h" "    PedestalFinder() :" 624]
+[ebrowse-ms "getOffSourcePeds" () 0 () "    void getOffSourcePeds( RunInfo" 835 0  () "getOffSourcePeds( RunInfo" 610]
+[ebrowse-ms "getOnSourcePeds" () 0 () "    void getOnSourcePeds( RunInfo" 740 0  () "getOnSourcePeds( RunInfo" 463]
+[ebrowse-ms "getPeds" () 0 () "    void getPeds( RunInfo" 922 0  () "PedestalFinder::getPeds( RunInfo" 1551]
+[ebrowse-ms "readPeds" () 0 () "    void readPeds( std" 1224 2  () "PedestalFinder::readPeds( string" 10398]
+[ebrowse-ms "setBadPedThresh" () 0 () "    void setBadPedThresh( double" 1094 0  "PedestalFinder.h" "    void setBadPedThresh( double" 1094]
+[ebrowse-ms "setTubeOffThresholds" () 0 () "    void setTubeOffThresholds( double" 1039 0  () "setTubeOffThresholds( double" 960]
+[ebrowse-ms "writePeds" () 0 () "    void writePeds( std" 1286 2  () "PedestalFinder::writePeds( string" 9894]
+[ebrowse-ms "~PedestalFinder" () 0 () "    ~PedestalFinder()" 703 0  "PedestalFinder.h" "    ~PedestalFinder()" 703]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "DataReader" () 0"DataReader.h" "class DataReader {" 380"DataReader.h" ]
+([ebrowse-ts [ebrowse-cs "ParamDataReader" () 0"ParamDataReader.h" "class ParamDataReader :" 277"ParamDataReader.cpp" ]
+()([ebrowse-ms "_currow" () 0 () "    int _currow;" 656 2  () () 0]
+[ebrowse-ms "_datasize" () 0 () "    int _datasize;" 639 2  () () 0]
+[ebrowse-ms "_ntuple" () 0 () "    gsl_ntuple *_ntuple;" 681 2  () () 0]
+[ebrowse-ms "_ntuplerow" () 0 () "    HillasParameterization _ntuplerow;" 720 2  () () 0]
+)
+([ebrowse-ms "ParamDataReader" () 0 () "    ParamDataReader( const std::string & );" 335 0  () "    :" 266]
+[ebrowse-ms "getHeaderRecord" () 0 () "    void getHeaderRecord( HeaderRecord" 416 0  () "ParamDataReader::getHeaderRecord( HeaderRecord" 1869]
+[ebrowse-ms "getNextEventRecord" () 0 () " void getNextEventRecord( HillasParameterization" 476 0  () "ader::getNextEventRecord( HillasParameterization" 1410]
+[ebrowse-ms "getTypeString" () 1 () "    std::string getTypeString()" 549 0  "ParamDataReader.h" "    std::string getTypeString()" 549]
+[ebrowse-ms "isDone" () 1 () "    bool isDone()" 607 0  () "ParamDataReader::isDone()" 2409]
+[ebrowse-ms "size" () 1 () "    int  size()" 498 0  "ParamDataReader.h" "    int  size()" 498]
+[ebrowse-ms "~ParamDataReader" () 0 () "    ~ParamDataReader()" 375 0  () "~ParamDataReader()" 1305]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "RawDataReader" () 0"DataReader.h" "class RawDataReader :" 786"DataReader.cpp" ]
+([ebrowse-ts [ebrowse-cs "RawDataReaderHDF4" () 0"DataReader.h" "class RawDataReaderHDF4 :" 1354"DataReader.cpp" ]
+()([ebrowse-ms "_eventadc" () 0 () "    short* _eventadc;" 1956 2  () () 0]
+[ebrowse-ms "_eventbuf" () 0 () "    uint8* _eventbuf;" 1774 2  () () 0]
+[ebrowse-ms "_eventbufsize" () 0 () "    int    _eventbufsize;" 1825 2  () () 0]
+[ebrowse-ms "_eventid" () 0 () "    int32  _eventid;" 1934 2  () () 0]
+[ebrowse-ms "_eventref" () 0 () "    int32  _eventref;" 1868 2  () () 0]
+[ebrowse-ms "_headerid" () 0 () "    int32  _headerid;" 1890 2  () () 0]
+[ebrowse-ms "_headerref" () 0 () "    int32  _headerref;" 1913 2  () () 0]
+[ebrowse-ms "_hfileid" () 0 () "    int    _hfileid;" 1846 2  () () 0]
+[ebrowse-ms "_infobuf" () 0 () "    uint8* _infobuf;" 1752 2  () () 0]
+[ebrowse-ms "_infobufsize" () 0 () "    int    _infobufsize;" 1799 2  () () 0]
+[ebrowse-ms "_is_event_initialized" () 0 () "    bool   _is_event_initialized;" 2043 2  () () 0]
+[ebrowse-ms "_is_file_done" () 0 () "    bool   _is_file_done;" 2069 2  () () 0]
+[ebrowse-ms "_is_header_initialized" () 0 () "    bool   _is_header_initialized;" 2009 2  () () 0]
+[ebrowse-ms "_nadc" () 0 () "    int    _nadc;" 1974 2  () () 0]
+)
+([ebrowse-ms "RawDataReaderHDF4" () 0 () "awDataReaderHDF4( const std::string &filename );" 1417 0  () "RawDataReaderHDF4( const string &filename )  :" 464]
+[ebrowse-ms "getHeaderRecord" () 1 () "    void getHeaderRecord( RawHeaderRecord" 1511 0  () "getHeaderRecord( RawHeaderRecord" 2285]
+[ebrowse-ms "getNextEventRecord" () 1 () "    void getNextEventRecord( RawEventRecord" 1566 0  () "getNextEventRecord( RawEventRecord" 4400]
+[ebrowse-ms "getType" () 1 () "    int getType()" 1688 0  "DataReader.h" "    int getType()" 1688]
+[ebrowse-ms "getTypeString" () 1 () "    std::string getTypeString()" 1669 0  () "getTypeString()" 6646]
+[ebrowse-ms "isDone" () 1 () "    bool isDone()" 1611 0  "DataReader.h" "    bool isDone()" 1611]
+[ebrowse-ms "size" () 1 () "    int  size()" 1592 0  () "size()" 4301]
+[ebrowse-ms "~RawDataReaderHDF4" () 0 () "    ~RawDataReaderHDF4()" 1467 0  () "RawDataReaderHDF4::~RawDataReaderHDF4()" 2068]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "RawDataReaderSim" () 0"DataReader.h" "class RawDataReaderSim :" 2171"DataReader.cpp" ]
+()([ebrowse-ms "_count" () 0 () "    int _count;" 2766 2  () () 0]
+[ebrowse-ms "_curshower" () 0 () "    SimShowerRecord _curshower;" 2699 2  () () 0]
+[ebrowse-ms "_faketime" () 0 () "    double _faketime;" 2803 2  () () 0]
+[ebrowse-ms "_infile" () 0 () "    std::ifstream _infile;" 2750 2  () () 0]
+[ebrowse-ms "_is_file_done" () 0 () "    bool _is_file_done;" 2723 2  () () 0]
+[ebrowse-ms "_nadc" () 0 () "    int _nadc;" 2781 2  () () 0]
+)
+([ebrowse-ms "RawDataReaderSim" () 0 () "RawDataReaderSim( const std::string &filename );" 2233 0  () "    :" 6930]
+[ebrowse-ms "getHeaderRecord" () 1 () "    void getHeaderRecord( RawHeaderRecord" 2326 0  () "getHeaderRecord( RawHeaderRecord" 7735]
+[ebrowse-ms "getNextEventRecord" () 1 () "    void getNextEventRecord( RawEventRecord" 2381 0  () "getNextEventRecord( RawEventRecord" 8047]
+[ebrowse-ms "getSimShowerRecord" () 0 () "    SimShowerRecord getSimShowerRecord()" 2630 0  "DataReader.h" "    SimShowerRecord getSimShowerRecord()" 2630]
+[ebrowse-ms "getType" () 1 () "    int getType()" 2558 0  "DataReader.h" "    int getType()" 2558]
+[ebrowse-ms "getTypeString" () 1 () "    std::string getTypeString()" 2484 0  "DataReader.h" "    std::string getTypeString()" 2484]
+[ebrowse-ms "isDone" () 1 () "    bool isDone()" 2426 0  "DataReader.h" "    bool isDone()" 2426]
+[ebrowse-ms "size" () 1 () "    int  size()" 2407 0  () "RawDataReaderSim::size()" 7358]
+[ebrowse-ms "~RawDataReaderSim" () 0 () "    ~RawDataReaderSim()" 2282 0  () "RawDataReaderSim::~RawDataReaderSim()" 7243]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "RawDataReaderVText" () 0"DataReader.h" "class RawDataReaderVText :" 2960"DataReader.cpp" ]
+()([ebrowse-ms "_count" () 0 () "    int _count;" 3457 2  () () 0]
+[ebrowse-ms "_infile" () 0 () "    std::ifstream _infile;" 3441 2  () () 0]
+[ebrowse-ms "_is_file_done" () 0 () "    bool _is_file_done;" 3414 2  () () 0]
+[ebrowse-ms "_nadc" () 0 () "    int _nadc;" 3472 2  () () 0]
+[ebrowse-ms "_nevents" () 0 () "    int _nevents;" 3490 2  () () 0]
+)
+([ebrowse-ms "RawDataReaderVText" () 0 () "wDataReaderVText( const std::string &filename );" 3024 0  () "    :" 10515]
+[ebrowse-ms "getHeaderRecord" () 1 () "    void getHeaderRecord( RawHeaderRecord" 3119 0  () "getHeaderRecord( RawHeaderRecord" 10973]
+[ebrowse-ms "getNextEventRecord" () 1 () "    void getNextEventRecord( RawEventRecord" 3174 0  () "getNextEventRecord( RawEventRecord" 12686]
+[ebrowse-ms "getType" () 1 () "    int getType()" 3346 0  "DataReader.h" "    int getType()" 3346]
+[ebrowse-ms "getTypeString" () 1 () "    std::string getTypeString()" 3277 0  "DataReader.h" "    std::string getTypeString()" 3277]
+[ebrowse-ms "isDone" () 1 () "    bool isDone()" 3219 0  "DataReader.h" "    bool isDone()" 3219]
+[ebrowse-ms "size" () 1 () "    int  size()" 3200 0  () "RawDataReaderVText::size()" 9673]
+[ebrowse-ms "~RawDataReaderVText" () 0 () "    ~RawDataReaderVText()" 3075 0  () "RawDataReaderVText::~RawDataReaderVText()" 10820]
+)
+()
+()
+()
+()
+()()
+])()
+([ebrowse-ms "RawDataReader" () 0 () "   RawDataReader( const std::string &filename );" 842 0  () "RawDataReader( const string &filename ) :" 366]
+[ebrowse-ms "getHeaderRecord" () 9 () "   virtual void getHeaderRecord( RawHeaderRecord" 922 0  () () 0]
+[ebrowse-ms "getNextEventRecord" () 9 () " virtual void getNextEventRecord( RawEventRecord" 987 0  () () 0]
+[ebrowse-ms "getType" () 9 () "    virtual int getType()" 1097 0  () () 0]
+[ebrowse-ms "getTypeString" () 9 () "    virtual std::string getTypeString()" 1066 0  () () 0]
+[ebrowse-ms "isDone" () 9 () "    virtual bool isDone()" 1170 0  () () 0]
+[ebrowse-ms "size" () 9 () "    virtual int  size()" 1023 0  () () 0]
+[ebrowse-ms "~RawDataReader" () 1 () "    virtual ~RawDataReader()" 1202 0  "DataReader.h" "    virtual ~RawDataReader()" 1202]
+)
+()
+()
+()
+([ebrowse-ms "EventTypes" () 0 () "    enum EventTypes {" 1228 0  "DataReader.h" "    enum EventTypes {" 1228]
+[ebrowse-ms "RunType" () 0 () "    enum RunType {" 1119 0  "DataReader.h" "    enum RunType {" 1119]
+)
+()()
+])([ebrowse-ms "_filename" () 0 () "    std::string _filename;" 684 2  () () 0]
+)
+([ebrowse-ms "DataReader" () 0 () "    DataReader( const std::string &filename ):" 412 0  () "    DataReader( const std::string &filename ):" 412]
+[ebrowse-ms "getFilename" () 0 () "    std::string getFilename()" 523 0  () "    std::string getFilename()" 523]
+[ebrowse-ms "getTypeString" () 9 () "    virtual std::string getTypeString()" 642 0  () () 0]
+[ebrowse-ms "isDone" () 9 () "    virtual bool isDone()" 572 0  () () 0]
+[ebrowse-ms "size" () 9 () "    virtual int size()" 598 0  () () 0]
+[ebrowse-ms "~DataReader" () 1 () "    virtual ~DataReader()" 485 0  () "    virtual ~DataReader()" 485]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "TelescopeArray" () 0"Camera.h" "class TelescopeArray {" 2552"Camera.cpp" ]
+()([ebrowse-ms "_maxy" () 0 () "    double _minx, _miny, _maxx, _maxy;" 3339 2  () () 0]
+[ebrowse-ms "_telescope" () 0 () "    std::vector<TelInfo> _telescope;" 3299 2  () () 0]
+)
+([ebrowse-ms "TelescopeArray" () 0 () "g filename, std::vector<int> nadc, int utdate );" 2674 0  () "string filename, vector<int> nadc, int utdate) {" 8404]
+[ebrowse-ms "getCamera" () 0 () "    Camera* getCamera( int" 2841 0  "Camera.h" "    Camera* getCamera( int" 2841]
+[ebrowse-ms "getLocationX" () 0 () "    double getLocationX( int" 2937 0  "Camera.h" "    double getLocationX( int" 2937]
+[ebrowse-ms "getLocationY" () 0 () "    double getLocationY( int" 3000 0  "Camera.h" "    double getLocationY( int" 3000]
+[ebrowse-ms "getLocationZ" () 0 () "    double getLocationZ( int" 3063 0  "Camera.h" "    double getLocationZ( int" 3063]
+[ebrowse-ms "getMaxX" () 0 () "    double getMaxX()" 3157 0  "Camera.h" "    double getMaxX()" 3157]
+[ebrowse-ms "getMaxY" () 0 () "    double getMaxY()" 3233 0  "Camera.h" "    double getMaxY()" 3233]
+[ebrowse-ms "getMinX" () 0 () "    double getMinX()" 3119 0  "Camera.h" "    double getMinX()" 3119]
+[ebrowse-ms "getMinY" () 0 () "    double getMinY()" 3195 0  "Camera.h" "    double getMinY()" 3195]
+[ebrowse-ms "getNumTelescopes" () 0 () "    int     getNumTelescopes()" 2784 0  "Camera.h" "    int     getNumTelescopes()" 2784]
+[ebrowse-ms "~TelescopeArray" () 0 () "    ~TelescopeArray()" 2751 0  () "TelescopeArray::~TelescopeArray()" 11641]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "WUArray" () 0() () 0() ]
+()()
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "RawRunInfo" () 0"DataRecords.h" "class RawRunInfo {" 3828() ]
+([ebrowse-ts [ebrowse-cs "ParamRunInfo" () 0"DataRecords.h" "class ParamRunInfo :" 4042() ]
+([ebrowse-ts [ebrowse-cs "CutRunInfo" () 0"DataRecords.h" "class CutRunInfo :" 4192() ]
+()([ebrowse-ms "duration" () 0 () "    double duration;" 4545 0  () () 0]
+[ebrowse-ms "orientation" () 0 () "    int orientation;" 4429 0  () () 0]
+[ebrowse-ms "shape" () 0 () "    int shape;" 4378 0  () () 0]
+[ebrowse-ms "total" () 0 () "    int total;" 4248 0  () () 0]
+[ebrowse-ms "trackoff" () 0 () "    int trackoff;" 4482 0  () () 0]
+[ebrowse-ms "trigger" () 0 () "    int trigger;" 4332 0  () () 0]
+[ebrowse-ms "valid" () 0 () "    int valid;" 4297 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+])([ebrowse-ms "average_elevation" () 0 () "    double average_elevation;" 4123 0  () () 0]
+[ebrowse-ms "endtime" () 0 () "    double endtime;" 4093 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+])([ebrowse-ms "dec" () 0 () "    double dec;" 3934 0  () () 0]
+[ebrowse-ms "nadc" () 0 () "    int nadc;" 3903 0  () () 0]
+[ebrowse-ms "ra" () 0 () "    double ra;" 3918 0  () () 0]
+[ebrowse-ms "runid" () 0 () "    std::string runid;" 3889 0  () () 0]
+[ebrowse-ms "sourcename" () 0 () "    std::string sourcename;" 3866 0  () () 0]
+[ebrowse-ms "starttime" () 0 () "    double starttime;" 3956 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Results" () 0"FitterNew.h" "struct Results {" 683() ]
+()([ebrowse-ms "chiSquare" () 0 () "    double chiSquare;" 705 0  () () 0]
+[ebrowse-ms "dof" () 0 () "    int    dof;" 721 0  () () 0]
+[ebrowse-ms "e0" () 0 () "    double e0;" 1924 0  () () 0]
+[ebrowse-ms "e0M" () 0 () "    double e0,e0P,e0M;" 800 0  () () 0]
+[ebrowse-ms "gammaM" () 0 () "    double gamma0,gammaP,gammaM;" 777 0  () () 0]
+[ebrowse-ms "n0M" () 0 () "    double n0,n0P,n0M;" 744 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "MCSpectrum" () 0"FitterNew.h" "class MCSpectrum {" 1283"Fitter.cpp" ]
+()([ebrowse-ms "_dbfilename" () 0 () "    std::string _dbfilename;" 2176 2  () () 0]
+[ebrowse-ms "_event" () 0 () "    std::vector<MCRecord> _event;" 2041 2  () () 0]
+[ebrowse-ms "_info" () 0 () "    std::vector<MCBinInfo> _info;" 2350 2  () () 0]
+[ebrowse-ms "_ndof" () 0 () "    int _ndof;" 2315 2  () () 0]
+[ebrowse-ms "_spectrum" () 0 () "    EnergySpectrum* _spectrum;" 2073 2  () () 0]
+)
+([ebrowse-ms "MCSpectrum" () 0 () "    MCSpectrum( RunInfo &ri );" 1318 0  "FitterNew.cpp" "MCSpectrum::MCSpectrum( RunInfo &ri ) {" 876]
+[ebrowse-ms "chiSquare" () 0 () "    double chiSquare(std" 1553 0  "FitterNew.cpp" "double MCSpectrum::chiSquare( std" 6328]
+[ebrowse-ms "dof" () 2 () "    inline int    dof()" 1600 0  "FitterNew.h" "MCSpectrum::dof()" 2493]
+[ebrowse-ms "fill" () 0 () "    void fill(double" 1370 0  "FitterNew.cpp" "fill(double" 3766]
+[ebrowse-ms "get" () 2 () "    double get(int" 1625 0  "FitterNew.h" "MCSpectrum::get(int" 2597]
+[ebrowse-ms "getRange" () 2 () "    void   getRange( int" 1652 0  "FitterNew.h" "MCSpectrum::getRange( int" 2745]
+[ebrowse-ms "getSpectrum" () 0 () "    EnergySpectrum* getSpectrum()" 1763 0  "FitterNew.h" "    EnergySpectrum* getSpectrum()" 1763]
+[ebrowse-ms "info" () 0 () "    void   info  ( double" 1917 2  "FitterNew.cpp" "void MCSpectrum::info(double" 5613]
+[ebrowse-ms "weight" () 0 () "    double weight(double" 1822 2  "FitterNew.cpp" "double MCSpectrum::weight(double" 4302]
+[ebrowse-ms "~MCSpectrum" () 0 () "    ~MCSpectrum()" 1343 0  "FitterNew.cpp" "MCSpectrum::~MCSpectrum()" 3607]
+)
+([ebrowse-ms "NUMMCBINS" () 0 () "    static const int NUMMCBINS=9;" 1728 0  () () 0]
+)
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "runtime_error" "std" 0() () 0() ]
+([ebrowse-ts [ebrowse-cs "AnalysisException" () 0"Exceptions.h" "class AnalysisException :" 407"Exceptions.h" ]
+([ebrowse-ts [ebrowse-cs "CriticalAnalysisException" () 0"Exceptions.h" "class CriticalAnalysisException :" 629"Exceptions.h" ]
+()()
+([ebrowse-ms "CriticalAnalysisException" () 0 () "icalAnalysisException(const std::string &str)
+	:" 706 0  () "icalAnalysisException(const std::string &str)
+	:" 706]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "MildAnalysisException" () 0"Exceptions.h" "class MildAnalysisException :" 844"Exceptions.h" ]
+([ebrowse-ts [ebrowse-cs "EOFException" () 0"Exceptions.h" "class EOFException :" 1047"Exceptions.h" ]
+()()
+([ebrowse-ms "EOFException" () 0 () "    EOFException(const std::string &str)
+	:" 1111 0  () "    EOFException(const std::string &str)
+	:" 1111]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "RangeException" () 0"Exceptions.h" "class RangeException :" 1252"Exceptions.h" ]
+()()
+([ebrowse-ms "RangeException" () 0 () "Exception(const std::string &str, int code=0)
+	:" 1318 0  () "Exception(const std::string &str, int code=0)
+	:" 1318]
+)
+()
+()
+()
+()
+()()
+])()
+([ebrowse-ms "MildAnalysisException" () 0 () "MildAnalysisException(const std::string &str)
+	:" 917 0  () "MildAnalysisException(const std::string &str)
+	:" 917]
+)
+()
+()
+()
+()
+()()
+])()
+([ebrowse-ms "AnalysisException" () 0 () "    AnalysisException( std::string str ):" 471 0  () "    AnalysisException( std::string str ):" 471]
+)
+()
+()
+()
+()
+()()
+])()
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "runtime_error" () 0() () 0() ]
+([ebrowse-ts [ebrowse-cs "ParseException" () 0"wuplot.cpp" "class ParseException :" 768"wuplot.cpp" ]
+()()
+([ebrowse-ms "ParseException" () 0 () "    ParseException(string what):" 825 0  () "    ParseException(string what):" 825]
+)
+()
+()
+()
+()
+()()
+])()
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Cutter" () 0"Cutter.h" "class Cutter {" 843"Cutter.cpp" ]
+()([ebrowse-ms "_alpha_off" () 0 () "    Histogram *_alpha_off;" 2730 2  () () 0]
+[ebrowse-ms "_alpha_on" () 0 () "    Histogram *_alpha_on;" 2703 2  () () 0]
+[ebrowse-ms "_centroid_range" () 0 () "    int _centroid_range;" 3763 2  () () 0]
+[ebrowse-ms "_corr_centroid" () 0 () "tor< std::vector<Coordinate_t> > _corr_centroid;" 3040 2  () () 0]
+[ebrowse-ms "_dec" () 0 () "    double _ra,_dec;" 3543 2  () () 0]
+[ebrowse-ms "_degperpix" () 0 () "    double _degperpix;" 3432 2  () () 0]
+[ebrowse-ms "_display_is_enabled" () 0 () "    bool _display_is_enabled;" 3635 2  () () 0]
+[ebrowse-ms "_energy_off" () 0 () "    Histogram *_energy_off;" 2815 2  () () 0]
+[ebrowse-ms "_energy_on" () 0 () "    Histogram *_energy_on;" 2757 2  () () 0]
+[ebrowse-ms "_energy_track" () 0 () "    Histogram *_energy_track;" 2787 2  () () 0]
+[ebrowse-ms "_fast_image_processing_is_enabled" () 0 () "    bool _fast_image_processing_is_enabled;" 3715 2  () () 0]
+[ebrowse-ms "_image_xdim" () 0 () "    int _image_xdim;" 3388 2  () () 0]
+[ebrowse-ms "_image_ydim" () 0 () "    int _image_ydim;" 3409 2  () () 0]
+[ebrowse-ms "_is_2d_enabled" () 0 () "    bool _is_2d_enabled;" 3568 2  () () 0]
+[ebrowse-ms "_numruns_off" () 0 () "    int _numruns_off;" 3475 2  () () 0]
+[ebrowse-ms "_numruns_on" () 0 () "    int _numruns_on;" 3453 2  () () 0]
+[ebrowse-ms "_numruns_trk" () 0 () "    int _numruns_trk;" 3497 2  () () 0]
+[ebrowse-ms "_off_dec" () 0 () "    std::vector<double> _off_dec;" 3244 2  () () 0]
+[ebrowse-ms "_off_ra" () 0 () "    std::vector<double> _off_ra;" 3210 2  () () 0]
+[ebrowse-ms "_offruns" () 0 () "    std::vector<CutRecord> _offruns;" 2940 2  () () 0]
+[ebrowse-ms "_offstars" () 0 () "    std::list<Star> _offstars;" 3362 2  () () 0]
+[ebrowse-ms "_on_dec" () 0 () "    std::vector<double> _on_dec;" 3177 2  () () 0]
+[ebrowse-ms "_on_ra" () 0 () "    std::vector<double> _on_ra;" 3144 2  () () 0]
+[ebrowse-ms "_onruns" () 0 () "    std::vector<CutRecord> _onruns;" 2903 2  () () 0]
+[ebrowse-ms "_onstars" () 0 () "    std::list<Star> _onstars;" 3331 2  () () 0]
+[ebrowse-ms "_outdir" () 0 () "    std::string _outdir;" 3270 2  () () 0]
+[ebrowse-ms "_output_is_enabled" () 0 () "    bool _output_is_enabled;" 3793 2  () () 0]
+[ebrowse-ms "_output_scaled_parameters" () 0 () "    bool _output_scaled_parameters;" 3671 2  () () 0]
+[ebrowse-ms "_pointing_check_is_enabled" () 0 () "    bool _pointing_check_is_enabled;" 3605 2  () () 0]
+[ebrowse-ms "_radial_smoothing_factor" () 0 () "    double _radial_smoothing_factor;" 3902 2  () () 0]
+[ebrowse-ms "_size_off" () 0 () "    Histogram *_size_off;" 2866 2  () () 0]
+[ebrowse-ms "_size_on" () 0 () "    Histogram *_size_on;" 2840 2  () () 0]
+[ebrowse-ms "_sourcenames" () 0 () "    std::list<std::string> _sourcenames;" 3111 2  () () 0]
+[ebrowse-ms "_starcatalog" () 0 () "    StarCatalog _starcatalog;" 3301 2  () () 0]
+[ebrowse-ms "_telescope_id" () 0 () "    int _telescope_id;" 3927 2  () () 0]
+[ebrowse-ms "_track_ratio" () 0 () "    double _track_ratio;" 3522 2  () () 0]
+[ebrowse-ms "_trackruns" () 0 () "    std::vector<CutRecord> _trackruns;" 2979 2  () () 0]
+[ebrowse-ms "_writer_off" () 0 () "    ParamDataWriter *_writer_off;" 3860 2  () () 0]
+[ebrowse-ms "_writer_on" () 0 () "    ParamDataWriter *_writer_on;" 3826 2  () () 0]
+[ebrowse-ms "_xplotmaker" () 0 () "    PlotMaker *_xplotmaker;" 3069 2  () () 0]
+[ebrowse-ms "hline" () 0 () "    std::string hline;" 3738 2  () () 0]
+)
+([ebrowse-ms "Cutter" () 0 () "    Cutter();" 867 0  () "    :" 852]
+[ebrowse-ms "checkDiagnostics" () 0 () "    void checkDiagnostics()" 2241 0  () "Cutter::checkDiagnostics()" 45452]
+[ebrowse-ms "checkPointing" () 0 () "    void checkPointing()" 2211 0  () "checkPointing()" 13730]
+[ebrowse-ms "clear" () 0 () "    void clear()" 2367 0  "Cutter.h" "    void clear()" 2367]
+[ebrowse-ms "cut" () 0 () "    CutRecord cut( RunInfo" 1797 0  () "cut( RunInfo" 30105]
+[ebrowse-ms "enable2D" () 0 () "    void enable2D( bool" 1150 0  "Cutter.h" "    void enable2D( bool" 1150]
+[ebrowse-ms "enableDisplay" () 0 () "    void enableDisplay( bool" 1287 0  "Cutter.h" "    void enableDisplay( bool" 1287]
+[ebrowse-ms "enableFastImageProcessing" () 0 () "    void enableFastImageProcessing(bool" 1071 0  "Cutter.h" "    void enableFastImageProcessing(bool" 1071]
+[ebrowse-ms "enableOutput" () 0 () "    void enableOutput( bool" 916 0  "Cutter.h" "    void enableOutput( bool" 916]
+[ebrowse-ms "enablePointingCheck" () 0 () "    void enablePointingCheck( bool" 1214 0  "Cutter.h" "    void enablePointingCheck( bool" 1214]
+[ebrowse-ms "enableScaledParameterOutput" () 0 () "    void enableScaledParameterOutput( bool" 991 0  "Cutter.h" "    void enableScaledParameterOutput( bool" 991]
+[ebrowse-ms "energyEstimator" () 0 () "    double energyEstimator( double" 1620 0  () "energyEstimator( double" 44684]
+[ebrowse-ms "generateImage" () 0 () "    void generateImage(CutRecord" 1862 0  () "generateImage(CutRecord" 21323]
+[ebrowse-ms "getElongationFactor" () 0 () "    double getElongationFactor(double" 2281 0  () "Cutter::getElongationFactor( double" 45191]
+[ebrowse-ms "getPairStatistics" () 0 () "    RunStatistics getPairStatistics( CutRecord" 1482 0  () "getPairStatistics( CutRecord" 5376]
+[ebrowse-ms "getTotal" () 0 () "    CutRecord getTotal( std" 1670 0  () "getTotal( vector" 3469]
+[ebrowse-ms "getTotalPairStatistics" () 0 () "    RunStatistics getTotalPairStatistics()" 1554 0  () "getTotalPairStatistics()" 5881]
+[ebrowse-ms "getTrackingStatistics" () 0 () "  RunStatistics getTrackingStatistics( CutRecord" 1413 0  () "getTrackingStatistics( CutRecord" 5050]
+[ebrowse-ms "maxLikelihoodSignif" () 0 () "    double maxLikelihoodSignif( double" 1733 0  () "maxLikelihoodSignif( double" 4270]
+[ebrowse-ms "outputStars" () 0 () "    void outputStars()" 2600 2  () "outputStars()" 18555]
+[ebrowse-ms "outputStatistics" () 0 () "    void outputStatistics()" 1584 0  () "outputStatistics()" 6421]
+[ebrowse-ms "printCutRecordFields" () 0 () "    void printCutRecordFields( std" 2166 0  () "Cutter::printCutRecordFields( ostream" 47299]
+[ebrowse-ms "process" () 0 () "    void process( RunInfo" 1350 0  () "process( RunInfo" 28252]
+[ebrowse-ms "radiallyBinPoints" () 0 () "    void radiallyBinPoints(std" 1984 0  () () 0]
+[ebrowse-ms "setOutputDir" () 0 () "    void setOutputDir( std" 2087 0  "Cutter.h" "    void setOutputDir( std" 2087]
+[ebrowse-ms "setTelescopeID" () 0 () "    void setTelescopeID( int" 2320 0  "Cutter.h" "    void setTelescopeID( int" 2320]
+[ebrowse-ms "writeStarList" () 0 () "    void writeStarList( std" 2629 2  () "writeStarList( list" 20409]
+[ebrowse-ms "~Cutter" () 0 () "    ~Cutter()" 882 0  () "Cutter::~Cutter()" 2987]
+)
+()
+()
+()
+([ebrowse-ms "types" () 0 () "    enum types {" 2547 0  "Cutter.h" "    enum types {" 2547]
+)
+()()
+][ebrowse-ts [ebrowse-cs "WordBitMask" "MuonImageAnalyzer" 0"MuonImageAnalyzer.h" "    struct WordBitMask {" 4811() ]
+()([ebrowse-ms "bit" () 0 () "	unsigned int	bit ;" 4844 0  () () 0]
+[ebrowse-ms "word" () 0 () "	int		word ;" 4824 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Record" () 0"DataRecords.h" "struct Record {" 472() ]
+([ebrowse-ts [ebrowse-cs "CutRecord" () 0"DataRecords.h" "struct CutRecord :" 1885"DataRecords.h" ]
+()([ebrowse-ms "average_elevation" () 0 () "    double average_elevation;" 2305 0  () () 0]
+[ebrowse-ms "duration" () 0 () "    double duration;" 2237 0  () () 0]
+[ebrowse-ms "im2d" () 0 () "    Image2D im2d;" 2350 0  () () 0]
+[ebrowse-ms "orientation" () 0 () "    int orientation;" 2121 0  () () 0]
+[ebrowse-ms "poolist" () 0 () "    std::vector<Coordinate_t> poolist;" 2514 0  () () 0]
+[ebrowse-ms "runid" () 0 () "    std::string runid;" 1925 0  () () 0]
+[ebrowse-ms "shape" () 0 () "    int shape;" 2070 0  () () 0]
+[ebrowse-ms "skybright" () 0 () "    Image2D skybright;" 2400 0  () () 0]
+[ebrowse-ms "total" () 0 () "    int total;" 1940 0  () () 0]
+[ebrowse-ms "trackoff" () 0 () "    int trackoff;" 2174 0  () () 0]
+[ebrowse-ms "trigger" () 0 () "    int trigger;" 2024 0  () () 0]
+[ebrowse-ms "tubeoff" () 0 () "    Image2D tubeoff;" 2448 0  () () 0]
+[ebrowse-ms "valid" () 0 () "    int valid;" 1989 0  () () 0]
+)
+([ebrowse-ms "CutRecord" () 0 () "    CutRecord() {" 2572 0  () "    CutRecord() {" 2572]
+[ebrowse-ms "addValuesFrom" () 0 () "    void addValuesFrom( CutRecord" 3253 0  () "    void addValuesFrom( CutRecord" 3253]
+[ebrowse-ms "~CutRecord" () 0 () "    ~CutRecord()" 3209 0  () "    ~CutRecord()" 3209]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "EventRecord" () 0"DataRecords.h" "struct EventRecord :" 1475() ]
+([ebrowse-ts [ebrowse-cs "RawEventRecord" () 0"DataRecords.h" "struct RawEventRecord :" 1566() ]
+()([ebrowse-ms "adc" () 0 () "    Array_t adc;" 1757 0  () () 0]
+[ebrowse-ms "azimuth" () 0 () "    short   azimuth;" 1714 0  () () 0]
+[ebrowse-ms "elevation" () 0 () "    short   elevation;" 1693 0  () () 0]
+[ebrowse-ms "gpstime" () 0 () "    double  gpstime;" 1627 0  () () 0]
+[ebrowse-ms "livetime" () 0 () "    double  livetime;" 1670 0  () () 0]
+[ebrowse-ms "osctime" () 0 () "    double  osctime;" 1648 0  () () 0]
+[ebrowse-ms "telescope_id" () 0 () "    int     telescope_id;" 1740 0  () () 0]
+[ebrowse-ms "type" () 0 () "    int     type;" 1606 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+])()
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "HeaderRecord" () 0"DataRecords.h" "struct HeaderRecord :" 760() ]
+([ebrowse-ts [ebrowse-cs "RawHeaderRecord" () 0"DataRecords.h" "struct RawHeaderRecord :" 1792() ]
+()()
+()
+()
+()
+()
+()
+()()
+])([ebrowse-ms "average_elevation" () 0 () "    double average_elevation;" 1095 0  () () 0]
+[ebrowse-ms "dec" () 0 () "    double dec;" 954 0  () () 0]
+[ebrowse-ms "endtime" () 0 () "    double endtime;" 1041 0  () () 0]
+[ebrowse-ms "nadc" () 0 () "    std::vector<int> nadc;" 868 0  () () 0]
+[ebrowse-ms "num_telescopes" () 0 () "    int num_telescopes;" 801 0  () () 0]
+[ebrowse-ms "ra" () 0 () "    double ra;" 921 0  () () 0]
+[ebrowse-ms "sourcename" () 0 () "    std::string sourcename;" 1221 0  () () 0]
+[ebrowse-ms "starttime" () 0 () "    double starttime;" 994 0  () () 0]
+[ebrowse-ms "windowsize" () 0 () "    int windowsize;" 1145 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+])()
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Option_s" () 0"wuparam.h" "struct Option_s{" 583() ]
+()([ebrowse-ms "clearcache" () 0 () "    bool clearcache;" 683 0  () () 0]
+[ebrowse-ms "display" () 0 () "    bool display;" 642 0  () () 0]
+[ebrowse-ms "interactive" () 0 () "    bool interactive;" 624 0  () () 0]
+[ebrowse-ms "overwrite" () 0 () "    bool overwrite;" 662 0  () () 0]
+[ebrowse-ms "verbose" () 0 () "    bool verbose;" 602 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "Pedestal" () 0"PedestalFinder.h" "struct Pedestal {" 275"PedestalFinder.h" ]
+()([ebrowse-ms "dispersion" () 0 () "    double dispersion;" 401 0  () () 0]
+[ebrowse-ms "pedestal" () 0 () "    double pedestal;" 347 0  () () 0]
+[ebrowse-ms "type" () 0 () "    int type;" 449 0  () () 0]
+)
+()
+()
+()
+()
+([ebrowse-ms "PEDESTAL_TYPES" () 0 () "    enum PEDESTAL_TYPES {" 302 0  () "    enum PEDESTAL_TYPES {" 302]
+)
+()()
+][ebrowse-ts [ebrowse-cs "ImageCleaner" () 0"ImageCleaner.h" "class ImageCleaner {" 395"ImageCleaner.h" ]
+([ebrowse-ts [ebrowse-cs "DefaultImageCleaner" () 0"ImageCleaner.h" "class DefaultImageCleaner :" 680"ImageCleaner.cpp" ]
+()([ebrowse-ms "_boundary_thresh" () 0 () "    double _boundary_thresh;" 951 2  () () 0]
+[ebrowse-ms "_cleanpixels" () 0 () "    std::vector<int> _cleanpixels;" 1020 2  () () 0]
+[ebrowse-ms "_peds" () 0 () "    std::vector<Pedestal> *_peds;" 985 2  () () 0]
+[ebrowse-ms "_picture_thresh" () 0 () "    double _picture_thresh;" 922 2  () () 0]
+)
+([ebrowse-ms "DefaultImageCleaner" () 0 () "			double picture, double boundary);" 743 0  () "    :" 802]
+[ebrowse-ms "getCleanPixels" () 1 () "    std::vector<int>& getCleanPixels( const" 857 0  () "getCleanPixels( const" 1110]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "ThresholdImageCleaner" () 0"ImageCleaner.h" "class ThresholdImageCleaner :" 1055"ImageCleaner.cpp" ]
+()([ebrowse-ms "_cleanpixels" () 0 () "    std::vector<int> _cleanpixels;" 1387 2  () () 0]
+[ebrowse-ms "_threshold" () 0 () "    double _threshold;" 1352 2  () () 0]
+)
+([ebrowse-ms "ThresholdImageCleaner" () 0 () "eCleaner( Camera &camera, double threshold ) 
+	:" 1121 0  "ImageCleaner.h" "eCleaner( Camera &camera, double threshold ) 
+	:" 1121]
+[ebrowse-ms "getCleanPixels" () 1 () "    std::vector<int>& getCleanPixels( const" 1244 0  () "getCleanPixels( const" 2319]
+[ebrowse-ms "setThreshold" () 0 () "    void setThreshold( double" 1297 0  "ImageCleaner.h" "    void setThreshold( double" 1297]
+)
+()
+()
+()
+()
+()()
+])([ebrowse-ms "_cam" () 0 () "    Camera *_cam;" 574 1  () () 0]
+)
+([ebrowse-ms "ImageCleaner" () 0 () "    ImageCleaner( Camera &camera ){" 430 0  () "    ImageCleaner( Camera &camera ){" 430]
+[ebrowse-ms "getCleanPixels" () 9 () " virtual std::vector<int>& getCleanPixels( const" 511 0  () () 0]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "TelescopeData" "Parameterizer" 0"Parameterizer.h" "    struct TelescopeData {" 1413"Parameterizer.h" ]
+()([ebrowse-ms "alphahist" () 0 () "	Histogram *alphahist;" 1812 0  () () 0]
+[ebrowse-ms "analyzer" () 0 () "	HillasImageAnalyzer *analyzer;" 1445 0  () () 0]
+[ebrowse-ms "centroids" () 0 () "	Image2D  *centroids;" 1988 0  () () 0]
+[ebrowse-ms "cleaner" () 0 () "	ImageCleaner  *cleaner;" 1504 0  () () 0]
+[ebrowse-ms "combinedpeds" () 0 () "	std::vector<Pedestal> combinedpeds;" 1541 0  () () 0]
+[ebrowse-ms "deltat" () 0 () "	Histogram *deltat;" 1944 0  () () 0]
+[ebrowse-ms "disthist" () 0 () "	Histogram *disthist;" 1880 0  () () 0]
+[ebrowse-ms "gains" () 0 () "	Array_t gains;" 1588 0  () () 0]
+[ebrowse-ms "lengthhist" () 0 () "	Histogram *lengthhist;" 1836 0  () () 0]
+[ebrowse-ms "lensize" () 0 () "	Histogram *lensize;" 1724 0  () () 0]
+[ebrowse-ms "max2hist" () 0 () "	Histogram *max2hist;" 1966 0  () () 0]
+[ebrowse-ms "mugainhist" () 0 () "        Histogram *mugainhist;" 2089 0  () () 0]
+[ebrowse-ms "mulensizehist" () 0 () "        Histogram *mulensizehist;" 2123 0  () () 0]
+[ebrowse-ms "muonanalyzer" () 0 () "	MuonImageAnalyzer *muonanalyzer;" 1479 0  () () 0]
+[ebrowse-ms "muonnesshist" () 0 () "        Histogram *muonnesshist;" 2157 0  () () 0]
+[ebrowse-ms "musizehist" () 0 () "        Histogram *musizehist;" 2058 0  () () 0]
+[ebrowse-ms "musoalhist" () 0 () "        Histogram *musoalhist;" 2027 0  () () 0]
+[ebrowse-ms "padpeds" () 0 () "	std::vector<Pedestal> padpeds;" 1675 0  () () 0]
+[ebrowse-ms "peds" () 0 () "	std::vector<Pedestal> peds;" 1617 0  () () 0]
+[ebrowse-ms "phihist" () 0 () "	Histogram *phihist;" 1789 0  () () 0]
+[ebrowse-ms "pictubes" () 0 () "	Histogram *pictubes;" 1746 0  () () 0]
+[ebrowse-ms "rawrate" () 0 () "	Histogram *rawrate;" 1924 0  () () 0]
+[ebrowse-ms "sigmaped" () 0 () "	std::vector<double> sigmaped;" 1572 0  () () 0]
+[ebrowse-ms "sizehist" () 0 () "	Histogram *sizehist;" 1858 0  () () 0]
+[ebrowse-ms "tubehits" () 0 () "	Histogram *tubehits;" 1768 0  () () 0]
+[ebrowse-ms "widthhist" () 0 () "	Histogram *widthhist;" 1903 0  () () 0]
+)
+([ebrowse-ms "TelescopeData" () 0 () "	TelescopeData() {" 2179 0  () "	TelescopeData() {" 2179]
+[ebrowse-ms "~TelescopeData" () 0 () "	~TelescopeData()" 2623 0  () "	~TelescopeData()" 2623]
+)
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "CutInfo" () 0"Config.h" "struct CutInfo {" 736"Config.h" ]
+()([ebrowse-ms "align_offset" () 0 () "    Coordinate_t align_offset;" 1413 0  () () 0]
+[ebrowse-ms "alignment" () 0 () "    bool alignment;" 1330 0  () () 0]
+[ebrowse-ms "alpha" () 0 () "    Cut alpha;" 848 0  () () 0]
+[ebrowse-ms "asymmdist" () 0 () "    Cut asymmdist;" 1004 0  () () 0]
+[ebrowse-ms "distance" () 0 () "    Cut distance;" 866 0  () () 0]
+[ebrowse-ms "dlength" () 0 () "    double dlength;" 1024 0  () () 0]
+[ebrowse-ms "dwidth" () 0 () "    double dwidth;" 1058 0  () () 0]
+[ebrowse-ms "elongation" () 0 () "    double elongation;" 787 0  () () 0]
+[ebrowse-ms "frac3" () 0 () "    Cut frac3;" 985 0  () () 0]
+[ebrowse-ms "length" () 0 () "    Cut length;" 882 0  () () 0]
+[ebrowse-ms "lensize" () 0 () "    Cut lensize;" 928 0  () () 0]
+[ebrowse-ms "max1" () 0 () "    Cut max1;" 942 0  () () 0]
+[ebrowse-ms "max2" () 0 () "    Cut max2;" 956 0  () () 0]
+[ebrowse-ms "max3" () 0 () "    Cut max3;" 970 0  () () 0]
+[ebrowse-ms "radial_analysis" () 0 () "    bool  radial_analysis;" 1199 0  () () 0]
+[ebrowse-ms "radial_offset" () 0 () "    Coordinate_t radial_offset;" 1277 0  () () 0]
+[ebrowse-ms "size" () 0 () "    Cut size;" 911 0  () () 0]
+[ebrowse-ms "smoothing_radius" () 0 () "    double smoothing_radius;" 1104 0  () () 0]
+[ebrowse-ms "tracking_ratio" () 0 () "    double tracking_ratio;" 764 0  () () 0]
+[ebrowse-ms "width" () 0 () "    Cut width;" 897 0  () () 0]
+)
+([ebrowse-ms "CutInfo" () 0 () "    CutInfo() {" 1471 0  () "    CutInfo() {" 1471]
+)
+()
+()
+([ebrowse-ms "operator <<" () 0 () "    friend std::ostream &operator<<( std" 2204 0  () () 0]
+)
+()
+()()
+][ebrowse-ts [ebrowse-cs "Data" () 0"FitterNew.h" "struct Data{" 571() ]
+()([ebrowse-ms "onOffVariance" () 0 () "    double onOff,onOffVariance;" 603 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "MCBinInfo" () 0"FitterNew.h" "struct MCBinInfo {" 823() ]
+()([ebrowse-ms "end" () 0 () "    double end;" 858 0  () () 0]
+[ebrowse-ms "nummc" () 0 () "    int nummc;" 892 0  () () 0]
+[ebrowse-ms "radius" () 0 () "    double radius;" 877 0  () () 0]
+[ebrowse-ms "start" () 0 () "    double start;" 842 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "EnergyEstimatorFactory" () 0"EnergySpectrum.h" "class EnergyEstimatorFactory {" 1612"EnergySpectrum.cpp" ]
+()([ebrowse-ms "pinstance" () 0 () () 0 0  () "ctory* EnergyEstimatorFactory::pinstance = NULL;" 203]
+)
+([ebrowse-ms "EnergyEstimatorFactory" () 0 () "    EnergyEstimatorFactory();" 1767 1  () "ergyEstimatorFactory::EnergyEstimatorFactory() {" 7570]
+[ebrowse-ms "getEstimator" () 0 () "    EnergyEstimator* getEstimator( std" 1709 0  () "EnergyEstimatorFactory::getEstimator( string" 7638]
+[ebrowse-ms "instance" () 0 () () 0 0  () "instance()" 7417]
+)
+([ebrowse-ms "pinstance" () 0 () "    static EnergyEstimatorFactory *pinstance;" 1830 2  () () 0]
+)
+([ebrowse-ms "instance" () 0 () "    static EnergyEstimatorFactory* instance()" 1669 0  () () 0]
+)
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "PlotState" "PlotMaker" 0"PlotMaker.h" "    struct PlotState {" 5884() ]
+()([ebrowse-ms "autoscale" () 0 () "	bool    autoscale;" 6169 0  () () 0]
+[ebrowse-ms "colormap" () 0 () "	ColorMap colormap;" 6022 0  () () 0]
+[ebrowse-ms "colorscale_lower" () 0 () "	double  colorscale_lower;" 6196 0  () () 0]
+[ebrowse-ms "colorscale_upper" () 0 () "	double  colorscale_upper;" 6223 0  () () 0]
+[ebrowse-ms "contourcolor" () 0 () "	string  contourcolor;" 6045 0  () () 0]
+[ebrowse-ms "contourlinestyle" () 0 () "	int     contourlinestyle;" 5912 0  () () 0]
+[ebrowse-ms "contourwidth" () 0 () "	double  contourwidth;" 6068 0  () () 0]
+[ebrowse-ms "labelangle" () 0 () "	double  labelangle;" 6129 0  () () 0]
+[ebrowse-ms "labelcolor" () 0 () "	string  labelcolor;" 6108 0  () () 0]
+[ebrowse-ms "labelsize" () 0 () "	double  labelsize;" 6149 0  () () 0]
+[ebrowse-ms "markercolor" () 0 () "	string  markercolor;" 5976 0  () () 0]
+[ebrowse-ms "markersize" () 0 () "	double  markersize;" 5954 0  () () 0]
+[ebrowse-ms "markertype" () 0 () "	int     markertype;" 5933 0  () () 0]
+[ebrowse-ms "ticcolor" () 0 () "	string  ticcolor;" 6087 0  () () 0]
+[ebrowse-ms "use_inward_tics" () 0 () "	bool    use_inward_tics;" 6002 0  () () 0]
+)
+()
+()
+()
+()
+()
+()()
+][ebrowse-ts [ebrowse-cs "*Globals*" () 0() () 0"Camera.cpp" ]
+()([ebrowse-ms "A00" () 0 () () 0 0  "ImageFilter.cpp" "} A00;" 2199]
+[ebrowse-ms "Ab" () 0 () () 0 0  "ImageFilter.cpp" "} Ab;" 2015]
+[ebrowse-ms "Ak0" () 0 () () 0 0  "ImageFilter.cpp" "} Ak0;" 1868]
+[ebrowse-ms "Akf0" () 0 () () 0 0  "ImageFilter.cpp" "} Akf0;" 1965]
+[ebrowse-ms "Bound" () 0 () () 0 0  "wuopt.cpp" "BoundType Bound;" 1043]
+[ebrowse-ms "Cuts" () 0 () () 0 0  "Parameterizer.cpp" "using namespace Cuts;" 1338]
+[ebrowse-ms "D1H" () 0 () () 0 0  "ImageFilter.cpp" "} D1H;" 2331]
+[ebrowse-ms "D2H" () 0 () () 0 0  "ImageFilter.cpp" "} D2H;" 2465]
+[ebrowse-ms "Delx" () 0 () () 0 0  "ImageFilter.cpp" "double Delx=0, Dely=0;" 2780]
+[ebrowse-ms "Display" () 0 () () 0 0  "wucut.cpp" "bool Display = true;" 927]
+[ebrowse-ms "Dpix" () 0 () () 0 0  "ImageFilter.cpp" "double Dpix;" 2856]
+[ebrowse-ms "EPSILON" () 0 () () 0 0  "ImageAnalyzer.h" "const double EPSILON =  1e-50;" 252]
+[ebrowse-ms "ESC" () 0 () () 0 0  "wuparam.cpp" "const char ESC = 0x1b;" 1366]
+[ebrowse-ms "Enable2d" () 0 () () 0 0  "wucut.cpp" "bool Enable2d = true;" 852]
+[ebrowse-ms "FastImageProcessing" () 0 () () 0 0  "wucut.cpp" "bool FastImageProcessing=false;" 1015]
+[ebrowse-ms "Foto" () 0 () () 0 0  "ImageFilter.cpp" "} Foto;" 2686]
+[ebrowse-ms "HiR" () 0 () () 0 0  "ImageFilter.cpp" "} HiR;" 2564]
+[ebrowse-ms "High" () 0 () () 0 0  "wuopt.cpp" "double High=0;" 1073]
+[ebrowse-ms "LARGE" () 0 () () 0 0  "ImageAnalyzer.h" "const double LARGE   =  1e20;" 221]
+[ebrowse-ms "Low" () 0 () () 0 0  "wuopt.cpp" "double Low=0;" 1058]
+[ebrowse-ms "MAX_COEFFS" () 0 () () 0 0  "ImageFilter.cpp" "const int MAX_COEFFS=61;" 1569]
+[ebrowse-ms "MAX_DERIV" () 0 () () 0 0  "ImageFilter.cpp" "const int MAX_DERIV=101;" 1594]
+[ebrowse-ms "MAX_HIRES_PIX" () 0 () () 0 0  "ImageFilter.cpp" "const int MAX_HIRES_PIX = 30000;" 1544]
+[ebrowse-ms "MAX_PIX" () 0 () () 0 0  "ImageFilter.cpp" "const int MAX_PIX = 4000;" 1511]
+[ebrowse-ms "Maxf" () 0 () () 0 0  "ImageFilter.cpp" "int Maxf;" 2866]
+[ebrowse-ms "N0" () 0 () () 0 0  "ImageFilter.cpp" "int N0=0, N1=0, N23=0, N13=0;" 2757]
+[ebrowse-ms "NewOutputDir" () 0 () () 0 0  "wuopt.cpp" "bool NewOutputDir = false;" 1011]
+[ebrowse-ms "Npix" () 0 () () 0 0  "ImageFilter.cpp" "int Npix=0;" 2727]
+[ebrowse-ms "Options" () 0 () () 0 0  "wuparam.h" "} Options;" 695]
+[ebrowse-ms "Outdir" () 0 () () 0 0  "wuopt.cpp" "string Outdir;" 1026]
+[ebrowse-ms "Output" () 0 () () 0 0  "wucut.cpp" "bool Output =false;" 947]
+[ebrowse-ms "Pix" () 0 () () 0 0  "ImageFilter.cpp" "} Pix;" 2125]
+[ebrowse-ms "PointingCheck" () 0 () () 0 0  "wucut.cpp" "bool PointingCheck = true;" 906]
+[ebrowse-ms "SPACE_PLACEHOLDER" () 0 () () 0 0  "wuplot.cpp" "const char SPACE_PLACEHOLDER = (char)254;" 1130]
+[ebrowse-ms "ScaledParameterOutput" () 0 () () 0 0  "wucut.cpp" "bool ScaledParameterOutput = false;" 983]
+[ebrowse-ms "Si" () 0 () () 0 0  "ImageFilter.cpp" "double Co[2000], Si[2000];" 2715]
+[ebrowse-ms "Steps" () 0 () () 0 0  "wuopt.cpp" "int Steps=0;" 1086]
+[ebrowse-ms "TelescopeID" () 0 () () 0 0  "wucut.cpp" "int TelescopeID = 0;" 1051]
+[ebrowse-ms "WUArray" () 0 () () 0 0  "wuarray.cpp" "using namespace WUArray;" 1295]
+[ebrowse-ms "What_to_optimize" () 0 () () 0 0  "wuopt.cpp" "string What_to_optimize=\"lensize\";" 984]
+[ebrowse-ms "Ypix" () 0 () () 0 0  "ImageFilter.cpp" "double *Xpix,*Ypix;" 2800]
+[ebrowse-ms "Ypix_shift" () 0 () () 0 0  "ImageFilter.cpp" "double Ypix_shift[MAX_PIX];" 2828]
+[ebrowse-ms "Yshift" () 0 () () 0 0  "ImageFilter.cpp" "double Yshift;" 2843]
+[ebrowse-ms "blim" () 0 () () 0 0  "ImageFilter.cpp" "    double blim;" 2009]
+[ebrowse-ms "enumb" () 0 () () 0 0  "ImageFilter.cpp" "    double enumb[MAX_COEFFS][MAX_COEFFS];" 1860]
+[ebrowse-ms "g2hkp" () 0 () () 0 0  "ImageFilter.cpp" "    double g2hkp[MAX_PIX] ;" 2192]
+[ebrowse-ms "im" () 0 () () 0 0  "ImageFilter.cpp" "    double im[MAX_PIX];" 3093]
+[ebrowse-ms "ipact" () 0 () () 0 0  "ImageFilter.cpp" "    int ipact[2000];" 2096]
+[ebrowse-ms "jpact" () 0 () () 0 0  "ImageFilter.cpp" "    int jpact[2000];" 2118]
+[ebrowse-ms "k" () 0 () () 0 0  "ImageFilter.cpp" "    int k;" 2678]
+[ebrowse-ms "kphir" () 0 () () 0 0  "ImageFilter.cpp" "    int kphir;" 2557]
+[ebrowse-ms "marker" () 0 () () 0 0  "wuplot.cpp" "    int marker = 16;" 980]
+[ebrowse-ms "outputfilename" () 0 () () 0 0  "wuplot.cpp" "    string outputfilename;" 931]
+[ebrowse-ms "outputtype" () 0 () () 0 0  "wuplot.cpp" "    string outputtype=\"ps\";" 959]
+[ebrowse-ms "pm" () 0 () () 0 0  "wuarray.cpp" "    PlotMaker *pm=NULL;" 1261]
+[ebrowse-ms "smooth" () 0 () () 0 0  "wuplot.cpp" "    int smooth = 0;" 1000]
+[ebrowse-ms "std" () 0 () () 0 0  "SuperCutter.h" "using namespace std;" 436]
+[ebrowse-ms "x" () 0 () () 0 0  "ImageFilter.cpp" "    double x[MAX_HIRES_PIX];" 2637]
+[ebrowse-ms "xcoords" () 0 () () 0 0  "ImageFilter.cpp" "    double xcoords[MAX_PIX];" 3040]
+[ebrowse-ms "xdisplay" () 0 () () 0 0  "wuplot.cpp" "    bool xdisplay=true;" 904]
+[ebrowse-ms "xm" () 0 () () 0 0  "ImageFilter.cpp" "    double xm[MAX_DERIV][MAX_DERIV];" 2321]
+[ebrowse-ms "xp" () 0 () () 0 0  "ImageFilter.cpp" "    double xp[MAX_DERIV][MAX_DERIV];" 2284]
+[ebrowse-ms "xxm" () 0 () () 0 0  "ImageFilter.cpp" "    double xxm[MAX_DERIV][MAX_DERIV];" 2458]
+[ebrowse-ms "xxp" () 0 () () 0 0  "ImageFilter.cpp" "    double xxp[MAX_DERIV][MAX_DERIV];" 2419]
+[ebrowse-ms "y" () 0 () () 0 0  "ImageFilter.cpp" "    double y[MAX_HIRES_PIX];" 2667]
+[ebrowse-ms "ycoords" () 0 () () 0 0  "ImageFilter.cpp" "    double ycoords[MAX_PIX];" 3069]
+[ebrowse-ms "yhir" () 0 () () 0 0  "ImageFilter.cpp" "    double yhir[MAX_HIRES_PIX];" 2541]
+[ebrowse-ms "ypact" () 0 () () 0 0  "ImageFilter.cpp" "    double ypact[2000];" 2075]
+)
+([ebrowse-ms "analyzeRun" () 0 "wuarray.cpp" "    void analyzeRun( RunInfo" 1212 0  "wuarray.cpp" "WUArray::analyzeRun( RunInfo" 5143]
+[ebrowse-ms "clearParam" () 0 "ImageAnalyzer.cpp" "clearParam(HillasParameterization" 12579 0  "ImageAnalyzer.cpp" "clearParam(HillasParameterization" 12579]
+[ebrowse-ms "derivs" () 0 "ImageFilter.cpp" "void derivs(int" 1284 0  "ImageFilter.cpp" "void derivs(int" 23982]
+[ebrowse-ms "dinv" () 0 "ImageFilter.cpp" "double dinv(int" 1021 0  "ImageFilter.cpp" "double dinv(int" 15237]
+[ebrowse-ms "doakl0" () 0 "ImageFilter.cpp" "void doakl0(int" 1220 0  "ImageFilter.cpp" "void doakl0(int" 21185]
+[ebrowse-ms "dofltr0" () 0 "ImageFilter.cpp" "void dofltr0(double" 1119 0  "ImageFilter.cpp" "void dofltr0(double" 18092]
+[ebrowse-ms "dohires" () 0 "ImageFilter.cpp" "void dohires(int" 1337 0  "ImageFilter.cpp" "void dohires(int" 25169]
+[ebrowse-ms "expect" () 0 "wuplot.cpp" "void expect( int" 590 0  "wuplot.cpp" "void expect( int" 14695]
+[ebrowse-ms "f0pass" () 0 "ImageFilter.cpp" "double f0pass(double" 1165 0  "ImageFilter.cpp" "double f0pass(double" 18684]
+[ebrowse-ms "f0su3nul" () 0 "ImageFilter.cpp" "double f0su3nul(double" 1063 0  "ImageFilter.cpp" "double f0su3nul(double" 15669]
+[ebrowse-ms "filter_image" () 0 "ImageFilter.cpp" "double filter_image(  valarray" 7319 0  "ImageFilter.cpp" "double filter_image(  valarray" 7319]
+[ebrowse-ms "filter_init" () 0 "ImageFilter.cpp" "void filter_init( int" 6311 0  "ImageFilter.cpp" "void filter_init( int" 6311]
+[ebrowse-ms "filter_test" () 0 "ImageFilter.cpp" "void filter_test(void" 1399 0  "ImageFilter.cpp" "filter_test()" 3208]
+[ebrowse-ms "getCommandLineOptions" () 0 "wu2root.cpp" "    void getCommandLineOptions(int" 630 0  "wuplot.cpp" "WUPlot::getCommandLineOptions(int" 13921]
+[ebrowse-ms "getDMSString" () 2 "AngleConverters.h" "getDMSString( double" 866 0  "AngleConverters.h" "getDMSString( double" 866]
+[ebrowse-ms "getHMSString" () 2 "AngleConverters.h" "getHMSString( double" 612 0  "AngleConverters.h" "getHMSString( double" 612]
+[ebrowse-ms "getStringLiteral" () 0 "wuplot.cpp" "string getStringLiteral( vector" 541 0  "wuplot.cpp" "getStringLiteral( vector" 13418]
+[ebrowse-ms "getSupportDir" () 0 "Config.cpp" "getSupportDir()" 28474 0  "Config.cpp" "getSupportDir()" 28474]
+[ebrowse-ms "getWUOptCommandLineOptions" () 0 "wuopt.cpp" "void getWUOptCommandLineOptions(int" 745 0  "wuopt.cpp" "getWUOptCommandLineOptions(int" 7371]
+[ebrowse-ms "get_time" () 0 "Parameterizer.h" "double get_time()" 4621 0  () () 0]
+[ebrowse-ms "hcut" () 0 "ImageFilter.cpp" "void hcut( double" 883 0  "ImageFilter.cpp" "void hcut(  double" 11150]
+[ebrowse-ms "hcut_init" () 0 "ImageFilter.cpp" "void hcut_init( int" 915 0  "ImageFilter.cpp" "void hcut_init( int" 8041]
+[ebrowse-ms "main" () 0 "wuarray.cpp" "int main( int" 1367 0  "wuarray.cpp" "int main( int" 1367]
+[ebrowse-ms "main" () 0 "wu2root.cpp" "main( int" 690 0  "wuplot.cpp" "main( int" 1146]
+[ebrowse-ms "max0" () 2 "ImageFilter.cpp" "inline int max0(int" 1422 0  "ImageFilter.cpp" "int max0(int" 25883]
+[ebrowse-ms "min0" () 2 "ImageFilter.cpp" "inline int min0(int" 1453 0  "ImageFilter.cpp" "int min0(int" 25997]
+[ebrowse-ms "operator !=" () 0 "StarCatalog.cpp" "bool operator!=(const" 500 0  "StarCatalog.cpp" "bool operator!=(const" 500]
+[ebrowse-ms "operator <" () 0 "StarCatalog.cpp" "bool operator<(const" 251 0  "StarCatalog.cpp" "bool operator<(const" 251]
+[ebrowse-ms "operator <<" () 0 "StarCatalog.cpp" "ostream& operator<<( ostream" 6683 0  "StarCatalog.cpp" "ostream& operator<<( ostream" 6683]
+[ebrowse-ms "operator <<" () 0 "DataReader.cpp" "ostream &operator<<( ostream" 14607 0  "DataReader.cpp" "ostream &operator<<( ostream" 14607]
+[ebrowse-ms "operator <<" () 0 "DataReader.cpp" "ostream &operator<<( ostream" 14088 0  "DataReader.cpp" "ostream &operator<<( ostream" 14088]
+[ebrowse-ms "operator <<" () 0 "Cutter.cpp" "ostream& operator<<( ostream" 46972 0  "Cutter.cpp" "ostream& operator<<( ostream" 46972]
+[ebrowse-ms "operator <<" () 0 "Config.cpp" "operator<<(ostream" 29551 0  "MuonImageAnalyzer.cpp" "ostream &operator<<( ostream" 20694]
+[ebrowse-ms "operator ==" () 0 "StarCatalog.cpp" "bool operator==(const" 416 0  "StarCatalog.cpp" "bool operator==(const" 416]
+[ebrowse-ms "operator >" () 0 "StarCatalog.cpp" "bool operator>(const" 333 0  "StarCatalog.cpp" "bool operator>(const" 333]
+[ebrowse-ms "operator >>" () 0 "StarCatalog.cpp" "istream& operator>>( istream" 7202 0  "StarCatalog.cpp" "istream& operator>>( istream" 7202]
+[ebrowse-ms "optimize2DParameter" () 0 "wuopt.cpp" "void optimize2DParameter( Config" 886 0  "wuopt.cpp" "optimize2DParameter( Config" 5537]
+[ebrowse-ms "optimizeParameter" () 0 "wuopt.cpp" "void optimizeParameter( Config" 816 0  "wuopt.cpp" "optimizeParameter( Config" 2901]
+[ebrowse-ms "parsePlot" () 0 "wuplot.cpp" "void parsePlot( string" 497 0  "wuplot.cpp" "void parsePlot( string" 2938]
+[ebrowse-ms "prepareQuotedStrings" () 0 "wuplot.cpp" "void prepareQuotedStrings( string" 735 0  "wuplot.cpp" "void prepareQuotedStrings( string" 15612]
+[ebrowse-ms "process" () 0 "wuarray.cpp" "    void process( RunInfo" 1176 0  "wuarray.cpp" "void WUArray::process( RunInfo" 4408]
+[ebrowse-ms "radToDMS" () 2 "AngleConverters.h" "radToDMS( double" 83 0  "AngleConverters.h" "radToDMS( double" 83]
+[ebrowse-ms "radToHMS" () 2 "AngleConverters.h" "radToHMS( double" 343 0  "AngleConverters.h" "radToHMS( double" 343]
+[ebrowse-ms "readCurve" () 0 "wuplot.cpp" "void readCurve( string" 635 0  "wuplot.cpp" "void readCurve( string" 14847]
+[ebrowse-ms "removeWhiteSpace" () 0 "Config.cpp" "removeWhiteSpace( string" 27913 0  "Config.cpp" "removeWhiteSpace( string" 27913]
+[ebrowse-ms "showUsage" () 0 "wu2root.cpp" "    void showUsage()" 672 0  "wuplot.cpp" "WUPlot::showUsage()" 14260]
+[ebrowse-ms "shutdown" () 0 "wuarray.cpp" "    void shutdown()" 1122 0  "wuparam.cpp" "void shutdown()" 6677]
+[ebrowse-ms "tokenize" () 0 "Config.cpp" "void tokenize(const" 28812 0  "Config.cpp" "void tokenize(const" 28812]
+[ebrowse-ms "trap_ctrl_c" () 0 "wuarray.cpp" "    void trap_ctrl_c(int" 1148 0  "wuparam.cpp" "void trap_ctrl_c( int" 6176]
+)
+([ebrowse-ms "DRAD_COARSE" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double DRAD_COARSE = 0.24;" 492]
+[ebrowse-ms "DRAD_FINE" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double DRAD_FINE = 0.24;" 553]
+[ebrowse-ms "DX" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double DX = 0.125;" 711]
+[ebrowse-ms "DY" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double DY = 0.125;" 780]
+[ebrowse-ms "MAX_PLOT_CENTERS" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const int MAX_PLOT_CENTERS = 10000;" 207]
+[ebrowse-ms "NX" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const short NX = 48;" 258]
+[ebrowse-ms "NXD2" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const int NXD2 = NX/2;" 316]
+[ebrowse-ms "NY" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const short NY = 48;" 286]
+[ebrowse-ms "NYD2" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const int NYD2 = NY/2;" 346]
+[ebrowse-ms "RSQMAX" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double RSQMAX = 4.0;" 380]
+[ebrowse-ms "SATURATION_RADIUS" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double SATURATION_RADIUS = 1.1459;" 428]
+[ebrowse-ms "SQRT12" () 0 () () 0 0  "MuonImageAnalyzer.h" "static const double SQRT12 = 3.4641;" 679]
+[ebrowse-ms "afiltr" () 0 () () 0 0  "ImageFilter.cpp" "    static double afiltr;" 2938]
+[ebrowse-ms "msub" () 0 () () 0 0  "ImageFilter.cpp" "    static int msub;" 2959]
+[ebrowse-ms "nc" () 0 () () 0 0  "ImageFilter.cpp" "    static int nc;" 2912]
+[ebrowse-ms "spas" () 0 () () 0 0  "ImageFilter.cpp" "    static double spas;" 2983]
+)
+()
+([ebrowse-ms "ANGLECONVERTERS_H" () 512 () () 0 0  "AngleConverters.h" "#define  ANGLECONVERTERS_H
+" 53]
+[ebrowse-ms "ANSITERM" () 512 () () 0 0  "ProgressBar.cpp" "#define ANSITERM " 229]
+[ebrowse-ms "CUTTER_H" () 512 () () 0 0  "Cutter.h" "#define CUTTER_H
+" 86]
+[ebrowse-ms "DATARECORDS_H" () 512 () () 0 0  "DataRecords.h" "#define DATARECORDS_H
+" 101]
+[ebrowse-ms "DEBUG" () 512 () () 0 0  "Types.h" "#define DEBUG " 131]
+[ebrowse-ms "DEBUG_SPECTRALCUTS" () 512 () () 0 0  "SpectralCutter.cpp" "#define DEBUG_SPECTRALCUTS " 122]
+[ebrowse-ms "ENERGYSPECTRUM_H" () 512 () () 0 0  "EnergySpectrum.h" "#define ENERGYSPECTRUM_H
+" 202]
+[ebrowse-ms "EZCUTTER_H" () 512 () () 0 0  "EZCutter.h" "#define EZCUTTER_H
+" 38]
+[ebrowse-ms "FITTER_H" () 512 () () 0 0  "FitterNew.h" "#define FITTER_H
+" 95]
+[ebrowse-ms "GAUSSIANDEVIATE_H" () 512 () () 0 0  "GaussianDeviate.h" "#define GAUSSIANDEVIATE_H
+" 113]
+[ebrowse-ms "HIRES_H" () 512 () () 0 0  "ImageFilter.h" "#define HIRES_H
+" 32]
+[ebrowse-ms "HISTOGRAM_H" () 512 () () 0 0  "Histogram.h" "#define HISTOGRAM_H
+" 100]
+[ebrowse-ms "IMAGE2D_H" () 512 () () 0 0  "Image2D.h" "#define IMAGE2D_H
+" 37]
+[ebrowse-ms "IMAGEANALYZER_H" () 512 () () 0 0  "ImageAnalyzer.h" "#define IMAGEANALYZER_H
+" 108]
+[ebrowse-ms "IMAGECLEANER_H" () 512 () () 0 0  "ImageCleaner.h" "#define IMAGECLEANER_H
+" 46]
+[ebrowse-ms "LOG_H" () 512 () () 0 0  "Log.h" "#define LOG_H
+" 28]
+[ebrowse-ms "MUONIMAGEANALYZER_H" () 512 () () 0 0  "MuonImageAnalyzer.h" "#define MUONIMAGEANALYZER_H
+" 56]
+[ebrowse-ms "OUTPUT_FILE_VERSION" () 512 () () 0 0  "DataWriter.h" "#define OUTPUT_FILE_VERSION " 247]
+[ebrowse-ms "PARAMDATAREADER_H" () 512 () () 0 0  "ParamDataReader.h" "#define PARAMDATAREADER_H
+" 113]
+[ebrowse-ms "PLOTMAKER_H" () 512 () () 0 0  "PlotMaker.h" "#define PLOTMAKER_H
+" 40]
+[ebrowse-ms "PROGRESSBAR_H" () 512 () () 0 0  "ProgressBar.h" "#define PROGRESSBAR_H
+" 99]
+[ebrowse-ms "SPECTRALCUTTER_H" () 512 () () 0 0  "SpectralCutter.h" "#define SPECTRALCUTTER_H
+" 50]
+[ebrowse-ms "STARCATALOG_H" () 512 () () 0 0  "StarCatalog.h" "#define STARCATALOG_H
+" 44]
+[ebrowse-ms "SUPERCUTTER_H" () 512 () () 0 0  "SuperCutter.h" "#define SUPERCUTTER_H
+" 44]
+[ebrowse-ms "ZCUTTER_H" () 512 () () 0 0  "ZCutter.h" "#define ZCUTTER_H
+" 36]
+[ebrowse-ms "_CAMERA_H" () 512 () () 0 0  "Camera.h" "#define _CAMERA_H
+" 97]
+[ebrowse-ms "_CONFIG_H" () 512 () () 0 0  "Config.h" "#define _CONFIG_H
+" 99]
+[ebrowse-ms "_DATAREADER_H" () 512 () () 0 0  "DataReader.h" "#define _DATAREADER_H
+" 100]
+[ebrowse-ms "_DATAWRITER_H" () 512 () () 0 0  "DataWriter.h" "#define _DATAWRITER_H
+" 100]
+[ebrowse-ms "_EXCEPTIONS_H" () 512 () () 0 0  "Exceptions.h" "#define _EXCEPTIONS_H
+" 100]
+[ebrowse-ms "_GAINFINDER_H" () 512 () () 0 0  "GainFinder.h" "#define _GAINFINDER_H
+" 100]
+[ebrowse-ms "_PARAMETERIZER_H" () 512 () () 0 0  "Parameterizer.h" "#define _PARAMETERIZER_H
+" 109]
+[ebrowse-ms "_PEDESTALFINDER_H" () 512 () () 0 0  "PedestalFinder.h" "#define _PEDESTALFINDER_H
+" 110]
+[ebrowse-ms "_TYPES_H" () 512 () () 0 0  "Types.h" "#define _TYPES_H
+" 95]
+)
+([ebrowse-ms "Array_t" () 0 () () 0 0  "Types.h" "typedef std::valarray<double> Array_t;" 172]
+[ebrowse-ms "BoundType" () 0 () () 0 0  "wuopt.cpp" "enum BoundType {" 692]
+[ebrowse-ms "CutMask" () 0 () () 0 0  "SuperCutter.h" "    enum CutMask {" 546]
+[ebrowse-ms "Mask_t" () 0 () () 0 0  "Types.h" "typedef unsigned char Mask_t;" 202]
+[ebrowse-ms "RunType" () 0 () () 0 0  "wuarray.cpp" "    enum RunType {" 998]
+)
+()()
+][ebrowse-ts [ebrowse-cs "Parameterizer" () 0"Parameterizer.h" "class Parameterizer {" 553"Parameterizer.cpp" ]
+()([ebrowse-ms "_az" () 0 () "    double _az;" 4392 2  () () 0]
+[ebrowse-ms "_el" () 0 () "    double _el;" 4470 2  () () 0]
+[ebrowse-ms "_event_number" () 0 () "    int _event_number;" 4557 2  () () 0]
+[ebrowse-ms "_gaussdev" () 0 () "    GaussianDeviate *_gaussdev;" 3941 2  () () 0]
+[ebrowse-ms "_is_cleanup_enabled" () 0 () "    bool _is_cleanup_enabled;" 4176 2  () () 0]
+[ebrowse-ms "_is_display_enabled" () 0 () "    bool _is_display_enabled;" 4028 2  () () 0]
+[ebrowse-ms "_is_first_run" () 0 () "    bool _is_first_run;" 4114 2  () () 0]
+[ebrowse-ms "_is_interactive" () 0 () "    bool _is_interactive;" 4054 2  () () 0]
+[ebrowse-ms "_is_overwrite_enabled" () 0 () "    bool _is_overwrite_enabled;" 4146 2  () () 0]
+[ebrowse-ms "_is_verbose_enabled" () 0 () "    bool _is_verbose_enabled;" 3998 2  () () 0]
+[ebrowse-ms "_is_zenithcorrect_enabled" () 0 () "    bool _is_zenithcorrect_enabled;" 4090 2  () () 0]
+[ebrowse-ms "_latitude" () 0 () "    double _latitude;" 4203 2  () () 0]
+[ebrowse-ms "_longitude" () 0 () "    double _longitude;" 4268 2  () () 0]
+[ebrowse-ms "_theta" () 0 () "    double _theta;" 4316 2  () () 0]
+[ebrowse-ms "_wupdir" () 0 () "    std::string _wupdir;" 3967 2  () () 0]
+)
+([ebrowse-ms "Parameterizer" () 0 () "    Parameterizer();" 584 0  () "    :" 1371]
+[ebrowse-ms "derotatePoint" () 0 () "    void derotatePoint(double" 3501 2  () "derotatePoint(double" 52180]
+[ebrowse-ms "enableCleanup" () 0 () "    void enableCleanup( bool" 1007 0  "Parameterizer.h" "    void enableCleanup( bool" 1007]
+[ebrowse-ms "enableDisplay" () 0 () "    void enableDisplay( bool" 722 0  "Parameterizer.h" "    void enableDisplay( bool" 722]
+[ebrowse-ms "enableInteractive" () 0 () "    void enableInteractive( bool" 864 0  "Parameterizer.h" "    void enableInteractive( bool" 864]
+[ebrowse-ms "enableOverwrite" () 0 () "    void enableOverwrite(bool" 1077 0  "Parameterizer.h" "    void enableOverwrite(bool" 1077]
+[ebrowse-ms "enableVerbose" () 0 () "    void enableVerbose( bool" 792 0  "Parameterizer.h" "    void enableVerbose( bool" 792]
+[ebrowse-ms "enableZenithCorrection" () 0 () "    void enableZenithCorrection(bool" 936 0  "Parameterizer.h" "    void enableZenithCorrection(bool" 936]
+[ebrowse-ms "generatePlots" () 0 () "    void generatePlots( std" 3547 2  () "generatePlots( string" 44711]
+[ebrowse-ms "mapSkyBrightness" () 0 () "    void mapSkyBrightness( const" 3631 2  () "mapSkyBrightness( const" 46087]
+[ebrowse-ms "printSummary" () 0 () "    void printSummary( std" 1142 0  () "Parameterizer::printSummary( ostream" 3540]
+[ebrowse-ms "process" () 0 () "    void process( RunInfo" 634 0  () "process(  RunInfo" 1767]
+[ebrowse-ms "processOne" () 0 () "    void processOne( RunInfo" 3390 2  () "processOne(  RunInfo" 7455]
+[ebrowse-ms "setLatLonInRadians" () 0 () "    void setLatLonInRadians( double" 675 0  () "setLatLonInRadians( double" 49526]
+[ebrowse-ms "updateAngles" () 0 () "    void updateAngles( double" 3442 2  () "updateAngles( double" 49876]
+[ebrowse-ms "~Parameterizer" () 0 () "    ~Parameterizer()" 606 0  () "~Parameterizer()" 1653]
+)
+()
+()
+()
+()
+()()
+]

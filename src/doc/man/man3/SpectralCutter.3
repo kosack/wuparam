@@ -1,0 +1,55 @@
+.TH "SpectralCutter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SpectralCutter \- 
+.PP
+Implements cuts which scale with zenith angle and SIZE, otherwise very similar to SuperCuts.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SpectralCutter.h>\fP
+.PP
+Inherits \fBSuperCutter\fP.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBParameterEnum\fP { \fBA\fP, \fBB\fP, \fBC\fP, \fBD\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBpassLength\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "bool \fBpassWidth\fP (\fBHillasParameterization\fP &param)"
+.br
+.ti -1c
+.RI "double \fBexpectedLength\fP (double size, double zenith)"
+.br
+.ti -1c
+.RI "double \fBmodelLength\fP (double lnsize, const double *param)"
+.br
+.ti -1c
+.RI "double \fBexpectedWidth\fP (double size, double zenith)"
+.br
+.ti -1c
+.RI "double \fBmodelWidth\fP (double lnsize, const double *param)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements cuts which scale with zenith angle and SIZE, otherwise very similar to SuperCuts. 
+
+Re-implements the length and width cuts. 
+.PP
+Definition at line 11 of file SpectralCutter.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

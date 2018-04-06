@@ -1,0 +1,16 @@
+# 
+# GNUPlot file to generate final output plots for wuparam/wucut
+#
+
+set terminal postscript eps "Palatino-Roman" 
+set title 'RUNID'
+set nokey
+
+#---------------------------------------------------
+# Plot the final rate plots
+#---------------------------------------------------
+set output 'RUNID/RUNID-rate.eps'
+set xlabel 'Time (minutes)'
+set ylabel 'Gamma-ray-like event rate'
+plot 'RUNID/RUNID-rate.hist' w histeps
+

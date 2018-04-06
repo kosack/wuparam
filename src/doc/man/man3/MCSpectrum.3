@@ -1,0 +1,108 @@
+.TH "MCSpectrum" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MCSpectrum \- 
+.PP
+Object that takes care of all the Monte Carlo (MC) dependent aspects:  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Fitter.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMCSpectrum\fP (\fBRunInfo\fP &ri)"
+.br
+.ti -1c
+.RI "void \fBfill\fP (double N0, double Gamma0, double E0, double Time)"
+.br
+.ti -1c
+.RI "double \fBchiSquare\fP (std::vector< \fBData\fP > &)"
+.br
+.ti -1c
+.RI "int \fBdof\fP ()"
+.br
+.ti -1c
+.RI "double \fBget\fP (int)"
+.br
+.ti -1c
+.RI "void \fBgetRange\fP (int bin, double &lower, double &upper)"
+.br
+.ti -1c
+.RI "\fBEnergySpectrum\fP * \fBgetSpectrum\fP ()"
+.br
+.ti -1c
+.RI "\fBMCSpectrum\fP (\fBRunInfo\fP &ri)"
+.br
+.ti -1c
+.RI "void \fBfill\fP (double N0, double Gamma0, double E0, double Time)"
+.br
+.ti -1c
+.RI "double \fBchiSquare\fP (std::vector< \fBData\fP > &)"
+.br
+.ti -1c
+.RI "int \fBdof\fP ()"
+.br
+.ti -1c
+.RI "double \fBget\fP (int)"
+.br
+.ti -1c
+.RI "void \fBgetRange\fP (int bin, double &lower, double &upper)"
+.br
+.ti -1c
+.RI "\fBEnergySpectrum\fP * \fBgetSpectrum\fP ()"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBNUMMCBINS\fP = 9"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Object that takes care of all the Monte Carlo (MC) dependent aspects: 
+
+.IP "\(bu" 2
+it stores the MC events
+.PP
+.PP
+.IP "\(bu" 2
+given model parameters, it can produce histograms with 'artficial' energy spectra that can be compared to the data
+.PP
+.PP
+.IP "\(bu" 2
+given a pointer to the data, and a filled 'artificial' energy spectrum, it will compute the chi-square value. 
+.PP
+
+.PP
+Definition at line 96 of file Fitter.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MCSpectrum::MCSpectrum (\fBRunInfo\fP &ri)"
+.PP
+Creator, gets all the MC information. \fBTodo\fP
+.RS 4
+: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) 
+.RE
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file Fitter.cpp.
+.PP
+References RunInfo::cuts, HillasParameterization::distance, RunInfo::energyestimator, EnergyEstimatorFactory::instance(), RunInfo::mcdatabase, ProgressBar::print(), ProgressBar::printClear(), ImageParameterization::sim, HillasParameterization::size, and HillasParameterization::zenith.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

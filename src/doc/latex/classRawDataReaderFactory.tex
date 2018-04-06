@@ -1,0 +1,93 @@
+\hypertarget{classRawDataReaderFactory}{
+\subsection{RawDataReaderFactory Class Reference}
+\label{classRawDataReaderFactory}\index{RawDataReaderFactory@{RawDataReaderFactory}}
+}
+
+
+Responsible for locating files and creating the correct data reader object for the detected file type.  
+
+
+
+
+{\ttfamily \#include $<$DataReader.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRawDataReaderFactory_ad71f80e5d4c526804c7feedec2368f83}{
+\hyperlink{classRawDataReader}{RawDataReader} $\ast$ \hyperlink{classRawDataReaderFactory_ad71f80e5d4c526804c7feedec2368f83}{getReader} (const \hyperlink{classRunInfo}{RunInfo} \&ri, string runid)}
+\label{classRawDataReaderFactory_ad71f80e5d4c526804c7feedec2368f83}
+
+\item 
+std::string \hyperlink{classRawDataReaderFactory_a3d5b99e24dd4f14a554750b2beb41970}{locateFile} (const \hyperlink{classRunInfo}{RunInfo} \&ri, const string basename, const string ext)
+\item 
+\hypertarget{classRawDataReaderFactory_a67fb5818c0d0f526c3ac165ada0e5173}{
+void \hyperlink{classRawDataReaderFactory_a67fb5818c0d0f526c3ac165ada0e5173}{clearCache} (std::string)}
+\label{classRawDataReaderFactory_a67fb5818c0d0f526c3ac165ada0e5173}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRawDataReaderFactory_a31ce95b89ad844dfc81a9157ef6ba4e7}{
+static \hyperlink{classRawDataReaderFactory}{RawDataReaderFactory} $\ast$ \hyperlink{classRawDataReaderFactory_a31ce95b89ad844dfc81a9157ef6ba4e7}{instance} ()}
+\label{classRawDataReaderFactory_a31ce95b89ad844dfc81a9157ef6ba4e7}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Responsible for locating files and creating the correct data reader object for the detected file type. 
+
+Implemented as a Singleton. 
+
+Definition at line 175 of file DataReader.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classRawDataReaderFactory_a3d5b99e24dd4f14a554750b2beb41970}{
+\index{RawDataReaderFactory@{RawDataReaderFactory}!locateFile@{locateFile}}
+\index{locateFile@{locateFile}!RawDataReaderFactory@{RawDataReaderFactory}}
+\paragraph[{locateFile}]{\setlength{\rightskip}{0pt plus 5cm}string RawDataReaderFactory::locateFile (
+\begin{DoxyParamCaption}
+\item[{const {\bf RunInfo} \&}]{ri, }
+\item[{const string}]{basename, }
+\item[{const string}]{ext}
+\end{DoxyParamCaption}
+)}}
+\label{classRawDataReaderFactory_a3d5b99e24dd4f14a554750b2beb41970}
+
+
+Locate a file in a directory structure, uncompressing if needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em startdir} & directory under which to look \\
+\hline
+{\em basename} & base name of the file (without extensions) \\
+\hline
+{\em file} & extension (i.e. hdf)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+full pathname to the located file. 
+\end{DoxyReturn}
+
+
+Definition at line 773 of file DataReader.cpp.
+
+
+
+References RunInfo::cachedir, and RunInfo::datadir.
+
+
+
+Referenced by getReader().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+DataReader.h\item 
+DataReader.cpp\end{DoxyCompactItemize}

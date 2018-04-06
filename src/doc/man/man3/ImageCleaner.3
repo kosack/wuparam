@@ -1,0 +1,43 @@
+.TH "ImageCleaner" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ImageCleaner \- 
+.PP
+Abstract interface to all cleaning routines.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ImageCleaner.h>\fP
+.PP
+Inherited by \fBDefaultImageCleaner\fP, and \fBThresholdImageCleaner\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImageCleaner\fP (\fBCamera\fP &camera)"
+.br
+.ti -1c
+.RI "virtual std::vector< int > & \fBgetCleanPixels\fP (const Array_t &image)=0"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCamera\fP * \fB_cam\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Abstract interface to all cleaning routines. 
+
+Takes an image as input and spits out a list of pixels which pass the cleaning process. This class can be extended to do more interesting things (such as island cleaning, etc). 
+.PP
+Definition at line 16 of file ImageCleaner.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

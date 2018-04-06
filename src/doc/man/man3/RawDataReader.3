@@ -1,0 +1,61 @@
+.TH "RawDataReader" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RawDataReader \- 
+.PP
+Reads raw telescope data and produces coresponding records...  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataReader.h>\fP
+.PP
+Inherits \fBDataReader\fP.
+.PP
+Inherited by \fBRawDataReaderHDF4\fP, \fBRawDataReaderSim\fP, and \fBRawDataReaderVText\fP.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRunType\fP { \fBOTHER\fP, \fBHDF4\fP, \fBSIM\fP, \fBVTEXT\fP }"
+.br
+.ti -1c
+.RI "enum \fBEventTypes\fP { \fBEVENT\fP, \fBPEDESTAL\fP, \fBUNKNOWN\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRawDataReader\fP (const std::string &filename)"
+.br
+.ti -1c
+.RI "virtual void \fBgetHeaderRecord\fP (\fBRawHeaderRecord\fP &header)=0"
+.br
+.ti -1c
+.RI "virtual void \fBgetNextEventRecord\fP (\fBRawEventRecord\fP &event)=0"
+.br
+.ti -1c
+.RI "virtual int \fBsize\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::string \fBgetTypeString\fP ()=0"
+.br
+.ti -1c
+.RI "virtual int \fBgetType\fP ()=0"
+.br
+.ti -1c
+.RI "virtual bool \fBisDone\fP ()=0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Reads raw telescope data and produces coresponding records... 
+.PP
+Definition at line 43 of file DataReader.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

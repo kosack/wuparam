@@ -1,0 +1,315 @@
+\hypertarget{classCutter}{
+\subsection{Cutter Class Reference}
+\label{classCutter}\index{Cutter@{Cutter}}
+}
+
+
+\hyperlink{namespaceCuts}{Cuts} parameterized data, calculates statistics, and generates final histograms.  
+
+
+
+
+{\ttfamily \#include $<$Cutter.h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries types} \{ {\bfseries ON}, 
+{\bfseries OFF}, 
+{\bfseries TRACK}
+ \}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCutter_af2b736c98364bced8a589af6c2a23876}{
+void {\bfseries enableOutput} (bool val=1)}
+\label{classCutter_af2b736c98364bced8a589af6c2a23876}
+
+\item 
+\hypertarget{classCutter_ae91898ee742899ce553a0950a4649d6e}{
+void {\bfseries enableScaledParameterOutput} (bool val=1)}
+\label{classCutter_ae91898ee742899ce553a0950a4649d6e}
+
+\item 
+\hypertarget{classCutter_af8f718594f826e6da8c3cb80b8e233cc}{
+void {\bfseries enableFastImageProcessing} (bool val=1)}
+\label{classCutter_af8f718594f826e6da8c3cb80b8e233cc}
+
+\item 
+\hypertarget{classCutter_a5074fd0776b5c706d6e4ec932fefd74f}{
+void {\bfseries enable2D} (bool val=1)}
+\label{classCutter_a5074fd0776b5c706d6e4ec932fefd74f}
+
+\item 
+\hypertarget{classCutter_a6f7d668a1314d47cf04c9f0ff512f00b}{
+void {\bfseries enablePointingCheck} (bool val=true)}
+\label{classCutter_a6f7d668a1314d47cf04c9f0ff512f00b}
+
+\item 
+\hypertarget{classCutter_a8a6b24a2596e6cb48e5a64583c9000cb}{
+void {\bfseries enableDisplay} (bool val=true)}
+\label{classCutter_a8a6b24a2596e6cb48e5a64583c9000cb}
+
+\item 
+void \hyperlink{classCutter_a2c7e98e45d19df45fb23652a4a40cf38}{process} (\hyperlink{classRunInfo}{RunInfo} \&ri)
+\item 
+\hypertarget{classCutter_afe5b50816216132d772fba55c84d4585}{
+\hyperlink{structRunStatistics}{RunStatistics} {\bfseries getTrackingStatistics} (\hyperlink{structCutRecord}{CutRecord} \&run, double ratio)}
+\label{classCutter_afe5b50816216132d772fba55c84d4585}
+
+\item 
+\hypertarget{classCutter_af137a9fa058a3e8b2428dcbc8d4edf4f}{
+\hyperlink{structRunStatistics}{RunStatistics} {\bfseries getPairStatistics} (\hyperlink{structCutRecord}{CutRecord} \&onrun, \hyperlink{structCutRecord}{CutRecord} \&offrun)}
+\label{classCutter_af137a9fa058a3e8b2428dcbc8d4edf4f}
+
+\item 
+\hypertarget{classCutter_ab5ebc8264e083c5aa66a558f033f78d0}{
+\hyperlink{structRunStatistics}{RunStatistics} {\bfseries getTotalPairStatistics} ()}
+\label{classCutter_ab5ebc8264e083c5aa66a558f033f78d0}
+
+\item 
+\hypertarget{classCutter_a3e456388ddb758748a3b69c8683c0b5a}{
+void \hyperlink{classCutter_a3e456388ddb758748a3b69c8683c0b5a}{outputStatistics} ()}
+\label{classCutter_a3e456388ddb758748a3b69c8683c0b5a}
+
+\item 
+double \hyperlink{classCutter_a2eb708059e0d94349cfa92bdc7551c0b}{energyEstimator} (double size, double dist)
+\item 
+\hypertarget{classCutter_ad46d67859c5fc57e7efc2936fabca360}{
+\hyperlink{structCutRecord}{CutRecord} {\bfseries getTotal} (std::vector$<$ \hyperlink{structCutRecord}{CutRecord} $>$ \&)}
+\label{classCutter_ad46d67859c5fc57e7efc2936fabca360}
+
+\item 
+double \hyperlink{classCutter_a502eab82b5602adadaa76c7cdb9326d6}{maxLikelihoodSignif} (double n\_\-on, double n\_\-off, double alpha)
+\item 
+\hyperlink{structCutRecord}{CutRecord} \hyperlink{classCutter_a5c8d71e05e508ec60db78436b4ba416d}{cut} (\hyperlink{classRunInfo}{RunInfo} \&, const std::string \&, char)
+\item 
+void \hyperlink{classCutter_ac4a14824d14bc9a15e61d6a09a7a4b62}{generateImage} (\hyperlink{structCutRecord}{CutRecord} \&on, \hyperlink{structCutRecord}{CutRecord} \&off, std::string dir, std::string title, bool finalimage=false)
+\item 
+\hypertarget{classCutter_a6caf41bc19118ac547af26c61282e6db}{
+void {\bfseries radiallyBinPoints} (std::vector$<$ \hyperlink{structCoordinate__t}{Coordinate\_\-t} $>$ \&poolist, \hyperlink{classImage2D}{Image2D} \&destimage, double radius)}
+\label{classCutter_a6caf41bc19118ac547af26c61282e6db}
+
+\item 
+\hypertarget{classCutter_ae6ed9e84dca55866f7ceeea402c5a9b9}{
+void {\bfseries setOutputDir} (std::string dirname)}
+\label{classCutter_ae6ed9e84dca55866f7ceeea402c5a9b9}
+
+\item 
+\hypertarget{classCutter_a4583bb71d7ae87f6d2dd1ca0fc5e1a45}{
+void {\bfseries printCutRecordFields} (std::ostream \&stream)}
+\label{classCutter_a4583bb71d7ae87f6d2dd1ca0fc5e1a45}
+
+\item 
+\hypertarget{classCutter_a3149fbadf8d441d6506a49bc1a3f37fb}{
+void \hyperlink{classCutter_a3149fbadf8d441d6506a49bc1a3f37fb}{checkPointing} ()}
+\label{classCutter_a3149fbadf8d441d6506a49bc1a3f37fb}
+
+\item 
+\hypertarget{classCutter_a749513671e6f22e31587fd472844c3df}{
+void \hyperlink{classCutter_a749513671e6f22e31587fd472844c3df}{checkDiagnostics} ()}
+\label{classCutter_a749513671e6f22e31587fd472844c3df}
+
+\item 
+double \hyperlink{classCutter_a3c92b110a34487b1a20740eb7d395b20}{getElongationFactor} (double zenith)
+\item 
+\hypertarget{classCutter_adf08fb8b5af263109ca7b9e24f327bc3}{
+void {\bfseries setTelescopeID} (int num)}
+\label{classCutter_adf08fb8b5af263109ca7b9e24f327bc3}
+
+\item 
+\hypertarget{classCutter_a202368215c24637b30e9b38107fe3036}{
+void {\bfseries clear} ()}
+\label{classCutter_a202368215c24637b30e9b38107fe3036}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\hyperlink{namespaceCuts}{Cuts} parameterized data, calculates statistics, and generates final histograms. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000006}{Todo}]: this is a badly designed class. \hyperlink{classCutter}{Cutter} should be a small object which applies a specific set of cuts (subclasses for other cutting methods). All the analysis should be done elsewhere.\end{Desc}
+
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000007}{Todo}]: For multi-\/telescope analysis, make a telescope\_\-id argument or field and only process events from the specified telescope. \end{Desc}
+
+
+Definition at line 39 of file Cutter.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classCutter_a5c8d71e05e508ec60db78436b4ba416d}{
+\index{Cutter@{Cutter}!cut@{cut}}
+\index{cut@{cut}!Cutter@{Cutter}}
+\paragraph[{cut}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CutRecord} Cutter::cut (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{, }
+\item[{const std::string \&}]{, }
+\item[{char}]{}
+\end{DoxyParamCaption}
+)}}
+\label{classCutter_a5c8d71e05e508ec60db78436b4ba416d}
+
+
+Read the parameterized data for the specified run id and count the number of events that pass the various cuts. 
+
+Also generates histograms of rate, size, energy, etc. This function is called by \hyperlink{classCutter_a2c7e98e45d19df45fb23652a4a40cf38}{Cutter::process} for each run in the configuration file, so there is usually no need to call it directly.
+
+\begin{DoxyReturn}{Returns}
+a \hyperlink{structCutRecord}{CutRecord} containing all the totals for the specified run.
+\end{DoxyReturn}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]: Implement 2-\/D analysis for tracking runs (currently, only ON/OFF pairs are used.\end{Desc}
+
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000005}{Todo}]: separate total alpha plot for tracking runs.\end{Desc}
+
+
+Definition at line 1162 of file Cutter.cpp.
+
+
+
+References Image2D::addHist(), CutInfo::align\_\-offset, CutInfo::alignment, HillasParameterization::alpha, SuperCutter::applyCorrections(), HeaderRecord::average\_\-elevation, HillasParameterization::centroid, Image2D::clear(), RunInfo::cuts, RunInfo::cuttype, HeaderRecord::dec, HillasParameterization::distance, HeaderRecord::endtime, HillasParameterization::energy\_\-estimate, RunInfo::energyestimator, StarCatalog::findNearbyStars(), ParamDataReader::getHeaderRecord(), ImageParameterization::gpstime, Histogram::increment(), CutFactory::instance(), EnergyEstimatorFactory::instance(), HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, SuperCutter::pass(), PlotMaker::plotAxes(), HillasParameterization::point\_\-of\_\-origin\_\-a, HillasParameterization::point\_\-of\_\-origin\_\-b, StarCatalog::precessToDate(), HeaderRecord::ra, CutInfo::radial\_\-analysis, CutInfo::radial\_\-offset, Image2D::save(), Image2D::setCoordinateBox(), HillasParameterization::size, CutInfo::smoothing\_\-radius, HeaderRecord::sourcename, HeaderRecord::starttime, ImageParameterization::telescope\_\-id, RunInfo::utbase, RunInfo::utdate, Coordinate\_\-t::x, Coordinate\_\-t::y, and HillasParameterization::zenith.
+
+
+
+Referenced by process().
+
+\hypertarget{classCutter_a2eb708059e0d94349cfa92bdc7551c0b}{
+\index{Cutter@{Cutter}!energyEstimator@{energyEstimator}}
+\index{energyEstimator@{energyEstimator}!Cutter@{Cutter}}
+\paragraph[{energyEstimator}]{\setlength{\rightskip}{0pt plus 5cm}double Cutter::energyEstimator (
+\begin{DoxyParamCaption}
+\item[{double}]{size, }
+\item[{double}]{dist}
+\end{DoxyParamCaption}
+)}}
+\label{classCutter_a2eb708059e0d94349cfa92bdc7551c0b}
+
+
+Return the energy estimate for the given size and distance values. 
+
+\begin{DoxyReturn}{Returns}
+x = log(Energy) 
+\end{DoxyReturn}
+
+
+Definition at line 1664 of file Cutter.cpp.
+
+\hypertarget{classCutter_ac4a14824d14bc9a15e61d6a09a7a4b62}{
+\index{Cutter@{Cutter}!generateImage@{generateImage}}
+\index{generateImage@{generateImage}!Cutter@{Cutter}}
+\paragraph[{generateImage}]{\setlength{\rightskip}{0pt plus 5cm}void Cutter::generateImage (
+\begin{DoxyParamCaption}
+\item[{{\bf CutRecord} \&}]{on, }
+\item[{{\bf CutRecord} \&}]{off, }
+\item[{std::string}]{dir, }
+\item[{std::string}]{title, }
+\item[{bool}]{finalimage = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}
+\label{classCutter_ac4a14824d14bc9a15e61d6a09a7a4b62}
+
+
+Save a datafile (image2d-\/total.dat) containing the 2D excess and significance values for all of the data that has been currently cut. 
+
+The format of the output file is 6 columns per line:
+\begin{DoxyItemize}
+\item column 1: x camera coordinate bin (in degrees)
+\item column 2: y camera coordinate bin (in degrees)
+\item column 3: excess counts
+\item column 4: significance
+\item column 5: Right Ascension of bin
+\item column 6: Declination of bin 
+\end{DoxyItemize}
+
+Definition at line 832 of file Cutter.cpp.
+
+
+
+References Image2D::addHistRadially(), Image2D::addImage(), Image2D::applyRadialSmoothing(), Image2D::expand(), maxLikelihoodSignif(), Image2D::save(), and Image2D::setCoordinateBox().
+
+
+
+Referenced by outputStatistics(), and process().
+
+\hypertarget{classCutter_a3c92b110a34487b1a20740eb7d395b20}{
+\index{Cutter@{Cutter}!getElongationFactor@{getElongationFactor}}
+\index{getElongationFactor@{getElongationFactor}!Cutter@{Cutter}}
+\paragraph[{getElongationFactor}]{\setlength{\rightskip}{0pt plus 5cm}double Cutter::getElongationFactor (
+\begin{DoxyParamCaption}
+\item[{double}]{zen}
+\end{DoxyParamCaption}
+)}}
+\label{classCutter_a3c92b110a34487b1a20740eb7d395b20}
+\begin{DoxyReturn}{Returns}
+zenith angle dependent elongation factor for the camera 
+\end{DoxyReturn}
+
+
+Definition at line 1687 of file Cutter.cpp.
+
+\hypertarget{classCutter_a502eab82b5602adadaa76c7cdb9326d6}{
+\index{Cutter@{Cutter}!maxLikelihoodSignif@{maxLikelihoodSignif}}
+\index{maxLikelihoodSignif@{maxLikelihoodSignif}!Cutter@{Cutter}}
+\paragraph[{maxLikelihoodSignif}]{\setlength{\rightskip}{0pt plus 5cm}double Cutter::maxLikelihoodSignif (
+\begin{DoxyParamCaption}
+\item[{double}]{n\_\-on, }
+\item[{double}]{n\_\-off, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}}
+\label{classCutter_a502eab82b5602adadaa76c7cdb9326d6}
+
+
+Returns the maximum likelihood significance (see Li and Ma, 1983) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\_\-on} & number of on-\/source counts \\
+\hline
+{\em n\_\-off} & number of off-\/source counts \\
+\hline
+{\em alpha} & 1/(tracking ratio) for tracking runs, or on/off duration for on/off pairs.\\
+\hline
+\end{DoxyParams}
+NOTE alpha is defined as 1/(tracking ratio) where the tracking ratio is the ratio of (number of off-\/source bins)/(on-\/source bins) So, e.g., for an \char`\"{}alpha\char`\"{} cut of alpha$<$15 for on-\/source and 20 $<$ alpha $<$ 65 for off-\/source, the tracking ratio = 3.0 and alpha = 0.333. Defining alpha in this way, excess = n\_\-on -\/ alpha $\ast$ n\_\-off. 
+
+Definition at line 158 of file Cutter.cpp.
+
+
+
+Referenced by generateImage().
+
+\hypertarget{classCutter_a2c7e98e45d19df45fb23652a4a40cf38}{
+\index{Cutter@{Cutter}!process@{process}}
+\index{process@{process}!Cutter@{Cutter}}
+\paragraph[{process}]{\setlength{\rightskip}{0pt plus 5cm}void Cutter::process (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{ri}
+\end{DoxyParamCaption}
+)}}
+\label{classCutter_a2c7e98e45d19df45fb23652a4a40cf38}
+
+
+\hyperlink{structCut}{Cut} the data in the specified run, and build up statistics for all runs. 
+
+Each run's cut information is stored in the onruns/offruns/trackruns vectors. 
+
+Definition at line 1081 of file Cutter.cpp.
+
+
+
+References cut(), RunInfo::cuts, generateImage(), RunInfo::offid, RunInfo::onid, Logger::printf(), CutInfo::radial\_\-analysis, CutInfo::smoothing\_\-radius, and RunInfo::type.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Cutter.h\item 
+Cutter.cpp\end{DoxyCompactItemize}

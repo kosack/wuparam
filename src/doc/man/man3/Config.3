@@ -1,0 +1,57 @@
+.TH "Config" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Config \- 
+.PP
+Loads Analysis configuration information from a text file.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Config.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRunType\fP { \fBTRACK\fP, \fBONOFF\fP }"
+.br
+.ti -1c
+.RI "enum \fBOutType\fP { \fBNTUPLE\fP, \fBTEXT\fP }"
+.br
+.ti -1c
+.RI "enum \fBCutType\fP { \fBSUPERCUTTER\fP, \fBZCUTTER\fP, \fBEZCUTTER\fP, \fBSPECTRALCUTTER\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConfig\fP (char *filename)"
+.br
+.ti -1c
+.RI "void \fBwriteSample\fP (char *file)"
+.br
+.ti -1c
+.RI "\fBRunInfo\fP \fBgetNextRun\fP ()"
+.br
+.ti -1c
+.RI "std::deque< \fBRunInfo\fP > & \fBgetRunQueue\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDone\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetRunCount\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Loads Analysis configuration information from a text file. 
+.PP
+Definition at line 191 of file Config.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

@@ -1,0 +1,147 @@
+.TH "Camera" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Camera \- 
+.PP
+Contains all operations pertaining to camera data.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Camera.h>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCameraID\fP { \fBID_490\fP, \fBID_331\fP, \fBID_151\fP, \fBID_109\fP, \fBID_V500\fP, \fBID_UNKNOWN\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCamera\fP (int npixels, Array_t &xcoords, Array_t &ycoords)"
+.br
+.ti -1c
+.RI "\fBCamera\fP (char *)"
+.br
+.ti -1c
+.RI "\fBCamera\fP (int npixels, int utdate=-1)"
+.br
+.ti -1c
+.RI "void \fBinit\fP (char *)"
+.br
+.ti -1c
+.RI "void \fBshiftCameraCoordinates\fP (double dx, double dy)"
+.br
+.ti -1c
+.RI "double \fBgetSigmaPSF\fP (double zen)"
+.br
+.ti -1c
+.RI "double \fBgetSigmaPixel\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetPEToDC\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetNumPixels\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetFirstPixel\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetLastPixel\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetCameraID\fP ()"
+.br
+.ti -1c
+.RI "Array_t & \fBxCoords\fP ()"
+.br
+.ti -1c
+.RI "Array_t & \fByCoords\fP ()"
+.br
+.ti -1c
+.RI "Array_t & \fBradii\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinX\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinY\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxX\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMaxY\fP ()"
+.br
+.ti -1c
+.RI "std::list< int > * \fBgetNeighborListOfPixel\fP (int n)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBAUTOSCALE\fP = -1"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains all operations pertaining to camera data. 
+
+This includes loading the camera pixel positions from a file and building the pixel neighborlist.
+.PP
+\fBTodo\fP
+.RS 4
+: make separate classes for each camera 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Camera.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Camera::Camera (char *filename)"
+.PP
+Create a \fBCamera\fP object. \fBParameters:\fP
+.RS 4
+\fIfilename\fP filename of the camera definition file. 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file Camera.cpp.
+.SS "Camera::Camera (intnpixels, intutdate = \fC-1\fP)"
+.PP
+PFR: change year switch to year+month switch. telescope seasons are fiscal- they start in june of one year, and go until june of the next! This should only use one pe2dc ratio, but previously it used 2.
+.PP
+Definition at line 36 of file Camera.cpp.
+.SH "Member Function Documentation"
+.PP 
+.SS "int Camera::getCameraID ()\fC [inline]\fP"
+.PP
+last pixel # to use \fBCamera\fP ID number 
+.PP
+Definition at line 47 of file Camera.h.
+.PP
+Referenced by Parameterizer::printSummary().
+.SS "double Camera::getSigmaPSF (doublezen)"
+.PP
+Point spread dispersion. Returns the estimated dispersion due to the point spread function of the camera at the given zenith angle. 
+.PP
+Definition at line 353 of file Camera.cpp.
+.PP
+Referenced by ZCutter::applyCorrections().
+.SS "void Camera::shiftCameraCoordinates (doubledx, doubledy)"
+.PP
+translate the camera coordinates by the specified amount. This is used to fix offsets in the camera due to telescope flexing at low elevation, for example. 
+.PP
+Definition at line 376 of file Camera.cpp.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

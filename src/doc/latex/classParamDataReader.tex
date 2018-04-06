@@ -1,0 +1,92 @@
+\hypertarget{classParamDataReader}{
+\subsection{ParamDataReader Class Reference}
+\label{classParamDataReader}\index{ParamDataReader@{ParamDataReader}}
+}
+
+
+Reads parameterized datafiles.  
+
+
+
+
+{\ttfamily \#include $<$ParamDataReader.h$>$}
+
+Inheritance diagram for ParamDataReader:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classParamDataReader}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classParamDataReader_aae754bb6e204efc6d413fdc714de8e72}{
+{\bfseries ParamDataReader} (const std::string \&)}
+\label{classParamDataReader_aae754bb6e204efc6d413fdc714de8e72}
+
+\item 
+void \hyperlink{classParamDataReader_a6c08000e4e3d408ae14b3146145a1249}{getHeaderRecord} (\hyperlink{structHeaderRecord}{HeaderRecord} \&hdr)
+\item 
+\hypertarget{classParamDataReader_a505e3e8277b669c56833d64d8d8f291f}{
+void {\bfseries getNextEventRecord} (\hyperlink{structHillasParameterization}{HillasParameterization} \&p)}
+\label{classParamDataReader_a505e3e8277b669c56833d64d8d8f291f}
+
+\item 
+\hypertarget{classParamDataReader_adbedda0f1d3db56c77cfcbb4aa4392e8}{
+int {\bfseries size} ()}
+\label{classParamDataReader_adbedda0f1d3db56c77cfcbb4aa4392e8}
+
+\item 
+\hypertarget{classParamDataReader_afee1c056f8a35d7e1d02a4aecb1ecf6f}{
+std::string {\bfseries getTypeString} ()}
+\label{classParamDataReader_afee1c056f8a35d7e1d02a4aecb1ecf6f}
+
+\item 
+\hypertarget{classParamDataReader_af19fa714276ab64cd02235abd7b0bc93}{
+bool {\bfseries isDone} ()}
+\label{classParamDataReader_af19fa714276ab64cd02235abd7b0bc93}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Reads parameterized datafiles. 
+
+Definition at line 16 of file ParamDataReader.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classParamDataReader_a6c08000e4e3d408ae14b3146145a1249}{
+\index{ParamDataReader@{ParamDataReader}!getHeaderRecord@{getHeaderRecord}}
+\index{getHeaderRecord@{getHeaderRecord}!ParamDataReader@{ParamDataReader}}
+\paragraph[{getHeaderRecord}]{\setlength{\rightskip}{0pt plus 5cm}void ParamDataReader::getHeaderRecord (
+\begin{DoxyParamCaption}
+\item[{{\bf HeaderRecord} \&}]{hdr}
+\end{DoxyParamCaption}
+)}}
+\label{classParamDataReader_a6c08000e4e3d408ae14b3146145a1249}
+
+
+Read in the Parameterized header record. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000023}{Todo}]: should make a ParamHeaderRecord which is a subclass of \hyperlink{structHeaderRecord}{HeaderRecord} which has all the extra parameterized info (like whether zcuts was enabled, etc.) \end{Desc}
+
+
+Definition at line 82 of file ParamDataReader.cpp.
+
+
+
+References HeaderRecord::average\_\-elevation, HeaderRecord::dec, HeaderRecord::endtime, HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, HeaderRecord::ra, HeaderRecord::sourcename, and HeaderRecord::starttime.
+
+
+
+Referenced by WUArray::analyzeRun(), and Cutter::cut().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+ParamDataReader.h\item 
+ParamDataReader.cpp\end{DoxyCompactItemize}

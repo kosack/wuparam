@@ -1,0 +1,76 @@
+\hypertarget{classZCutter}{
+\subsection{ZCutter Class Reference}
+\label{classZCutter}\index{ZCutter@{ZCutter}}
+}
+
+
+Originial zenith cutter, from ZCuts99.  
+
+
+
+
+{\ttfamily \#include $<$ZCutter.h$>$}
+
+Inheritance diagram for ZCutter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classZCutter}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classZCutter_ad8fc95579fc4b47a518b66e6ea029f61}{applyCorrections} (\hyperlink{structHillasParameterization}{HillasParameterization} \&p)
+\item 
+\hypertarget{classZCutter_a49d8a4c5de1b717afedb79a2ed00d53e}{
+void \hyperlink{classZCutter_a49d8a4c5de1b717afedb79a2ed00d53e}{setCamera} (int npix, int utdate)}
+\label{classZCutter_a49d8a4c5de1b717afedb79a2ed00d53e}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Originial zenith cutter, from ZCuts99. 
+
+Uses SuperCuts-\/like cuts, but with zenith angle corrections based on cos(theta). 
+
+Definition at line 12 of file ZCutter.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classZCutter_ad8fc95579fc4b47a518b66e6ea029f61}{
+\index{ZCutter@{ZCutter}!applyCorrections@{applyCorrections}}
+\index{applyCorrections@{applyCorrections}!ZCutter@{ZCutter}}
+\paragraph[{applyCorrections}]{\setlength{\rightskip}{0pt plus 5cm}void ZCutter::applyCorrections (
+\begin{DoxyParamCaption}
+\item[{{\bf HillasParameterization} \&}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classZCutter_ad8fc95579fc4b47a518b66e6ea029f61}
+
+
+Perform zenith correction. 
+
+Overrides the SuperCutter::prePass() function which is executed before cuts are applied by \hyperlink{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}{SuperCutter::pass()}
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000035}{Todo}]: make sigma\_\-pix and the \char`\"{}0.023\char`\"{} free optimization parameters! \end{Desc}
+
+
+Reimplemented from \hyperlink{classSuperCutter_aa9affeb3c4e8b66860f26bd96954b4e1}{SuperCutter}.
+
+
+
+Definition at line 40 of file ZCutter.cpp.
+
+
+
+References HillasParameterization::centroid, HillasParameterization::distance, CutInfo::elongation, Camera::getPEToDC(), Camera::getSigmaPixel(), Camera::getSigmaPSF(), HillasParameterization::length, HillasParameterization::length\_\-over\_\-size, HillasParameterization::max, HillasParameterization::miss, HillasParameterization::point\_\-of\_\-origin\_\-a, HillasParameterization::point\_\-of\_\-origin\_\-b, HillasParameterization::size, HillasParameterization::width, Coordinate\_\-t::x, Coordinate\_\-t::y, and HillasParameterization::zenith.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+ZCutter.h\item 
+ZCutter.cpp\end{DoxyCompactItemize}

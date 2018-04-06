@@ -1,0 +1,78 @@
+\hypertarget{classDefaultImageCleaner}{
+\subsection{DefaultImageCleaner Class Reference}
+\label{classDefaultImageCleaner}\index{DefaultImageCleaner@{DefaultImageCleaner}}
+}
+
+
+The default cleaner uses a simple 2 threshold process.  
+
+
+
+
+{\ttfamily \#include $<$ImageCleaner.h$>$}
+
+Inheritance diagram for DefaultImageCleaner:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDefaultImageCleaner}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDefaultImageCleaner_af029b40ac6974bf0b3196c67bc5b34a0}{DefaultImageCleaner} (\hyperlink{classCamera}{Camera} \&camera, vector$<$ \hyperlink{structPedestal}{Pedestal} $>$ \&peds, double picture, double boundary)
+\item 
+\hypertarget{classDefaultImageCleaner_ae8b9d57c8aff0ffe07be81ee04b92255}{
+std::vector$<$ int $>$ \& {\bfseries getCleanPixels} (const Array\_\-t \&image)}
+\label{classDefaultImageCleaner_ae8b9d57c8aff0ffe07be81ee04b92255}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+The default cleaner uses a simple 2 threshold process. 
+
+Definition at line 33 of file ImageCleaner.h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classDefaultImageCleaner_af029b40ac6974bf0b3196c67bc5b34a0}{
+\index{DefaultImageCleaner@{DefaultImageCleaner}!DefaultImageCleaner@{DefaultImageCleaner}}
+\index{DefaultImageCleaner@{DefaultImageCleaner}!DefaultImageCleaner@{DefaultImageCleaner}}
+\paragraph[{DefaultImageCleaner}]{\setlength{\rightskip}{0pt plus 5cm}DefaultImageCleaner::DefaultImageCleaner (
+\begin{DoxyParamCaption}
+\item[{{\bf Camera} \&}]{camera, }
+\item[{vector$<$ {\bf Pedestal} $>$ \&}]{peds, }
+\item[{double}]{picture, }
+\item[{double}]{boundary}
+\end{DoxyParamCaption}
+)}}
+\label{classDefaultImageCleaner_af029b40ac6974bf0b3196c67bc5b34a0}
+
+
+The default image cleaner uses picture and boundary theshold values (expressed in standard deviations from the pedestal) to determine the accepted pixels. 
+
+All tubes above the picture threshold are accepted. Tubes above the boundary threshold with at least one neighboring \char`\"{}picture\char`\"{} tube are also accepted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera} & reference to the camera object to use for pixel positions and neighborlist. \\
+\hline
+{\em peds} & reference to the \hyperlink{structPedestal}{Pedestal} array for the current run. \\
+\hline
+{\em picture} & the picture threshold in std deviations. \\
+\hline
+{\em boundary} & the boundary threhold in std deviations. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file ImageCleaner.cpp.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+ImageCleaner.h\item 
+ImageCleaner.cpp\end{DoxyCompactItemize}

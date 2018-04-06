@@ -1,0 +1,54 @@
+\hypertarget{classImageCleaner}{
+\subsection{ImageCleaner Class Reference}
+\label{classImageCleaner}\index{ImageCleaner@{ImageCleaner}}
+}
+
+
+Abstract interface to all cleaning routines.  
+
+
+
+
+{\ttfamily \#include $<$ImageCleaner.h$>$}
+
+Inheritance diagram for ImageCleaner:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classImageCleaner}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classImageCleaner_a027c43146b1e5ab91b8f982b3963b3c9}{
+{\bfseries ImageCleaner} (\hyperlink{classCamera}{Camera} \&camera)}
+\label{classImageCleaner_a027c43146b1e5ab91b8f982b3963b3c9}
+
+\item 
+\hypertarget{classImageCleaner_a05208229b8c2d7bfb618b809d31f849f}{
+virtual std::vector$<$ int $>$ \& {\bfseries getCleanPixels} (const Array\_\-t \&image)=0}
+\label{classImageCleaner_a05208229b8c2d7bfb618b809d31f849f}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classImageCleaner_ad5416a673ec07df1ef62baaf5370f844}{
+\hyperlink{classCamera}{Camera} $\ast$ {\bfseries \_\-cam}}
+\label{classImageCleaner_ad5416a673ec07df1ef62baaf5370f844}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Abstract interface to all cleaning routines. 
+
+Takes an image as input and spits out a list of pixels which pass the cleaning process. This class can be extended to do more interesting things (such as island cleaning, etc). 
+
+Definition at line 16 of file ImageCleaner.h.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+ImageCleaner.h\end{DoxyCompactItemize}

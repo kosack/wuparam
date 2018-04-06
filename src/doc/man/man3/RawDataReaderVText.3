@@ -1,0 +1,74 @@
+.TH "RawDataReaderVText" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RawDataReaderVText \- 
+.PP
+Implementation of \fBRawDataReader\fP VERITAS text data as outputed by Paul Rebillot's charge integration routines.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataReader.h>\fP
+.PP
+Inherits \fBRawDataReader\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRawDataReaderVText\fP (const std::string &filename)"
+.br
+.ti -1c
+.RI "void \fBgetHeaderRecord\fP (\fBRawHeaderRecord\fP &header)"
+.br
+.ti -1c
+.RI "void \fBgetNextEventRecord\fP (\fBRawEventRecord\fP &event)"
+.br
+.ti -1c
+.RI "int \fBsize\fP ()"
+.br
+.ti -1c
+.RI "bool \fBisDone\fP ()"
+.br
+.ti -1c
+.RI "std::string \fBgetTypeString\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetType\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implementation of \fBRawDataReader\fP VERITAS text data as outputed by Paul Rebillot's charge integration routines. 
+.PP
+Definition at line 138 of file DataReader.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void RawDataReaderVText::getHeaderRecord (\fBRawHeaderRecord\fP &header)\fC [virtual]\fP"
+.PP
+Get header record. \fBTodo\fP
+.RS 4
+: fill in the correct values 
+.RE
+.PP
+
+.PP
+Implements \fBRawDataReader\fP.
+.PP
+Definition at line 497 of file DataReader.cpp.
+.PP
+References HeaderRecord::dec, HeaderRecord::nadc, HeaderRecord::num_telescopes, HeaderRecord::ra, HeaderRecord::sourcename, HeaderRecord::starttime, and HeaderRecord::windowsize.
+.PP
+Referenced by size().
+.SS "void RawDataReaderVText::getNextEventRecord (\fBRawEventRecord\fP &event)\fC [virtual]\fP"
+.PP
+Returns the next \fBRawEventRecord\fP from the simulation. format is: type event_num gpstime osctime livetime elevation azimuth telescope_id adcvalues[499] 
+.PP
+Implements \fBRawDataReader\fP.
+.PP
+Definition at line 571 of file DataReader.cpp.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

@@ -1,0 +1,30 @@
+.TH "wuparam" 1
+.SH NAME
+wuparam \- parameterizes and analyzes Whipple 10M telescope data
+.SH SYNOPSIS
+.B wuparam 
+[-idqok] <config file>
+.SH DESCRIPTION
+Reads raw input from HDF4 or GrISU simulation data files and produces
+parameterized output which can be analyzed with 
+.B wucut.
+If no Config File is spectified, a sample one will be generated.  All other
+options are contained within the config file.
+.SH OPTIONS
+.TP
+.B \-i
+interactive mode
+.TP
+.B \-d 
+Display events as they are processed (non-interactive)
+.TP
+.B \-q 
+Quiet (less verbose text output)
+.TP
+.B \-o
+Overwrite previously parameterized files (skipped otherwise)
+.TP
+.B \-k  
+Keep uncompressed files in the cache (normally deleted)
+.SH "SEE ALSO"
+wucut wuopt wu2txt

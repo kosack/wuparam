@@ -1,0 +1,121 @@
+\hypertarget{classRawDataReaderSim}{
+\subsection{RawDataReaderSim Class Reference}
+\label{classRawDataReaderSim}\index{RawDataReaderSim@{RawDataReaderSim}}
+}
+
+
+Implementation of \hyperlink{classRawDataReader}{RawDataReader} for simulation .tubes files.  
+
+
+
+
+{\ttfamily \#include $<$DataReader.h$>$}
+
+Inheritance diagram for RawDataReaderSim:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classRawDataReaderSim}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRawDataReaderSim_a3b39f633634f97e2962f80f2c60bf8b0}{RawDataReaderSim} (const std::string \&filename)
+\item 
+void \hyperlink{classRawDataReaderSim_acd4f407d9c8b8df95eb88213e6625f5f}{getHeaderRecord} (\hyperlink{structRawHeaderRecord}{RawHeaderRecord} \&header)
+\item 
+\hypertarget{classRawDataReaderSim_af7c83e5db612afd37d2e0daeecb33e32}{
+void \hyperlink{classRawDataReaderSim_af7c83e5db612afd37d2e0daeecb33e32}{getNextEventRecord} (\hyperlink{structRawEventRecord}{RawEventRecord} \&event)}
+\label{classRawDataReaderSim_af7c83e5db612afd37d2e0daeecb33e32}
+
+\item 
+\hypertarget{classRawDataReaderSim_aedc584c28c0b04a8ddeedf2680cd316f}{
+int \hyperlink{classRawDataReaderSim_aedc584c28c0b04a8ddeedf2680cd316f}{size} ()}
+\label{classRawDataReaderSim_aedc584c28c0b04a8ddeedf2680cd316f}
+
+\item 
+\hypertarget{classRawDataReaderSim_a97dae8ae36836c8a7ad8da1600cf3319}{
+bool {\bfseries isDone} ()}
+\label{classRawDataReaderSim_a97dae8ae36836c8a7ad8da1600cf3319}
+
+\item 
+\hypertarget{classRawDataReaderSim_aa7ab2d94ea9b7b87db0f1a83d3b592ff}{
+std::string {\bfseries getTypeString} ()}
+\label{classRawDataReaderSim_aa7ab2d94ea9b7b87db0f1a83d3b592ff}
+
+\item 
+\hypertarget{classRawDataReaderSim_abcd7b3c9361abd1efb9064945844d06e}{
+int {\bfseries getType} ()}
+\label{classRawDataReaderSim_abcd7b3c9361abd1efb9064945844d06e}
+
+\item 
+\hypertarget{classRawDataReaderSim_ac03bf61391a4d740f91f5905bb3cf7c1}{
+\hyperlink{structSimShowerRecord}{SimShowerRecord} {\bfseries getSimShowerRecord} ()}
+\label{classRawDataReaderSim_ac03bf61391a4d740f91f5905bb3cf7c1}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Implementation of \hyperlink{classRawDataReader}{RawDataReader} for simulation .tubes files. 
+
+Definition at line 104 of file DataReader.h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classRawDataReaderSim_a3b39f633634f97e2962f80f2c60bf8b0}{
+\index{RawDataReaderSim@{RawDataReaderSim}!RawDataReaderSim@{RawDataReaderSim}}
+\index{RawDataReaderSim@{RawDataReaderSim}!RawDataReaderSim@{RawDataReaderSim}}
+\paragraph[{RawDataReaderSim}]{\setlength{\rightskip}{0pt plus 5cm}RawDataReaderSim::RawDataReaderSim (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{filename}
+\end{DoxyParamCaption}
+)}}
+\label{classRawDataReaderSim_a3b39f633634f97e2962f80f2c60bf8b0}
+
+
+Open .rec input file. 
+
+\begin{Desc}
+\item[\hyperlink{bug__bug000001}{Bug}]: if file doesn't exist, doesn't always fail! \end{Desc}
+
+
+Definition at line 297 of file DataReader.cpp.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classRawDataReaderSim_acd4f407d9c8b8df95eb88213e6625f5f}{
+\index{RawDataReaderSim@{RawDataReaderSim}!getHeaderRecord@{getHeaderRecord}}
+\index{getHeaderRecord@{getHeaderRecord}!RawDataReaderSim@{RawDataReaderSim}}
+\paragraph[{getHeaderRecord}]{\setlength{\rightskip}{0pt plus 5cm}void RawDataReaderSim::getHeaderRecord (
+\begin{DoxyParamCaption}
+\item[{{\bf RawHeaderRecord} \&}]{header}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classRawDataReaderSim_acd4f407d9c8b8df95eb88213e6625f5f}
+
+
+Get header record. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000008}{Todo}]: fill in the correct values \end{Desc}
+
+
+Implements \hyperlink{classRawDataReader}{RawDataReader}.
+
+
+
+Definition at line 344 of file DataReader.cpp.
+
+
+
+References HeaderRecord::dec, HeaderRecord::nadc, HeaderRecord::ra, HeaderRecord::sourcename, and HeaderRecord::starttime.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+DataReader.h\item 
+DataReader.cpp\end{DoxyCompactItemize}

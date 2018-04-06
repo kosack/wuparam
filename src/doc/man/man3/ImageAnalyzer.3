@@ -1,0 +1,56 @@
+.TH "ImageAnalyzer" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ImageAnalyzer \- 
+.PP
+Base class for ImageAnalyzers - components that look at an individual image and derive a set of parameters.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ImageAnalyzer.h>\fP
+.PP
+Inherited by \fBHillasImageAnalyzer\fP, and \fBMuonImageAnalyzer\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBImageAnalyzer\fP (\fBCamera\fP *cam)"
+.br
+.ti -1c
+.RI "int \fBgetNumPixels\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBparameterize\fP (const Array_t &image, std::vector< int > &cleanpixels)=0"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "Array_t \fB_x\fP"
+.br
+.ti -1c
+.RI "Array_t \fB_y\fP"
+.br
+.ti -1c
+.RI "Array_t \fB_x2\fP"
+.br
+.ti -1c
+.RI "Array_t \fB_y2\fP"
+.br
+.ti -1c
+.RI "Array_t \fB_xy\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for ImageAnalyzers - components that look at an individual image and derive a set of parameters. 
+.PP
+Definition at line 77 of file ImageAnalyzer.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

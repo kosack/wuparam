@@ -1,0 +1,15 @@
+# Just an example - this should be added to the Makefile.am and
+# configure.in in some nice manner.  Is there an AC_CHECK_ROOT macro
+# available somewhere?
+
+wu2root_SOURCES = wu2root.cpp \
+	ParamDataReader.cpp \
+	Log.cpp  \
+	DataWriter.cpp \
+	ImageAnalyzer.cpp
+
+LIBS = -lmfhdf -ldf `root-config --cflags --libs` -I/usr/include/hdf -lgsl -lgslcblas
+
+all:
+	g++ -g  $(LIBS) $(wu2root_SOURCES) -o wu2root
+

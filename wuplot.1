@@ -1,0 +1,69 @@
+.TH "wuplot" 1
+.SH NAME
+wuplot \- generates nice 2D plots from WUParam data
+.SH SYNOPSIS
+.B wuplot
+[-o filename] [-T type] <file.wuplot>
+.SH DESCRIPTION
+Reads a plot description from a file and generates a 2-D plot. Default
+output is to the screen (via X11), but postscript and other outputs
+can be generated.
+.SH OPTIONS
+.TP
+.B \-o 
+<filename> output to the specified file
+.TP
+.B \-T 
+<type> specify output type (these are listed when you run wuplot
+without arguments)
+.SH COMMANDS 
+The following commands can be used in plot description files:
+.TP
+.B set 
+[axes | contour | marker | smooth | colormap | label | rotation]
+
+.TP
+.B set axes 
+[geometry | ticcolor]
+
+.TP
+.B set axes geometry """image.im2d"""
+where image.im2d is the filename for an image in im2d format
+
+.TP
+.B set axes ticcolor """COLOR NAME"""
+see below for color and style names
+
+.TP
+.B set contour
+[color | style | width]
+
+.TP
+.B set contour color """COLOR NAME"""
+.TP
+.B set contour style """STYLE NAME"""
+.TP
+.B set contour width <float>
+
+.TP
+.B plot 
+[image | axes | contour | curve | points | title | starlist | label |
+marker | radecgrid]
+
+
+.TP 
+.B STYLE NAME
+"solid"             --------------------------------
+"dotted"            -   -   -   -   -   -   -   -
+"dotdashed"         ----   -   ----   -   ----   -
+"shortdashed"       ----    ----    ----    ----
+"longdashed"        -------    -------    -------
+"dotdotdashed"      ----   -   -   ----   -   -
+"dotdotdotdashed"   ----   -   -   -   ----   -   -   -
+
+.TP
+.B COLOR NAME
+the name of a standard color as found in rgb.txt (e.g. "orange").
+
+.SH "SEE ALSO"
+wuparam wucut wuopt wu2txt

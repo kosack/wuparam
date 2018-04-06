@@ -1,0 +1,78 @@
+\hypertarget{classImageAnalyzer}{
+\subsection{ImageAnalyzer Class Reference}
+\label{classImageAnalyzer}\index{ImageAnalyzer@{ImageAnalyzer}}
+}
+
+
+Base class for ImageAnalyzers -\/ components that look at an individual image and derive a set of parameters.  
+
+
+
+
+{\ttfamily \#include $<$ImageAnalyzer.h$>$}
+
+Inheritance diagram for ImageAnalyzer:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classImageAnalyzer}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classImageAnalyzer_a36d9220eab04d031c21237abec9caffd}{
+\hyperlink{classImageAnalyzer_a36d9220eab04d031c21237abec9caffd}{ImageAnalyzer} (\hyperlink{classCamera}{Camera} $\ast$cam)}
+\label{classImageAnalyzer_a36d9220eab04d031c21237abec9caffd}
+
+\item 
+\hypertarget{classImageAnalyzer_aedee9bca28bf1104e6acf113033c4360}{
+int {\bfseries getNumPixels} ()}
+\label{classImageAnalyzer_aedee9bca28bf1104e6acf113033c4360}
+
+\item 
+\hypertarget{classImageAnalyzer_a34ca66f8166b4804c2a03fa0c155f2cc}{
+virtual void {\bfseries parameterize} (const Array\_\-t \&image, std::vector$<$ int $>$ \&cleanpixels)=0}
+\label{classImageAnalyzer_a34ca66f8166b4804c2a03fa0c155f2cc}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classImageAnalyzer_a628d836cd9b04dfb4c14b230498274c0}{
+Array\_\-t {\bfseries \_\-x}}
+\label{classImageAnalyzer_a628d836cd9b04dfb4c14b230498274c0}
+
+\item 
+\hypertarget{classImageAnalyzer_a874a4fdc2fb1c726759f284dcdd66523}{
+Array\_\-t {\bfseries \_\-y}}
+\label{classImageAnalyzer_a874a4fdc2fb1c726759f284dcdd66523}
+
+\item 
+\hypertarget{classImageAnalyzer_ad42c24651b1898531e1c07e734c04aef}{
+Array\_\-t {\bfseries \_\-x2}}
+\label{classImageAnalyzer_ad42c24651b1898531e1c07e734c04aef}
+
+\item 
+\hypertarget{classImageAnalyzer_a544ebef59a5ee33364e44ffa35ab8f7d}{
+Array\_\-t {\bfseries \_\-y2}}
+\label{classImageAnalyzer_a544ebef59a5ee33364e44ffa35ab8f7d}
+
+\item 
+\hypertarget{classImageAnalyzer_acb41487bfeedcdb54f77592f96bbad2c}{
+Array\_\-t {\bfseries \_\-xy}}
+\label{classImageAnalyzer_acb41487bfeedcdb54f77592f96bbad2c}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Base class for ImageAnalyzers -\/ components that look at an individual image and derive a set of parameters. 
+
+Definition at line 77 of file ImageAnalyzer.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+ImageAnalyzer.h\item 
+ImageAnalyzer.cpp\end{DoxyCompactItemize}

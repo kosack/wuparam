@@ -1,0 +1,112 @@
+# Sample wuplot file.  
+# Notes:
+#	- '#' is the comment character
+#	- white space is ignored at the beginning and end of lines , so you 
+#	  tab in lines, or leave them at the beginning. 
+#	- all attributes can be saved using "push" and restored using
+#	  "pop"
+
+# ===========================================================
+# Plot the image with overlaid contours
+	
+	set colormap "blues"
+	set colorscale auto # or min,max for fixed values
+	set contour style "solid"
+	set contour color "black"
+	
+	set axes geometry "excess.im2d"
+	set axes ticcolor "white"
+	set smooth 1  # nonzero to interpolate contours and images
+
+	plot image "excess.im2d" 
+	plot axes
+	plot title "Sagittarius A\sp\ST\ep (\SG A\sp\ST\ep)"
+	plot subtitle "Gamma-ray Excess Map"
+	plot contour 1.0, 10.0, 1.0 "signif.im2d" 
+
+# ===========================================================
+# Also plot a marker were the true center position is!
+
+push
+	set marker type 2
+	set marker size 0.5
+	set marker color "orange"
+	plot marker 0.1,-0.1
+pop
+
+# ===========================================================
+# Plot a list of stars in the field
+
+push
+	set marker type 4
+	plot starlist "nearbystars-off.dat" 
+pop
+
+# ===========================================================
+# plot some labels
+
+push
+	set label size 0.15
+	set label angle 45.0
+	set label color "red"
+	plot label 0,0 "This is a test"
+pop
+
+# ===========================================================
+# plot a curve from a file
+
+
+push
+	set contour width 0.05
+	set contour color "yellow"
+	set rotation 10
+	plot curve "curve.dat"
+	set rotation 10
+	plot curve "curve.dat"
+	set rotation 10
+	plot curve "curve.dat"
+	set rotation 10
+	plot curve "curve.dat"
+	set rotation 10
+	plot curve "curve.dat"
+pop
+
+	plot curve "curve.dat"
+
+# ===========================================================
+# plot RA and Dec contours
+
+push
+	set contour color "pink"
+	set contour style "dotted"
+	set contour width 0.01	
+	set smooth 0 # don't want to smooth RA and DEC contours!
+	plot radecgrid "ra-mesh.im2d" "dec-mesh.im2d"
+pop
+
+# ===========================================================
+# Plot some fancy labels
+#  (see the libplot documentation (info libplot) for a list of 
+#  special character codes)
+
+push
+	set label angle 0
+	set label color "white"
+	set label size 0.2
+
+	plot label 0.0,-1.5 "12\sph\ep0\spm\ep0.0\sps\ep"   # HMS notation
+	plot label 0.0,-1.7 "\*g \=~ -1.5"                  # greek fonts
+	plot label 0.0,1.5 "M \~~ 3 \md10\sp6\epM\sb\SO\eb" # math and science
+pop
+
+
+# ===========================================================
+# Plot an ellipse at (0.1,0.1) with minor axis 0.2 
+# and major axis 0.3 at an angle of 45 degrees
+#
+push
+	set contour color "red"
+	set contour width 0.03
+	plot ellipse 0.1,0.1  0.2  0.3  45.0
+pop
+

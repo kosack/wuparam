@@ -1,0 +1,64 @@
+.TH "HeaderRecord" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HeaderRecord \- 
+.PP
+Run information (header) from raw datafiles.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataRecords.h>\fP
+.PP
+Inherits \fBRecord\fP.
+.PP
+Inherited by \fBRawHeaderRecord\fP.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBnum_telescopes\fP"
+.br
+.ti -1c
+.RI "std::vector< int > \fBnadc\fP"
+.br
+.ti -1c
+.RI "double \fBra\fP"
+.br
+.ti -1c
+.RI "double \fBdec\fP"
+.br
+.ti -1c
+.RI "double \fBstarttime\fP"
+.br
+.ti -1c
+.RI "double \fBendtime\fP"
+.br
+.ti -1c
+.RI "double \fBaverage_elevation\fP"
+.br
+.ti -1c
+.RI "int \fBwindowsize\fP"
+.br
+.ti -1c
+.RI "std::string \fBsourcename\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Run information (header) from raw datafiles. 
+
+\fBTodo\fP
+.RS 4
+: add fields for picture/boundary threshold so they can be checked by wucut - don't want to accidently use cuts which were designed for one threshold after you parameterize with another! 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file DataRecords.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

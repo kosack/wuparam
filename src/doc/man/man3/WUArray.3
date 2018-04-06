@@ -1,0 +1,87 @@
+.TH "WUArray" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WUArray \- 
+.PP
+Function prototypes and globals for wuarray.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRunType\fP { \fBTRACK\fP, \fBON\fP, \fBOFF\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBshowUsage\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetCommandLineOptions\fP (int argc, char **argv)"
+.br
+.ti -1c
+.RI "void \fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "void \fBtrap_ctrl_c\fP (int)"
+.br
+.ti -1c
+.RI "void \fBprocess\fP (\fBRunInfo\fP &ri)"
+.br
+.ti -1c
+.RI "void \fBanalyzeRun\fP (\fBRunInfo\fP &ri, \fBRunType\fP runtype)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBPlotMaker\fP * \fBpm\fP = NULL"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Function prototypes and globals for wuarray. 
+
+I put these in their own namespace so they don't conflict with functions in wuparam, wucut, etc. 
+.SH "Function Documentation"
+.PP 
+.SS "void WUArray::analyzeRun (\fBRunInfo\fP &ri, \fBWUArray::RunType\fPruntype)"
+.PP
+Analyze a single run. This is called by process. Right now, it just reads the data and demonstrates some simple things you can do.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIri\fP the full run-info struct 
+.br
+\fIruntype\fP - should be process the on, off, or tracking run? These cases may be treated separately. 
+.RE
+.PP
+
+.PP
+Definition at line 218 of file wuarray.cpp.
+.PP
+References Image2D::addHistRadially(), HillasParameterization::alpha, RunInfo::arrayconfig, ParamDataReader::getHeaderRecord(), Camera::getNumPixels(), Histogram::increment(), HeaderRecord::nadc, HeaderRecord::num_telescopes, RunInfo::offid, RunInfo::onid, PlotMaker::plotAxes(), HillasParameterization::point_of_origin_a, Image2D::save(), Image2D::setCoordinateBox(), HeaderRecord::sourcename, RunInfo::utdate, Coordinate_t::x, and Coordinate_t::y.
+.PP
+Referenced by process().
+.SS "void WUArray::getCommandLineOptions (intargc, char **argv)"
+.PP
+This specifies and processes the various command-line options. See the getopt manpage for more information (type 'man 3 getopt' to see the C documentation, which is in manual section 3). 
+.PP
+Definition at line 421 of file wuarray.cpp.
+.SS "void WUArray::process (\fBRunInfo\fP &ri)"
+.PP
+Process a single run. This is called for each run in the config file. 
+.PP
+Definition at line 182 of file wuarray.cpp.
+.PP
+References analyzeRun(), RunInfo::offid, RunInfo::onid, and RunInfo::type.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

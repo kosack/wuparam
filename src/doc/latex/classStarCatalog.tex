@@ -1,0 +1,132 @@
+\hypertarget{classStarCatalog}{
+\subsection{StarCatalog Class Reference}
+\label{classStarCatalog}\index{StarCatalog@{StarCatalog}}
+}
+
+
+A searchable star database.  
+
+
+
+
+{\ttfamily \#include $<$StarCatalog.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classStarCatalog_afc99ce9ea8e23dbcaa9ea3871e1c1224}{
+\hyperlink{classStarCatalog_afc99ce9ea8e23dbcaa9ea3871e1c1224}{StarCatalog} ()}
+\label{classStarCatalog_afc99ce9ea8e23dbcaa9ea3871e1c1224}
+
+\item 
+void \hyperlink{classStarCatalog_ab7577c4758796c622071afb6cd9445f3}{load} (std::string stardbfilename)
+\item 
+void \hyperlink{classStarCatalog_a067a6b3ebbeed3d8c1450cc7092a9f64}{findNearbyStars} (double, double, double, std::list$<$ \hyperlink{classStar}{Star} $>$ \&)
+\item 
+void \hyperlink{classStarCatalog_a7b487603d9556b01164515e8fb5fddd9}{precessToDate} (int utdate)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+A searchable star database. 
+
+Definition at line 42 of file StarCatalog.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classStarCatalog_a067a6b3ebbeed3d8c1450cc7092a9f64}{
+\index{StarCatalog@{StarCatalog}!findNearbyStars@{findNearbyStars}}
+\index{findNearbyStars@{findNearbyStars}!StarCatalog@{StarCatalog}}
+\paragraph[{findNearbyStars}]{\setlength{\rightskip}{0pt plus 5cm}void StarCatalog::findNearbyStars (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{std::list$<$ {\bf Star} $>$ \&}]{}
+\end{DoxyParamCaption}
+)}}
+\label{classStarCatalog_a067a6b3ebbeed3d8c1450cc7092a9f64}
+
+
+Produces a vector of stars that fall within a specified radius of a specified ra+dec coordinate. 
+
+Also figures out the position of each star in tangential cartesian coordinates, relative to the center position for easy plotting.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ra} & right ascension where the camera is pointing \\
+\hline
+{\em dec} & declination where the camera is pointing \\
+\hline
+{\em r} & radius (in degrees) around which to look for stars (should be FOV of camera) \\
+\hline
+{\em nearbystars} & empty vector of Stars which will be filled up with the results\\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000031}{Todo}]: check that this ra and dec from the tracking computer are already precessed, or from j2000 or something. If not already precessed, they need to be. \end{Desc}
+
+
+Definition at line 136 of file StarCatalog.cpp.
+
+
+
+Referenced by Cutter::cut().
+
+\hypertarget{classStarCatalog_ab7577c4758796c622071afb6cd9445f3}{
+\index{StarCatalog@{StarCatalog}!load@{load}}
+\index{load@{load}!StarCatalog@{StarCatalog}}
+\paragraph[{load}]{\setlength{\rightskip}{0pt plus 5cm}void StarCatalog::load (
+\begin{DoxyParamCaption}
+\item[{std::string}]{stardbfilename}
+\end{DoxyParamCaption}
+)}}
+\label{classStarCatalog_ab7577c4758796c622071afb6cd9445f3}
+
+
+Load a saved image. 
+
+Load a database of stars from the specified .edb file (such as those included with XEphem. 
+
+Definition at line 238 of file Image2D.cpp.
+
+
+
+References Image2D::setCoordinateBox().
+
+\hypertarget{classStarCatalog_a7b487603d9556b01164515e8fb5fddd9}{
+\index{StarCatalog@{StarCatalog}!precessToDate@{precessToDate}}
+\index{precessToDate@{precessToDate}!StarCatalog@{StarCatalog}}
+\paragraph[{precessToDate}]{\setlength{\rightskip}{0pt plus 5cm}void StarCatalog::precessToDate (
+\begin{DoxyParamCaption}
+\item[{int}]{utdate}
+\end{DoxyParamCaption}
+)}}
+\label{classStarCatalog_a7b487603d9556b01164515e8fb5fddd9}
+
+
+Precess star catalog to the current epoch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utdate} & for example '020506' for May 6, 2002\\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[\hyperlink{todo__todo000032}{Todo}]: Should check this -\/ it looks like stars are moving too much over the course of a year or so, so it's possible this is not working exactly right. However, it's pretty close. \end{Desc}
+
+
+Definition at line 189 of file StarCatalog.cpp.
+
+
+
+Referenced by Cutter::cut().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+StarCatalog.h\item 
+Image2D.cpp\item 
+StarCatalog.cpp\end{DoxyCompactItemize}

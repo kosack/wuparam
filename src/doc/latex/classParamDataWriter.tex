@@ -1,0 +1,88 @@
+\hypertarget{classParamDataWriter}{
+\subsection{ParamDataWriter Class Reference}
+\label{classParamDataWriter}\index{ParamDataWriter@{ParamDataWriter}}
+}
+
+
+Base class for writing HillasParameterizations to disk.  
+
+
+
+
+{\ttfamily \#include $<$DataWriter.h$>$}
+
+Inheritance diagram for ParamDataWriter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classParamDataWriter}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classParamDataWriter_a030c4a57dad508e7767ec321af9a4f2d}{
+{\bfseries ParamDataWriter} (const std::string \&filename, bool ow=false)}
+\label{classParamDataWriter_a030c4a57dad508e7767ec321af9a4f2d}
+
+\item 
+void \hyperlink{classParamDataWriter_a0a70e79b1d085e10036d5a0d437e624b}{writeHeader} (\hyperlink{structHeaderRecord}{HeaderRecord} \&hdr)
+\item 
+\hypertarget{classParamDataWriter_a35fc7998a33afab877c035eaba013f14}{
+virtual void {\bfseries writeParameterization} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)=0}
+\label{classParamDataWriter_a35fc7998a33afab877c035eaba013f14}
+
+\item 
+\hypertarget{classParamDataWriter_a6e7ae68618d46d8741fc5ff4b0a5542f}{
+virtual void {\bfseries writeParameterization} (\hyperlink{structSimShowerRecord}{SimShowerRecord} \&p1, \hyperlink{structHillasParameterization}{HillasParameterization} \&p2)}
+\label{classParamDataWriter_a6e7ae68618d46d8741fc5ff4b0a5542f}
+
+\item 
+\hypertarget{classParamDataWriter_a5ea7b99411dd0096a8ee50111b2c193d}{
+virtual int {\bfseries size} ()=0}
+\label{classParamDataWriter_a5ea7b99411dd0096a8ee50111b2c193d}
+
+\item 
+\hypertarget{classParamDataWriter_a65100e91f53c44adb84fd5d541ab7c01}{
+virtual std::string {\bfseries getTypeString} ()=0}
+\label{classParamDataWriter_a65100e91f53c44adb84fd5d541ab7c01}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Base class for writing HillasParameterizations to disk. 
+
+Subclasses of this should implement the various file formats that can be written. 
+
+Definition at line 41 of file DataWriter.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classParamDataWriter_a0a70e79b1d085e10036d5a0d437e624b}{
+\index{ParamDataWriter@{ParamDataWriter}!writeHeader@{writeHeader}}
+\index{writeHeader@{writeHeader}!ParamDataWriter@{ParamDataWriter}}
+\paragraph[{writeHeader}]{\setlength{\rightskip}{0pt plus 5cm}void ParamDataWriter::writeHeader (
+\begin{DoxyParamCaption}
+\item[{{\bf HeaderRecord} \&}]{hdr}
+\end{DoxyParamCaption}
+)}}
+\label{classParamDataWriter_a0a70e79b1d085e10036d5a0d437e624b}
+
+
+Write out header. 
+
+Should be done after all NTuple rows have been written, so the number of rows is correct. 
+
+Definition at line 140 of file DataWriter.cpp.
+
+
+
+References HeaderRecord::average\_\-elevation, HeaderRecord::dec, HeaderRecord::endtime, HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, HeaderRecord::ra, HeaderRecord::sourcename, and HeaderRecord::starttime.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+DataWriter.h\item 
+DataWriter.cpp\end{DoxyCompactItemize}

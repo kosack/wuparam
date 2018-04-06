@@ -1,0 +1,77 @@
+.TH "PedestalFinder" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PedestalFinder \- 
+.PP
+Class to generate pedestal values for a series of runs.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <PedestalFinder.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBgetOnSourcePeds\fP (\fBRunInfo\fP &ri, std::vector< \fBPedestal\fP > &ped, int telescope_id=0)"
+.br
+.ti -1c
+.RI "void \fBgetOffSourcePeds\fP (\fBRunInfo\fP &ri, std::vector< \fBPedestal\fP > &ped, int telescope_id=0)"
+.br
+.ti -1c
+.RI "void \fBgetPeds\fP (\fBRunInfo\fP &ri, const std::string &id, std::vector< \fBPedestal\fP > &, int telescope_id=0)"
+.br
+.ti -1c
+.RI "void \fBsetTubeOffThresholds\fP (double lower, double upper)"
+.br
+.ti -1c
+.RI "void \fBsetBadPedThresh\fP (double value)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to generate pedestal values for a series of runs. 
+.PP
+Definition at line 29 of file PedestalFinder.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void PedestalFinder::getPeds (\fBRunInfo\fP &ri, const std::string &id, std::vector< \fBPedestal\fP > &, inttelescope_id = \fC0\fP)"
+.PP
+Returns the pedestal values as an array of \fBPedestal\fP structs. \fBTodo\fP
+.RS 4
+: Simulations only contain one pedestal record, so their dispersions are always 0. Due to this, the \fBImageCleaner\fP accepts too many pixels, since it uses the picthresh*peddisp as the threshold! Need to fix somehow...
+.RE
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+: implement lockfiles to prevent more than one process from writing/reading to the database (necessary for the MPI-enabled or a multi-threaded version) 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file PedestalFinder.cpp.
+.PP
+References RunInfo::cachedir, RawDataReaderFactory::getReader(), RawDataReaderFactory::instance(), RunInfo::max_ped_events, HeaderRecord::nadc, HeaderRecord::num_telescopes, PlotMaker::plotAxes(), ProgressBar::print(), ProgressBar::printClear(), Logger::printf(), and HeaderRecord::windowsize.
+.PP
+Referenced by GainFinder::getGains().
+.SS "void PedestalFinder::setTubeOffThresholds (doublelower, doubleupper)"
+.PP
+Set the thresholds to detect turned off tubes or stars. \fBParameters:\fP
+.RS 4
+\fIlower\fP threshold to detect turned off tubes (default is 0.6) 
+.br
+\fIupper\fP threshold to detect stars (default is 1.5) 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file PedestalFinder.cpp.
+.PP
+Referenced by GainFinder::getGains().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

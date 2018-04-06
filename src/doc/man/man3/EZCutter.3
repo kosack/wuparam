@@ -1,0 +1,54 @@
+.TH "EZCutter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EZCutter \- 
+.PP
+Extended zenith cutterm Uses SuperCuts-like cuts, but with zenith angle corrections based on cos(theta) and 3rd order poly in log(SIZE).  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <EZCutter.h>\fP
+.PP
+Inherits \fBSuperCutter\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBapplyCorrections\fP (\fBHillasParameterization\fP &p)"
+.br
+.ti -1c
+.RI "void \fBsetCamera\fP (int npix, int utdate)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Extended zenith cutterm Uses SuperCuts-like cuts, but with zenith angle corrections based on cos(theta) and 3rd order poly in log(SIZE). 
+
+Good for spectral cuts. 
+.PP
+Definition at line 13 of file EZCutter.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void EZCutter::applyCorrections (\fBHillasParameterization\fP &param)\fC [virtual]\fP"
+.PP
+Perform zenith correction. Overrides the SuperCutter::prePass() function which is executed before cuts are applied by \fBSuperCutter::pass()\fP
+.PP
+\fBTodo\fP
+.RS 4
+: make sigma_pix and the '0.023' free optimization parameters! 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBSuperCutter\fP.
+.PP
+Definition at line 40 of file EZCutter.cpp.
+.PP
+References HillasParameterization::centroid, Camera::getPEToDC(), HillasParameterization::length, HillasParameterization::length_over_size, HillasParameterization::max, HillasParameterization::miss, HillasParameterization::point_of_origin_a, HillasParameterization::point_of_origin_b, HillasParameterization::size, HillasParameterization::width, Coordinate_t::x, Coordinate_t::y, and HillasParameterization::zenith.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

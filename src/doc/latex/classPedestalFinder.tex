@@ -1,0 +1,114 @@
+\hypertarget{classPedestalFinder}{
+\subsection{PedestalFinder Class Reference}
+\label{classPedestalFinder}\index{PedestalFinder@{PedestalFinder}}
+}
+
+
+Class to generate pedestal values for a series of runs.  
+
+
+
+
+{\ttfamily \#include $<$PedestalFinder.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPedestalFinder_af3f4a0c919666cc2a5caa8f8100a95b2}{
+void {\bfseries getOnSourcePeds} (\hyperlink{classRunInfo}{RunInfo} \&ri, std::vector$<$ \hyperlink{structPedestal}{Pedestal} $>$ \&ped, int telescope\_\-id=0)}
+\label{classPedestalFinder_af3f4a0c919666cc2a5caa8f8100a95b2}
+
+\item 
+\hypertarget{classPedestalFinder_afd22e9acffa21d8be179d53938c93440}{
+void {\bfseries getOffSourcePeds} (\hyperlink{classRunInfo}{RunInfo} \&ri, std::vector$<$ \hyperlink{structPedestal}{Pedestal} $>$ \&ped, int telescope\_\-id=0)}
+\label{classPedestalFinder_afd22e9acffa21d8be179d53938c93440}
+
+\item 
+void \hyperlink{classPedestalFinder_a2f74e3e8ba1b0531f69949adb46d0657}{getPeds} (\hyperlink{classRunInfo}{RunInfo} \&ri, const std::string \&id, std::vector$<$ \hyperlink{structPedestal}{Pedestal} $>$ \&, int telescope\_\-id=0)
+\item 
+void \hyperlink{classPedestalFinder_add73283676010b81c0730dc22b38437e}{setTubeOffThresholds} (double lower, double upper)
+\item 
+\hypertarget{classPedestalFinder_a3d77ffa8a2364b28ea29f769620490a6}{
+void {\bfseries setBadPedThresh} (double value)}
+\label{classPedestalFinder_a3d77ffa8a2364b28ea29f769620490a6}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Class to generate pedestal values for a series of runs. 
+
+Definition at line 29 of file PedestalFinder.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classPedestalFinder_a2f74e3e8ba1b0531f69949adb46d0657}{
+\index{PedestalFinder@{PedestalFinder}!getPeds@{getPeds}}
+\index{getPeds@{getPeds}!PedestalFinder@{PedestalFinder}}
+\paragraph[{getPeds}]{\setlength{\rightskip}{0pt plus 5cm}void PedestalFinder::getPeds (
+\begin{DoxyParamCaption}
+\item[{{\bf RunInfo} \&}]{ri, }
+\item[{const std::string \&}]{id, }
+\item[{std::vector$<$ {\bf Pedestal} $>$ \&}]{, }
+\item[{int}]{telescope\_\-id = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}
+\label{classPedestalFinder_a2f74e3e8ba1b0531f69949adb46d0657}
+
+
+Returns the pedestal values as an array of \hyperlink{structPedestal}{Pedestal} structs. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000028}{Todo}]: Simulations only contain one pedestal record, so their dispersions are always 0. Due to this, the \hyperlink{classImageCleaner}{ImageCleaner} accepts too many pixels, since it uses the picthresh$\ast$peddisp as the threshold! Need to fix somehow...\end{Desc}
+
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000029}{Todo}]: implement lockfiles to prevent more than one process from writing/reading to the database (necessary for the MPI-\/enabled or a multi-\/threaded version) \end{Desc}
+
+
+Definition at line 67 of file PedestalFinder.cpp.
+
+
+
+References RunInfo::cachedir, RawDataReaderFactory::getReader(), RawDataReaderFactory::instance(), RunInfo::max\_\-ped\_\-events, HeaderRecord::nadc, HeaderRecord::num\_\-telescopes, PlotMaker::plotAxes(), ProgressBar::print(), ProgressBar::printClear(), Logger::printf(), and HeaderRecord::windowsize.
+
+
+
+Referenced by GainFinder::getGains().
+
+\hypertarget{classPedestalFinder_add73283676010b81c0730dc22b38437e}{
+\index{PedestalFinder@{PedestalFinder}!setTubeOffThresholds@{setTubeOffThresholds}}
+\index{setTubeOffThresholds@{setTubeOffThresholds}!PedestalFinder@{PedestalFinder}}
+\paragraph[{setTubeOffThresholds}]{\setlength{\rightskip}{0pt plus 5cm}void PedestalFinder::setTubeOffThresholds (
+\begin{DoxyParamCaption}
+\item[{double}]{lower, }
+\item[{double}]{upper}
+\end{DoxyParamCaption}
+)}}
+\label{classPedestalFinder_add73283676010b81c0730dc22b38437e}
+
+
+Set the thresholds to detect turned off tubes or stars. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower} & threshold to detect turned off tubes (default is 0.6) \\
+\hline
+{\em upper} & threshold to detect stars (default is 1.5) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 46 of file PedestalFinder.cpp.
+
+
+
+Referenced by GainFinder::getGains().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+PedestalFinder.h\item 
+PedestalFinder.cpp\end{DoxyCompactItemize}

@@ -1,0 +1,84 @@
+\hypertarget{classRawDataReader}{
+\subsection{RawDataReader Class Reference}
+\label{classRawDataReader}\index{RawDataReader@{RawDataReader}}
+}
+
+
+Reads raw telescope data and produces coresponding records...  
+
+
+
+
+{\ttfamily \#include $<$DataReader.h$>$}
+
+Inheritance diagram for RawDataReader:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classRawDataReader}
+\end{center}
+\end{figure}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries RunType} \{ {\bfseries OTHER}, 
+{\bfseries HDF4}, 
+{\bfseries SIM}, 
+{\bfseries VTEXT}
+ \}
+\item 
+enum {\bfseries EventTypes} \{ {\bfseries EVENT}, 
+{\bfseries PEDESTAL}, 
+{\bfseries UNKNOWN}
+ \}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classRawDataReader_a4cf4dcf435e86abd1792be937084d18c}{
+{\bfseries RawDataReader} (const std::string \&filename)}
+\label{classRawDataReader_a4cf4dcf435e86abd1792be937084d18c}
+
+\item 
+\hypertarget{classRawDataReader_aac3ec4c174cb05a97849a1dac8f97571}{
+virtual void {\bfseries getHeaderRecord} (\hyperlink{structRawHeaderRecord}{RawHeaderRecord} \&header)=0}
+\label{classRawDataReader_aac3ec4c174cb05a97849a1dac8f97571}
+
+\item 
+\hypertarget{classRawDataReader_a5d9485d27fba9078f1f4634e1d2349fb}{
+virtual void {\bfseries getNextEventRecord} (\hyperlink{structRawEventRecord}{RawEventRecord} \&event)=0}
+\label{classRawDataReader_a5d9485d27fba9078f1f4634e1d2349fb}
+
+\item 
+\hypertarget{classRawDataReader_a25df0c9abfdfde177c91b0773b4a53c5}{
+virtual int {\bfseries size} ()=0}
+\label{classRawDataReader_a25df0c9abfdfde177c91b0773b4a53c5}
+
+\item 
+\hypertarget{classRawDataReader_ae18f632cbec6ad6267b94da724939700}{
+virtual std::string {\bfseries getTypeString} ()=0}
+\label{classRawDataReader_ae18f632cbec6ad6267b94da724939700}
+
+\item 
+\hypertarget{classRawDataReader_a46d9e42a28ea4cebd6172a87a4e36099}{
+virtual int {\bfseries getType} ()=0}
+\label{classRawDataReader_a46d9e42a28ea4cebd6172a87a4e36099}
+
+\item 
+\hypertarget{classRawDataReader_a203fd47e0b6f43801ccd5de962f24c71}{
+virtual bool {\bfseries isDone} ()=0}
+\label{classRawDataReader_a203fd47e0b6f43801ccd5de962f24c71}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Reads raw telescope data and produces coresponding records... 
+
+Definition at line 43 of file DataReader.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+DataReader.h\item 
+DataReader.cpp\end{DoxyCompactItemize}

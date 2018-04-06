@@ -1,0 +1,11 @@
+WUPARAM-ARRAY-DEFINITION 1.0
+
+# VERITAS 4-telescope array definition
+
+#==========================================================
+# X	  Y	Z	Diameter	CAMERA
+#==========================================================
+0.0	0.0	0.0	12.0		veritas_499.camera
+0.0	80.0	0.0	12.0 		veritas_499.camera
+69.28	-40.0	0.0	12.0 		veritas_499.camera
+-69.28	-40.0	0.0	12.0 		veritas_499.camera

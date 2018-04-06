@@ -1,0 +1,54 @@
+.TH "DefaultImageCleaner" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DefaultImageCleaner \- 
+.PP
+The default cleaner uses a simple 2 threshold process.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ImageCleaner.h>\fP
+.PP
+Inherits \fBImageCleaner\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDefaultImageCleaner\fP (\fBCamera\fP &camera, vector< \fBPedestal\fP > &peds, double picture, double boundary)"
+.br
+.ti -1c
+.RI "std::vector< int > & \fBgetCleanPixels\fP (const Array_t &image)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The default cleaner uses a simple 2 threshold process. 
+.PP
+Definition at line 33 of file ImageCleaner.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "DefaultImageCleaner::DefaultImageCleaner (\fBCamera\fP &camera, vector< \fBPedestal\fP > &peds, doublepicture, doubleboundary)"
+.PP
+The default image cleaner uses picture and boundary theshold values (expressed in standard deviations from the pedestal) to determine the accepted pixels. All tubes above the picture threshold are accepted. Tubes above the boundary threshold with at least one neighboring 'picture' tube are also accepted.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcamera\fP reference to the camera object to use for pixel positions and neighborlist. 
+.br
+\fIpeds\fP reference to the \fBPedestal\fP array for the current run. 
+.br
+\fIpicture\fP the picture threshold in std deviations. 
+.br
+\fIboundary\fP the boundary threhold in std deviations. 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file ImageCleaner.cpp.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

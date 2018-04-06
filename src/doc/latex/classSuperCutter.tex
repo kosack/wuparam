@@ -1,0 +1,171 @@
+\hypertarget{classSuperCutter}{
+\subsection{SuperCutter Class Reference}
+\label{classSuperCutter}\index{SuperCutter@{SuperCutter}}
+}
+
+
+Applies SuperCuts to a given \hyperlink{structHillasParameterization}{HillasParameterization}.  
+
+
+
+
+{\ttfamily \#include $<$SuperCutter.h$>$}
+
+Inheritance diagram for SuperCutter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSuperCutter}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSuperCutter_afef1e5673173418db910fd8b74a0c117}{
+void {\bfseries setCuts} (\hyperlink{structCutInfo}{CutInfo} \&cuts)}
+\label{classSuperCutter_afef1e5673173418db910fd8b74a0c117}
+
+\item 
+virtual void \hyperlink{classSuperCutter_aa9affeb3c4e8b66860f26bd96954b4e1}{applyCorrections} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)
+\item 
+bool \hyperlink{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}{pass} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param, int cutmask)
+\item 
+\hypertarget{classSuperCutter_a2946c8f20d16e08c4f9a8c63b7c237b6}{
+virtual bool {\bfseries passSize} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_a2946c8f20d16e08c4f9a8c63b7c237b6}
+
+\item 
+\hypertarget{classSuperCutter_a0ec9ec3f8df7638aec89c59bf4af458f}{
+virtual bool {\bfseries passMax} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_a0ec9ec3f8df7638aec89c59bf4af458f}
+
+\item 
+\hypertarget{classSuperCutter_ae140b08bee33e70c4df40ff1f48d907e}{
+virtual bool {\bfseries passFrac} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_ae140b08bee33e70c4df40ff1f48d907e}
+
+\item 
+\hypertarget{classSuperCutter_ade36950d2010a1b1aa78920daa7b4eba}{
+virtual bool {\bfseries passLensize} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_ade36950d2010a1b1aa78920daa7b4eba}
+
+\item 
+\hypertarget{classSuperCutter_aa039b048229ae254c2466b6fd0e0a1af}{
+virtual bool {\bfseries passLength} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_aa039b048229ae254c2466b6fd0e0a1af}
+
+\item 
+\hypertarget{classSuperCutter_a2e9282736f529a09555f968edf1f6e60}{
+virtual bool {\bfseries passWidth} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_a2e9282736f529a09555f968edf1f6e60}
+
+\item 
+\hypertarget{classSuperCutter_aab8883f5d3a6933493f423e16c58a92f}{
+virtual bool {\bfseries passDistance} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_aab8883f5d3a6933493f423e16c58a92f}
+
+\item 
+\hypertarget{classSuperCutter_ad44108cabb56ec9f669d228f925bf13e}{
+virtual bool {\bfseries passAlpha} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_ad44108cabb56ec9f669d228f925bf13e}
+
+\item 
+\hypertarget{classSuperCutter_ae32c936000ba52690c06cb47a2bed21a}{
+virtual bool {\bfseries passAsymm} (\hyperlink{structHillasParameterization}{HillasParameterization} \&param)}
+\label{classSuperCutter_ae32c936000ba52690c06cb47a2bed21a}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSuperCutter_acd3acee447bab464b3a28fca78f08bab}{
+\hyperlink{structCutInfo}{CutInfo} {\bfseries \_\-cuts}}
+\label{classSuperCutter_acd3acee447bab464b3a28fca78f08bab}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Applies SuperCuts to a given \hyperlink{structHillasParameterization}{HillasParameterization}. 
+
+To use, first call setCuts() to supply the cuts to use, then you can check if an event passed by calling the \hyperlink{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}{pass()} function with appropriate mask (ALL\_\-CUTS will apply all cuts, or you can choose a list of cuts such as SIZE$|$FRAC$|$MAX$|$DISTANCE. 
+
+Definition at line 50 of file SuperCutter.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classSuperCutter_aa9affeb3c4e8b66860f26bd96954b4e1}{
+\index{SuperCutter@{SuperCutter}!applyCorrections@{applyCorrections}}
+\index{applyCorrections@{applyCorrections}!SuperCutter@{SuperCutter}}
+\paragraph[{applyCorrections}]{\setlength{\rightskip}{0pt plus 5cm}void SuperCutter::applyCorrections (
+\begin{DoxyParamCaption}
+\item[{{\bf HillasParameterization} \&}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classSuperCutter_aa9affeb3c4e8b66860f26bd96954b4e1}
+
+
+Apply a filter to the parameters. 
+
+Should always be run before the actual cutting occurs. Modifies param. 
+
+Reimplemented in \hyperlink{classEZCutter_adfef095f257966676350821591df66ed}{EZCutter}, and \hyperlink{classZCutter_ad8fc95579fc4b47a518b66e6ea029f61}{ZCutter}.
+
+
+
+Definition at line 87 of file SuperCutter.cpp.
+
+
+
+References HillasParameterization::centroid, CutInfo::elongation, HillasParameterization::point\_\-of\_\-origin\_\-a, HillasParameterization::point\_\-of\_\-origin\_\-b, Coordinate\_\-t::x, and Coordinate\_\-t::y.
+
+
+
+Referenced by Cutter::cut().
+
+\hypertarget{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}{
+\index{SuperCutter@{SuperCutter}!pass@{pass}}
+\index{pass@{pass}!SuperCutter@{SuperCutter}}
+\paragraph[{pass}]{\setlength{\rightskip}{0pt plus 5cm}bool SuperCutter::pass (
+\begin{DoxyParamCaption}
+\item[{{\bf HillasParameterization} \&}]{param, }
+\item[{int}]{cutmask}
+\end{DoxyParamCaption}
+)}}
+\label{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}
+
+
+Checks the parameterization of an event to see if it passes cuts. 
+
+Subclasses of this can override the protected methods to re-\/implement different cut types. Also, the prePass() and postPass() functions can be re-\/implemented to allow for special manipulations. As a rule, no \hyperlink{classSuperCutter}{SuperCutter} shuold modify the passed in parameters (even though they are passed by reference, which is done for speed).
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & set of hillas parameters to check \\
+\hline
+{\em cutmask} & bitmask of Cuts::CutMask values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if param passwd all cuts specified in cutmast.
+\end{DoxyReturn}
+\begin{Desc}
+\item[\hyperlink{todo__todo000033}{Todo}]: right now, prePass occurs every time a cut is specified. That means it gets redone several times for each event! This shuold be done more efficiently without making it more confusing. \end{Desc}
+
+
+Definition at line 28 of file SuperCutter.cpp.
+
+
+
+References ImageParameterization::invalid.
+
+
+
+Referenced by Cutter::cut().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+SuperCutter.h\item 
+SuperCutter.cpp\end{DoxyCompactItemize}

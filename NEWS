@@ -1,0 +1,4 @@
+wuparam 1.6:
+
+	- RA/Dec contours are now plotted in a nicer way and are labeled!
+	- adds wuplot plotting program for re-generating nice 2d plots

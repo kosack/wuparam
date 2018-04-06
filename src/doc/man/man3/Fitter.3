@@ -1,0 +1,70 @@
+.TH "Fitter" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Fitter \- 
+.PP
+Class that performs actual chi-square grid search.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Fitter.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFitter\fP (\fBRunInfo\fP &ri)"
+.br
+.ti -1c
+.RI "void \fBminimize\fP (\fBEnergySpectrum\fP *energy_on, \fBEnergySpectrum\fP *energy_off, double &N0, double &Gamma0, double &e0, double Time, double n0Range, int n0Step, double gRange, int gStep, double onoffratio)"
+.br
+.ti -1c
+.RI "void \fBsave\fP ()"
+.br
+.ti -1c
+.RI "\fBFitter\fP (\fBRunInfo\fP &ri)"
+.br
+.ti -1c
+.RI "void \fBminimize\fP (\fBEnergySpectrum\fP *energy_on, \fBEnergySpectrum\fP *energy_off, double &N0, double &Gamma0, double &E0, double Time, double n0Range, int n0Step, double gRange, int gStep, double e0Range, double e0Step, double onoffratio)"
+.br
+.ti -1c
+.RI "void \fBsave\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class that performs actual chi-square grid search. 
+.PP
+Definition at line 172 of file Fitter.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Fitter::minimize (\fBEnergySpectrum\fP *energy_on, \fBEnergySpectrum\fP *energy_off, double &N0, double &Gamma0, double &e0, doubleTime, doublen0Range, intn0Step, doublegRange, intgStep, doubleonoffratio)"
+.PP
+Start Actual Fitting Process Save Chi-Square Table in File 'Totals/chi.text'. \fBTodo\fP
+.RS 4
+: put 'alpha' or tracking ratio into the onOff and onOffVariance: onoff = on-a*off, variance=a*(on+off) or whatever
+.RE
+.PP
+
+.PP
+Definition at line 333 of file Fitter.cpp.
+.PP
+References Histogram::get(), ProgressBar::print(), and ProgressBar::printClear().
+.SS "void Fitter::minimize (\fBEnergySpectrum\fP *energy_on, \fBEnergySpectrum\fP *energy_off, double &N0, double &Gamma0, double &E0, doubleTime, doublen0Range, intn0Step, doublegRange, intgStep, doublee0Range, doublee0Step, doubleonoffratio)"
+.PP
+Start Actual Fitting Process Save Chi-Square Table in File 'Totals/chi.text'. \fBTodo\fP
+.RS 4
+: put 'alpha' or tracking ratio into the onOff and onOffVariance: onoff = on-a*off, variance=a*(on+off) or whatever
+.RE
+.PP
+
+.PP
+Definition at line 334 of file FitterNew.cpp.
+.PP
+References Histogram::get(), ProgressBar::print(), and ProgressBar::printClear().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

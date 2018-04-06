@@ -1,0 +1,351 @@
+\hypertarget{classPlotMaker}{
+\subsection{PlotMaker Class Reference}
+\label{classPlotMaker}\index{PlotMaker@{PlotMaker}}
+}
+
+
+Plots stuff to any PlotUtils graphics context.  
+
+
+
+
+{\ttfamily \#include $<$PlotMaker.h$>$}
+
+\subsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct {\bfseries PlotState}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries ColorMap} \{ \par
+{\bfseries COLORMAP\_\-BLUES}, 
+{\bfseries COLORMAP\_\-REDBLUE}, 
+{\bfseries COLORMAP\_\-YELLOWGREEN}, 
+{\bfseries COLORMAP\_\-INVERSEGREY}, 
+\par
+{\bfseries COLORMAP\_\-GREY}, 
+{\bfseries COLORMAP\_\-RAINBOW}, 
+{\bfseries COLORMAP\_\-HOT}, 
+{\bfseries COLORMAP\_\-PRINTABLE}
+ \}
+\item 
+enum {\bfseries ContourLineStyle} \{ {\bfseries LINE\_\-SOLID}, 
+{\bfseries LINE\_\-DOTTED}, 
+{\bfseries LINE\_\-DASHED}
+ \}
+\item 
+enum {\bfseries CameraPlotType} \{ {\bfseries CAMERA\_\-IMAGE}, 
+{\bfseries CAMERA\_\-PEDS}, 
+{\bfseries CAMERA\_\-PEDDISPS}, 
+{\bfseries CAMERA\_\-TUBENUMS}
+ \}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classPlotMaker_ad29eec605eb22329c7b637d565db0834}{
+{\bfseries PlotMaker} (std::string type, std::string filename=\char`\"{}\char`\"{}, double minx=-\/3.1, double miny=-\/3.1, double maxx=3.1, double maxy=3.1)}
+\label{classPlotMaker_ad29eec605eb22329c7b637d565db0834}
+
+\item 
+\hypertarget{classPlotMaker_a27ad38f03afc472ae200ca9cff6bf9c1}{
+void {\bfseries setAxisBox} (double minx, double miny, double maxx, double maxy)}
+\label{classPlotMaker_a27ad38f03afc472ae200ca9cff6bf9c1}
+
+\item 
+\hypertarget{classPlotMaker_ab13a20b6a1bd55ecccf3458cb7c91e9e}{
+void {\bfseries setAxisBox} (\hyperlink{classImage2D}{Image2D} \&im2d)}
+\label{classPlotMaker_ab13a20b6a1bd55ecccf3458cb7c91e9e}
+
+\item 
+\hypertarget{classPlotMaker_ab307012c642e8abfedaa4929999f328d}{
+void {\bfseries setAxisBox} (\hyperlink{classCamera}{Camera} \&cam)}
+\label{classPlotMaker_ab307012c642e8abfedaa4929999f328d}
+
+\item 
+\hypertarget{classPlotMaker_a3a0bd3b9fdd004d19dfeabfd0e0ec4b9}{
+void {\bfseries setSpace} (double minx, double miny, double maxx, double maxy)}
+\label{classPlotMaker_a3a0bd3b9fdd004d19dfeabfd0e0ec4b9}
+
+\item 
+\hypertarget{classPlotMaker_a622cc76bf37733d7b0228b60122afa26}{
+void {\bfseries flush} ()}
+\label{classPlotMaker_a622cc76bf37733d7b0228b60122afa26}
+
+\item 
+\hypertarget{classPlotMaker_a13d5f0523ba4cd8190993643c6e4c6a8}{
+void {\bfseries newPage} ()}
+\label{classPlotMaker_a13d5f0523ba4cd8190993643c6e4c6a8}
+
+\item 
+\hypertarget{classPlotMaker_a7ae7939ed8c5c12f276b431cc861095f}{
+void {\bfseries pushState} ()}
+\label{classPlotMaker_a7ae7939ed8c5c12f276b431cc861095f}
+
+\item 
+\hypertarget{classPlotMaker_a9bec7c4d5b088968228d3f9f1643ed9b}{
+void {\bfseries popState} ()}
+\label{classPlotMaker_a9bec7c4d5b088968228d3f9f1643ed9b}
+
+\item 
+\hypertarget{classPlotMaker_ae7c404f448b8cc74511d551b92458228}{
+void {\bfseries rotate} (double theta)}
+\label{classPlotMaker_ae7c404f448b8cc74511d551b92458228}
+
+\item 
+void \hyperlink{classPlotMaker_a7a63b2f17f113ee6b880aebf1cba1d91}{plotAxes} ()
+\item 
+\hypertarget{classPlotMaker_a3a11fc277ef5c7d4e930e59c7143b6e7}{
+void {\bfseries plotTitle} (std::string title)}
+\label{classPlotMaker_a3a11fc277ef5c7d4e930e59c7143b6e7}
+
+\item 
+\hypertarget{classPlotMaker_af0b3512703d49e299160fd7b51b279dd}{
+void {\bfseries plotSubtitle} (std::string title)}
+\label{classPlotMaker_af0b3512703d49e299160fd7b51b279dd}
+
+\item 
+\hypertarget{classPlotMaker_a6d5d4f5c931e29e6a86e965db5295a96}{
+void {\bfseries plotXTicAt} (double x)}
+\label{classPlotMaker_a6d5d4f5c931e29e6a86e965db5295a96}
+
+\item 
+\hypertarget{classPlotMaker_a447e61e617e561e98a5ede300966f6d6}{
+void {\bfseries plotYTicAt} (double y)}
+\label{classPlotMaker_a447e61e617e561e98a5ede300966f6d6}
+
+\item 
+\hypertarget{classPlotMaker_ac34e90082c9d8265b635ca22a3ff86b4}{
+void {\bfseries plotXMinorTicAt} (double x)}
+\label{classPlotMaker_ac34e90082c9d8265b635ca22a3ff86b4}
+
+\item 
+\hypertarget{classPlotMaker_a59d9a8f9cc9fe2f147b4ba2afa1d5a30}{
+void {\bfseries plotYMinorTicAt} (double y)}
+\label{classPlotMaker_a59d9a8f9cc9fe2f147b4ba2afa1d5a30}
+
+\item 
+\hypertarget{classPlotMaker_adb2a812fbb301328eb209d1896f7b8fb}{
+void \hyperlink{classPlotMaker_adb2a812fbb301328eb209d1896f7b8fb}{contourPlot} (\hyperlink{classImage2D}{Image2D} \&im2d, double zmin, double zmax, double dz)}
+\label{classPlotMaker_adb2a812fbb301328eb209d1896f7b8fb}
+
+\item 
+\hypertarget{classPlotMaker_ab0317d7d940dff6bee43356cbfebc627}{
+void \hyperlink{classPlotMaker_ab0317d7d940dff6bee43356cbfebc627}{plotRADecGrid} (\hyperlink{classImage2D}{Image2D} \&ragrid, \hyperlink{classImage2D}{Image2D} \&decgrid)}
+\label{classPlotMaker_ab0317d7d940dff6bee43356cbfebc627}
+
+\item 
+\hypertarget{classPlotMaker_a5cd0467a97597f1a9ac7ff56c91e190a}{
+void {\bfseries plot} (\hyperlink{classImage2D}{Image2D} \&im2d)}
+\label{classPlotMaker_a5cd0467a97597f1a9ac7ff56c91e190a}
+
+\item 
+\hypertarget{classPlotMaker_a597669090c5147a8be97852df7bb3ea0}{
+void {\bfseries plot} (\hyperlink{classCamera}{Camera} \&cam, const Array\_\-t \&image, const vector$<$ \hyperlink{structPedestal}{Pedestal} $>$ \&peds, vector$<$ int $>$ \&cleanpixels, CameraPlotType plottype=CAMERA\_\-IMAGE)}
+\label{classPlotMaker_a597669090c5147a8be97852df7bb3ea0}
+
+\item 
+\hypertarget{classPlotMaker_adb38956252f687b85b2bda073004f2b9}{
+void {\bfseries plot} (\hyperlink{structHillasParameterization}{HillasParameterization} \&p)}
+\label{classPlotMaker_adb38956252f687b85b2bda073004f2b9}
+
+\item 
+\hypertarget{classPlotMaker_a58c7f9d496a48d042fe467cf4100275f}{
+void {\bfseries plot} (\hyperlink{structMuonParameterization}{MuonParameterization} \&p)}
+\label{classPlotMaker_a58c7f9d496a48d042fe467cf4100275f}
+
+\item 
+\hypertarget{classPlotMaker_a9c0c99af60541db38461620a9e2c185a}{
+void {\bfseries plot} (\hyperlink{classStar}{Star} \&s, int symbol=16)}
+\label{classPlotMaker_a9c0c99af60541db38461620a9e2c185a}
+
+\item 
+\hypertarget{classPlotMaker_acb86e21bc5d6326aac2d32d074c6dc8d}{
+void \hyperlink{classPlotMaker_acb86e21bc5d6326aac2d32d074c6dc8d}{plot} (vector$<$ double $>$ \&xpoints, vector$<$ double $>$ \&ypoints)}
+\label{classPlotMaker_acb86e21bc5d6326aac2d32d074c6dc8d}
+
+\item 
+\hypertarget{classPlotMaker_a0439c4f4f8961a93286f6daa6a9d29f3}{
+void \hyperlink{classPlotMaker_a0439c4f4f8961a93286f6daa6a9d29f3}{plot} (string text, double x, double y)}
+\label{classPlotMaker_a0439c4f4f8961a93286f6daa6a9d29f3}
+
+\item 
+\hypertarget{classPlotMaker_a43c25aca0a946c325994df24e38700ae}{
+void \hyperlink{classPlotMaker_a43c25aca0a946c325994df24e38700ae}{plot} (\hyperlink{classTelescopeArray}{TelescopeArray} \&array)}
+\label{classPlotMaker_a43c25aca0a946c325994df24e38700ae}
+
+\item 
+\hypertarget{classPlotMaker_a874f1d3b611200fa9b4bccb66262587e}{
+void \hyperlink{classPlotMaker_a874f1d3b611200fa9b4bccb66262587e}{plotEllipse} (double x, double y, double r1, double r2, double theta=0)}
+\label{classPlotMaker_a874f1d3b611200fa9b4bccb66262587e}
+
+\item 
+\hypertarget{classPlotMaker_a66a4d4a2429a768aa46f6e764b660941}{
+void {\bfseries plotMarker} (double x, double y)}
+\label{classPlotMaker_a66a4d4a2429a768aa46f6e764b660941}
+
+\item 
+\hypertarget{classPlotMaker_a979ab6c35a3b71ee86f207e2b6a2e1be}{
+void {\bfseries setColorMap} (ColorMap c)}
+\label{classPlotMaker_a979ab6c35a3b71ee86f207e2b6a2e1be}
+
+\item 
+\hypertarget{classPlotMaker_ac20d8c88996a117e0846346d7ee9fcd3}{
+void {\bfseries setColorMap} (string name)}
+\label{classPlotMaker_ac20d8c88996a117e0846346d7ee9fcd3}
+
+\item 
+void \hyperlink{classPlotMaker_a26f4f8bfb6ed2483617ac8655ff0d05d}{getMappedColor} (double value, int \&red, int \&green, int \&blue)
+\item 
+\hypertarget{classPlotMaker_a2bd62a359a573a1104ffc8a3f6fceac0}{
+void {\bfseries setPixelScale} (double pixscale)}
+\label{classPlotMaker_a2bd62a359a573a1104ffc8a3f6fceac0}
+
+\item 
+\hypertarget{classPlotMaker_a841b6e3d311ad60bc355dc7802c03735}{
+void {\bfseries setScaleFactor} (double factor)}
+\label{classPlotMaker_a841b6e3d311ad60bc355dc7802c03735}
+
+\item 
+\hypertarget{classPlotMaker_a648464a1b252f30ea8e098bc930c2c69}{
+void {\bfseries setTicLevel} (int l)}
+\label{classPlotMaker_a648464a1b252f30ea8e098bc930c2c69}
+
+\item 
+\hypertarget{classPlotMaker_a6e1ab4682177f627d752c38f7fb4b4a5}{
+void {\bfseries setColorScale} (double lower, double upper)}
+\label{classPlotMaker_a6e1ab4682177f627d752c38f7fb4b4a5}
+
+\item 
+\hypertarget{classPlotMaker_a92d0f21f678e8d97bccf8bfbc3b545a1}{
+void {\bfseries enableAutoScale} (bool val=true)}
+\label{classPlotMaker_a92d0f21f678e8d97bccf8bfbc3b545a1}
+
+\item 
+\hypertarget{classPlotMaker_a94b61535c2bd1bfebabfa9c4d039c0b5}{
+void {\bfseries setContourColorName} (string name)}
+\label{classPlotMaker_a94b61535c2bd1bfebabfa9c4d039c0b5}
+
+\item 
+\hypertarget{classPlotMaker_abf711f48921212a7a8ef89eae1f93b9a}{
+void {\bfseries setTicMarkColorName} (string name)}
+\label{classPlotMaker_abf711f48921212a7a8ef89eae1f93b9a}
+
+\item 
+\hypertarget{classPlotMaker_a8d54078c82180263e11a3e01b8c107b5}{
+void {\bfseries setContourLineStyle} (ContourLineStyle i)}
+\label{classPlotMaker_a8d54078c82180263e11a3e01b8c107b5}
+
+\item 
+\hypertarget{classPlotMaker_af74e3b47a48ae889507344fb3bacae99}{
+void {\bfseries setContourLineStyle} (string style)}
+\label{classPlotMaker_af74e3b47a48ae889507344fb3bacae99}
+
+\item 
+\hypertarget{classPlotMaker_ac92f06122e096dcdfca991043ba86f88}{
+void {\bfseries setContourLineWidth} (double width)}
+\label{classPlotMaker_ac92f06122e096dcdfca991043ba86f88}
+
+\item 
+\hypertarget{classPlotMaker_a22b1936859ca0dc6d16f5fbdab85ae7e}{
+void {\bfseries setLabelColorName} (string name)}
+\label{classPlotMaker_a22b1936859ca0dc6d16f5fbdab85ae7e}
+
+\item 
+\hypertarget{classPlotMaker_af5d99fde6879bdf5895c96e371d08b9a}{
+void {\bfseries setLabelAngle} (double theta)}
+\label{classPlotMaker_af5d99fde6879bdf5895c96e371d08b9a}
+
+\item 
+\hypertarget{classPlotMaker_aee9b0f531899476e0cee2f0904dc1d24}{
+void {\bfseries setLabelSize} (double size)}
+\label{classPlotMaker_aee9b0f531899476e0cee2f0904dc1d24}
+
+\item 
+\hypertarget{classPlotMaker_a826826775cce241941fca3288c3a9a1b}{
+void {\bfseries setMarkerType} (int type)}
+\label{classPlotMaker_a826826775cce241941fca3288c3a9a1b}
+
+\item 
+\hypertarget{classPlotMaker_aefd113e385e3004f653b80043632ca9a}{
+void {\bfseries setMarkerSize} (double size)}
+\label{classPlotMaker_aefd113e385e3004f653b80043632ca9a}
+
+\item 
+\hypertarget{classPlotMaker_a75a64d353ee5b816c9381411fd263c0c}{
+void {\bfseries setMarkerColorName} (string name)}
+\label{classPlotMaker_a75a64d353ee5b816c9381411fd263c0c}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Plots stuff to any PlotUtils graphics context. 
+
+Definition at line 19 of file PlotMaker.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classPlotMaker_a26f4f8bfb6ed2483617ac8655ff0d05d}{
+\index{PlotMaker@{PlotMaker}!getMappedColor@{getMappedColor}}
+\index{getMappedColor@{getMappedColor}!PlotMaker@{PlotMaker}}
+\paragraph[{getMappedColor}]{\setlength{\rightskip}{0pt plus 5cm}void PlotMaker::getMappedColor (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{int \&}]{red, }
+\item[{int \&}]{green, }
+\item[{int \&}]{blue}
+\end{DoxyParamCaption}
+)}}
+\label{classPlotMaker_a26f4f8bfb6ed2483617ac8655ff0d05d}
+
+
+Returns the rgb color for the specified grey value (in range 0..1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & grey value which should be mapped to a color (0..1) \\
+\hline
+{\em red} & returned color value (0..65535) \\
+\hline
+{\em green} & returned color value (0..65535) \\
+\hline
+{\em blue} & returned color value (0..65535) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 891 of file PlotMaker.cpp.
+
+\hypertarget{classPlotMaker_a7a63b2f17f113ee6b880aebf1cba1d91}{
+\index{PlotMaker@{PlotMaker}!plotAxes@{plotAxes}}
+\index{plotAxes@{plotAxes}!PlotMaker@{PlotMaker}}
+\paragraph[{plotAxes}]{\setlength{\rightskip}{0pt plus 5cm}void PlotMaker::plotAxes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classPlotMaker_a7a63b2f17f113ee6b880aebf1cba1d91}
+
+
+Plot a set of axes around the AxisBox region. 
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000030}{Todo}]: don't plot minor tics where a major tic is \end{Desc}
+
+
+Definition at line 98 of file PlotMaker.cpp.
+
+
+
+Referenced by WUArray::analyzeRun(), Cutter::cut(), and PedestalFinder::getPeds().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+PlotMaker.h\item 
+PlotMaker.cpp\end{DoxyCompactItemize}

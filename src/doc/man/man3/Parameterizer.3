@@ -1,0 +1,61 @@
+.TH "Parameterizer" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Parameterizer \- 
+.PP
+Contains all functions pretaining to the parameterization of raw data.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Parameterizer.h>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTelescopeData\fP"
+.br
+.RI "\fIAll per-telescope information for the array. \fP"
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprocess\fP (\fBRunInfo\fP &)"
+.br
+.ti -1c
+.RI "void \fBsetLatLonInRadians\fP (double lat, double lon)"
+.br
+.ti -1c
+.RI "void \fBenableDisplay\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableVerbose\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableInteractive\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableZenithCorrection\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableCleanup\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableOverwrite\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBprintSummary\fP (std::ostream &stream, \fBRunInfo\fP &ri, std::string &id, \fBRawHeaderRecord\fP &header, \fBParamDataWriter\fP *writer, \fBRawDataReader\fP *data, \fBTelescopeArray\fP &array)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains all functions pretaining to the parameterization of raw data. 
+.PP
+Definition at line 29 of file Parameterizer.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

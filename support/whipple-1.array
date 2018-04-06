@@ -1,0 +1,9 @@
+WUPARAM-ARRAY-DEFINITION 1.0
+
+# Whipple Telescope definition
+
+#==========================================================
+# X	  Y	Z	Diameter	CAMERA
+#==========================================================
+0.0	0.0	0.0	10.0		AUTO
+

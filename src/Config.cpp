@@ -1,0 +1,1248 @@
+//
+// Config.cpp  - reads analysis configuration from file
+//
+// Karl Kosack <kosack@hbar.wustl.edu>
+
+
+#include <fstream>
+#include <string>
+#include <queue>
+#include <sstream>
+#include <algorithm>
+#include <cctype>
+#include <unistd.h>
+#include <cstring>
+#include <glob.h>
+#include <iomanip>
+#include <map>
+
+#include "Config.h"
+#include "Exceptions.h"
+#include "Types.h"
+
+using namespace std;
+
+Config::Config(char *filename) {
+    
+    // init variables with defaults:
+
+    _curinfo.ntubes = 0;
+    _curinfo.onid = "";
+    _curinfo.offid = "";
+    _curinfo.n2id = "";
+    _curinfo.sourcename = "";
+    _curinfo.arrayconfig = "whipple-1";
+    _curinfo.ra = 0.0;
+    _curinfo.dec= 0.0;
+    _curinfo.zenithoverride=0.0;
+    _curinfo.datadir="./";
+    _curinfo.cachedir="./";
+    _curinfo.picthresh=4.25;
+    _curinfo.bndthresh=2.25;
+    _curinfo.padding = true;
+    _curinfo.derotation = true;
+    _curinfo.outtype = Config::TEXT;
+    _curinfo.padlevel = 5.0;
+    _curinfo.utbase = 50000.0; 
+    _curinfo.muoncalibrate=false;
+    _curinfo.muon_threshold = 0.7;
+    _curinfo.mcdatabase = "/data/Whipple/Simulations/mall.dat";
+    _curinfo.emin_tev = 0.01;
+    _curinfo.emax_tev = 128.0;
+    _curinfo.num_e_bins = 27;
+    _curinfo.cuttype = Config::SUPERCUTTER;
+    _curinfo.energyestimator = "SZA";
+
+
+    _curinfo.camera_offset_analysis = false;
+    _curinfo.camera_offset.x=0.0;
+    _curinfo.camera_offset.y=0.0;
+
+    _curinfo.max_ped_events = 1e6;
+
+    _curinfo.image_filter = false;
+    _curinfo.filter_amount = 0.3;
+    _curinfo.filter_subdivide = 3;
+    _curinfo.filter_iter = 2;
+    _curinfo.filter_smoothness = 0.0;
+    _curinfo.filter_percent = 0.25;
+    _curinfo.filter_threshold = 1.5;
+
+    for (int i=0; i<1024; i++)
+	_curinfo.tubemask[i] = 0;
+
+    cout << "Reading configuration..." << endl;
+    parse( filename );
+    cout << "Done reading configuration." << endl;
+
+
+}
+
+
+void
+Config::openFailed(char *filename) {
+
+    string answer;
+    cout <<endl;
+    cout << "The configuration file you specified ('"<< filename 
+	 <<"') doesn't exist." << endl;
+    cout << "Would you like to generate a sample configuration "
+	 << "file (y/n)?"<<endl;
+    cin >> answer;
+    
+    if (answer == "y" || answer == "Y") {
+	
+	writeSample(filename);
+	cout << "*** A sample configuration file has been written to '"
+	     << filename << "'. Please " << endl 
+	     << "*** edit it and try again." <<endl;
+	exit(1);
+	
+    }
+    
+    throw(CriticalAnalysisException("Config file didn't exist."));
+
+}
+
+
+Config::~Config() {
+
+
+}
+
+/**
+ * Returns a RunInfo object with all the information for the next run
+ * specified in the configuration 
+ */
+RunInfo 
+Config::getNextRun() { 
+    
+    RunInfo ri = ((RunInfo &) _runqueue.front());
+    
+    if (!_runqueue.empty()) {
+	_runqueue.pop_front();
+    }
+    else 
+	throw MildAnalysisException("No more runs in config file.");
+
+    return ri;
+}    
+
+
+/**
+ * Read the configuration file and get the run information
+ *
+ */
+void
+Config::parse( char *filename, int level ) {
+
+    char buffer[128];
+    int i;
+    int num=0;
+    bool errorflag = false;
+    string line;
+    std::string key,value;
+    ifstream conf;
+
+    // Bail out of recursion limit is met
+    
+    if (level > 100) {
+	throw CriticalAnalysisException("Level of 'Include' recursion is too deep!");
+    }
+
+    // open file
+
+    conf.open( filename, ios::in );
+
+    if (conf.fail()) {
+	conf.close();
+	conf.clear();
+	for (int k=0; k<level+1; k++) cout << "  ";
+	cout << "Looking for '" << filename << "' in $WUPARAMDIR "<<endl;
+	string supportfile = getSupportDir() +  filename;
+	conf.open( supportfile.c_str(), ios::in );
+	if (!conf) {
+	    openFailed( filename );
+	    throw(CriticalAnalysisException("Couldn't open config file: "
+					    +supportfile));
+	}
+    }
+
+    for (int k=0; k<level+1; k++) cout << "  ";
+    cout << "reading from '"<< filename <<"'"<<endl;
+
+    // read config file....
+
+    while (conf) {
+
+	conf.getline( buffer, 128 );
+	line = buffer;
+	
+	i = line.find("#");
+	line = line.substr(0,i);
+
+	num++;
+
+	if(line.length() > 0 ) {
+
+	    if ( (i=line.find('='))>0 ) {
+	    
+		key = line.substr(0,i);
+		value=line.substr(i+1,line.length());
+
+		// convert to lower case and strip off white space
+		transform(key.begin(),key.end(), key.begin(),
+			  (int(*)(int))tolower);
+		removeWhiteSpace( key );
+		removeWhiteSpace( value );
+
+		//-----------------------------------
+		// Handle each key/value pair...
+		//-----------------------------------
+
+		// source name override
+
+		if ( key == "overridesource" ) {
+
+		    _curinfo.sourcename = value;
+
+		}
+
+		// Set data directory:
+		else if ( key == "datadir" ) {
+		    
+		    _curinfo.datadir = value;
+		    if (_curinfo.datadir[_curinfo.datadir.size()-1] != '/')
+			_curinfo.datadir += "/";
+
+		}
+
+		// Set peds directory:
+		else if ( key == "cachedir" ) {
+		    
+		    _curinfo.cachedir = value;
+		    if (_curinfo.cachedir[_curinfo.cachedir.size()-1] != '/')
+			_curinfo.cachedir += "/";
+
+		}
+
+		// Set peds directory:
+		else if ( key == "arrayconfig" ) {    
+		    _curinfo.arrayconfig = value;
+		}
+		
+		// Parse cut values
+		else if (key.substr(0,3) == "cut") {
+		    
+		    int i = value.find(",",0);
+		    double min=0,max=0;
+
+		    if (i<=0) {
+			cerr << "** SYNTAX ERROR: (line "<<num<<") "
+			     << "Cuts should specify "
+			     << "lower,upper bounds (separated by comma)"
+			     << endl;
+			errorflag=true;
+			continue;
+		    }
+
+		    value[i] = ' ';
+		    istringstream ist(value);
+		    ist >> min >> max;
+
+		    if (key == "cutalpha") {
+			_curinfo.cuts.alpha.lower = min;
+			_curinfo.cuts.alpha.upper = max;
+		    }
+		    else if (key == "cutlength") {
+			_curinfo.cuts.length.lower = min;
+			_curinfo.cuts.length.upper = max;
+		    }
+		    else if (key == "cutwidth") {
+			_curinfo.cuts.width.lower = min;
+			_curinfo.cuts.width.upper = max;
+		    }
+		    else if (key == "cutdistance") {
+			_curinfo.cuts.distance.lower = min;
+			_curinfo.cuts.distance.upper = max;
+		    }
+		    else if (key == "cutsize") {
+			_curinfo.cuts.size.lower = min;
+			_curinfo.cuts.size.upper = max;
+		    }
+		    else if (key == "cutlensize") {
+			_curinfo.cuts.lensize.lower = min;
+			_curinfo.cuts.lensize.upper = max;
+		    }
+		    else if (key == "cutmax1") {
+			_curinfo.cuts.max1.lower = min;
+			_curinfo.cuts.max1.upper = max;
+		    }
+		    else if (key == "cutmax2") {
+			_curinfo.cuts.max2.lower = min;
+			_curinfo.cuts.max2.upper = max;
+		    }
+		    else if (key == "cutmax3") {
+			_curinfo.cuts.max3.lower = min;
+			_curinfo.cuts.max3.upper = max;
+		    }
+		    else if (key == "cutfrac3") {
+			_curinfo.cuts.frac3.lower = min;
+			_curinfo.cuts.frac3.upper = max;
+		    }
+		    else if (key == "cutasymmdist") {
+			_curinfo.cuts.asymmdist.lower = min;
+			_curinfo.cuts.asymmdist.upper = max;
+		    }
+		    else {
+			cerr << "** SYNTAX ERROR: (line "<<num<<") "
+			     << "Unknown cut '" << key << "'" << endl;
+			errorflag=true;
+			continue;			
+		    }
+
+		}
+		
+		// SpectralCuts parameters
+		else if (key == "spectralcutdeltalength") {
+		    _curinfo.cuts.dlength = atof(value.c_str());
+		}
+		else if (key == "spectralcutdeltawidth") {
+		    _curinfo.cuts.dwidth = atof(value.c_str());
+		}
+		
+
+		// On/Off Pair - parse on,off,n2
+
+		else if ( key == "pr" ) {
+
+		    istringstream ist(value);
+
+		    if( !((ist >> _curinfo.onid) && 
+			(ist >> _curinfo.offid) &&
+			(ist >> _curinfo.n2id) &&
+			  (ist >> _curinfo.utdate))) {
+
+			errorflag = 1;
+			cerr << "** SYNTAX ERROR: "
+			     << "(line "<<num<<") "
+			     << "should be tr=onid offid n2id utdate"<<endl;
+			continue;
+		    }
+
+		    _curinfo.type  = ONOFF;
+
+		    if (_curinfo.utdate.length() != 6 ){
+			cout <<"** WARNING: utdate '"<<_curinfo.utdate
+			     << "' looks suspect at line "
+			     <<num<< endl;
+		    } 
+		    
+
+		    // if alignment is enabled, look in alignment list
+		    // for the runid and set alignment accordingly
+
+		    if (_curinfo.cuts.alignment == true) {
+			map<string,Coordinate_t>::iterator coord;
+			
+			coord = _alignmap.find(_curinfo.onid);
+			
+			if (coord != _alignmap.end()){
+			    
+			    _curinfo.cuts.align_offset.x 
+				= _alignmap[_curinfo.onid].x;
+			    _curinfo.cuts.align_offset.y
+				= _alignmap[_curinfo.onid].y;
+
+			}
+
+		    }
+
+		    addRun();
+
+		}
+
+		// Tracking run  - parse run,n2
+
+		else if ( key=="tr") {
+
+		    vector<string> tokens;
+
+		    tokenize( value, tokens );
+
+		    if ( tokens.size() == 3 ) {
+			_curinfo.onid = tokens[0];
+			_curinfo.offid = "";
+			_curinfo.n2id = tokens[1];
+			_curinfo.utdate = tokens[2];
+			_curinfo.pad_track_with_run = false;
+		    }
+		    else if ( tokens.size() == 4 ) {
+			_curinfo.onid = tokens[0];
+			_curinfo.offid = tokens[1];
+			_curinfo.n2id = tokens[2];
+			_curinfo.utdate = tokens[3];
+			_curinfo.pad_track_with_run = true;
+
+		    }
+		    else {
+
+			cerr << "** SYNTAX ERROR: "
+			     << "(line "<<num<<") "
+			     << "should be tr=onid <padid> n2id utdate"
+			     <<endl;
+			
+			errorflag = true;
+			continue;
+		    }
+
+		    _curinfo.type   = TRACK;
+			
+		    addRun();
+
+		}
+
+		else if ( key == "picturethresh") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.picthresh;
+
+		}
+
+		else if ( key == "boundarythresh") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.bndthresh;
+
+		}
+
+		else if (key == "trackingratio") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.tracking_ratio;
+
+		}
+
+		else if (key == "smoothingradius") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.smoothing_radius;
+
+		}
+
+		else if (key == "radialanalysis") {
+		    if (value == "true")
+			_curinfo.cuts.radial_analysis=true;
+		    else if (value == "false")
+			_curinfo.cuts.radial_analysis=false;
+		    else {
+			errorflag = 1;
+			cerr << "** SYNTAX ERROR: "
+			     << "(line "<<num<<") "
+			     << "should be true or false"<<endl;
+		    }
+			
+		}
+
+		else if (key == "xradialoffset") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.radial_offset.x;
+
+		}
+
+		else if (key == "yradialoffset") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.radial_offset.y;
+
+		}
+
+		else if (key == "cameraoffset") {
+		    if (value == "true")
+			_curinfo.camera_offset_analysis=true;
+		    else if (value == "false")
+			_curinfo.camera_offset_analysis=false;
+		    else {
+			errorflag = 1;
+			cerr << "** SYNTAX ERROR: "
+			     << "(line "<<num<<") "
+			     << "should be true or false"<<endl;
+		    }
+			
+		}
+
+		else if (key == "xcameraoffset") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.camera_offset.x;
+
+		}
+
+		else if (key == "ycameraoffset") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.camera_offset.y;
+
+		}
+
+		else if ( key == "alignmentfile" ) {
+		    loadAlignmentMap(value);
+		}
+		else if (key == "alignment") {
+		    if (value == "true")
+			_curinfo.cuts.alignment=true;
+		    else if (value == "false")
+			_curinfo.cuts.alignment=false;
+		    else {
+			errorflag = 1;
+			cerr << "** SYNTAX ERROR: "
+			     << "(line "<<num<<") "
+			     << "should be true or false"<<endl;
+		    }
+			
+		}
+
+		else if (key == "xalign") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.align_offset.x;
+
+		}
+
+		else if (key == "yalign") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.align_offset.y;
+
+		}
+
+		else if (key == "lightcurveutbase") {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.utbase;
+
+		}
+
+		else if (key == "montecarlodatabase") {
+
+		    _curinfo.mcdatabase = value;
+
+		}
+
+		else if (key == "energyestimator") {
+
+		    _curinfo.energyestimator = value;
+
+		}
+
+		else if (key == "energyrangetev") {
+		    vector<string> tmptok;
+		    tokenize( value, tmptok,",");
+		    if (tmptok.size() == 2) {
+			_curinfo.emin_tev = atof(tmptok[0].c_str()); 
+			_curinfo.emax_tev = atof(tmptok[1].c_str()); 
+		    }
+		    else {
+			cerr << "** SYNTAX ERROR: EnergyRangeTeV must be "
+			     << "min,max "
+			     << "at line "<< num << endl;
+			errorflag = true;
+		    }
+		}
+
+
+		else if (key == "energybins") {
+		    _curinfo.num_e_bins = atoi(value.c_str()); 
+		}
+
+		else if ( key == "overridera" ) {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.ra;
+
+		}
+		else if ( key == "overridedec" ) {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.dec;
+		    
+		}
+		else if ( key == "overridezenith" ) {
+
+		    istringstream ist(value);
+		    ist >> _curinfo.zenithoverride;
+		    
+		}
+		else if (key == "padding") {
+		    if (value == "true") {
+			_curinfo.padding = true;
+		    }
+		    else if (value == "false") {
+			_curinfo.padding = false;
+		    }
+		    else {
+			cerr << "** SYNTAX ERROR: padding must be "
+			     << "'true' or 'false' "
+			     << "at line "<< num << endl;
+			errorflag = true;
+		    }
+		}
+		else if (key == "padlevel") {
+		    istringstream ist(value);
+		    ist >> _curinfo.padlevel;
+		}
+		else if (key == "elongation") {
+		    istringstream ist(value);
+		    ist >> _curinfo.cuts.elongation;
+		}
+		else if (key == "maxpedestalevents") {
+		    istringstream ist(value);
+		    ist >> _curinfo.max_ped_events;
+		}
+		else if (key == "derotation") {
+		    if (value == "true") {
+			_curinfo.derotation = true;
+		    }
+		    else if (value == "false") {
+			_curinfo.derotation = false;
+		    }
+		    else {
+			cerr << "** SYNTAX ERROR: derotation must be "
+			     << "'true' or 'false' "
+			     << "at line "<< num << endl;
+			errorflag = true;
+		    }
+		}
+
+		else if (key == "muoncalibration") {
+		    if (value == "true") {
+			_curinfo.muoncalibrate = true;
+		    }
+		    else if (value == "false") {
+			_curinfo.muoncalibrate = false;
+		    }
+		    else {
+			cerr << "** SYNTAX ERROR: MuonCalibration must be "
+			     << "'true' or 'false' "
+			     << "at line "<< num << endl;
+			errorflag = true;
+		    }
+		}
+
+		else if (key == "muonthreshold") {
+		    istringstream ist(value);
+		    ist >> _curinfo.muon_threshold;
+		}
+
+
+		// Choose output type
+
+		else if (key == "outputtype") {
+
+		    if (value == "ntuple" ) {
+			_curinfo.outtype = Config::NTUPLE;
+		    }
+			
+		    else if (value ==  "text") {
+			_curinfo.outtype = Config::TEXT;
+		    }
+		    else {
+			cerr << "*** Unknown output type '"<<value<<"', using "
+			     << " TEXT instead"<< endl;
+			_curinfo.outtype = Config::TEXT;
+		    }
+
+		}
+
+
+		else if (key == "usecuttype") {
+		    if (value == "supercuts"){
+			_curinfo.cuttype = Config::SUPERCUTTER;
+		    }
+		    else if ( value == "zcuts" ){
+			_curinfo.cuttype = Config::ZCUTTER;
+		    }
+		    else if ( value == "spectralcuts" ){
+			_curinfo.cuttype = Config::SPECTRALCUTTER;
+		    }
+		    else if ( value == "ezcuts" ){
+			_curinfo.cuttype = Config::EZCUTTER;
+		    }
+		    else {
+			cerr << "*** Unknown cut type '"<<value<<"', using "
+			     << " SuperCuts instead"<< endl;
+			_curinfo.outtype = Config::SUPERCUTTER;
+		    }
+
+		}
+
+		// handle tube masking
+
+		else if ( key=="masktubes" ) {
+
+		    vector<string> tokens;
+		    tokenize( value, tokens );
+		    int tube;
+
+		    for (int k=0; k<tokens.size(); k++) {
+			
+			tube = atoi( tokens[k].c_str() );
+
+			if (tube >= 0 && tube<1024) {
+			    _curinfo.tubemask[tube] = 1;
+			}
+			else {
+			    cout << "** ERROR: invalid tube "<<tube
+				 << " at line "<<num<<endl;
+			    errorflag =true;
+			}
+
+		    }
+
+		}
+		
+		else if ( key=="unmasktubes" ) {
+
+		    vector<string> tokens;
+		    tokenize( value, tokens );
+		    int tube;
+
+		    for (int k=0; k<tokens.size(); k++) {
+			
+			tube = atoi( tokens[k].c_str() );
+			if (tube >= 0 && tube<1024) {
+			    _curinfo.tubemask[tube] = 0;
+			}
+			else {
+			    cout << "** ERROR: invalid tube "<<tube
+				 << " at line "<<num<<endl;
+			    errorflag=true;
+			}
+		    }
+
+		}
+
+		 
+		else if (key == "imagefilter") {
+		    if (value == "true")
+			_curinfo.image_filter=true;
+		    else if (value == "false")
+			_curinfo.image_filter=false;
+		    else {
+			errorflag = 1;
+			cerr << "** SYNTAX ERROR: "
+			     << "(line "<<num<<") "
+			     << "should be true or false"<<endl;
+		    }
+		}
+
+		else if (key == "filteramount") {
+		    istringstream ist(value);
+		    ist >> _curinfo.filter_amount;
+		}
+
+		else if (key == "filtersubdivide") {
+		    istringstream ist(value);
+		    ist >> _curinfo.filter_subdivide;
+		}
+
+		else if (key == "filteriter") {
+		    istringstream ist(value);
+		    ist >> _curinfo.filter_iter;
+		}
+
+		else if (key == "filtersmoothness") {
+		    istringstream ist(value);
+		    ist >> _curinfo.filter_smoothness;
+		}
+
+		else if (key == "filterpercent") {
+		    istringstream ist(value);
+		    ist >> _curinfo.filter_percent;
+		}
+		else if (key == "filterthresh") {
+		    istringstream ist(value);
+		    ist >> _curinfo.filter_threshold;
+		}
+
+		// handle included files (recursively call parse())
+
+		else if (key == "include") {
+
+		    parse( (char*)value.c_str(), level+1 );
+		    for (int k=0; k<level+1; k++)
+			cout << "  ";
+		    cout << "proceeding with '"<< filename 
+			 <<"'"<< endl;
+
+		}
+
+		// unknown key/value
+		else {
+
+		    cerr << "** SYNTAX ERROR: unrecognized setting: "
+			 << key << endl;
+ 
+		    errorflag = true;
+		    
+		}
+
+	    }
+	    else {
+
+		cerr << "** SYNTAX ERROR "
+		     << "(line "<<num<<") "
+		     << "commands should be in form: key=value"<<endl;
+		
+		errorflag = true;
+
+	    }
+	    
+	}
+
+	if (errorflag==true) {
+
+	    cout << '\a';  // sound a bell
+	    cout << endl 
+		 << "*******************************************************"
+		 << endl
+		 << "** There was a syntax error in the configuration file" 
+		 << endl
+		 << "** '"<<filename<<"'. Please fix it (see above for "
+		 << "specific" <<endl<<"** error message)"<< endl
+		 << "** The error occured at line: "<< num << endl
+		 << "*******************************************************"
+		 << endl << endl;	    
+	    
+	    throw CriticalAnalysisException("Configuration syntax error");
+
+	}
+	
+    }
+
+    conf.close();
+    
+}
+
+
+/**
+ * put current run information into the queue... 
+ */
+void
+Config::addRun() {
+
+    _runqueue.push_back(_curinfo);
+
+    
+}
+
+
+
+/**
+ * Write out a sample configuration file.
+ */
+void
+Config::writeSample( char *filename) {
+
+    ofstream outfile(filename);
+    
+    if (!outfile) {
+	
+	cout << "** Couldn't write default configuration file '"
+	     << filename <<"' to the current directory." << endl;
+	return;
+
+    }
+    
+    
+    outfile << "##"<<endl
+	    << "## Whipple Analysis Configuration File" << endl
+	    << "## -------------------------------------------------" << endl
+	    << "##     Edit this file, adding the correct information" << endl
+	    << "##     for the runs to be analyzed. Default values will be"
+	    << endl
+	    << "##     used if parameters are left unspecified. " << endl
+	    << "##" << endl 
+	    << "##     Parameters are specified by 'key=value' pairs, each on "
+	    <<endl
+	    << "##     a separate lines. " << endl 
+	    << "##" <<endl
+	    << "##     Everything after a '#' is treated as a comment." << endl
+	    << "##" <<endl
+	    << "##     You can include other configuration files by using the "
+	    <<endl
+	    << "##        include=filename.conf" << endl
+	    << "##     command. This is useful for storing options common to"
+	    << endl
+	    << "##     a set of configurations." << endl
+	    << "##" << endl 
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## ENTER THE DIRECTORY WHERE THE RAW DATA FILES ARE STORED:"
+	    <<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "#DataDir = /data/Whipple/raw10/"<<endl
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## ENTER THE DIRECTORY FOR THE PEDESTAL/GAINS CACHES:" << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "#CacheDir = /data/Analysis/CACHE/"<<endl
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## ENTER THE ARRAY DEFINITION (without the .array extension):" 
+	    << endl
+	    << "## These can be found in the wuparam support directory"<<endl
+	    << "## the default is 'whipple-1' if none is specified"<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "#ArrayConfig = whipple-1"<<endl
+	    << "#ArrayConfig = veritas-4"<<endl
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## SELECT THE OUTPUT DATA TYPE FOR PARAMETERIZED FILES" << endl
+	    << "## (the options are: ntuple, text)"<< endl
+	    << "## In general, leave this at 'ntuple', you can always "<<endl
+	    << "## convert .ntuple files to text with the 'wu2txt' command"
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "OutputType = ntuple" << endl 
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## Specify the MonteCarlo database and energy estimator"<<endl 
+	    << "## for spectral fits"<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "MonteCarloDatabase = /data/Whipple/Simulations/mall.dat"<<endl
+	    << "EnergyEstimator = SZA"<<endl
+	    << "EnergyRangeTeV = 0.01,128"<<endl
+	    << "EnergyBins = 27" << endl
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## Parameterization options:" <<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "Padding = true        # enable noise padding " <<endl
+	    << "PadLevel = 5.0        # noise level if there is no OFF run"
+	    << endl
+	    << "Derotation = true     # correct for camera rotation " <<endl
+	    << "MuonCalibration=false # do muon ring calibration (slow)"<<endl
+	    << "MaxPedestalEvents=1000000 # max number of ped events to use"
+	    << endl<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## Cleaning thresholds: since these are tied to the"<<endl
+	    << "## particular set of cuts, they are usually specified"<<endl
+	    << "## in the included cuts file, but you can override them"<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "#PictureThresh = 5.0   # Image cleaning major threshold"<<endl
+	    << "#BoundaryThresh = 2.5  # Image cleaning minor threshold"<<endl
+	    << endl<<endl
+	    << "## Parameters for hexagonal FFT filtering, if enabled"<<endl
+	    << "ImageFilter=false      # Hexagonal FFT filtering "<<endl
+	    << "FilterThresh=1.5       # Cleaning threshold in sigma"<<endl
+	    << "#FilterSubdivide=2     # camera pixel subdivision"<<endl
+	    << "#FilterAmount=0.3      # filter strength (0-1)"<<endl
+	    << "#FilterIter=2          # iterations for derivative calc"<<endl
+	    << "#FilterSmoothness=0.0  # smoothness of cutoff " <<endl
+	    << "#FilterPercent=0.2     # smoothness of cutoff " <<endl
+	    << endl;
+    outfile << "## ----------------------------------------------------"<<endl
+	    << "## Camera offset: affects the parameterization of "<<endl
+	    << "## datafiles. If enabled and set to a position other"<<endl
+	    << "## than (0,0), the center of the camera is shifted to"<<endl
+	    << "## the specified coordinate before the parmeters are"<<endl
+	    << "## calculated.  Useful for systematic pointing offsets."<<endl
+	    << "## ----------------------------------------------------"<<endl
+	
+	    << "CameraOffset = false"<< endl
+	    << "XCameraOffset = 0.0     # x parameterization offset"<<endl
+	    << "YCameraOffset = 0.0     # y parameterization offset"<<endl
+	    <<endl<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## Radial analysis: disables the 'alpha-cut' and instead"<<endl
+	    << "## cuts events with points of origin which  don't fall "<<endl
+	    << "## within the SmoothinRadius of the XOffset,YOffset "<<endl
+	    << "## position.  Useful for analysis"<<endl
+	    << "## of runs where you aren't interested in the center."<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "RadialAnalysis =false # use offset (radial cut) analysis"<<endl
+	    << "XRadialOffset=0.0     # X offset for 'OffsetAnalysis' in deg"
+	    <<endl
+	    << "YRadialOffset=0.0     # X offset for 'OffsetAnalysis' in deg"
+	    <<endl<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## Alignment allows you to combine multiple runs that "<<endl
+	    << "## have differing pointing errors.  You can redefine "<<endl
+	    << "## XAlign and YAlign on a per-run basis. Positive "<<endl
+	    << "## offsets move the run upward or to the right."<<endl
+	    << "## If you cut a set of runs without  the -P option, "<<endl
+	    << "## a set of automatically generated pointing offsets are"<<endl
+	    << "## generated for each run which can be loaded using"<<endl
+	    << "## the 'AlignmentFile' keyword."<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    <<endl
+	    << "Alignment = false     # enable 2-D alignment of runs"<<endl
+	    << "XAlign = 0.0          # xalignment offset "<<endl
+	    << "YAlign = 0.0 " << endl  
+	    << "#AlignmentFile=Totals/alignment_to_gt0123456.align"<<endl
+	    << endl;
+
+    outfile << "## -----------------------------------------------------"<<endl
+	    << "## Include external configuration.  Setting in include files"
+	    <<endl
+	    << "## will OVERRIDE any previously set settings!"<<endl
+	    << "## WUParam looks for include files in the current"<<endl
+	    << "## directory and $WUPARAMDIR (usually /usr/share/wuparam)"
+	    <<endl
+	    << "## -----------------------------------------------------"<<endl
+	    << "Include = SuperCuts2000.conf" << endl
+	    << endl;
+
+    outfile << "## ----------------------------------------------------"<<endl
+	    << "## CUTS: override any cuts specified in the standard "<<endl
+	    << "## include files if you need to. "<<endl
+	    << "## ----------------------------------------------------"<<endl
+	    <<endl
+	    << "# UseCutType = supercuts  #supercuts,zcuts,ezcuts,spectralcuts"
+	    <<endl
+	    << "# TrackingRatio = 3.1"<<endl
+	    << "# SmoothingRadius = 0.25 # in deg (0.25 default)"<< endl
+	    << "# CutAlpha = 0, 15.0"<<endl
+	    << "# CutWidth = 0.05, 0.12"<<endl
+	    << "# CutLength = 0.13, 0.25"<<endl
+	    << "# CutDistance = 0.4, 1.0"<<endl
+	    << "# CutSize = 0, 1e10"<<endl
+	    << "# CutLenSize = 0, 0.0004"<<endl
+	    << "# CutMax1 = 50, 1e10"<<endl
+	    << "# CutMax2 = 40, 1e10"<<endl
+	    << "# CutMax3 = 0, 1e10"<<endl
+	    << "# CutFrac3 = 0,1e10"<<endl
+	    << "# CutAsymmDist = 0,1e10"<<endl
+	    << "# SpectralCutDeltaLength = 0.1 "<<endl
+	    << "# SpectralCutDeltaWidth  = 0.1 "<<endl
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## SET OVERRIDE VALUES FOR PARAMETERS IN THE RAW DATA FILES:" 
+	    <<endl
+	    << "## (optional - if blank, the values will come from the data)"
+	    <<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "#OverrideRa=1.2345 #in radians" <<endl
+	    << "#OverrideDec=1.2345 #in radians" <<endl
+	    << "#OverrideSource=mrk421" <<endl
+	    << "#MaskTubes = 1 42 16  # set tubes to manually disable "
+	    << "(can re-enable with UnMaskTubes)" << endl
+	    << endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "## LIST RUN(S) TO PROCESS:  YOU CAN REDEFINE ANY OF THE ABOVE"
+	    <<endl
+	    << "## PARAMETERS BETWEEN RUNS, IF NEED BE" <<endl
+	    << "##     pr=on off n2 utdate   (on/off source pair) " <<endl
+	    << "##     tr=run n2 utdate      (tracking run) " <<endl
+	    << "##     tr=run pad n2 utdate  (tracking run padded with "
+	    <<  "real run)" <<endl
+	    << "## ----------------------------------------------------"<<endl
+	    << "#pr=gt015233\tgt015234\tgt015230\t020509" <<endl
+	    << "#tr=gt015233\t\t\tgt015230\t020509" <<endl
+	    << "#tr=gt015233\tgt015234\tgt015230\t020509 "<<endl
+	    << endl;
+		   
+    
+    outfile.close();
+
+
+}
+
+
+
+
+
+/**
+ * Remove leading & trailing white space from a string
+ */
+void
+removeWhiteSpace( string &str ) {
+
+    // first convert tabs to spaces:
+    
+    string::iterator i;
+
+    for( i=str.begin(); i != str.end(); i++) {
+	if (*i == '\t') *i = ' ';
+    }
+
+    // now chop off white space at beginning and end 
+
+    string::size_type where = str.find_first_not_of(' ');
+    
+    if (where != string::npos && where != 0)	        
+	str = str.substr(where);
+    
+    where = str.find_last_not_of(' ');
+  
+    if (where != string::npos && where != (str.length() - 1))
+	str = str.substr(0, where + 1);
+
+    if (str==" ") str = "";
+
+    
+}
+
+
+string 
+getSupportDir() {
+    
+    string wuparamdir;
+    if (getenv("WUPARAMDIR") != NULL) {
+	wuparamdir = getenv("WUPARAMDIR");
+    }
+    else {
+	wuparamdir = "/usr/share/wuparam/";
+    }
+
+    if (wuparamdir[wuparamdir.size()-1] != '/')
+	wuparamdir += "/";
+  
+    return wuparamdir;
+}
+
+
+
+
+/**
+ * Function to split a string into tokens
+ */ 
+void tokenize(const string& str, vector<string>& tokens,
+	      const string& delimiters)
+{
+
+    tokens.clear();  //reset token list
+
+    // Skip delimiters at beginning.
+    string::size_type lastPos = str.find_first_not_of(delimiters, 0);
+    // Find first "non-delimiter".
+    string::size_type pos     = str.find_first_of(delimiters, lastPos);
+
+    while (string::npos != pos || string::npos != lastPos)
+    {
+        // Found a token, add it to the vector.
+        tokens.push_back(str.substr(lastPos, pos - lastPos));
+        // Skip delimiters.  Note the "not_of"
+        lastPos = str.find_first_not_of(delimiters, pos);
+        // Find next "non-delimiter"
+        pos = str.find_first_of(delimiters, lastPos);
+    }
+}
+
+
+ostream& 
+operator<<(ostream &stream,const CutInfo &c){
+
+    stream 
+	<< " ALPHA:  " 
+	<< setw(10) << c.alpha.lower 
+	<< setw(10) << c.alpha.upper 
+	<< endl
+
+	<< "  DIST:  " 
+	<< setw(10) << c.distance.lower 
+	<< setw(10) << c.distance.upper 
+	<< endl
+
+	<< "LENGTH:  " 
+	<< setw(10) << c.length.lower 
+	<< setw(10) << c.length.upper 
+	<< endl
+
+	<< " WIDTH:  " 
+	<< setw(10) << c.width.lower 
+	<< setw(10) << c.width.upper 
+	<< endl
+
+	<< "  SIZE:  " 
+	<< setw(10) << c.size.lower 
+	<< setw(10) << c.size.upper 
+	<< endl
+
+	<< "L/SIZE:  " 
+	<< setw(10) << c.lensize.lower 
+	<< setw(10) << c.lensize.upper 
+	<< endl
+
+	<< "  MAX1:  " 
+	<< setw(10) << c.max1.lower 
+	<< setw(10) << c.max1.upper 
+	<< endl
+
+	<< "  MAX2:  " 
+	<< setw(10) << c.max2.lower 
+	<< setw(10) << c.max2.upper 
+	<< endl
+
+	<< "  MAX3:  " 
+	<< setw(10) << c.max3.lower 
+	<< setw(10) << c.max3.upper 
+	<< endl
+
+	<< " FRAC3:  " 
+	<< setw(10) << c.frac3.lower 
+	<< setw(10) << c.frac3.upper 
+	<< endl
+
+	<< "ASYMDST: " 
+	<< setw(10) << c.asymmdist.lower 
+	<< setw(10) << c.asymmdist.upper 
+	<< endl
+
+	<< "SPECTRALCUTS:  " 
+	<< setw(10) << c.dlength
+	<< setw(10) << c.dwidth
+	<< endl
+	
+	<< "SMOOTHING RADIUS:  " 
+	<< setw(10) << c.smoothing_radius
+	<< endl
+
+	<< "RADIAL ANALYSIS:  " ;
+    if (c.radial_analysis) {
+	stream 
+	    << setw(10) << c.radial_offset.x << " "
+	    << setw(10) << c.radial_offset.y
+	    << endl;
+    }
+    else stream << "DISABLED"<<endl;
+
+    stream << "ALIGNMENT:  " ;
+    if (c.alignment) {
+	stream 
+	    << setw(10) << c.align_offset.x << " "
+	    << setw(10) << c.align_offset.y
+	    << endl;
+    }
+    else stream << "DISABLED"<<endl;
+    
+
+    return stream;
+
+}
+
+void 
+Config::
+loadAlignmentMap( std::string file ) {
+
+    ifstream infile( file.c_str() );
+    string id;
+    double x,y;
+
+    if (infile.fail()) 
+	throw MildAnalysisException("Couldn't read alignment file: "+file);
+    
+    while(infile) {
+	infile >> id >> x >> y;
+	_alignmap[id].x = x;
+	_alignmap[id].y = y;
+// 	cout << "DEBUG: map["<<id<<"] = "
+// 	     <<_alignmap[id].x <<"," 
+// 	     <<_alignmap[id].y << endl;
+    }
+
+
+
+}

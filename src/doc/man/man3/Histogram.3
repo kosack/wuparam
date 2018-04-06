@@ -1,0 +1,219 @@
+.TH "Histogram" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Histogram \- 
+.PP
+General 1-D histogram class.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Histogram.h>\fP
+.PP
+Inherited by \fBEnergySpectrum\fP.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHistogram\fP (int, double, double, std::string)"
+.br
+.ti -1c
+.RI "\fBHistogram\fP (const \fBHistogram\fP &h)"
+.br
+.ti -1c
+.RI "void \fBincrement\fP (double)"
+.br
+.ti -1c
+.RI "void \fBaccumulate\fP (double x, double weight)"
+.br
+.ti -1c
+.RI "int \fBmaxBin\fP ()"
+.br
+.ti -1c
+.RI "int \fBminBin\fP ()"
+.br
+.ti -1c
+.RI "double \fBmaxValue\fP ()"
+.br
+.ti -1c
+.RI "double \fBminValue\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetRange\fP (int bin, double &lower, double &upper)"
+.br
+.ti -1c
+.RI "double \fBmean\fP ()"
+.br
+.ti -1c
+.RI "double \fBsigma\fP ()"
+.br
+.ti -1c
+.RI "double \fBsum\fP ()"
+.br
+.ti -1c
+.RI "void \fBsave\fP (std::string)"
+.br
+.ti -1c
+.RI "void \fBload\fP (std::string)"
+.br
+.ti -1c
+.RI "int \fBfindBinWithValue\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBsaveStatistics\fP (std::string)"
+.br
+.ti -1c
+.RI "int \fBnumBins\fP ()"
+.br
+.ti -1c
+.RI "void \fBscale\fP (double val)"
+.br
+.ti -1c
+.RI "void \fBsubtract\fP (\fBHistogram\fP &h)"
+.br
+.ti -1c
+.RI "double \fBoperator[]\fP (int)"
+.br
+.ti -1c
+.RI "double \fBget\fP (int bin)"
+.br
+.ti -1c
+.RI "void \fBreset\fP ()"
+.br
+.ti -1c
+.RI "gsl_histogram * \fBgetGSLHist\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+General 1-D histogram class. 
+
+\fBTodo\fP
+.RS 4
+: Make this class work with lightcurve data where the first and last bins may be partially filled (or smaller width) 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file Histogram.h.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Histogram::Histogram (intnbins, doubleminx, doublemaxx, std::stringname)"
+.PP
+Create a new \fBHistogram\fP. \fBParameters:\fP
+.RS 4
+\fInumbins\fP number of bins 
+.br
+\fImin\fP minimum value 
+.br
+\fImax\fP maximum value 
+.br
+\fIname\fP description of the histogram 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file Histogram.cpp.
+.SS "Histogram::Histogram (const \fBHistogram\fP &h)"
+.PP
+Copy constructor. \fBBug\fP
+.RS 4
+: doesn't work yet 
+.RE
+.PP
+
+.PP
+Definition at line 71 of file Histogram.cpp.
+.SH "Member Function Documentation"
+.PP 
+.SS "int Histogram::findBinWithValue (doubleval)"\fBReturns:\fP
+.RS 4
+index of bin with the specified value, -1 on failure. 
+.RE
+.PP
+
+.PP
+Definition at line 351 of file Histogram.cpp.
+.SS "double Histogram::get (inti)\fC [inline]\fP"
+.PP
+Return histogram value at index i. Can also use the [] operator (i.e. myhist[3] is equivalent to myhist.get(3)) 
+.PP
+Definition at line 108 of file Histogram.h.
+.PP
+Referenced by Fitter::minimize().
+.SS "void Histogram::increment (doublex)\fC [inline]\fP"
+.PP
+Increment the bin corresponding to the specified value. Implemented as an inline function for speed. 
+.PP
+Definition at line 70 of file Histogram.h.
+.PP
+References maxValue(), and minValue().
+.PP
+Referenced by WUArray::analyzeRun(), and Cutter::cut().
+.SS "void Histogram::load (std::stringfilename)"
+.PP
+Read in a histogram saved with the 'save' function. The histogram to be read must have the number of bins as the \fBHistogram\fP object. 
+.PP
+Definition at line 235 of file Histogram.cpp.
+.SS "double Histogram::mean ()"\fBReturns:\fP
+.RS 4
+the mean value in the histogram. 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file Histogram.cpp.
+.PP
+Referenced by saveStatistics().
+.SS "void Histogram::saveStatistics (std::string)"
+.PP
+Write out a text file with statistical info about the histogram. This function is automatically called when Histogram::save() is called, but is provided separately in case one wants to just write statistics and not the whole histogram. It would be cleaner to append this to the top of the histogram file itself, but that would make it harder for external programs to read the histogram files, so I decided to keep the stats file separate.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbasename\fP base filename (.hist.stats is appended) 
+.RE
+.PP
+
+.PP
+Definition at line 205 of file Histogram.cpp.
+.PP
+References maxBin(), maxValue(), mean(), minBin(), minValue(), sigma(), and sum().
+.PP
+Referenced by Image2D::save().
+.SS "double Histogram::sigma ()"\fBReturns:\fP
+.RS 4
+the variance in the histogrammed value. 
+.RE
+.PP
+
+.PP
+Definition at line 330 of file Histogram.cpp.
+.PP
+Referenced by saveStatistics().
+.SS "void Histogram::subtract (\fBHistogram\fP &hist)"
+.PP
+Subtracts the specified histogram from the current one. \fBParameters:\fP
+.RS 4
+\fIhist\fP histogram containing values to subtract. Must have identical bin ranges as the current histogram. 
+.RE
+.PP
+
+.PP
+Definition at line 386 of file Histogram.cpp.
+.SS "double Histogram::sum ()"\fBReturns:\fP
+.RS 4
+the total number of counts in the histogram. 
+.RE
+.PP
+
+.PP
+Definition at line 340 of file Histogram.cpp.
+.PP
+Referenced by saveStatistics().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

@@ -1,0 +1,100 @@
+.TH "HillasParameterization" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+HillasParameterization \- 
+.PP
+Parameterization of an image, produced by the \fBImageAnalyzer\fP object.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ImageAnalyzer.h>\fP
+.PP
+Inherits \fBImageParameterization\fP.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBCoordinate_t\fP \fBcentroid\fP"
+.br
+.ti -1c
+.RI "\fBCoordinate_t\fP \fBpoint_of_origin_a\fP"
+.br
+.ti -1c
+.RI "\fBCoordinate_t\fP \fBpoint_of_origin_b\fP"
+.br
+.ti -1c
+.RI "double \fBlength\fP"
+.br
+.ti -1c
+.RI "double \fBwidth\fP"
+.br
+.ti -1c
+.RI "double \fBsize\fP"
+.br
+.ti -1c
+.RI "double \fBmiss\fP"
+.br
+.ti -1c
+.RI "double \fBdistance\fP"
+.br
+.ti -1c
+.RI "double \fBazwidth\fP"
+.br
+.ti -1c
+.RI "double \fBalpha\fP"
+.br
+.ti -1c
+.RI "double \fBlength_over_size\fP"
+.br
+.ti -1c
+.RI "double \fBpsi\fP"
+.br
+.ti -1c
+.RI "double \fBphi\fP"
+.br
+.ti -1c
+.RI "double \fBmax\fP [3]"
+.br
+.ti -1c
+.RI "int \fBindex_of_max\fP [3]"
+.br
+.ti -1c
+.RI "double \fBfrac\fP [3]"
+.br
+.ti -1c
+.RI "int \fBpixels_in_picture\fP"
+.br
+.ti -1c
+.RI "double \fBasymmetry\fP"
+.br
+.ti -1c
+.RI "int \fBon\fP"
+.br
+.ti -1c
+.RI "double \fBzenith\fP"
+.br
+.ti -1c
+.RI "double \fBenergy_estimate\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &stream, const \fBHillasParameterization\fP &p)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Parameterization of an image, produced by the \fBImageAnalyzer\fP object. 
+
+I kept this a pure struct, not a class so that the gsl N-tuple routines can process it. 
+.PP
+Definition at line 37 of file ImageAnalyzer.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

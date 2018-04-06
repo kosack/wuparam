@@ -1,0 +1,89 @@
+.TH "StarCatalog" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StarCatalog \- 
+.PP
+A searchable star database.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <StarCatalog.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStarCatalog\fP ()"
+.br
+.ti -1c
+.RI "void \fBload\fP (std::string stardbfilename)"
+.br
+.ti -1c
+.RI "void \fBfindNearbyStars\fP (double, double, double, std::list< \fBStar\fP > &)"
+.br
+.ti -1c
+.RI "void \fBprecessToDate\fP (int utdate)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A searchable star database. 
+.PP
+Definition at line 42 of file StarCatalog.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "void StarCatalog::findNearbyStars (double, double, double, std::list< \fBStar\fP > &)"
+.PP
+Produces a vector of stars that fall within a specified radius of a specified ra+dec coordinate. Also figures out the position of each star in tangential cartesian coordinates, relative to the center position for easy plotting.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIra\fP right ascension where the camera is pointing 
+.br
+\fIdec\fP declination where the camera is pointing 
+.br
+\fIr\fP radius (in degrees) around which to look for stars (should be FOV of camera) 
+.br
+\fInearbystars\fP empty vector of Stars which will be filled up with the results
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+: check that this ra and dec from the tracking computer are already precessed, or from j2000 or something. If not already precessed, they need to be. 
+.RE
+.PP
+
+.PP
+Definition at line 136 of file StarCatalog.cpp.
+.PP
+Referenced by Cutter::cut().
+.SS "void StarCatalog::load (std::stringstardbfilename)"
+.PP
+Load a saved image. Load a database of stars from the specified .edb file (such as those included with XEphem. 
+.PP
+Definition at line 238 of file Image2D.cpp.
+.PP
+References Image2D::setCoordinateBox().
+.SS "void StarCatalog::precessToDate (intutdate)"
+.PP
+Precess star catalog to the current epoch. \fBParameters:\fP
+.RS 4
+\fIutdate\fP for example '020506' for May 6, 2002
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+: Should check this - it looks like stars are moving too much over the course of a year or so, so it's possible this is not working exactly right. However, it's pretty close. 
+.RE
+.PP
+
+.PP
+Definition at line 189 of file StarCatalog.cpp.
+.PP
+Referenced by Cutter::cut().
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

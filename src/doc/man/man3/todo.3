@@ -1,0 +1,127 @@
+.TH "todo" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+todo \- Todo List 
+ 
+.IP "\fBClass \fBAnalysisException\fP \fP" 1c
+: \fBAnalysisException\fP should be a subclass of the STL exception 
+.PP
+.PP
+ 
+.IP "\fBClass \fBCamera\fP \fP" 1c
+: make separate classes for each camera 
+.PP
+.PP
+ 
+.IP "\fBClass \fBCutter\fP \fP" 1c
+: this is a badly designed class. \fBCutter\fP should be a small object which applies a specific set of cuts (subclasses for other cutting methods). All the analysis should be done elsewhere.
+.PP
+: For multi-telescope analysis, make a telescope_id argument or field and only process events from the specified telescope. 
+.PP
+.PP
+ 
+.IP "\fBMember \fBCutter::cut\fP(\fBRunInfo\fP &, const std::string &, char) \fP" 1c
+: Implement 2-D analysis for tracking runs (currently, only ON/OFF pairs are used.
+.PP
+: separate total alpha plot for tracking runs.
+.PP
+.PP
+ 
+.IP "\fBMember \fBEZCutter::applyCorrections\fP(\fBHillasParameterization\fP &p) \fP" 1c
+: make sigma_pix and the '0.023' free optimization parameters! 
+.PP
+.PP
+ 
+.IP "\fBMember \fBFitter::minimize\fP(\fBEnergySpectrum\fP *energy_on, \fBEnergySpectrum\fP *energy_off, double &N0, double &Gamma0, double &e0, double Time, double n0Range, int n0Step, double gRange, int gStep, double onoffratio) \fP" 1c
+: put 'alpha' or tracking ratio into the onOff and onOffVariance: onoff = on-a*off, variance=a*(on+off) or whatever
+.PP
+.PP
+ 
+.IP "\fBMember \fBFitter::minimize\fP(\fBEnergySpectrum\fP *energy_on, \fBEnergySpectrum\fP *energy_off, double &N0, double &Gamma0, double &E0, double Time, double n0Range, int n0Step, double gRange, int gStep, double e0Range, double e0Step, double onoffratio) \fP" 1c
+: put 'alpha' or tracking ratio into the onOff and onOffVariance: onoff = on-a*off, variance=a*(on+off) or whatever
+.PP
+.PP
+ 
+.IP "\fBMember \fBGainFinder::getGains\fP(\fBRunInfo\fP &ri, Array_t &gains, int telescope_id=0) \fP" 1c
+: make gains database have a code column which marks bad gains 
+.PP
+: implement lock file! 
+.PP
+.PP
+ 
+.IP "\fBClass \fBHeaderRecord\fP \fP" 1c
+: add fields for picture/boundary threshold so they can be checked by wucut - don't want to accidently use cuts which were designed for one threshold after you parameterize with another! 
+.PP
+.PP
+ 
+.IP "\fBClass \fBHistogram\fP \fP" 1c
+: Make this class work with lightcurve data where the first and last bins may be partially filled (or smaller width) 
+.PP
+.PP
+ 
+.IP "\fBMember \fBImage2D::addHistRadially\fP(double x, double y, double val, float radius) \fP" 1c
+: can speed this up considerably with geometric considerations (by only iterating over range of pixels that fall withing radius*2 for example) 
+.PP
+.PP
+ 
+.IP "\fBMember \fBMCSpectrum::MCSpectrum\fP(\fBRunInfo\fP &ri) \fP" 1c
+: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) 
+.PP
+: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) 
+.PP
+.PP
+ 
+.IP "\fBMember \fBParamDataReader::getHeaderRecord\fP(\fBHeaderRecord\fP &hdr) \fP" 1c
+: should make a ParamHeaderRecord which is a subclass of \fBHeaderRecord\fP which has all the extra parameterized info (like whether zcuts was enabled, etc.) 
+.PP
+.PP
+ 
+.IP "\fBMember \fBPedestalFinder::getPeds\fP(\fBRunInfo\fP &ri, const std::string &id, std::vector< Pedestal > &, int telescope_id=0) \fP" 1c
+: Simulations only contain one pedestal record, so their dispersions are always 0. Due to this, the \fBImageCleaner\fP accepts too many pixels, since it uses the picthresh*peddisp as the threshold! Need to fix somehow...
+.PP
+: implement lockfiles to prevent more than one process from writing/reading to the database (necessary for the MPI-enabled or a multi-threaded version) 
+.PP
+.PP
+ 
+.IP "\fBMember \fBPlotMaker::plotAxes\fP() \fP" 1c
+: don't plot minor tics where a major tic is 
+.PP
+.PP
+ 
+.IP "\fBMember \fBRawDataReaderSim::getHeaderRecord\fP(\fBRawHeaderRecord\fP &header) \fP" 1c
+: fill in the correct values 
+.PP
+.PP
+ 
+.IP "\fBMember \fBRawDataReaderVText::getHeaderRecord\fP(\fBRawHeaderRecord\fP &header) \fP" 1c
+: fill in the correct values 
+.PP
+.PP
+ 
+.IP "\fBClass \fBRunInfo\fP \fP" 1c
+: Make \fBRunInfo\fP serializable so it can be sent as an MPI message?
+.PP
+: Make \fBRunInfo\fP saveable (i.e. write out a config file containing all the settings. This can be written to each run output dir so you can check what settings were used at the last parameterization. You can then use a \fBConfig\fP object to parse the saved settings and check if the \fBRunInfo\fP has changed as a robust check for reparameterizing. Save() load() compare()
+.PP
+.PP
+ 
+.IP "\fBMember \fBStarCatalog::findNearbyStars\fP(double, double, double, std::list< Star > &) \fP" 1c
+: check that this ra and dec from the tracking computer are already precessed, or from j2000 or something. If not already precessed, they need to be. 
+.PP
+.PP
+ 
+.IP "\fBMember \fBStarCatalog::precessToDate\fP(int utdate) \fP" 1c
+: Should check this - it looks like stars are moving too much over the course of a year or so, so it's possible this is not working exactly right. However, it's pretty close. 
+.PP
+.PP
+ 
+.IP "\fBMember \fBSuperCutter::pass\fP(\fBHillasParameterization\fP &param, int cutmask) \fP" 1c
+: right now, prePass occurs every time a cut is specified. That means it gets redone several times for each event! This shuold be done more efficiently without making it more confusing. 
+.PP
+.PP
+ 
+.IP "\fBMember \fBZCutter::applyCorrections\fP(\fBHillasParameterization\fP &p) \fP" 1c
+: make sigma_pix and the '0.023' free optimization parameters! 
+.PP
+

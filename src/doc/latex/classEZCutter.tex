@@ -1,0 +1,76 @@
+\hypertarget{classEZCutter}{
+\subsection{EZCutter Class Reference}
+\label{classEZCutter}\index{EZCutter@{EZCutter}}
+}
+
+
+Extended zenith cutterm Uses SuperCuts-\/like cuts, but with zenith angle corrections based on cos(theta) and 3rd order poly in log(SIZE).  
+
+
+
+
+{\ttfamily \#include $<$EZCutter.h$>$}
+
+Inheritance diagram for EZCutter:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classEZCutter}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classEZCutter_adfef095f257966676350821591df66ed}{applyCorrections} (\hyperlink{structHillasParameterization}{HillasParameterization} \&p)
+\item 
+\hypertarget{classEZCutter_a2478de078ec3c1e0cf03c40a7cef8ff0}{
+void \hyperlink{classEZCutter_a2478de078ec3c1e0cf03c40a7cef8ff0}{setCamera} (int npix, int utdate)}
+\label{classEZCutter_a2478de078ec3c1e0cf03c40a7cef8ff0}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Extended zenith cutterm Uses SuperCuts-\/like cuts, but with zenith angle corrections based on cos(theta) and 3rd order poly in log(SIZE). 
+
+Good for spectral cuts. 
+
+Definition at line 13 of file EZCutter.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classEZCutter_adfef095f257966676350821591df66ed}{
+\index{EZCutter@{EZCutter}!applyCorrections@{applyCorrections}}
+\index{applyCorrections@{applyCorrections}!EZCutter@{EZCutter}}
+\paragraph[{applyCorrections}]{\setlength{\rightskip}{0pt plus 5cm}void EZCutter::applyCorrections (
+\begin{DoxyParamCaption}
+\item[{{\bf HillasParameterization} \&}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classEZCutter_adfef095f257966676350821591df66ed}
+
+
+Perform zenith correction. 
+
+Overrides the SuperCutter::prePass() function which is executed before cuts are applied by \hyperlink{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}{SuperCutter::pass()}
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000012}{Todo}]: make sigma\_\-pix and the \char`\"{}0.023\char`\"{} free optimization parameters! \end{Desc}
+
+
+Reimplemented from \hyperlink{classSuperCutter_aa9affeb3c4e8b66860f26bd96954b4e1}{SuperCutter}.
+
+
+
+Definition at line 40 of file EZCutter.cpp.
+
+
+
+References HillasParameterization::centroid, Camera::getPEToDC(), HillasParameterization::length, HillasParameterization::length\_\-over\_\-size, HillasParameterization::max, HillasParameterization::miss, HillasParameterization::point\_\-of\_\-origin\_\-a, HillasParameterization::point\_\-of\_\-origin\_\-b, HillasParameterization::size, HillasParameterization::width, Coordinate\_\-t::x, Coordinate\_\-t::y, and HillasParameterization::zenith.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+EZCutter.h\item 
+EZCutter.cpp\end{DoxyCompactItemize}

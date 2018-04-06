@@ -1,0 +1,115 @@
+.TH "MuonImageAnalyzer" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MuonImageAnalyzer \- 
+.PP
+Analyzes the muon-like properties of an image.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <MuonImageAnalyzer.h>\fP
+.PP
+Inherits \fBImageAnalyzer\fP.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBTriplet\fP"
+.br
+.ti -1c
+.RI "struct \fBWordBitMask\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMuonImageAnalyzer\fP (\fBCamera\fP *cam)"
+.br
+.ti -1c
+.RI "void \fBparameterize\fP (const Array_t &image, std::vector< int > &cleanpixels)"
+.br
+.ti -1c
+.RI "void \fBenablePlotPoints\fP (bool val=true)"
+.br
+.ti -1c
+.RI "void \fBenableCalibration\fP (bool val=true)"
+.br
+.ti -1c
+.RI "\fBMuonParameterization\fP \fBgetMuonParameters\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Analyzes the muon-like properties of an image. 
+
+In particular, it detects muon arcs and can calculates factors useful for absolute gain calibration.
+.PP
+The algorithm goes as follows:
+.PP
+.IP "\(bu" 2
+For each unique triplet of PMTs (N*(N-1)*(N-2)/6 in total) calculate the center and radius of the uniquely defined circle.
+.PP
+.PP
+.IP "\(bu" 2
+OR the bits for PMTs which are elements of this triplet into the appropriate element (determined by the ring center) of a 2-d array of bitmasks, and increment the corresponding element of the array ntriplets[x,y]. Also increment the cumulative ring radius and cumulative x and y-center position arrays rad[x,y] xsum[x,y], ysum[x,y].
+.PP
+.PP
+.IP "\(bu" 2
+Divide xsum, ysum, radsum by ntriplets in the end. Then do a boxcar average over neighboring elements in the array ntriplets, and x,y,rad arrays.
+.PP
+.PP
+.IP "\(bu" 2
+Find the maximum of the boxcar averaged array ntripbox(x,y) and calculate the values xave,yave,rave from these.
+.PP
+.PP
+.IP "\(bu" 2
+Calculate a bitmask (for which tubes are in the arc) by ORing together the bitmasks of the peak element and its neighbors. From the resulting bitmask calculate the signal sum for these pmts and divide by the number of pmts.
+.PP
+.PP
+This gives a value proportional to the pe/dc ratio for this arc. A comparison of this value to the value derived for big rings (from the hadronicity) can be combined with limits on the ring radius to derive the likelihood that this event is in fact a muon arc. 
+.PP
+Definition at line 120 of file MuonImageAnalyzer.h.
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBMuonParameterization\fP MuonImageAnalyzer::getMuonParameters ()\fC [inline]\fP"
+.PP
+Get the parameters calculated in the \fBparameterize()\fP routine. \fBReturns:\fP
+.RS 4
+a \fBMuonParameterization\fP containing all the parameters 
+.RE
+.PP
+
+.PP
+Definition at line 135 of file MuonImageAnalyzer.h.
+.SS "void MuonImageAnalyzer::parameterize (const Array_t &image, std::vector< int > &cleanpixels)\fC [virtual]\fP"
+.PP
+Parameterize the image. Find muon arc and calculate parameters.
+.PP
+This is the most important (and probably the most called) function in the analysis, so it should be as optimized as possible!
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP the pixel data for the image you want to parameterize 
+.br
+\fIcleanpixels\fP is a list of the indices of the picture/boundary tubes parameters should be stored.
+.br
+\fIimage\fP the image 
+.br
+\fIcleanpixels\fP vector of clean pixel numbers from 
+.RE
+.PP
+
+.PP
+Implements \fBImageAnalyzer\fP.
+.PP
+Definition at line 84 of file ImageAnalyzer.cpp.
+.PP
+References HillasParameterization::alpha, HillasParameterization::asymmetry, HillasParameterization::azwidth, HillasParameterization::centroid, HillasParameterization::distance, HillasParameterization::frac, HillasParameterization::index_of_max, ImageParameterization::invalid, HillasParameterization::length, HillasParameterization::length_over_size, HillasParameterization::max, HillasParameterization::miss, HillasParameterization::phi, HillasParameterization::pixels_in_picture, HillasParameterization::point_of_origin_a, HillasParameterization::point_of_origin_b, HillasParameterization::psi, HillasParameterization::size, HillasParameterization::width, Coordinate_t::x, and Coordinate_t::y.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.

@@ -1,0 +1,383 @@
+//
+// Camera.cpp
+// Karl Kosack <kosack@hbar.wustl.edu>
+//
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+#include <fstream>
+#include <cstdio>
+#include <plot.h>
+#include <string>
+
+#include "Exceptions.h"
+#include "ImageAnalyzer.h"
+#include "MuonImageAnalyzer.h"
+#include "Camera.h"
+#include "PedestalFinder.h"
+#include "Config.h"
+
+using namespace std;
+
+/**
+ * Create a Camera object.
+ * @param filename filename of the camera definition file.
+ */ 
+Camera::Camera(char *filename, int utdate) 
+{
+    
+    init(filename);
+    
+}
+
+
+Camera::Camera( int npixels, int utdate ) {
+
+
+    // VERITAS CAMERA:
+    if ( 499 <= npixels && npixels <= 501 ) {
+	
+	init( "veritas_499.camera" );
+	_camera_id = ID_V500;
+	_lastpix = 499;
+
+	_pe2dc = 1.0;  // This need to be updated
+	
+    }
+    
+    // Whipple cameras:
+    else if ( 450 < npixels && npixels < 498 ) {
+	init( "490.camera" );
+	_camera_id = ID_490;
+	_lastpix = 379;  // turn off outer tubes!
+
+
+	/**
+	 *  PFR: change year switch to year+month switch.  telescope seasons
+	 *  are fiscal- they start in june of one year, and go until june of the 
+	 *  next!  This should only use one pe2dc ratio, but previously it used
+	 *  2.
+	 */
+
+
+	int year_month = (int)(utdate/100);
+	
+	if(year_month >= 109 && year_month <=206){
+	  _pe2dc = 0.4467;
+	}
+	else if(year_month >= 209 && year_month <=306){
+	    //_pe2dc = 0.5095*0.6251;
+	    _pe2dc = 0.5095;
+	}
+	else if(year_month >= 309 && year_month <=406){
+	  _pe2dc = 0.5352;
+	}
+	else if(year_month >= 409 && year_month <=506){
+	  _pe2dc = 0.4776;
+	}
+	else{
+	  _pe2dc = 0.4489;
+	}
+
+	/*
+	int year = (int)(utdate/10000);
+
+	switch (year) {
+	case 01:
+	    _pe2dc = 0.4467;
+	    break;
+	case 02:
+	    _pe2dc = 0.5095;
+	    break;
+	case 03:
+	    _pe2dc = 0.5352;
+	    break;
+	case 04:
+	    _pe2dc = 0.4776;
+	    break;
+	default:
+	    _pe2dc = 0.4489;
+	    break;
+	}
+	*/
+
+    }
+    else if ( 300 < npixels && npixels < 340 ) {
+	init( "331.camera" );
+	_camera_id = ID_331;
+	_pe2dc = 1.0;
+	_lastpix = 330; 
+    }
+    else if ( 140 < npixels && npixels < 160 ) {
+	init("151.camera");
+	_camera_id = ID_151;
+	_pe2dc = 1.0;
+	_lastpix = 150; 
+    }
+    else if ( 100 < npixels && npixels < 139 ) {
+	init("109.camera");
+	_camera_id = ID_109;
+ 	_pe2dc = 1.0;
+// 	_pe2dc = 0.75; // KPK: hand optimized using max2 distribution
+	_lastpix = 108; 
+    }
+    else {
+	_camera_id = ID_UNKNOWN;
+	_pe2dc = 1.0;
+	throw CriticalAnalysisException("No camera definition exists with specified number of pixels!");
+    }
+
+}
+
+
+/**
+ * Instantiate a generic camera, not loaded from a file.  
+ */
+Camera::Camera( int npixels, Array_t &xcoords, Array_t &ycoords ) {
+    _camera_id = ID_UNKNOWN;
+    _npix = npixels;
+    _firstpix = 0;
+    _lastpix = npixels-1;
+<<<<<<< Camera.cpp
+    _x = xcoords;
+    _y = ycoords;
+    _rad = _x[1]-_x[0];
+=======
+    _x.resize(npixels);
+    _y.resize(npixels);
+    _rad.resize(npixels);
+    if (xcoords.size() < npixels || ycoords.size()<npixels) {
+	throw CriticalAnalysisException("Camera: npixels larger than array size");
+    }
+
+    _maxx=-10000.0;
+    _minx=10000.0;
+    _maxy=-100000.0;
+    _miny=10000.0;
+
+    double drad = sqrt(pow(xcoords[2]-xcoords[1],2)
+		       + pow(ycoords[2]-ycoords[1],2))/2.0;
+
+    for (int i=0; i<npixels; i++) {
+	_x[i] = xcoords[i];
+	_y[i] = ycoords[i];
+	_rad[i] = drad;
+	if (_x[i]>_maxx) _maxx= _x[i];
+	if (_y[i]>_maxy) _maxy= _y[i];
+	if (_x[i]<_minx) _minx= _x[i];
+	if (_y[i]<_miny) _miny= _y[i];
+    }
+
+    cout << "DEBUG: rad.size = "<<_rad.size()<<", npix="<<npixels<<endl;
+    cout << "DEBUG: camera extent=("<<_minx<<","<<_miny
+	 <<")-("<<_maxx<<","<<_maxy<<")"<<endl;
+
+>>>>>>> 1.57
+    _sigpix =  sqrt(pow(_x[1]-_x[0],2) + pow(_y[1]-_y[0],2))/8.0;
+}
+
+
+void
+Camera::init( char *filename ) {
+
+    _camera_id = ID_UNKNOWN;
+    _npix = 0;
+    _firstpix = 0;
+    _lastpix = 0;
+    _sigpix = 0;
+    _pe2dc = 0;
+    _maxx = 0;
+    _maxy = 0; 
+    _minx = 0; 
+    _miny = 0;
+	
+    double dia2;
+	
+    loadCamera(filename);
+    dia2 = pow(_x[1]-_x[0],2) + pow(_y[1]-_y[0],2);
+    _sigpix = sqrt(dia2/8.0);
+    
+} 
+
+
+Camera::~Camera() {
+   
+
+}
+
+
+/**
+ * Load in the positions and sizes of each camera pixel.  This data is
+ * stored in a text file in the proper format and is loaded into
+ * position arrays _x[] and _y[]. 
+ * @param filename name of camera datafile to load 
+  */
+void
+Camera::loadCamera(char *filename) {
+
+    char id[256];
+    string header;
+    float  version;
+    int i;
+    double xx,yy,rr;
+    int nneigh,neighid;
+
+    string sfile(filename);
+    string sdir;
+
+    sdir = getSupportDir();
+
+    string sfilename(sdir+sfile);
+    ifstream camerafile( sfilename.c_str(), ios::in );
+
+
+    // Check if opened correctly...
+    if (camerafile.fail()) {
+	cerr << "** Couldn't open camera datafile '" <<filename<<"'"<< endl;
+	cerr << "** Set the environment variable WUPARAMDIR to the directory"
+	     << endl
+	     << "** where it is found (the default is /usr/share/wuparam/)"
+	     <<endl;
+	exit(1);
+    }
+
+    // Read header and version number and see if they're OK
+    
+    camerafile >> header >> version;
+
+    if (header != "WHIPPLE-CAMERA-DEFINITION") {
+	cout << "The camera file you specified, '"<<filename<<"' "
+	     << "doesn't appear to be in the correct format!"
+	     << endl;
+	throw CriticalAnalysisException("Bad Camera Definition File Format!");
+    }
+
+    if (version < 1.0) {
+	cout << "The version of the camera file '"<<filename<<"' "
+	     << "is " << version << ".  Make sure it is in the right format!"
+	     << endl;
+	throw CriticalAnalysisException( "Wrong Camera Definition version" );
+  
+    }
+    
+
+    // Read number of data points (should be 1st line)
+    // and allocate memory:
+    
+    camerafile >> _npix;
+
+    // resize arrays and neighborlist
+
+    _x.resize( _npix );
+    _y.resize( _npix );
+    _rad.resize( _npix );
+    _neighborlist.resize( _npix );
+
+    // Read in the datafiles... 
+
+    rr = 1.0; 
+    i = 0;
+    while ( !camerafile.eof() && i<_npix ){
+	
+	camerafile >> id;
+	
+	
+	if (id[0] == 'R') {
+	    // set radius
+	    camerafile >> rr;
+	}
+	else {
+
+	    if (i<_npix) {
+
+		camerafile >> xx >> yy >> nneigh;
+
+		// store the values
+		_x[i] = xx;
+		_y[i] = yy;
+		_rad[i] = rr;
+
+		// add the indices to the neighborlist
+
+		for (int j=0; j<nneigh; j++) {
+		    camerafile >> neighid;
+		    _neighborlist[i].push_back( neighid );
+		}
+
+		// calculate camera viewport size
+		if(_maxx < xx) _maxx = xx;
+		if(_maxy < yy) _maxy = yy;
+		if(_minx > xx) _minx = xx;
+		if(_miny > yy) _miny = yy;
+    
+		i++;
+
+	    }
+	    else {
+		cout << "** Camera: Pixel # "<< i<< " out of range: " 
+		     << " ID = '" << id << "'   (SKIPPED)" << endl;
+		continue;
+	    }
+	}
+    }
+
+    _minx = _minx - 2*rr;
+    _miny = _miny - 2*rr; 
+    _maxx = _maxx + 2*rr;
+    _maxy = _maxy + 2*rr; 
+
+    camerafile.close();
+
+}
+
+
+/**
+ * Returns a pointer to an STL list<int> of the indices of the neighbors
+ * of the specified tube.
+ */
+list<int>* 
+Camera::getNeighborListOfPixel(int n) {
+
+    return &(_neighborlist[n]);
+
+}
+
+
+/**
+ * Returns the estimated dispersion due to the point spread function
+ * of the camera at the given zenith angle.
+ */
+double
+Camera::getSigmaPSF( double zen ) {
+
+    //return ((((0.12 - 0.18)/(TWOPI/4.0 - 0.401425728))
+    //       *(zen - 0.401425728) + 0.18)/2.354);
+
+    // KPK: changed 0.12 -> 0.1
+//     return ((((0.13 - 0.13)/(M_PI_2 - 0.401425728))
+//               *(zen - 0.401425728) + 0.13)/2.354);
+
+    return 0.13/2.354;
+
+
+}
+
+
+
+/**
+ *  translate the camera coordinates by the specified amount.
+ *  This is used to fix offsets in the camera due to telescope
+ *  flexing at low elevation, for example. 
+ */
+void
+Camera::
+shiftCameraCoordinates( double dx, double dy ) {
+    
+    _x += dx;    // note: this is a valarray operation
+    _y += dy;
+
+    cout << "DEBUG: Camera: camera coordinates shifted by "
+	 <<dx<<","<<dy<<endl;
+
+}

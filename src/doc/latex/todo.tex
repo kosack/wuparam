@@ -1,0 +1,165 @@
+\label{todo__todo000011}
+\hypertarget{todo__todo000011}{}
+ 
+\begin{DoxyDescription}
+\item[Class \hyperlink{classAnalysisException}{AnalysisException} ]: \hyperlink{classAnalysisException}{AnalysisException} should be a subclass of the STL exception 
+\end{DoxyDescription}
+
+\label{todo__todo000001}
+\hypertarget{todo__todo000001}{}
+ 
+\begin{DoxyDescription}
+\item[Class \hyperlink{classCamera}{Camera} ]: make separate classes for each camera 
+\end{DoxyDescription}
+
+\label{todo__todo000006}
+\hypertarget{todo__todo000006}{}
+ 
+\begin{DoxyDescription}
+\item[Class \hyperlink{classCutter}{Cutter} ]: this is a badly designed class. \hyperlink{classCutter}{Cutter} should be a small object which applies a specific set of cuts (subclasses for other cutting methods). All the analysis should be done elsewhere.
+
+: For multi-\/telescope analysis, make a telescope\_\-id argument or field and only process events from the specified telescope. 
+\end{DoxyDescription}
+
+\label{todo__todo000004}
+\hypertarget{todo__todo000004}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classCutter_a5c8d71e05e508ec60db78436b4ba416d}{Cutter::cut}(\hyperlink{classRunInfo}{RunInfo} \&, const std::string \&, char) ]: Implement 2-\/D analysis for tracking runs (currently, only ON/OFF pairs are used.
+
+: separate total alpha plot for tracking runs.
+\end{DoxyDescription}
+
+\label{todo__todo000012}
+\hypertarget{todo__todo000012}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classEZCutter_adfef095f257966676350821591df66ed}{EZCutter::applyCorrections}(\hyperlink{structHillasParameterization}{HillasParameterization} \&p) ]: make sigma\_\-pix and the \char`\"{}0.023\char`\"{} free optimization parameters! 
+\end{DoxyDescription}
+
+\label{todo__todo000015}
+\hypertarget{todo__todo000015}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classFitter_a88492ebdbfa181370dc05a584ec9a040}{Fitter::minimize}(\hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-on, \hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-off, double \&N0, double \&Gamma0, double \&e0, double Time, double n0Range, int n0Step, double gRange, int gStep, double onoffratio) ]: put \char`\"{}alpha\char`\"{} or tracking ratio into the onOff and onOffVariance: onoff = on-\/a$\ast$off, variance=a$\ast$(on+off) or whatever
+\end{DoxyDescription}
+
+\label{todo__todo000018}
+\hypertarget{todo__todo000018}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classFitter_a6f93aeb7b89a67f368cfa03abdce3e5a}{Fitter::minimize}(\hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-on, \hyperlink{classEnergySpectrum}{EnergySpectrum} $\ast$energy\_\-off, double \&N0, double \&Gamma0, double \&E0, double Time, double n0Range, int n0Step, double gRange, int gStep, double e0Range, double e0Step, double onoffratio) ]: put \char`\"{}alpha\char`\"{} or tracking ratio into the onOff and onOffVariance: onoff = on-\/a$\ast$off, variance=a$\ast$(on+off) or whatever
+\end{DoxyDescription}
+
+\label{todo__todo000019}
+\hypertarget{todo__todo000019}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classGainFinder_a093922ed07e211199e2e3afdc4b6b2d4}{GainFinder::getGains}(\hyperlink{classRunInfo}{RunInfo} \&ri, Array\_\-t \&gains, int telescope\_\-id=0) ]: make gains database have a code column which marks bad gains 
+
+: implement lock file! 
+\end{DoxyDescription}
+
+\label{todo__todo000010}
+\hypertarget{todo__todo000010}{}
+ 
+\begin{DoxyDescription}
+\item[Class \hyperlink{structHeaderRecord}{HeaderRecord} ]: add fields for picture/boundary threshold so they can be checked by wucut -\/ don't want to accidently use cuts which were designed for one threshold after you parameterize with another! 
+\end{DoxyDescription}
+
+\label{todo__todo000020}
+\hypertarget{todo__todo000020}{}
+ 
+\begin{DoxyDescription}
+\item[Class \hyperlink{classHistogram}{Histogram} ]: Make this class work with lightcurve data where the first and last bins may be partially filled (or smaller width) 
+\end{DoxyDescription}
+
+\label{todo__todo000021}
+\hypertarget{todo__todo000021}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classImage2D_afa47c6e966ae69c72bb58e97f1e58858}{Image2D::addHistRadially}(double x, double y, double val, float radius) ]: can speed this up considerably with geometric considerations (by only iterating over range of pixels that fall withing radius$\ast$2 for example) 
+\end{DoxyDescription}
+
+\label{todo__todo000013}
+\hypertarget{todo__todo000013}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classMCSpectrum_ae7bb310b53fe6faf2fbdb74017c627db}{MCSpectrum::MCSpectrum}(\hyperlink{classRunInfo}{RunInfo} \&ri) ]: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) 
+
+: make the specific energy estimator function user selectable (LZA vs small zenith, etc.) 
+\end{DoxyDescription}
+
+\label{todo__todo000023}
+\hypertarget{todo__todo000023}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classParamDataReader_a6c08000e4e3d408ae14b3146145a1249}{ParamDataReader::getHeaderRecord}(\hyperlink{structHeaderRecord}{HeaderRecord} \&hdr) ]: should make a ParamHeaderRecord which is a subclass of \hyperlink{structHeaderRecord}{HeaderRecord} which has all the extra parameterized info (like whether zcuts was enabled, etc.) 
+\end{DoxyDescription}
+
+\label{todo__todo000028}
+\hypertarget{todo__todo000028}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classPedestalFinder_a2f74e3e8ba1b0531f69949adb46d0657}{PedestalFinder::getPeds}(\hyperlink{classRunInfo}{RunInfo} \&ri, const std::string \&id, std::vector$<$ Pedestal $>$ \&, int telescope\_\-id=0) ]: Simulations only contain one pedestal record, so their dispersions are always 0. Due to this, the \hyperlink{classImageCleaner}{ImageCleaner} accepts too many pixels, since it uses the picthresh$\ast$peddisp as the threshold! Need to fix somehow...
+
+: implement lockfiles to prevent more than one process from writing/reading to the database (necessary for the MPI-\/enabled or a multi-\/threaded version) 
+\end{DoxyDescription}
+
+\label{todo__todo000030}
+\hypertarget{todo__todo000030}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classPlotMaker_a7a63b2f17f113ee6b880aebf1cba1d91}{PlotMaker::plotAxes}() ]: don't plot minor tics where a major tic is 
+\end{DoxyDescription}
+
+\label{todo__todo000008}
+\hypertarget{todo__todo000008}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classRawDataReaderSim_acd4f407d9c8b8df95eb88213e6625f5f}{RawDataReaderSim::getHeaderRecord}(\hyperlink{structRawHeaderRecord}{RawHeaderRecord} \&header) ]: fill in the correct values 
+\end{DoxyDescription}
+
+\label{todo__todo000009}
+\hypertarget{todo__todo000009}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classRawDataReaderVText_a7fb3e50fa41df971c06c1b424c713675}{RawDataReaderVText::getHeaderRecord}(\hyperlink{structRawHeaderRecord}{RawHeaderRecord} \&header) ]: fill in the correct values 
+\end{DoxyDescription}
+
+\label{todo__todo000002}
+\hypertarget{todo__todo000002}{}
+ 
+\begin{DoxyDescription}
+\item[Class \hyperlink{classRunInfo}{RunInfo} ]: Make \hyperlink{classRunInfo}{RunInfo} serializable so it can be sent as an MPI message?
+
+: Make \hyperlink{classRunInfo}{RunInfo} saveable (i.e. write out a config file containing all the settings. This can be written to each run output dir so you can check what settings were used at the last parameterization. You can then use a \hyperlink{classConfig}{Config} object to parse the saved settings and check if the \hyperlink{classRunInfo}{RunInfo} has changed as a robust check for reparameterizing. Save() load() compare()
+\end{DoxyDescription}
+
+\label{todo__todo000031}
+\hypertarget{todo__todo000031}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classStarCatalog_a067a6b3ebbeed3d8c1450cc7092a9f64}{StarCatalog::findNearbyStars}(double, double, double, std::list$<$ Star $>$ \&) ]: check that this ra and dec from the tracking computer are already precessed, or from j2000 or something. If not already precessed, they need to be. 
+\end{DoxyDescription}
+
+\label{todo__todo000032}
+\hypertarget{todo__todo000032}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classStarCatalog_a7b487603d9556b01164515e8fb5fddd9}{StarCatalog::precessToDate}(int utdate) ]: Should check this -\/ it looks like stars are moving too much over the course of a year or so, so it's possible this is not working exactly right. However, it's pretty close. 
+\end{DoxyDescription}
+
+\label{todo__todo000033}
+\hypertarget{todo__todo000033}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classSuperCutter_a10e29b1d569a2b09755e44c31b3c1e61}{SuperCutter::pass}(\hyperlink{structHillasParameterization}{HillasParameterization} \&param, int cutmask) ]: right now, prePass occurs every time a cut is specified. That means it gets redone several times for each event! This shuold be done more efficiently without making it more confusing. 
+\end{DoxyDescription}
+
+\label{todo__todo000035}
+\hypertarget{todo__todo000035}{}
+ 
+\begin{DoxyDescription}
+\item[Member \hyperlink{classZCutter_ad8fc95579fc4b47a518b66e6ea029f61}{ZCutter::applyCorrections}(\hyperlink{structHillasParameterization}{HillasParameterization} \&p) ]: make sigma\_\-pix and the \char`\"{}0.023\char`\"{} free optimization parameters! 
+\end{DoxyDescription}

@@ -1,0 +1,76 @@
+\hypertarget{classConfig}{
+\subsection{Config Class Reference}
+\label{classConfig}\index{Config@{Config}}
+}
+
+
+Loads Analysis configuration information from a text file.  
+
+
+
+
+{\ttfamily \#include $<$Config.h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries RunType} \{ {\bfseries TRACK}, 
+{\bfseries ONOFF}
+ \}
+\item 
+enum {\bfseries OutType} \{ {\bfseries NTUPLE}, 
+{\bfseries TEXT}
+ \}
+\item 
+enum {\bfseries CutType} \{ {\bfseries SUPERCUTTER}, 
+{\bfseries ZCUTTER}, 
+{\bfseries EZCUTTER}, 
+{\bfseries SPECTRALCUTTER}
+ \}
+\end{DoxyCompactItemize}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classConfig_a7107b9451a2c5e2d68b31c27b6767529}{
+{\bfseries Config} (char $\ast$filename)}
+\label{classConfig_a7107b9451a2c5e2d68b31c27b6767529}
+
+\item 
+\hypertarget{classConfig_a41d36d315f24a126e7f0d0506bc001e6}{
+void \hyperlink{classConfig_a41d36d315f24a126e7f0d0506bc001e6}{writeSample} (char $\ast$file)}
+\label{classConfig_a41d36d315f24a126e7f0d0506bc001e6}
+
+\item 
+\hypertarget{classConfig_ab4adb3c03021c77c13b07864e0c643c2}{
+\hyperlink{classRunInfo}{RunInfo} \hyperlink{classConfig_ab4adb3c03021c77c13b07864e0c643c2}{getNextRun} ()}
+\label{classConfig_ab4adb3c03021c77c13b07864e0c643c2}
+
+\item 
+\hypertarget{classConfig_a93688b97b30ef4c399f979187e1db014}{
+std::deque$<$ \hyperlink{classRunInfo}{RunInfo} $>$ \& {\bfseries getRunQueue} ()}
+\label{classConfig_a93688b97b30ef4c399f979187e1db014}
+
+\item 
+\hypertarget{classConfig_a217ba471f05a4b279a699505cec8160f}{
+bool {\bfseries isDone} ()}
+\label{classConfig_a217ba471f05a4b279a699505cec8160f}
+
+\item 
+\hypertarget{classConfig_aa3db1fe06efca6585599321d61020fa3}{
+int {\bfseries getRunCount} ()}
+\label{classConfig_aa3db1fe06efca6585599321d61020fa3}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Loads Analysis configuration information from a text file. 
+
+Definition at line 191 of file Config.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Config.h\item 
+Config.cpp\end{DoxyCompactItemize}

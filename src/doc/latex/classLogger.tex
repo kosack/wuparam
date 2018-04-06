@@ -1,0 +1,64 @@
+\hypertarget{classLogger}{
+\subsection{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+}
+
+
+Error log singleton.  
+
+
+
+
+{\ttfamily \#include $<$Log.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLogger_a97d14a6dbc7c4490cbe590a0925bc42d}{
+void \hyperlink{classLogger_a97d14a6dbc7c4490cbe590a0925bc42d}{printf} (char $\ast$format,...)}
+\label{classLogger_a97d14a6dbc7c4490cbe590a0925bc42d}
+
+\item 
+\hypertarget{classLogger_ad0747538d6c19da8a5ae15ad6483a997}{
+void \hyperlink{classLogger_ad0747538d6c19da8a5ae15ad6483a997}{info} (char $\ast$format,...)}
+\label{classLogger_ad0747538d6c19da8a5ae15ad6483a997}
+
+\item 
+\hypertarget{classLogger_a4739f36877383f53e3ce13200087a104}{
+int {\bfseries getErrorCount} ()}
+\label{classLogger_a4739f36877383f53e3ce13200087a104}
+
+\item 
+\hypertarget{classLogger_a01d17329a2a7f038570c6c769c90cdef}{
+void {\bfseries printLog} ()}
+\label{classLogger_a01d17329a2a7f038570c6c769c90cdef}
+
+\item 
+\hypertarget{classLogger_a5e7512550a4c84d23de47454356aa8f2}{
+std::string {\bfseries getFileName} ()}
+\label{classLogger_a5e7512550a4c84d23de47454356aa8f2}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classLogger_a9f9acae64a5f26267526d16196ea23c8}{
+static \hyperlink{classLogger}{Logger} $\ast$ {\bfseries instance} ()}
+\label{classLogger_a9f9acae64a5f26267526d16196ea23c8}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Error log singleton. 
+
+Calling the \hyperlink{classLogger_a97d14a6dbc7c4490cbe590a0925bc42d}{printf()} function will write to the log. 
+
+Definition at line 16 of file Log.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Log.h\item 
+Log.cpp\end{DoxyCompactItemize}

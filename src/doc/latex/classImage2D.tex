@@ -1,0 +1,320 @@
+\hypertarget{classImage2D}{
+\subsection{Image2D Class Reference}
+\label{classImage2D}\index{Image2D@{Image2D}}
+}
+
+
+Representation of a 2-\/D raster image (for 2D analysis)  
+
+
+
+
+{\ttfamily \#include $<$Image2D.h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classImage2D_a833d693009805f605c8af82d3acec2af}{
+{\bfseries Image2D} (int nxbins=39, int nybins=39)}
+\label{classImage2D_a833d693009805f605c8af82d3acec2af}
+
+\item 
+void \hyperlink{classImage2D_a9b7675f5771a5f4a0f28a5a7772326a0}{setCoordinateBox} (double minx, double miny, double maxx, double maxy)
+\item 
+\hypertarget{classImage2D_a4daa00c772ba3c6cdbc678fa1ea555d6}{
+double {\bfseries getXCoord} (int i)}
+\label{classImage2D_a4daa00c772ba3c6cdbc678fa1ea555d6}
+
+\item 
+\hypertarget{classImage2D_a3b100d51fdebe1ba7a2987a5d25db71d}{
+double {\bfseries getYCoord} (int j)}
+\label{classImage2D_a3b100d51fdebe1ba7a2987a5d25db71d}
+
+\item 
+\hypertarget{classImage2D_a347193432850999a7704d373841bfe90}{
+double {\bfseries getMinX} ()}
+\label{classImage2D_a347193432850999a7704d373841bfe90}
+
+\item 
+\hypertarget{classImage2D_a5676662e3538d6fea5dfc61d5a5e4140}{
+double {\bfseries getMinY} ()}
+\label{classImage2D_a5676662e3538d6fea5dfc61d5a5e4140}
+
+\item 
+\hypertarget{classImage2D_aeea76c05c63754d99edb452616911185}{
+double {\bfseries getMaxX} ()}
+\label{classImage2D_aeea76c05c63754d99edb452616911185}
+
+\item 
+\hypertarget{classImage2D_a3918d1ddbe2ca3a282268ef8abc0c003}{
+double {\bfseries getMaxY} ()}
+\label{classImage2D_a3918d1ddbe2ca3a282268ef8abc0c003}
+
+\item 
+\hypertarget{classImage2D_afe3cf97c37486e56e49adcf44dd10d3a}{
+void {\bfseries load} (std::string filename)}
+\label{classImage2D_afe3cf97c37486e56e49adcf44dd10d3a}
+
+\item 
+void \hyperlink{classImage2D_a701ac83af425942beb093fff80880b04}{save} (std::string filename)
+\item 
+\hypertarget{classImage2D_ad6f25f96ba0f4b0e480995a83e9c6919}{
+void \hyperlink{classImage2D_ad6f25f96ba0f4b0e480995a83e9c6919}{savePGM} (std::string filename)}
+\label{classImage2D_ad6f25f96ba0f4b0e480995a83e9c6919}
+
+\item 
+\hypertarget{classImage2D_a1951a4240aba5293c7f2879b4243c590}{
+void \hyperlink{classImage2D_a1951a4240aba5293c7f2879b4243c590}{saveGrid} (std::string filename)}
+\label{classImage2D_a1951a4240aba5293c7f2879b4243c590}
+
+\item 
+\hypertarget{classImage2D_aec45f19b3ba3256cac22a321179cb5d9}{
+void \hyperlink{classImage2D_aec45f19b3ba3256cac22a321179cb5d9}{clear} ()}
+\label{classImage2D_aec45f19b3ba3256cac22a321179cb5d9}
+
+\item 
+\hypertarget{classImage2D_a567f81e75a048d7659f66563af9bad2b}{
+void {\bfseries setPixel} (int i, int j, double val)}
+\label{classImage2D_a567f81e75a048d7659f66563af9bad2b}
+
+\item 
+\hypertarget{classImage2D_a03cfaa176ee51e6663196f8a120a24a8}{
+double {\bfseries getPixel} (int i, int j)}
+\label{classImage2D_a03cfaa176ee51e6663196f8a120a24a8}
+
+\item 
+\hypertarget{classImage2D_a523442590845b45974b1987f24d97c14}{
+void {\bfseries addToPixel} (int i, int j, double val)}
+\label{classImage2D_a523442590845b45974b1987f24d97c14}
+
+\item 
+void \hyperlink{classImage2D_a1373c4a48a3393f3dc8b0a6382ae0990}{addHist} (double x, double y, double val)
+\item 
+void \hyperlink{classImage2D_afa47c6e966ae69c72bb58e97f1e58858}{addHistRadially} (double x, double y, double val, float radius)
+\item 
+\hypertarget{classImage2D_acdf9aed4054987b922b3de8e3aa22b72}{
+int {\bfseries getOutsideHits} ()}
+\label{classImage2D_acdf9aed4054987b922b3de8e3aa22b72}
+
+\item 
+void \hyperlink{classImage2D_a2db2c30389b3e52c8246295989e53755}{addImage} (\hyperlink{classImage2D}{Image2D} \&im)
+\item 
+\hypertarget{classImage2D_ab41e685b8dff0710d85ea51d9bd748c1}{
+void \hyperlink{classImage2D_ab41e685b8dff0710d85ea51d9bd748c1}{applyRadialSmoothing} (double r)}
+\label{classImage2D_ab41e685b8dff0710d85ea51d9bd748c1}
+
+\item 
+\hypertarget{classImage2D_aedea813aff3d0c8583ec9fed1660c3f0}{
+int {\bfseries getXDim} ()}
+\label{classImage2D_aedea813aff3d0c8583ec9fed1660c3f0}
+
+\item 
+\hypertarget{classImage2D_a56e8c4066142765cefbae500b32b7ec5}{
+int {\bfseries getYDim} ()}
+\label{classImage2D_a56e8c4066142765cefbae500b32b7ec5}
+
+\item 
+\hypertarget{classImage2D_a30ac7fec10d7cca8e57ded1023f9134d}{
+double {\bfseries minValue} ()}
+\label{classImage2D_a30ac7fec10d7cca8e57ded1023f9134d}
+
+\item 
+\hypertarget{classImage2D_ab4831e847a315849ce29b16b579f1be0}{
+double {\bfseries maxValue} ()}
+\label{classImage2D_ab4831e847a315849ce29b16b579f1be0}
+
+\item 
+\hypertarget{classImage2D_ad61b4f34f9750c50b1f52c9905ec4127}{
+void \hyperlink{classImage2D_ad61b4f34f9750c50b1f52c9905ec4127}{getIndexOfMax} (int \&i, int \&j)}
+\label{classImage2D_ad61b4f34f9750c50b1f52c9905ec4127}
+
+\item 
+\hypertarget{classImage2D_a7b9b44ca053ab7c6ceac862409c101df}{
+void \hyperlink{classImage2D_a7b9b44ca053ab7c6ceac862409c101df}{expand} ()}
+\label{classImage2D_a7b9b44ca053ab7c6ceac862409c101df}
+
+\item 
+\hyperlink{classImage2D}{Image2D} $\ast$ \hyperlink{classImage2D_ac0bf085a54600d658f594cadb5069691}{crossCorrelateWith} (\hyperlink{classImage2D}{Image2D} \&)
+\item 
+\hypertarget{classImage2D_a8106dc5bd861ce8086d9cef69165d282}{
+int {\bfseries getXHistBinOf} (double x)}
+\label{classImage2D_a8106dc5bd861ce8086d9cef69165d282}
+
+\item 
+\hypertarget{classImage2D_a88624daa79e7a7f9ae674b6b880df08b}{
+int {\bfseries getYHistBinOf} (double y)}
+\label{classImage2D_a88624daa79e7a7f9ae674b6b880df08b}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Representation of a 2-\/D raster image (for 2D analysis) 
+
+Definition at line 14 of file Image2D.h.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classImage2D_a1373c4a48a3393f3dc8b0a6382ae0990}{
+\index{Image2D@{Image2D}!addHist@{addHist}}
+\index{addHist@{addHist}!Image2D@{Image2D}}
+\paragraph[{addHist}]{\setlength{\rightskip}{0pt plus 5cm}void Image2D::addHist (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}}
+\label{classImage2D_a1373c4a48a3393f3dc8b0a6382ae0990}
+
+
+Add the specified value to the pixel which contains the coordinate (x,y). 
+
+This is useful for histogramming in 2-\/D. 
+
+Definition at line 104 of file Image2D.cpp.
+
+
+
+Referenced by Cutter::cut().
+
+\hypertarget{classImage2D_afa47c6e966ae69c72bb58e97f1e58858}{
+\index{Image2D@{Image2D}!addHistRadially@{addHistRadially}}
+\index{addHistRadially@{addHistRadially}!Image2D@{Image2D}}
+\paragraph[{addHistRadially}]{\setlength{\rightskip}{0pt plus 5cm}void Image2D::addHistRadially (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{val, }
+\item[{float}]{radius}
+\end{DoxyParamCaption}
+)}}
+\label{classImage2D_afa47c6e966ae69c72bb58e97f1e58858}
+
+
+Adds the value val to all pixels in the image that are within radius of the point (x,y). 
+
+This provides another method to radially smooth an image while filling it. It's slower than calling \hyperlink{classImage2D_ab41e685b8dff0710d85ea51d9bd748c1}{applyRadialSmoothing()} after an image has been created, but it's more accurate.
+
+\begin{Desc}
+\item[\hyperlink{todo__todo000021}{Todo}]: can speed this up considerably with geometric considerations (by only iterating over range of pixels that fall withing radius$\ast$2 for example) \end{Desc}
+
+
+Definition at line 138 of file Image2D.cpp.
+
+
+
+Referenced by WUArray::analyzeRun(), and Cutter::generateImage().
+
+\hypertarget{classImage2D_a2db2c30389b3e52c8246295989e53755}{
+\index{Image2D@{Image2D}!addImage@{addImage}}
+\index{addImage@{addImage}!Image2D@{Image2D}}
+\paragraph[{addImage}]{\setlength{\rightskip}{0pt plus 5cm}void Image2D::addImage (
+\begin{DoxyParamCaption}
+\item[{{\bf Image2D} \&}]{im}
+\end{DoxyParamCaption}
+)}}
+\label{classImage2D_a2db2c30389b3e52c8246295989e53755}
+
+
+Add another image to this image. 
+
+Sums each pixel. Images must be of the same dimensions. 
+
+Definition at line 81 of file Image2D.cpp.
+
+
+
+Referenced by Cutter::generateImage().
+
+\hypertarget{classImage2D_ac0bf085a54600d658f594cadb5069691}{
+\index{Image2D@{Image2D}!crossCorrelateWith@{crossCorrelateWith}}
+\index{crossCorrelateWith@{crossCorrelateWith}!Image2D@{Image2D}}
+\paragraph[{crossCorrelateWith}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Image2D} $\ast$ Image2D::crossCorrelateWith (
+\begin{DoxyParamCaption}
+\item[{{\bf Image2D} \&}]{image}
+\end{DoxyParamCaption}
+)}}
+\label{classImage2D_ac0bf085a54600d658f594cadb5069691}
+
+
+Compute the cross-\/corrolation with the specified image. 
+
+Returns a new \hyperlink{classImage2D}{Image2D} of the correlation coefficients. Remember to delete the new image when you're done with it.
+
+\[ C_{ij} = \sum_{k,l} I_1(k,l) * I_2((k+i) mod N,(l+j) mod M) \] 
+
+Definition at line 536 of file Image2D.cpp.
+
+
+
+References setCoordinateBox().
+
+
+
+Referenced by Cutter::checkPointing().
+
+\hypertarget{classImage2D_a701ac83af425942beb093fff80880b04}{
+\index{Image2D@{Image2D}!save@{save}}
+\index{save@{save}!Image2D@{Image2D}}
+\paragraph[{save}]{\setlength{\rightskip}{0pt plus 5cm}void Image2D::save (
+\begin{DoxyParamCaption}
+\item[{std::string}]{filename}
+\end{DoxyParamCaption}
+)}}
+\label{classImage2D_a701ac83af425942beb093fff80880b04}
+
+
+Output a tab delimited datafile and corresponding GNUplot file. 
+
+Write the image to disk.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & base filename name of output text file (file extension will be added.\\
+\hline
+\end{DoxyParams}
+We follow the convention that the x-\/value of the histogram is the value of the lower bound on the corresponding bin. To calculate the value at the center of the bin it is necessary to add half of the bin width. 
+
+Definition at line 176 of file Histogram.cpp.
+
+
+
+References Histogram::saveStatistics().
+
+
+
+Referenced by WUArray::analyzeRun(), Cutter::checkPointing(), Cutter::cut(), and Cutter::generateImage().
+
+\hypertarget{classImage2D_a9b7675f5771a5f4a0f28a5a7772326a0}{
+\index{Image2D@{Image2D}!setCoordinateBox@{setCoordinateBox}}
+\index{setCoordinateBox@{setCoordinateBox}!Image2D@{Image2D}}
+\paragraph[{setCoordinateBox}]{\setlength{\rightskip}{0pt plus 5cm}void Image2D::setCoordinateBox (
+\begin{DoxyParamCaption}
+\item[{double}]{minx, }
+\item[{double}]{miny, }
+\item[{double}]{maxx, }
+\item[{double}]{maxy}
+\end{DoxyParamCaption}
+)}}
+\label{classImage2D_a9b7675f5771a5f4a0f28a5a7772326a0}
+
+
+Set up the coordinate values of the image. 
+
+Specify the boundaries of the image, not the positions of the center of the boundary pixels! 
+
+Definition at line 54 of file Image2D.cpp.
+
+
+
+Referenced by WUArray::analyzeRun(), crossCorrelateWith(), Cutter::cut(), expand(), Cutter::generateImage(), and StarCatalog::load().
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+Image2D.h\item 
+Histogram.cpp\item 
+Image2D.cpp\end{DoxyCompactItemize}

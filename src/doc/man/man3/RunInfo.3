@@ -1,0 +1,166 @@
+.TH "RunInfo" 3 "Tue Nov 1 2011" "Version 0.1" "wuparam" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+RunInfo \- 
+.PP
+Basic structure returned by a \fBConfig\fP object.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Config.h>\fP
+.PP
+Inherited by \fBPairRunInfo\fP, and \fBTrackingRunInfo\fP.
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char \fBtype\fP"
+.br
+.ti -1c
+.RI "string \fBdatadir\fP"
+.br
+.ti -1c
+.RI "string \fBcachedir\fP"
+.br
+.ti -1c
+.RI "string \fBsourcename\fP"
+.br
+.ti -1c
+.RI "string \fBonid\fP"
+.br
+.ti -1c
+.RI "string \fBoffid\fP"
+.br
+.ti -1c
+.RI "string \fBn2id\fP"
+.br
+.ti -1c
+.RI "string \fButdate\fP"
+.br
+.ti -1c
+.RI "string \fBarrayconfig\fP"
+.br
+.ti -1c
+.RI "double \fBra\fP"
+.br
+.ti -1c
+.RI "double \fBdec\fP"
+.br
+.ti -1c
+.RI "double \fBzenithoverride\fP"
+.br
+.ti -1c
+.RI "int \fBntubes\fP"
+.br
+.ti -1c
+.RI "double \fBpicthresh\fP"
+.br
+.ti -1c
+.RI "double \fBbndthresh\fP"
+.br
+.ti -1c
+.RI "double \fBpadlevel\fP"
+.br
+.ti -1c
+.RI "double \fButbase\fP"
+.br
+.ti -1c
+.RI "bool \fBpadding\fP"
+.br
+.ti -1c
+.RI "bool \fBpad_track_with_run\fP"
+.br
+.ti -1c
+.RI "bool \fBderotation\fP"
+.br
+.ti -1c
+.RI "bool \fBmuoncalibrate\fP"
+.br
+.ti -1c
+.RI "int \fBouttype\fP"
+.br
+.ti -1c
+.RI "\fBCutInfo\fP \fBcuts\fP"
+.br
+.ti -1c
+.RI "double \fBmuon_threshold\fP"
+.br
+.ti -1c
+.RI "int \fBcuttype\fP"
+.br
+.ti -1c
+.RI "string \fBmcdatabase\fP"
+.br
+.ti -1c
+.RI "string \fBenergyestimator\fP"
+.br
+.ti -1c
+.RI "double \fBemin_tev\fP"
+.br
+.ti -1c
+.RI "double \fBemax_tev\fP"
+.br
+.ti -1c
+.RI "int \fBnum_e_bins\fP"
+.br
+.ti -1c
+.RI "bool \fBtubemask\fP [1024]"
+.br
+.ti -1c
+.RI "bool \fBcamera_offset_analysis\fP"
+.br
+.ti -1c
+.RI "\fBCoordinate_t\fP \fBcamera_offset\fP"
+.br
+.ti -1c
+.RI "int \fBmax_ped_events\fP"
+.br
+.ti -1c
+.RI "bool \fBimage_filter\fP"
+.br
+.ti -1c
+.RI "double \fBfilter_amount\fP"
+.br
+.ti -1c
+.RI "int \fBfilter_subdivide\fP"
+.br
+.ti -1c
+.RI "int \fBfilter_iter\fP"
+.br
+.ti -1c
+.RI "double \fBfilter_smoothness\fP"
+.br
+.ti -1c
+.RI "double \fBfilter_percent\fP"
+.br
+.ti -1c
+.RI "double \fBfilter_threshold\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Basic structure returned by a \fBConfig\fP object. 
+
+Describes all information about the run that is collected from the configuration file - such as override values and data locations
+.PP
+\fBTodo\fP
+.RS 4
+: Make \fBRunInfo\fP serializable so it can be sent as an MPI message?
+.RE
+.PP
+.PP
+\fBTodo\fP
+.RS 4
+: Make \fBRunInfo\fP saveable (i.e. write out a config file containing all the settings. This can be written to each run output dir so you can check what settings were used at the last parameterization. You can then use a \fBConfig\fP object to parse the saved settings and check if the \fBRunInfo\fP has changed as a robust check for reparameterizing. Save() load() compare()
+.RE
+.PP
+
+.PP
+Definition at line 117 of file Config.h.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for wuparam from the source code.
