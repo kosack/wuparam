@@ -38,13 +38,13 @@ pkglibdir = $(libdir)/wuparam
 pkgincludedir = $(includedir)/wuparam
 top_builddir = ..
 
-ACLOCAL = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run aclocal-1.6
-AUTOCONF = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run autoconf
-AUTOMAKE = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run automake-1.6
-AUTOHEADER = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run autoheader
+ACLOCAL = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run aclocal-1.6
+AUTOCONF = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run autoconf
+AUTOMAKE = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run automake-1.6
+AUTOHEADER = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run autoheader
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
-INSTALL = /usr/local/bin/ginstall -c
+INSTALL = /usr/local/opt/coreutils/libexec/gnubin/install -c
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_DATA = ${INSTALL} -m 644
 install_sh_DATA = $(install_sh) -c -m 644
@@ -63,7 +63,7 @@ POST_UNINSTALL = :
 EXEEXT = 
 OBJEXT = o
 PATH_SEPARATOR = :
-AMTAR = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run tar
+AMTAR = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run tar
 AWK = awk
 CC = gcc
 CXX = g++
@@ -78,7 +78,7 @@ X_LIBS =
 X_PRE_LIBS = 
 am__include = include
 am__quote = 
-install_sh = /Users/kosack/Source/cvs_working/wuparam/install-sh
+install_sh = /Users/kkosack/Source/Working/wuparam/install-sh
 bin_PROGRAMS = wuparam wucut wufit wuopt wuplot wu2txt wuarray
 
 EXTRA_DIST = Doxyfile wu2root.cpp Makefile.root
@@ -268,10 +268,10 @@ wuplot_LDADD = $(LDADD)
 wuplot_DEPENDENCIES =
 wuplot_LDFLAGS =
 
-DEFS = -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"wuparam\" -DVERSION=\"1.9\" -DX_DISPLAY_MISSING=1 -DHAVE_LIBGSLCBLAS=1 -DHAVE_LIBGSL=1 -DHAVE_LIBJPEG=1 -DHAVE_LIBM=1 -DHAVE_LIBPLOT=1 -DHAVE_LIBZ=1 -DHAVE_LIBSZ=1 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_HDF_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_UNISTD_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -DTIME_WITH_SYS_TIME=1 -DSTDC_HEADERS=1 -DRETSIGTYPE=void -DHAVE_VPRINTF=1 -DHAVE_FLOOR=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_MKDIR=1 -DHAVE_POW=1 -DHAVE_RINT=1 -DHAVE_SQRT=1
+DEFS = -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"wuparam\" -DVERSION=\"1.9\" -DHAVE_LIBGSLCBLAS=1 -DHAVE_LIBGSL=1 -DHAVE_LIBJPEG=1 -DHAVE_LIBM=1 -DHAVE_LIBPLOT=1 -DHAVE_LIBZ=1 -DHAVE_LIBSZ=1 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_HDF_H=1 -DHAVE_SYS_TIME_H=1 -DHAVE_UNISTD_H=1 -DHAVE__BOOL=1 -DHAVE_STDBOOL_H=1 -DTIME_WITH_SYS_TIME=1 -DSTDC_HEADERS=1 -DRETSIGTYPE=void -DHAVE_VPRINTF=1 -DHAVE_FLOOR=1 -DHAVE_GETTIMEOFDAY=1 -DHAVE_MKDIR=1 -DHAVE_POW=1 -DHAVE_RINT=1 -DHAVE_SQRT=1
 DEFAULT_INCLUDES =  -I. -I$(srcdir)
-CPPFLAGS = 
-LDFLAGS = 
+CPPFLAGS = -I/Users/kkosack/miniconda3/envs/wuparam/include
+LDFLAGS = -L/Users/kkosack/miniconda3/envs/wuparam/lib
 LIBS = -lsz -lz -lplot -lm -ljpeg -lgsl -lgslcblas 
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles

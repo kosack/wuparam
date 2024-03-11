@@ -38,13 +38,13 @@ pkglibdir = $(libdir)/wuparam
 pkgincludedir = $(includedir)/wuparam
 top_builddir = .
 
-ACLOCAL = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run aclocal-1.6
-AUTOCONF = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run autoconf
-AUTOMAKE = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run automake-1.6
-AUTOHEADER = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run autoheader
+ACLOCAL = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run aclocal-1.6
+AUTOCONF = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run autoconf
+AUTOMAKE = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run automake-1.6
+AUTOHEADER = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run autoheader
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
-INSTALL = /usr/local/bin/ginstall -c
+INSTALL = /usr/local/opt/coreutils/libexec/gnubin/install -c
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_DATA = ${INSTALL} -m 644
 install_sh_DATA = $(install_sh) -c -m 644
@@ -63,7 +63,7 @@ POST_UNINSTALL = :
 EXEEXT = 
 OBJEXT = o
 PATH_SEPARATOR = :
-AMTAR = ${SHELL} /Users/kosack/Source/cvs_working/wuparam/missing --run tar
+AMTAR = ${SHELL} /Users/kkosack/Source/Working/wuparam/missing --run tar
 AWK = awk
 CC = gcc
 CXX = g++
@@ -78,7 +78,7 @@ X_LIBS =
 X_PRE_LIBS = 
 am__include = include
 am__quote = 
-install_sh = /Users/kosack/Source/cvs_working/wuparam/install-sh
+install_sh = /Users/kkosack/Source/Working/wuparam/install-sh
 SUBDIRS = src support
 
 man_MANS = wuparam.1 wuplot.1
