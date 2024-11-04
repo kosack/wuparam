@@ -7,28 +7,14 @@ Packages required for building:
 
 RANDOM NOTES:
 -----------------------------------------
-USING THE CVS VERSION OF WUPARAM:
 
-1) cd to the directory where you want to store your version of wuparam
-   
-   cd src/
-
-2) checkout the latest (development) version of wuparam:
-   
-    cvs -d /home/cvsroot checkout wuparam
-
-For this to work, you must be part of the "cvsusers" group - ask
-jeremy to add you to it. Otherwise, you'll get some message about bad
-permissions. If it works, it will generate a directory called
-"wuparam" underneath the directory where you are working.
-
-3) Build wuparam:
+1) Build wuparam:
 
    cd wuparam/
    ./configure
    make
 
-4) if all goes well, you need to set an environment variable in your
+2) if all goes well, you need to set an environment variable in your
    .bashrc file to tell wuparam where to find it's support files
  
 
@@ -38,7 +24,7 @@ for example.  Alternately, you can type "make install" as root to
 install it globally in /usr/local (in which case you don't need to set
 WUPARAMDIR).
 
-5) That's pretty much it.  However, if you have the RPM version of
+3) That's pretty much it.  However, if you have the RPM version of
    wuparam installed, typing "wuparam" may use that version instead,
    so you can either uninstall it ('rpm -e wuparam') or just add
    $HOME/src/wuparam to the beginning of your PATH (in your .bashrc
