@@ -1,3 +1,10 @@
+Packages required for building:
+--------------------------------
+
+- libhdf4  (can be installed via conda-forge, or from https://github.com/HDFGroup/hdf4)
+- libgsl, libgslcblas (part of the gsl pacakge, GNU Scientific Library)
+- libplot (part of plotutils package)
+
 RANDOM NOTES:
 -----------------------------------------
 USING THE CVS VERSION OF WUPARAM:
